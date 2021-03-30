@@ -1,6 +1,6 @@
 # Summary
 
 - [Inicio](./Inicio.md)
-- [Recursos](recursos.md)
+- [Bibliografía y Recursos](recursos.md)
 - [Guias](guias.md)
 - [Proyecto](proyecto.md)
