@@ -12,3 +12,4 @@ La bibliografía recomendad de la materia para el aprnedizaje del lenguaje Rust 
 Otros recursos para consultar:
 
 * [El Lenguaje de Programación Rust](https://goyox86.github.io/elpr/). Una guía de referencia en español.
+* [Rust Language Cheat Sheet](https://cheats.rs/). Un resumen de los elementos del lenguaje, para tener a mano.
