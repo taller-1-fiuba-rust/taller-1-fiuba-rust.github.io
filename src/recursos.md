@@ -13,3 +13,7 @@ Otros recursos para consultar:
 
 * [El Lenguaje de Programación Rust](https://goyox86.github.io/elpr/). Una guía de referencia en español.
 * [Rust Language Cheat Sheet](https://cheats.rs/). Un resumen de los elementos del lenguaje, para tener a mano.
+
+## Artículos de blogs
+
+* [How to Read Rust Functions, Part 1](https://www.possiblerust.com/guide/how-to-read-rust-functions-part-1)
