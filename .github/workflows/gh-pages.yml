@@ -11,24 +11,24 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "deploy"
-  # deploy:
-  #   # The type of runner that the job will run on
-  #   runs-on: ubuntu-18.04 # not latest because peaceiris/actions-gh-pages@v3 requires this version
-  #   # Steps represent a sequence of tasks that will be executed as part of the job
-  #   steps:
-  #     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-  #     - name: Checkout
-  #       uses: actions/checkout@v2
-  #     - name: Setup mdBook
-  #       uses: peaceiris/actions-mdbook@v1
-  #       with:
-  #         mdbook-version: 'latest'
-  #     - name: Build
-  #       run: mdbook build
-  #     - name: Deploy
-  #       uses: peaceiris/actions-gh-pages@v3
-  #       with:
-  #         github_token: ${{ secrets.GITHUB_TOKEN }}
-  #         publish_dir: ./book
-  #         publish_branch: gh-pages
+   This workflow contains a single job called "deploy"
+   deploy:
+     # The type of runner that the job will run on
+     runs-on: ubuntu-18.04 # not latest because peaceiris/actions-gh-pages@v3 requires this version
+     # Steps represent a sequence of tasks that will be executed as part of the job
+     steps:
+       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+       - name: Checkout
+         uses: actions/checkout@v2
+       - name: Setup mdBook
+         uses: peaceiris/actions-mdbook@v1
+         with:
+           mdbook-version: 'latest'
+       - name: Build
+         run: mdbook build
+       - name: Deploy
+         uses: peaceiris/actions-gh-pages@v3
+         with:
+           github_token: ${{ secrets.GITHUB_TOKEN }}
+           publish_dir: ./book
+           publish_branch: published
