@@ -1,3 +1,0 @@
-# Proyecto
-
-Será publicado próximamente.
