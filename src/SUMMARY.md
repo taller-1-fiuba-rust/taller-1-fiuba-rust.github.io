@@ -4,4 +4,3 @@
 - [Bibliografía y Recursos](recursos.md)
 - [Guias](guias.md)
 - [Proyecto](proyecto.md)
-- [Calendario](calendario.md)
