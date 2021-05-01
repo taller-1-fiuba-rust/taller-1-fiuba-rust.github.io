@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Inicio - Taller de Programación I</title>
+        <title>Guía 3 - Taller de Programación I</title>
         
         
 
@@ -95,7 +95,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="Inicio.html" class="active"><strong aria-hidden="true">1.</strong> Inicio</a></li><li class="chapter-item expanded "><a href="recursos.html"><strong aria-hidden="true">2.</strong> Bibliografía y Recursos</a></li><li class="chapter-item expanded "><a href="clases.html"><strong aria-hidden="true">3.</strong> Clases</a></li><li class="chapter-item expanded "><a href="guias.html"><strong aria-hidden="true">4.</strong> Guías</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="guia_1.html"><strong aria-hidden="true">4.1.</strong> Guía 1</a></li><li class="chapter-item expanded "><a href="guia_2.html"><strong aria-hidden="true">4.2.</strong> Guía 2</a></li><li class="chapter-item expanded "><a href="guia_3.html"><strong aria-hidden="true">4.3.</strong> Guía 3</a></li></ol></li><li class="chapter-item expanded "><a href="proyecto.html"><strong aria-hidden="true">5.</strong> Proyecto</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="Inicio.html"><strong aria-hidden="true">1.</strong> Inicio</a></li><li class="chapter-item expanded "><a href="recursos.html"><strong aria-hidden="true">2.</strong> Bibliografía y Recursos</a></li><li class="chapter-item expanded "><a href="clases.html"><strong aria-hidden="true">3.</strong> Clases</a></li><li class="chapter-item expanded "><a href="guias.html"><strong aria-hidden="true">4.</strong> Guías</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="guia_1.html"><strong aria-hidden="true">4.1.</strong> Guía 1</a></li><li class="chapter-item expanded "><a href="guia_2.html"><strong aria-hidden="true">4.2.</strong> Guía 2</a></li><li class="chapter-item expanded "><a href="guia_3.html" class="active"><strong aria-hidden="true">4.3.</strong> Guía 3</a></li></ol></li><li class="chapter-item expanded "><a href="proyecto.html"><strong aria-hidden="true">5.</strong> Proyecto</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -163,69 +163,135 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="inicio"><a class="header" href="#inicio">Inicio</a></h1>
-<p>Bienvenidos y bienvenidas a la catedra de Taller de Programación I de <a href="http://www.fi.uba.ar/">FIUBA</a>.</p>
-<p>Los docentes de la Cátedra son:</p>
+                        <h1 id="guía-de-ejercicios-3-concurrencia-en-rust"><a class="header" href="#guía-de-ejercicios-3-concurrencia-en-rust">Guía de Ejercicios 3: Concurrencia en Rust</a></h1>
+<h2 id="ejercicio-1---cuentas-bancarias"><a class="header" href="#ejercicio-1---cuentas-bancarias">Ejercicio 1 - Cuentas bancarias</a></h2>
+<p>El fragmento de código 1 hace uso de <strong>unsafe</strong> para poder mutar una variable global.
+Esto introduce condiciones de carrera sobre los datos (<strong>data races</strong>) que provocan que el programa 
+falle de manera imprevista al correrlo repetidas veces.
+Es decir, el problema se presenta en alguno de los posibles escenarios de ejecución.</p>
+<p>Corregir el programa haciendo uso de las abstracciones que provee Rust para el manejo
+de la concurrencia de manera que no se produzcan errores.</p>
+<pre><pre class="playground"><code class="language-rust">use std::thread;
+
+struct Account(i32);
+
+impl Account {
+	fn deposit(&amp;mut self, amount: i32) {
+		println!(&quot;op: deposit {}, available funds: {:?}&quot;, amount, self.0);
+		self.0 += amount;
+	}
+	
+	fn withdraw(&amp;mut self, amount: i32) {
+		println!(&quot;op: withdraw {}, available funds: {}&quot;, amount, self.0);
+		if self.0 &gt;= amount {
+			self.0 -= amount;
+		} else {
+			panic!(&quot;Error: Insufficient funds.&quot;)
+		}
+	}
+	
+	fn balance(&amp;self) -&gt; i32 {
+		self.0
+	}
+}
+
+static mut ACCOUNT: Account = Account(0);
+
+fn main() {
+	let customer1_handle = thread::spawn(move || unsafe {
+		ACCOUNT.deposit(40);
+	});
+	
+	let customer2_handle = thread::spawn(move || unsafe {
+		ACCOUNT.withdraw(30);
+	});
+	
+	let customer3_handle = thread::spawn(move || unsafe {
+		ACCOUNT.deposit(60);
+	});
+	
+	let customer4_handle = thread::spawn(move || unsafe {
+		ACCOUNT.withdraw(70);
+	});
+	
+	let handles = vec![
+	customer1_handle,
+	customer2_handle,
+	customer3_handle,
+	customer4_handle,
+	];
+	
+	for handle in handles {
+		handle.join().unwrap();
+	}
+	
+	let savings = unsafe { ACCOUNT.balance() };
+	
+	println!(&quot;Balance: {:?}&quot;, savings);
+}
+</code></pre></pre>
+<h2 id="ejercicio-2---threadpool"><a class="header" href="#ejercicio-2---threadpool">Ejercicio 2 - ThreadPool</a></h2>
+<p>Un <strong>threadpool</strong> mantiene varios hilos de ejecución (<strong>threads</strong>) en espera de que el programa supervisor asigne tareas para su ejecución simultánea. Al mantener un grupo de threads, el modelo aumenta el rendimiento y evita la latencia en la ejecución debido a la frecuente creación y destrucción de threads para tareas de corta duración. </p>
+<p>En este ejercicio se debe armar un <strong>threadpool</strong> sencillo haciendo uso de
+las herramientas para computación concurrente que nos provee la biblioteca
+estándar de Rust.</p>
+<p>Para distribuir las tareas a realizar entre los threads del pool se puede
+utilizar una cola concurrente.</p>
+<p>Consideraciones a tener en cuenta:</p>
 <ul>
-<li>
-<p><strong>Profesor:</strong> Ing. Pablo A. Deymonnaz</p>
-</li>
-<li>
-<p><strong>Ayudantes:</strong></p>
+<li>La estructura de datos utilizada para distribuir el trabajo.</li>
+<li>¿Que se hace cuando una tarea enviada al threadpool provoca que un thread muera? Esta situación no debería afectar a otros threads. Ademas tras la muerte de un thread, se debe crear otro de forma de que la cantidad
+total de threads en el pool no cambie.</li>
+<li>Cuando la threadpool es terminada o sale de scope todos los threads deberian finalizar.</li>
+</ul>
+<p>El fragmento de código 2 muestra un ejemplo de uso:</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+	let pool = ThreadPool::new(4);
+	for i in 0..4 {
+		pool.spawn(move || {
+			std::thread::sleep(std::time::Duration::from_millis(250 * i));
+			println!(&quot;This is Task {}&quot;, i);
+		});
+	}
+	std::thread::sleep(std::time::Duration::from_secs(2));
+}
+</code></pre></pre>
+<h2 id="ejercicio-3---contar-palabras-concurrente"><a class="header" href="#ejercicio-3---contar-palabras-concurrente">Ejercicio 3 - Contar palabras concurrente</a></h2>
+<p>Escribir un programa, basado en el ejercicio 2 de la guía 1, para contar las frecuencias de palabras únicas leídas desde varios archivos de entrada.</p>
+<p>La lectura y procesamiento de los archivos debe ser realizada de forma concurrente. Una vez finalizado el procesamiento de los mismos, imprimirlos con sus frecuencias, ordenados primero por las  más frecuentes.</p>
+<p>Realizar las siguientes implementaciones y comparar los tiempos de ejecución:</p>
 <ul>
-<li>Juan Bono</li>
-<li>Iñaki Garay</li>
-<li>Uriel Kelman</li>
-<li>Matías Lafroce</li>
+<li>Un mapa de resultados parciales por thread (por archivo), unir las sumas parciales al hacer <strong>join()</strong>, utilizando el valor de retorno de los hilos.</li>
+<li>Un mapa de resultados parciales por thread, enviar las sumas parciales de los threads utilizando channels.</li>
+<li>Un mapa de resultados globales accedidos por thread.</li>
 </ul>
-</li>
-</ul>
-<p>Las clases serán los días lunes de 18 a 22 hs.</p>
-<h2 id="materias-correlativas"><a class="header" href="#materias-correlativas">Materias Correlativas</a></h2>
-<p>Las materias correlativas vigentes necesarias para poder cursar la materia dependen de la Carrera y Plan que esté cursando el estudiante:</p>
+<h1 id="requerimientos-no-funcionales"><a class="header" href="#requerimientos-no-funcionales">Requerimientos no funcionales</a></h1>
+<p>Los siguientes son los requerimientos no funcionales para la resolución de los ejercicios:</p>
 <ul>
-<li>
-<p><strong>Ingeniería en Informática:</strong></p>
-<ul>
-<li>Estructura del Computador (66.70)</li>
-<li>Algoritmos y Programación II (75.41)</li>
-<li>Análisis Numérico (75.12)</li>
+<li>El proyecto deberá ser desarrollado en lenguaje Rust, usando las herramientas de la biblioteca estándar.</li>
+<li>No se permite utilizar <strong>crates</strong> externos. El único crate autorizado a ser utilizado es <a href="https://crates.io/crates/rand">rand</a> en caso de que se quiera generar valores aleatorios.</li>
+<li>El código fuente debe compilarse en la versión stable del compilador y no se permite utilizar bloques unsafe.</li>
+<li>El código deberá funcionar en ambiente Unix / Linux.</li>
+<li>El programa deberá ejecutarse en la línea de comandos.</li>
+<li>La compilación no debe arrojar <strong>warnings</strong> del compilador, ni del linter <strong>clippy</strong>.</li>
+<li>Las funciones y los tipos de datos (<strong>struct</strong>) deben estar documentadas siguiendo el estándar de <strong>cargo doc</strong>.</li>
+<li>El código debe formatearse utilizando <strong>cargo fmt</strong>.</li>
+<li>Las funciones no deben tener una extensión mayor a 30 líneas. Si se requiriera una extensión mayor, se deberá particionarla en varias funciones.</li>
+<li>Cada tipo de dato implementado debe ser colocado en una unidad de compilación (archivo fuente) independiente.</li>
 </ul>
-</li>
-<li>
-<p><strong>Licenciatura en Análisis de Sistemas (1986):</strong></p>
-<ul>
-<li>Organización del Computador (75.03)</li>
-<li>Algoritmos y Programación II (75.41)</li>
-</ul>
-</li>
-<li>
-<p><strong>Licenciatura en Análisis de Sistemas (2014):</strong></p>
-<ul>
-<li>Organización del Computador (95.57)</li>
-<li>Algoritmos y Programación III (95.02)</li>
-</ul>
-</li>
-<li>
-<p><strong>Ingeniería en Electrónica (2009):</strong></p>
-<ul>
-<li>Algoritmos y Programación II (95.12)</li>
-</ul>
-</li>
-</ul>
-<h2 id="desarrollo-del-proyecto"><a class="header" href="#desarrollo-del-proyecto">Desarrollo del Proyecto</a></h2>
-<p>En la materia vamos a trabajar con el lenguaje de programación <a href="https://www.rust-lang.org/">Rust</a>.</p>
-<p>Desarrollaremos un Proyecto a partir de la sexta semana de clases, en grupos de 3 personas.
-Cada grupo tendrá el seguimiento del avance del trabajo semanalmente con un docente de la cátedra.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
+                            <a rel="prev" href="guia_2.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
 
                         
-                            <a rel="next" href="recursos.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="proyecto.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -237,9 +303,13 @@ Cada grupo tendrá el seguimiento del avance del trabajo semanalmente con un doc
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
+                    <a rel="prev" href="guia_2.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
 
                 
-                    <a rel="next" href="recursos.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="proyecto.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

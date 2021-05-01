@@ -97,7 +97,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="Inicio.html"><strong aria-hidden="true">1.</strong> Inicio</a></li><li class="chapter-item expanded "><a href="recursos.html"><strong aria-hidden="true">2.</strong> Bibliografía y Recursos</a></li><li class="chapter-item expanded "><a href="clases.html"><strong aria-hidden="true">3.</strong> Clases</a></li><li class="chapter-item expanded "><a href="guias.html"><strong aria-hidden="true">4.</strong> Guías</a></li><li class="chapter-item expanded "><a href="proyecto.html"><strong aria-hidden="true">5.</strong> Proyecto</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="Inicio.html"><strong aria-hidden="true">1.</strong> Inicio</a></li><li class="chapter-item expanded "><a href="recursos.html"><strong aria-hidden="true">2.</strong> Bibliografía y Recursos</a></li><li class="chapter-item expanded "><a href="clases.html"><strong aria-hidden="true">3.</strong> Clases</a></li><li class="chapter-item expanded "><a href="guias.html"><strong aria-hidden="true">4.</strong> Guías</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="guia_1.html"><strong aria-hidden="true">4.1.</strong> Guía 1</a></li><li class="chapter-item expanded "><a href="guia_2.html"><strong aria-hidden="true">4.2.</strong> Guía 2</a></li><li class="chapter-item expanded "><a href="guia_3.html"><strong aria-hidden="true">4.3.</strong> Guía 3</a></li></ol></li><li class="chapter-item expanded "><a href="proyecto.html"><strong aria-hidden="true">5.</strong> Proyecto</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -248,6 +248,340 @@ Cada grupo tendrá el seguimiento del avance del trabajo semanalmente con un doc
 <li><a href="./guias/guia1-introduccion.pdf">Guía 1</a>: Introducción a Rust</li>
 <li><a href="./guias/guia2-ownership.pdf">Guía 2</a>: Ownership</li>
 <li><a href="./guias/guia3-concurrencia.pdf">Guía 3</a>: Concurrencia</li>
+</ul>
+<h1 id="guía-de-ejercicios-1-introducción-a-rust"><a class="header" href="#guía-de-ejercicios-1-introducción-a-rust">Guía de Ejercicios 1: Introducción a Rust</a></h1>
+<h2 id="ejercicio-1---ahorcado"><a class="header" href="#ejercicio-1---ahorcado">Ejercicio 1 - Ahorcado</a></h2>
+<p>El objetivo del ejercicio es implementar un programa de consola para jugar al <strong>ahorcado</strong>.</p>
+<pre><code>Bienvenido al ahorcado de FIUBA!
+
+La palabra hasta el momento es: _ _ _ _ _ _
+Adivinaste las siguientes letras: 
+Te quedan 5 intentos.
+Ingresa una letra: r
+
+La palabra hasta el momento es: _ _ _ _ _ r
+Adivinaste las siguientes letras: r
+Te quedan 5 intentos.
+Ingresa una letra: c
+</code></pre>
+<p>Si se ingresa una letra que no forma parte de la palabra, se pierde un intento.</p>
+<p>La lista de palabras se debe leer de un archivo de texto, donde cada línea del archivo contendrá una palabra.
+De esa lista, se deberá elegir una palabra (puede ser una selección secuencial de palabras).</p>
+<p>El programa termina cuando se adivina correctamente la palabra pensada, o cuando se acabaron los intentos.</p>
+<p>Tips:</p>
+<ul>
+<li>Recuerda que las variables son inmutables por default. Para cambiar el estado de una variable, se la debe declarar como <strong>mut</strong>.</li>
+<li>Se puede comparar Strings usando: <strong>==</strong></li>
+<li>Usa <strong>println!(...)</strong> para imprimir elementos en la salida estándar. Para imprimir una variable, puedes escribir algo como esto:</li>
+</ul>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>println!(&quot;Contenido: {}&quot;, s);
+<span class="boring">}
+</span></code></pre></pre>
+<ul>
+<li>Para leer de la entrada estándar, se puede usar algo como esto:</li>
+</ul>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>io::stdin()
+	.read_line(&amp;mut v)
+	.expect(&quot;Error leyendo la linea.&quot;);
+<span class="boring">}
+</span></code></pre></pre>
+<h3 id="parte-b"><a class="header" href="#parte-b">Parte B</a></h3>
+<p>Mostrar las letras que se ingresaron y que no forman parte de la palabra (las que hacen que se pierda un intento).</p>
+<p>Verificar si se ingresó nuevamente una letra que ya estaba.</p>
+<h3 id="parte-c"><a class="header" href="#parte-c">Parte C</a></h3>
+<p>Sobre la implementación de las funciones, modelizar una estructura de datos que represente al tipo de error de retorno. Por ejemplo: se agotaron los intentos. Basarse en el <strong>enum Result</strong>.</p>
+<h2 id="ejercicio-2---contar-palabras"><a class="header" href="#ejercicio-2---contar-palabras">Ejercicio 2 - Contar palabras</a></h2>
+<p>Escribir un programa para contar las frecuencias de palabras únicas leídas de un archivo de entrada.
+Luego imprimirlas con sus frecuencias, ordenadas primero por las más frecuentes. Por ejemplo, dado este archivo de entrada: </p>
+<pre><code>La casa tiene una ventana
+La ventana fue defenestrada
+</code></pre>
+<p>El programa debe imprimir:</p>
+<pre><code>ventana -&gt; 2
+La -&gt; 2
+casa -&gt; 1
+tiene -&gt; 1
+una -&gt; 1
+fue -&gt; 1
+defenestrada -&gt; 1
+</code></pre>
+<p>Una solución básica consiste en leer el archivo línea por línea, convertirlo a minúsculas, dividir cada línea en palabras y contar las frecuencias en un <strong>HashMap</strong>. Una vez hecho esto, convertir el <strong>HashMap</strong> en una lista de pares de palabras y cantidad y ordenarlas por cantidad (el más grande primero) y por último imprimirlos.</p>
+<p>Se debe seguir las siguientes recomendaciones:</p>
+<ul>
+<li>Para separar en palabras, se debe considerar los espacios en blanco, ignorando los signos de puntuación.</li>
+<li>Si la frecuencia de dos palabras es la misma, no importa el orden en el que aparecen las dos palabras en la salida impresa.</li>
+<li>No leer el archivo completo en memoria, se puede ir procesando línea por línea, o en conjuntos de líneas. Sí se puede mantener en memoria el hashmap completo.</li>
+<li>Usar solamente las herramientas de la biblioteca std del lenguaje.</li>
+</ul>
+<p>Para leer un archivo línea por línea, se puede utilizar el método
+<a href="https://doc.rust-lang.org/std/io/trait.BufRead.html#method.read_line">read_line</a>.</p>
+<h2 id="ejercicio-3---buscador-full-text"><a class="header" href="#ejercicio-3---buscador-full-text">Ejercicio 3 - Buscador Full-text</a></h2>
+<p>La búsqueda de texto está en todos lados. Desde encontrar un mensaje en redes sociales, productos en portales de comercio electrónico, o cualquier otra cosa en la web a través de Google.</p>
+<p>En este ejercicio, construiremos un motor de búsqueda sencillo que pueda buscar en millones de documentos y clasificarlos según su relevancia.</p>
+<p>El primer paso consiste en la <strong>preparación de los datos</strong>. Necesitamos construir el conjunto de datos sobre el que realizaremos las búsquedas, denominado <strong>corpus</strong>. Este conjunto será un grupo de archivos de texto plano (txt) que puede generarse a partir de artículos de Internet. Cada archivo será un <strong>documento</strong> que estará identificado por un <strong>id</strong>.</p>
+<p>Luego se debe realizar la <strong>indexación:</strong> Se debe implementar una estructura conocida como de <strong>índice invertido</strong>. Que será una estructura de datos de tipo <strong>HashMap</strong> que contendrá como clave cada una de las palabras y como valor, el o los ids de documentos en los que aparece la palabra. Para este paso, se debe realizar el proceso de <strong>tokenización</strong>, es decir, obtener cada una de los tokens que conforman al documento, considerando las separaciones de los mismos por espacios en blanco o saltos de línea, y quitando los signos de puntuación. De estos tokens, se debe ignorar las palabras más usadas del lenguaje español (conocidas como <strong>stop words</strong>), por ejemplo, los artículos: la, el, las, los.
+Se debe considerar la frecuencia de cada token, es decir, la cantidad de veces que el mismo aparece en el documento. Ese valor debe ser almacenado para el ordenamiento de los resultados.</p>
+<p>El último paso es implementar la <strong>búsqueda</strong>. Para ello, se debe solicitar al usuario una frase a buscar y aplicar la tokenización de la misma y la eliminación de las stop words. Se debe buscar los documentos que contengan los términos de búsqueda ingresados.</p>
+<p>Luego se debe determinar la relevancia de cada documento resultado de la búsqueda. Para esto, se debe determinar el <strong>puntaje</strong> del documento. Esto se puede computar a partir de sumar las frecuencias de cada uno de los términos encontrados.</p>
+<p>Para mejorar el cálculo de puntaje del documento, calcularemos la frecuencia inversa de documentos para un término (denominado <strong>tf-idf</strong>) dividiendo la cantidad de documentos (N) en el índice por la cantidad de documentos que contienen el término, y tomaremos el logaritmo. </p>
+<div style="text-align:center"><img src="formulatf.png" /></div>
+<p>donde:</p>
+<ul>
+<li><strong>|D|</strong> es la cantidad de documentos del corpus.</li>
+<li><strong>|d ∈ D : t ∈ d|</strong> es el número de documentos donde aparece el término <strong>t</strong>. Si el término no está en la colección se producirá una división-por-cero. Por lo tanto, se suele ajustar esta fórmula a <strong>1 + |d ∈ D : t ∈ d|</strong></li>
+</ul>
+<p>Luego, multiplicaremos la frecuencia del término con la frecuencia inversa del documento durante nuestra clasificación, por lo que las coincidencias en términos que son raros en el corpus contribuirán más a la puntuación de relevancia.</p>
+<h1 id="requerimientos-no-funcionales"><a class="header" href="#requerimientos-no-funcionales">Requerimientos no funcionales</a></h1>
+<p>Los siguientes son los requerimientos no funcionales para la resolución de los ejercicios:</p>
+<ul>
+<li>El proyecto deberá ser desarrollado en lenguaje Rust, usando las herramientas de la biblioteca estándar.</li>
+<li>No se permite utilizar <strong>crates</strong> externos. El único crate autorizado a ser utilizado es <a href="https://crates.io/crates/rand">rand</a> en caso de que se quiera generar valores aleatorios.</li>
+<li>El código fuente debe compilarse en la versión stable del compilador y no se permite utilizar bloques unsafe.</li>
+<li>El código deberá funcionar en ambiente Unix / Linux.</li>
+<li>El programa deberá ejecutarse en la línea de comandos.</li>
+<li>La compilación no debe arrojar <strong>warnings</strong> del compilador, ni del linter <strong>clippy</strong>.</li>
+<li>Las funciones y los tipos de datos (<strong>struct</strong>) deben estar documentadas siguiendo el estándar de <strong>cargo doc</strong>.</li>
+<li>El código debe formatearse utilizando <strong>cargo fmt</strong>.</li>
+<li>Las funciones no deben tener una extensión mayor a 30 líneas. Si se requiriera una extensión mayor, se deberá particionarla en varias funciones.</li>
+<li>Cada tipo de dato implementado debe ser colocado en una unidad de compilación (archivo fuente) independiente.</li>
+</ul>
+<h1 id="guía-de-ejercicios-2-ownership-en-rust"><a class="header" href="#guía-de-ejercicios-2-ownership-en-rust">Guía de Ejercicios 2: Ownership en Rust</a></h1>
+<h2 id="ejercicio-1"><a class="header" href="#ejercicio-1">Ejercicio 1</a></h2>
+<p>Analizar las siguientes porciones de código y responder si el mismo compila o no.
+Explicar por qué sí o por qué no.</p>
+<p>Si no se compila, ¿qué podrías cambiar para que compile? </p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+	let mut s = String::from(&quot;hola&quot;);
+	let ref1 = &amp;s;
+	let ref2 = &amp;ref1;
+	let ref3 = &amp;ref2;
+	s = String::from(&quot;chau&quot;);
+	println!(&quot;{}&quot;, ref3.to_uppercase());
+}
+</code></pre></pre>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn drip_drop() -&gt; &amp;String {
+    let s = String::from(&quot;hello world!&quot;);
+    return &amp;s;
+}
+<span class="boring">}
+</span></code></pre></pre>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+	let s1 = String::from(&quot;hola&quot;);
+	let mut v = Vec::new();
+	v.push(s1);
+	let s2: String = v[0];
+	println!(&quot;{}&quot;, s2);
+}
+</code></pre></pre>
+<h2 id="ejercicio-2---diff"><a class="header" href="#ejercicio-2---diff">Ejercicio 2 - diff</a></h2>
+<p>Encontrar la diferencia entre dos archivos es un problema que es bastante conocido y estudiado.</p>
+<p>La mayoría de las implementaciones usan el algoritmo de Myers, en este ejercicio, haremos que calcule la subsecuencia común más larga entre los dos archivos con el algoritmo LCS y use esa información para calcular su diferencia.</p>
+<p>Este ejercicio se divide en hitos a cumplir.</p>
+<h3 id="leer-los-dos-archivos-en-dos-vectores-de-líneas"><a class="header" href="#leer-los-dos-archivos-en-dos-vectores-de-líneas">Leer los dos archivos en dos vectores de líneas</a></h3>
+<p>En este hito, se debe implementar la función <strong>read_file_lines</strong>
+la cual debe tomar como parámetro la ruta al archivo y devolver un vector
+conteniendo las líneas del archivo.</p>
+<h3 id="implementar-el-algoritmo-lcs---longest-common-subsequence"><a class="header" href="#implementar-el-algoritmo-lcs---longest-common-subsequence">Implementar el algoritmo LCS - Longest Common Subsequence</a></h3>
+<p><strong>Longest Common Subsequence</strong> es un algoritmo conocido:
+dadas dos secuencias, ¿cuál es la subsecuencia más larga que aparece en ambas?</p>
+<p>Si las secuencias de caracteres son <strong>a b c d</strong> y <strong>a d b c</strong>, la subsecuencia
+común más larga es <strong>a b c</strong>, porque estos caracteres aparecen en ambas secuencias en
+ese orden (notar que la subsecuencia no necesita ser consecutiva, sino que debe estar
+en orden).</p>
+<p>Cuando se hace el diff entre dos archivos, queremos determinar cuáles línas deben ser
+agregadas o eliminadas entre ellos.
+Para lograr esto, necesitamos identificar las línas que son comunes entre ambos archivos.
+Esto se enmarca en lo que se conoce como un problema LCS -hay un buen <a href="https://www.youtube.com/watch?v=NnD96abizww">video explicativo</a>-: tenemos las dos secuencias de líneas
+y queremos encontrar la mayor subsecuencia de línas que aparecen en ambos archivos;
+estas líneas son la que no fueron modificadas y las otras líneas son las que fueron agregadas 
+o eliminadas.</p>
+<p>La solución incluye completar una grilla con los largos de subsecuencias.
+El siguiente es un fragmento de pseudocódigo que se puede usar como base para reimplementar
+en Rust:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let X and Y be sequences
+let m be the length of X, and let n be the length of Y
+
+C = grid(m+1, n+1)
+// recordar que .., es inclusivo para el límite inferior, pero excluye al superior
+for i := 0..m+1
+    C[i,0] = 0
+for j := 0..n+1
+    C[0,j] = 0
+for i := 0..m
+    for j := 0..n
+        if X[i] = Y[j]
+            C[i+1,j+1] := C[i,j] + 1
+        else
+            C[i+1,j+1] := max(C[i+1,j], C[i,j+1])
+
+return C
+<span class="boring">}
+</span></code></pre></pre>
+<h3 id="usar-el-lcs-para-construir-el-diff"><a class="header" href="#usar-el-lcs-para-construir-el-diff">Usar el LCS para construir el diff</a></h3>
+<p>Implementar e invocar al siguiente pseudocódigo para imprimir el diff:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>// C es la grilla computada por lcs()
+// X e Y son las secuencias
+// i y j especifican la ubicacion dentro de C que se quiere buscar cuando 
+//    se lee el diff. Al llamar a estar funcion inicialmente, pasarle
+//    i=len(X) y j=len(Y)
+function print_diff(C, X, Y, i, j)
+	if i &gt; 0 and j &gt; 0 and X[i-1] = Y[j-1]
+		print_diff(C, X, Y, i-1, j-1)
+		print &quot;  &quot; + X[i-1]
+	else if j &gt; 0 and (i = 0 or C[i,j-1] &gt;= C[i-1,j])
+		print_diff(C, X, Y, i, j-1)
+		print &quot;&gt; &quot; + Y[j-1]
+	else if i &gt; 0 and (j = 0 or C[i,j-1] &lt; C[i-1,j])
+		print_diff(C, X, Y, i-1, j)
+		print &quot;&lt; &quot; + X[i-1]
+	else
+		print &quot;&quot;
+<span class="boring">}
+</span></code></pre></pre>
+<h1 id="requerimientos-no-funcionales-1"><a class="header" href="#requerimientos-no-funcionales-1">Requerimientos no funcionales</a></h1>
+<p>Los siguientes son los requerimientos no funcionales para la resolución de los ejercicios:</p>
+<ul>
+<li>El proyecto deberá ser desarrollado en lenguaje Rust, usando las herramientas de la biblioteca estándar.</li>
+<li>No se permite utilizar <strong>crates</strong> externos. El único crate autorizado a ser utilizado es <a href="https://crates.io/crates/rand">rand</a> en caso de que se quiera generar valores aleatorios.</li>
+<li>El código fuente debe compilarse en la versión stable del compilador y no se permite utilizar bloques unsafe.</li>
+<li>El código deberá funcionar en ambiente Unix / Linux.</li>
+<li>El programa deberá ejecutarse en la línea de comandos.</li>
+<li>La compilación no debe arrojar <strong>warnings</strong> del compilador, ni del linter <strong>clippy</strong>.</li>
+<li>Las funciones y los tipos de datos (<strong>struct</strong>) deben estar documentadas siguiendo el estándar de <strong>cargo doc</strong>.</li>
+<li>El código debe formatearse utilizando <strong>cargo fmt</strong>.</li>
+<li>Las funciones no deben tener una extensión mayor a 30 líneas. Si se requiriera una extensión mayor, se deberá particionarla en varias funciones.</li>
+<li>Cada tipo de dato implementado debe ser colocado en una unidad de compilación (archivo fuente) independiente.</li>
+</ul>
+<h1 id="guía-de-ejercicios-3-concurrencia-en-rust"><a class="header" href="#guía-de-ejercicios-3-concurrencia-en-rust">Guía de Ejercicios 3: Concurrencia en Rust</a></h1>
+<h2 id="ejercicio-1---cuentas-bancarias"><a class="header" href="#ejercicio-1---cuentas-bancarias">Ejercicio 1 - Cuentas bancarias</a></h2>
+<p>El fragmento de código 1 hace uso de <strong>unsafe</strong> para poder mutar una variable global.
+Esto introduce condiciones de carrera sobre los datos (<strong>data races</strong>) que provocan que el programa 
+falle de manera imprevista al correrlo repetidas veces.
+Es decir, el problema se presenta en alguno de los posibles escenarios de ejecución.</p>
+<p>Corregir el programa haciendo uso de las abstracciones que provee Rust para el manejo
+de la concurrencia de manera que no se produzcan errores.</p>
+<pre><pre class="playground"><code class="language-rust">use std::thread;
+
+struct Account(i32);
+
+impl Account {
+	fn deposit(&amp;mut self, amount: i32) {
+		println!(&quot;op: deposit {}, available funds: {:?}&quot;, amount, self.0);
+		self.0 += amount;
+	}
+	
+	fn withdraw(&amp;mut self, amount: i32) {
+		println!(&quot;op: withdraw {}, available funds: {}&quot;, amount, self.0);
+		if self.0 &gt;= amount {
+			self.0 -= amount;
+		} else {
+			panic!(&quot;Error: Insufficient funds.&quot;)
+		}
+	}
+	
+	fn balance(&amp;self) -&gt; i32 {
+		self.0
+	}
+}
+
+static mut ACCOUNT: Account = Account(0);
+
+fn main() {
+	let customer1_handle = thread::spawn(move || unsafe {
+		ACCOUNT.deposit(40);
+	});
+	
+	let customer2_handle = thread::spawn(move || unsafe {
+		ACCOUNT.withdraw(30);
+	});
+	
+	let customer3_handle = thread::spawn(move || unsafe {
+		ACCOUNT.deposit(60);
+	});
+	
+	let customer4_handle = thread::spawn(move || unsafe {
+		ACCOUNT.withdraw(70);
+	});
+	
+	let handles = vec![
+	customer1_handle,
+	customer2_handle,
+	customer3_handle,
+	customer4_handle,
+	];
+	
+	for handle in handles {
+		handle.join().unwrap();
+	}
+	
+	let savings = unsafe { ACCOUNT.balance() };
+	
+	println!(&quot;Balance: {:?}&quot;, savings);
+}
+</code></pre></pre>
+<h2 id="ejercicio-2---threadpool"><a class="header" href="#ejercicio-2---threadpool">Ejercicio 2 - ThreadPool</a></h2>
+<p>Un <strong>threadpool</strong> mantiene varios hilos de ejecución (<strong>threads</strong>) en espera de que el programa supervisor asigne tareas para su ejecución simultánea. Al mantener un grupo de threads, el modelo aumenta el rendimiento y evita la latencia en la ejecución debido a la frecuente creación y destrucción de threads para tareas de corta duración. </p>
+<p>En este ejercicio se debe armar un <strong>threadpool</strong> sencillo haciendo uso de
+las herramientas para computación concurrente que nos provee la biblioteca
+estándar de Rust.</p>
+<p>Para distribuir las tareas a realizar entre los threads del pool se puede
+utilizar una cola concurrente.</p>
+<p>Consideraciones a tener en cuenta:</p>
+<ul>
+<li>La estructura de datos utilizada para distribuir el trabajo.</li>
+<li>¿Que se hace cuando una tarea enviada al threadpool provoca que un thread muera? Esta situación no debería afectar a otros threads. Ademas tras la muerte de un thread, se debe crear otro de forma de que la cantidad
+total de threads en el pool no cambie.</li>
+<li>Cuando la threadpool es terminada o sale de scope todos los threads deberian finalizar.</li>
+</ul>
+<p>El fragmento de código 2 muestra un ejemplo de uso:</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+	let pool = ThreadPool::new(4);
+	for i in 0..4 {
+		pool.spawn(move || {
+			std::thread::sleep(std::time::Duration::from_millis(250 * i));
+			println!(&quot;This is Task {}&quot;, i);
+		});
+	}
+	std::thread::sleep(std::time::Duration::from_secs(2));
+}
+</code></pre></pre>
+<h2 id="ejercicio-3---contar-palabras-concurrente"><a class="header" href="#ejercicio-3---contar-palabras-concurrente">Ejercicio 3 - Contar palabras concurrente</a></h2>
+<p>Escribir un programa, basado en el ejercicio 2 de la guía 1, para contar las frecuencias de palabras únicas leídas desde varios archivos de entrada.</p>
+<p>La lectura y procesamiento de los archivos debe ser realizada de forma concurrente. Una vez finalizado el procesamiento de los mismos, imprimirlos con sus frecuencias, ordenados primero por las  más frecuentes.</p>
+<p>Realizar las siguientes implementaciones y comparar los tiempos de ejecución:</p>
+<ul>
+<li>Un mapa de resultados parciales por thread (por archivo), unir las sumas parciales al hacer <strong>join()</strong>, utilizando el valor de retorno de los hilos.</li>
+<li>Un mapa de resultados parciales por thread, enviar las sumas parciales de los threads utilizando channels.</li>
+<li>Un mapa de resultados globales accedidos por thread.</li>
+</ul>
+<h1 id="requerimientos-no-funcionales-2"><a class="header" href="#requerimientos-no-funcionales-2">Requerimientos no funcionales</a></h1>
+<p>Los siguientes son los requerimientos no funcionales para la resolución de los ejercicios:</p>
+<ul>
+<li>El proyecto deberá ser desarrollado en lenguaje Rust, usando las herramientas de la biblioteca estándar.</li>
+<li>No se permite utilizar <strong>crates</strong> externos. El único crate autorizado a ser utilizado es <a href="https://crates.io/crates/rand">rand</a> en caso de que se quiera generar valores aleatorios.</li>
+<li>El código fuente debe compilarse en la versión stable del compilador y no se permite utilizar bloques unsafe.</li>
+<li>El código deberá funcionar en ambiente Unix / Linux.</li>
+<li>El programa deberá ejecutarse en la línea de comandos.</li>
+<li>La compilación no debe arrojar <strong>warnings</strong> del compilador, ni del linter <strong>clippy</strong>.</li>
+<li>Las funciones y los tipos de datos (<strong>struct</strong>) deben estar documentadas siguiendo el estándar de <strong>cargo doc</strong>.</li>
+<li>El código debe formatearse utilizando <strong>cargo fmt</strong>.</li>
+<li>Las funciones no deben tener una extensión mayor a 30 líneas. Si se requiriera una extensión mayor, se deberá particionarla en varias funciones.</li>
+<li>Cada tipo de dato implementado debe ser colocado en una unidad de compilación (archivo fuente) independiente.</li>
 </ul>
 <h1 id="proyecto"><a class="header" href="#proyecto">Proyecto</a></h1>
 <p>Será publicado próximamente.</p>

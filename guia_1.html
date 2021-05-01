@@ -1,0 +1,336 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Guía 1 - Taller de Programación I</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="Inicio.html"><strong aria-hidden="true">1.</strong> Inicio</a></li><li class="chapter-item expanded "><a href="recursos.html"><strong aria-hidden="true">2.</strong> Bibliografía y Recursos</a></li><li class="chapter-item expanded "><a href="clases.html"><strong aria-hidden="true">3.</strong> Clases</a></li><li class="chapter-item expanded "><a href="guias.html"><strong aria-hidden="true">4.</strong> Guías</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="guia_1.html" class="active"><strong aria-hidden="true">4.1.</strong> Guía 1</a></li><li class="chapter-item expanded "><a href="guia_2.html"><strong aria-hidden="true">4.2.</strong> Guía 2</a></li><li class="chapter-item expanded "><a href="guia_3.html"><strong aria-hidden="true">4.3.</strong> Guía 3</a></li></ol></li><li class="chapter-item expanded "><a href="proyecto.html"><strong aria-hidden="true">5.</strong> Proyecto</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Taller de Programación I</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="guía-de-ejercicios-1-introducción-a-rust"><a class="header" href="#guía-de-ejercicios-1-introducción-a-rust">Guía de Ejercicios 1: Introducción a Rust</a></h1>
+<h2 id="ejercicio-1---ahorcado"><a class="header" href="#ejercicio-1---ahorcado">Ejercicio 1 - Ahorcado</a></h2>
+<p>El objetivo del ejercicio es implementar un programa de consola para jugar al <strong>ahorcado</strong>.</p>
+<pre><code>Bienvenido al ahorcado de FIUBA!
+
+La palabra hasta el momento es: _ _ _ _ _ _
+Adivinaste las siguientes letras: 
+Te quedan 5 intentos.
+Ingresa una letra: r
+
+La palabra hasta el momento es: _ _ _ _ _ r
+Adivinaste las siguientes letras: r
+Te quedan 5 intentos.
+Ingresa una letra: c
+</code></pre>
+<p>Si se ingresa una letra que no forma parte de la palabra, se pierde un intento.</p>
+<p>La lista de palabras se debe leer de un archivo de texto, donde cada línea del archivo contendrá una palabra.
+De esa lista, se deberá elegir una palabra (puede ser una selección secuencial de palabras).</p>
+<p>El programa termina cuando se adivina correctamente la palabra pensada, o cuando se acabaron los intentos.</p>
+<p>Tips:</p>
+<ul>
+<li>Recuerda que las variables son inmutables por default. Para cambiar el estado de una variable, se la debe declarar como <strong>mut</strong>.</li>
+<li>Se puede comparar Strings usando: <strong>==</strong></li>
+<li>Usa <strong>println!(...)</strong> para imprimir elementos en la salida estándar. Para imprimir una variable, puedes escribir algo como esto:</li>
+</ul>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>println!(&quot;Contenido: {}&quot;, s);
+<span class="boring">}
+</span></code></pre></pre>
+<ul>
+<li>Para leer de la entrada estándar, se puede usar algo como esto:</li>
+</ul>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>io::stdin()
+	.read_line(&amp;mut v)
+	.expect(&quot;Error leyendo la linea.&quot;);
+<span class="boring">}
+</span></code></pre></pre>
+<h3 id="parte-b"><a class="header" href="#parte-b">Parte B</a></h3>
+<p>Mostrar las letras que se ingresaron y que no forman parte de la palabra (las que hacen que se pierda un intento).</p>
+<p>Verificar si se ingresó nuevamente una letra que ya estaba.</p>
+<h3 id="parte-c"><a class="header" href="#parte-c">Parte C</a></h3>
+<p>Sobre la implementación de las funciones, modelizar una estructura de datos que represente al tipo de error de retorno. Por ejemplo: se agotaron los intentos. Basarse en el <strong>enum Result</strong>.</p>
+<h2 id="ejercicio-2---contar-palabras"><a class="header" href="#ejercicio-2---contar-palabras">Ejercicio 2 - Contar palabras</a></h2>
+<p>Escribir un programa para contar las frecuencias de palabras únicas leídas de un archivo de entrada.
+Luego imprimirlas con sus frecuencias, ordenadas primero por las más frecuentes. Por ejemplo, dado este archivo de entrada: </p>
+<pre><code>La casa tiene una ventana
+La ventana fue defenestrada
+</code></pre>
+<p>El programa debe imprimir:</p>
+<pre><code>ventana -&gt; 2
+La -&gt; 2
+casa -&gt; 1
+tiene -&gt; 1
+una -&gt; 1
+fue -&gt; 1
+defenestrada -&gt; 1
+</code></pre>
+<p>Una solución básica consiste en leer el archivo línea por línea, convertirlo a minúsculas, dividir cada línea en palabras y contar las frecuencias en un <strong>HashMap</strong>. Una vez hecho esto, convertir el <strong>HashMap</strong> en una lista de pares de palabras y cantidad y ordenarlas por cantidad (el más grande primero) y por último imprimirlos.</p>
+<p>Se debe seguir las siguientes recomendaciones:</p>
+<ul>
+<li>Para separar en palabras, se debe considerar los espacios en blanco, ignorando los signos de puntuación.</li>
+<li>Si la frecuencia de dos palabras es la misma, no importa el orden en el que aparecen las dos palabras en la salida impresa.</li>
+<li>No leer el archivo completo en memoria, se puede ir procesando línea por línea, o en conjuntos de líneas. Sí se puede mantener en memoria el hashmap completo.</li>
+<li>Usar solamente las herramientas de la biblioteca std del lenguaje.</li>
+</ul>
+<p>Para leer un archivo línea por línea, se puede utilizar el método
+<a href="https://doc.rust-lang.org/std/io/trait.BufRead.html#method.read_line">read_line</a>.</p>
+<h2 id="ejercicio-3---buscador-full-text"><a class="header" href="#ejercicio-3---buscador-full-text">Ejercicio 3 - Buscador Full-text</a></h2>
+<p>La búsqueda de texto está en todos lados. Desde encontrar un mensaje en redes sociales, productos en portales de comercio electrónico, o cualquier otra cosa en la web a través de Google.</p>
+<p>En este ejercicio, construiremos un motor de búsqueda sencillo que pueda buscar en millones de documentos y clasificarlos según su relevancia.</p>
+<p>El primer paso consiste en la <strong>preparación de los datos</strong>. Necesitamos construir el conjunto de datos sobre el que realizaremos las búsquedas, denominado <strong>corpus</strong>. Este conjunto será un grupo de archivos de texto plano (txt) que puede generarse a partir de artículos de Internet. Cada archivo será un <strong>documento</strong> que estará identificado por un <strong>id</strong>.</p>
+<p>Luego se debe realizar la <strong>indexación:</strong> Se debe implementar una estructura conocida como de <strong>índice invertido</strong>. Que será una estructura de datos de tipo <strong>HashMap</strong> que contendrá como clave cada una de las palabras y como valor, el o los ids de documentos en los que aparece la palabra. Para este paso, se debe realizar el proceso de <strong>tokenización</strong>, es decir, obtener cada una de los tokens que conforman al documento, considerando las separaciones de los mismos por espacios en blanco o saltos de línea, y quitando los signos de puntuación. De estos tokens, se debe ignorar las palabras más usadas del lenguaje español (conocidas como <strong>stop words</strong>), por ejemplo, los artículos: la, el, las, los.
+Se debe considerar la frecuencia de cada token, es decir, la cantidad de veces que el mismo aparece en el documento. Ese valor debe ser almacenado para el ordenamiento de los resultados.</p>
+<p>El último paso es implementar la <strong>búsqueda</strong>. Para ello, se debe solicitar al usuario una frase a buscar y aplicar la tokenización de la misma y la eliminación de las stop words. Se debe buscar los documentos que contengan los términos de búsqueda ingresados.</p>
+<p>Luego se debe determinar la relevancia de cada documento resultado de la búsqueda. Para esto, se debe determinar el <strong>puntaje</strong> del documento. Esto se puede computar a partir de sumar las frecuencias de cada uno de los términos encontrados.</p>
+<p>Para mejorar el cálculo de puntaje del documento, calcularemos la frecuencia inversa de documentos para un término (denominado <strong>tf-idf</strong>) dividiendo la cantidad de documentos (N) en el índice por la cantidad de documentos que contienen el término, y tomaremos el logaritmo. </p>
+<div style="text-align:center"><img src="formulatf.png" /></div>
+<p>donde:</p>
+<ul>
+<li><strong>|D|</strong> es la cantidad de documentos del corpus.</li>
+<li><strong>|d ∈ D : t ∈ d|</strong> es el número de documentos donde aparece el término <strong>t</strong>. Si el término no está en la colección se producirá una división-por-cero. Por lo tanto, se suele ajustar esta fórmula a <strong>1 + |d ∈ D : t ∈ d|</strong></li>
+</ul>
+<p>Luego, multiplicaremos la frecuencia del término con la frecuencia inversa del documento durante nuestra clasificación, por lo que las coincidencias en términos que son raros en el corpus contribuirán más a la puntuación de relevancia.</p>
+<h1 id="requerimientos-no-funcionales"><a class="header" href="#requerimientos-no-funcionales">Requerimientos no funcionales</a></h1>
+<p>Los siguientes son los requerimientos no funcionales para la resolución de los ejercicios:</p>
+<ul>
+<li>El proyecto deberá ser desarrollado en lenguaje Rust, usando las herramientas de la biblioteca estándar.</li>
+<li>No se permite utilizar <strong>crates</strong> externos. El único crate autorizado a ser utilizado es <a href="https://crates.io/crates/rand">rand</a> en caso de que se quiera generar valores aleatorios.</li>
+<li>El código fuente debe compilarse en la versión stable del compilador y no se permite utilizar bloques unsafe.</li>
+<li>El código deberá funcionar en ambiente Unix / Linux.</li>
+<li>El programa deberá ejecutarse en la línea de comandos.</li>
+<li>La compilación no debe arrojar <strong>warnings</strong> del compilador, ni del linter <strong>clippy</strong>.</li>
+<li>Las funciones y los tipos de datos (<strong>struct</strong>) deben estar documentadas siguiendo el estándar de <strong>cargo doc</strong>.</li>
+<li>El código debe formatearse utilizando <strong>cargo fmt</strong>.</li>
+<li>Las funciones no deben tener una extensión mayor a 30 líneas. Si se requiriera una extensión mayor, se deberá particionarla en varias funciones.</li>
+<li>Cada tipo de dato implementado debe ser colocado en una unidad de compilación (archivo fuente) independiente.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="guias.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="guia_2.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="guias.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="guia_2.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
