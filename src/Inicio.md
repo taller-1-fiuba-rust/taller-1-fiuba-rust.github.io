@@ -1,6 +1,6 @@
 # Inicio
 
-Bienvenidos y bienvenidas a la catedra de Taller 1 de FIUBA.
+Bienvenidos y bienvenidas a la catedra de Taller de Programación I de [FIUBA](http://www.fi.uba.ar/).
 
 Los docentes de la Cátedra son:
 
