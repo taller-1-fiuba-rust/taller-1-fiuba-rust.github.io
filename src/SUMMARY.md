@@ -8,3 +8,4 @@
   - [Guía 2](guia_2.md)
   - [Guía 3](guia_3.md)
 - [Proyecto](proyecto.md)
+- [Grupo Rust Argentina](rust_arg.md)
