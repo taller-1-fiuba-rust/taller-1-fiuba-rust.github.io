@@ -138,13 +138,15 @@
                         </a>
                         
                         
+                        
+
                     </div>
                 </div>
 
                 
                 <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
@@ -219,7 +221,7 @@
 <p>En la materia vamos a trabajar con el lenguaje de programación <a href="https://www.rust-lang.org/">Rust</a>.</p>
 <p>Desarrollaremos un Proyecto a partir de la sexta semana de clases, en grupos de 3 personas.
 Cada grupo tendrá el seguimiento del avance del trabajo semanalmente con un docente de la cátedra.</p>
-<h1 id="bibliografía"><a class="header" href="#bibliografía">Bibliografía</a></h1>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="bibliografía"><a class="header" href="#bibliografía">Bibliografía</a></h1>
 <p>La bibliografía recomendad de la materia para el aprnedizaje del lenguaje Rust es:</p>
 <ul>
 <li><a href="https://doc.rust-lang.org/book/">The Rust Programming Language</a>, Steve Klabnik y Carol Nichols. Es el libro oficial del lenguaje, y es la referencia principal para aprender el lenguaje.</li>
@@ -236,7 +238,7 @@ Cada grupo tendrá el seguimiento del avance del trabajo semanalmente con un doc
 <ul>
 <li><a href="https://www.possiblerust.com/guide/how-to-read-rust-functions-part-1">How to Read Rust Functions, Part 1</a></li>
 </ul>
-<h1 id="clases"><a class="header" href="#clases">Clases</a></h1>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="clases"><a class="header" href="#clases">Clases</a></h1>
 <ul>
 <li><strong>Clase 1</strong> - Introducción a Rust. <a href="./clases/1-introduccion.pdf">Slides</a> - <a href="./clases/clase-01.tar.bz2">ejemplos de código</a></li>
 <li><strong>Clase 2</strong> - Ownership, Lifetimes, Traits, Generics. <a href="./clases/2-ownership.pdf">Slides</a></li>
@@ -246,9 +248,9 @@ Cada grupo tendrá el seguimiento del avance del trabajo semanalmente con un doc
 <li><a href="./clases/git.pdf">Flujos de desarrollo en GIT</a></li>
 </ul>
 </li>
-<li><strong>Clase 4</strong> - Modelo Cliente / Servidor y Protocolo HTTP. <a href="./clases/cliente_servidor.pdf">Slides</a> - [ejemplos de código]</li>
+<li><strong>Clase 5</strong> - Modelo Cliente / Servidor y Protocolo HTTP. <a href="./clases/cliente_servidor.pdf">Slides</a> - <a href="./clases/clase-05.tar.bz2">ejemplos de código</a></li>
 </ul>
-<h1 id="guías"><a class="header" href="#guías">Guías</a></h1>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="guías"><a class="header" href="#guías">Guías</a></h1>
 <ul>
 <li>Ejercicios para practicar la sintaxis del lenguaje: <a href="https://github.com/rust-lang/rustlings">rustlings</a></li>
 <li><a href="./guias/guia1-introduccion.pdf">Guía 1</a>: Introducción a Rust</li>
@@ -256,7 +258,7 @@ Cada grupo tendrá el seguimiento del avance del trabajo semanalmente con un doc
 <li><a href="./guias/guia3-concurrencia.pdf">Guía 3</a>: Concurrencia</li>
 <li><a href="./guias/guia4-sockets.pdf">Guía 4</a>: Sockets</li>
 </ul>
-<h1 id="guía-de-ejercicios-1-introducción-a-rust"><a class="header" href="#guía-de-ejercicios-1-introducción-a-rust">Guía de Ejercicios 1: Introducción a Rust</a></h1>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="guía-de-ejercicios-1-introducción-a-rust"><a class="header" href="#guía-de-ejercicios-1-introducción-a-rust">Guía de Ejercicios 1: Introducción a Rust</a></h1>
 <h2 id="ejercicio-1---ahorcado"><a class="header" href="#ejercicio-1---ahorcado">Ejercicio 1 - Ahorcado</a></h2>
 <p>El objetivo del ejercicio es implementar un programa de consola para jugar al <strong>ahorcado</strong>.</p>
 <pre><code>Bienvenido al ahorcado de FIUBA!
@@ -358,7 +360,7 @@ Se debe considerar la frecuencia de cada token, es decir, la cantidad de veces q
 <li>Las funciones no deben tener una extensión mayor a 30 líneas. Si se requiriera una extensión mayor, se deberá particionarla en varias funciones.</li>
 <li>Cada tipo de dato implementado debe ser colocado en una unidad de compilación (archivo fuente) independiente.</li>
 </ul>
-<h1 id="guía-de-ejercicios-2-ownership-en-rust"><a class="header" href="#guía-de-ejercicios-2-ownership-en-rust">Guía de Ejercicios 2: Ownership en Rust</a></h1>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="guía-de-ejercicios-2-ownership-en-rust"><a class="header" href="#guía-de-ejercicios-2-ownership-en-rust">Guía de Ejercicios 2: Ownership en Rust</a></h1>
 <h2 id="ejercicio-1"><a class="header" href="#ejercicio-1">Ejercicio 1</a></h2>
 <p>Analizar las siguientes porciones de código y responder si el mismo compila o no.
 Explicar por qué sí o por qué no.</p>
@@ -474,7 +476,7 @@ function print_diff(C, X, Y, i, j)
 <li>Las funciones no deben tener una extensión mayor a 30 líneas. Si se requiriera una extensión mayor, se deberá particionarla en varias funciones.</li>
 <li>Cada tipo de dato implementado debe ser colocado en una unidad de compilación (archivo fuente) independiente.</li>
 </ul>
-<h1 id="guía-de-ejercicios-3-concurrencia-en-rust"><a class="header" href="#guía-de-ejercicios-3-concurrencia-en-rust">Guía de Ejercicios 3: Concurrencia en Rust</a></h1>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="guía-de-ejercicios-3-concurrencia-en-rust"><a class="header" href="#guía-de-ejercicios-3-concurrencia-en-rust">Guía de Ejercicios 3: Concurrencia en Rust</a></h1>
 <h2 id="ejercicio-1---cuentas-bancarias"><a class="header" href="#ejercicio-1---cuentas-bancarias">Ejercicio 1 - Cuentas bancarias</a></h2>
 <p>El fragmento de código 1 hace uso de <strong>unsafe</strong> para poder mutar una variable global.
 Esto introduce condiciones de carrera sobre los datos (<strong>data races</strong>) que provocan que el programa 
@@ -590,9 +592,9 @@ total de threads en el pool no cambie.</li>
 <li>Las funciones no deben tener una extensión mayor a 30 líneas. Si se requiriera una extensión mayor, se deberá particionarla en varias funciones.</li>
 <li>Cada tipo de dato implementado debe ser colocado en una unidad de compilación (archivo fuente) independiente.</li>
 </ul>
-<h1 id="proyecto"><a class="header" href="#proyecto">Proyecto</a></h1>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="proyecto"><a class="header" href="#proyecto">Proyecto</a></h1>
 <p><a href="./proyecto/Proyecto_2021_1C_Redis.pdf">Proyecto: <strong>Redis Oxidado</strong> - 1er Cuatrimestre 2021</a></p>
-<h1 id="grupo-rust-argentina"><a class="header" href="#grupo-rust-argentina">Grupo Rust Argentina</a></h1>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="grupo-rust-argentina"><a class="header" href="#grupo-rust-argentina">Grupo Rust Argentina</a></h1>
 <p>Invitamos a los alumnos de la materia y a toda la comunidad de la FIUBA a participar del grupo Rust Argentina.</p>
 <ul>
 <li><a href="https://rust-lang-ar.github.io/">Sitio web</a></li>
