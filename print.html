@@ -594,6 +594,44 @@ total de threads en el pool no cambie.</li>
 </ul>
 <div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="proyecto"><a class="header" href="#proyecto">Proyecto</a></h1>
 <p><a href="./proyecto/Proyecto_2021_1C_Redis.pdf">Proyecto: <strong>Redis Oxidado</strong> - 1er Cuatrimestre 2021</a></p>
+<h2 id="corriendo-redis-y-su-cliente-en-docker"><a class="header" href="#corriendo-redis-y-su-cliente-en-docker">Corriendo Redis y su cliente en Docker</a></h2>
+<ul>
+<li>Instalar docker segun el sistema operativo que estes usando. </li>
+<li>Descargar y correr una imagen de docker con redis instalado:
+<code>docker run -d -p 6379:6379 --name redis-taller1 redis</code></li>
+<li>Verificar que estar corriedo: 
+<code>docker ps</code></li>
+<li>Acceder a los logs de redis:
+<code>docker logs redis-taller1</code></li>
+<li>Ejecutar otro contenedor con la misma imagen, pero en modo interactivo y una shell:
+<code>docker exec -it redis-taller1 sh</code></li>
+<li>Dentro de este contender, ejecutar el cliente:
+<code>redis-cli</code></li>
+<li>Verificar que esta conectado al servidor redis:</li>
+</ul>
+<pre><code>127.0.0.1:6379&gt; ping
+PONG
+</code></pre>
+<ul>
+<li>Ejecutar comandos redis:</li>
+</ul>
+<pre><code>127.0.0.1:6379&gt; set name mark
+OK
+127.0.0.1:6379&gt; get name
+&quot;mark&quot;
+127.0.0.1:6379&gt; incr counter
+(integer) 1
+127.0.0.1:6379&gt; incr counter
+(integer) 2
+127.0.0.1:6379&gt; get counter
+&quot;2&quot;
+</code></pre>
+<ul>
+<li>Cerrar el cliente redis:</li>
+</ul>
+<pre><code>127.0.0.1:6379&gt; exit
+# exit
+</code></pre>
 <div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="grupo-rust-argentina"><a class="header" href="#grupo-rust-argentina">Grupo Rust Argentina</a></h1>
 <p>Invitamos a los alumnos de la materia y a toda la comunidad de la FIUBA a participar del grupo Rust Argentina.</p>
 <ul>
