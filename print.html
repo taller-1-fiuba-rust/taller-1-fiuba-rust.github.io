@@ -97,7 +97,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="Inicio.html"><strong aria-hidden="true">1.</strong> Inicio</a></li><li class="chapter-item expanded "><a href="recursos.html"><strong aria-hidden="true">2.</strong> Bibliografía y Recursos</a></li><li class="chapter-item expanded "><a href="clases.html"><strong aria-hidden="true">3.</strong> Clases</a></li><li class="chapter-item expanded "><a href="guias.html"><strong aria-hidden="true">4.</strong> Guías</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="guia_1.html"><strong aria-hidden="true">4.1.</strong> Guía 1</a></li><li class="chapter-item expanded "><a href="guia_2.html"><strong aria-hidden="true">4.2.</strong> Guía 2</a></li><li class="chapter-item expanded "><a href="guia_3.html"><strong aria-hidden="true">4.3.</strong> Guía 3</a></li></ol></li><li class="chapter-item expanded "><a href="proyecto.html"><strong aria-hidden="true">5.</strong> Proyecto</a></li><li class="chapter-item expanded "><a href="rust_arg.html"><strong aria-hidden="true">6.</strong> Grupo Rust Argentina</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="Inicio.html"><strong aria-hidden="true">1.</strong> Inicio</a></li><li class="chapter-item expanded "><a href="recursos.html"><strong aria-hidden="true">2.</strong> Bibliografía y Recursos</a></li><li class="chapter-item expanded "><a href="clases.html"><strong aria-hidden="true">3.</strong> Clases</a></li><li class="chapter-item expanded "><a href="guias.html"><strong aria-hidden="true">4.</strong> Guías</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="guia_1.html"><strong aria-hidden="true">4.1.</strong> Guía 1</a></li><li class="chapter-item expanded "><a href="guia_2.html"><strong aria-hidden="true">4.2.</strong> Guía 2</a></li><li class="chapter-item expanded "><a href="guia_3.html"><strong aria-hidden="true">4.3.</strong> Guía 3</a></li><li class="chapter-item expanded "><a href="guia_4.html"><strong aria-hidden="true">4.4.</strong> Guía 4</a></li></ol></li><li class="chapter-item expanded "><a href="proyecto.html"><strong aria-hidden="true">5.</strong> Proyecto</a></li><li class="chapter-item expanded "><a href="rust_arg.html"><strong aria-hidden="true">6.</strong> Grupo Rust Argentina</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -346,7 +346,7 @@ Se debe considerar la frecuencia de cada token, es decir, la cantidad de veces q
 <li><strong>|d ∈ D : t ∈ d|</strong> es el número de documentos donde aparece el término <strong>t</strong>. Si el término no está en la colección se producirá una división-por-cero. Por lo tanto, se suele ajustar esta fórmula a <strong>1 + |d ∈ D : t ∈ d|</strong></li>
 </ul>
 <p>Luego, multiplicaremos la frecuencia del término con la frecuencia inversa del documento durante nuestra clasificación, por lo que las coincidencias en términos que son raros en el corpus contribuirán más a la puntuación de relevancia.</p>
-<h1 id="requerimientos-no-funcionales"><a class="header" href="#requerimientos-no-funcionales">Requerimientos no funcionales</a></h1>
+<h2 id="requerimientos-no-funcionales"><a class="header" href="#requerimientos-no-funcionales">Requerimientos no funcionales</a></h2>
 <p>Los siguientes son los requerimientos no funcionales para la resolución de los ejercicios:</p>
 <ul>
 <li>El proyecto deberá ser desarrollado en lenguaje Rust, usando las herramientas de la biblioteca estándar.</li>
@@ -462,7 +462,7 @@ function print_diff(C, X, Y, i, j)
 		print &quot;&quot;
 <span class="boring">}
 </span></code></pre></pre>
-<h1 id="requerimientos-no-funcionales-1"><a class="header" href="#requerimientos-no-funcionales-1">Requerimientos no funcionales</a></h1>
+<h2 id="requerimientos-no-funcionales-1"><a class="header" href="#requerimientos-no-funcionales-1">Requerimientos no funcionales</a></h2>
 <p>Los siguientes son los requerimientos no funcionales para la resolución de los ejercicios:</p>
 <ul>
 <li>El proyecto deberá ser desarrollado en lenguaje Rust, usando las herramientas de la biblioteca estándar.</li>
@@ -578,7 +578,7 @@ total de threads en el pool no cambie.</li>
 <li>Un mapa de resultados parciales por thread, enviar las sumas parciales de los threads utilizando channels.</li>
 <li>Un mapa de resultados globales accedidos por thread.</li>
 </ul>
-<h1 id="requerimientos-no-funcionales-2"><a class="header" href="#requerimientos-no-funcionales-2">Requerimientos no funcionales</a></h1>
+<h2 id="requerimientos-no-funcionales-2"><a class="header" href="#requerimientos-no-funcionales-2">Requerimientos no funcionales</a></h2>
 <p>Los siguientes son los requerimientos no funcionales para la resolución de los ejercicios:</p>
 <ul>
 <li>El proyecto deberá ser desarrollado en lenguaje Rust, usando las herramientas de la biblioteca estándar.</li>
@@ -592,8 +592,429 @@ total de threads en el pool no cambie.</li>
 <li>Las funciones no deben tener una extensión mayor a 30 líneas. Si se requiriera una extensión mayor, se deberá particionarla en varias funciones.</li>
 <li>Cada tipo de dato implementado debe ser colocado en una unidad de compilación (archivo fuente) independiente.</li>
 </ul>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="proyecto"><a class="header" href="#proyecto">Proyecto</a></h1>
-<p><a href="./proyecto/Proyecto_2021_1C_Redis.pdf">Proyecto: <strong>Redis Oxidado</strong> - 1er Cuatrimestre 2021</a></p>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="guía-de-ejercicios-4-sockets-en-rust"><a class="header" href="#guía-de-ejercicios-4-sockets-en-rust">Guía de Ejercicios 4: Sockets en Rust</a></h1>
+<h2 id="ejercicio-1---introducción"><a class="header" href="#ejercicio-1---introducción">Ejercicio 1 - Introducción</a></h2>
+<h3 id="Ítem-a"><a class="header" href="#Ítem-a">Ítem A</a></h3>
+<p>Escribir un programa tal que el hilo main crea un thread hijo que actuará como cliente, mientras el padre actúa como servidor.  La comunicación se establece para enviar y recibir un saludo, por ejemplo: <strong>Hola hijo</strong> y <strong>Buen día Papá</strong>.</p>
+<h3 id="Ítem-b"><a class="header" href="#Ítem-b">Ítem B</a></h3>
+<p>Modificar el programa del ejercicio anterior para que el servidor pueda gestionar más de un cliente.</p>
+<h2 id="ejercicio-2---mini-chat"><a class="header" href="#ejercicio-2---mini-chat">Ejercicio 2 - Mini Chat</a></h2>
+<p>Implementar un programa para armar una sala de chat.</p>
+<p>El programa inicia y le pide un <strong>nickname</strong> al usuario. Luego, abre un socket servidor ligado a un puerto configurable. A continuación, realiza <strong>broadcasting</strong> del nickname a la subred, para después quedar escuchando mensajes.</p>
+<p>Si recibe un mensaje de broadcast con un nickname, lo agrega a la lista de usuarios de la sala de chat, junto a la dirección IP de quien se lo envía.</p>
+<p>Si recibe otro mensaje, se lo imprime por pantalla.</p>
+<p>Para recibir un mensaje del usuario, se debe leer de la estrada estándar (<strong>stdin</strong>). Si se lo antecede con el nickname de destino, se lo envía a ese destinatario en particular. Con <em>Enter</em>, se transmite el mensaje.</p>
+<h2 id="ejercicio-3---ftp-honeypot"><a class="header" href="#ejercicio-3---ftp-honeypot">Ejercicio 3 - FTP Honeypot</a></h2>
+<h3 id="introducción"><a class="header" href="#introducción">Introducción</a></h3>
+<p>Un <em>honeypot</em> es una aplicación que simula ser un servidor de otra aplicación mayor, para que cuando un usuario malicioso se conecte, ataque este servidor falso, permitiendo tomar registro de las técnicas de ataque que se utilizan en la red.
+En este trabajo práctico prototiparemos un honeypot de un servidor FTP.</p>
+<h3 id="protocolo-ftp"><a class="header" href="#protocolo-ftp">Protocolo FTP</a></h3>
+<p>El protocolo FTP es un <strong>protocolo de texto</strong>, formado por mensajes delimitados por un <strong>salto de línea</strong>.</p>
+<p>Los comandos son palabras en su mayoría de 4 letras, seguidos de un espacio que los separa de sus argumentos. El servidor responde con un código numérico y un texto descriptivo.</p>
+<h3 id="cliente-ftp"><a class="header" href="#cliente-ftp">Cliente FTP</a></h3>
+<p>Los comandos que puede ejecutar el cliente son los siguientes</p>
+<ul>
+<li><code>USER &lt;username&gt;</code>: Envía un nombre de usuario para realizar login.</li>
+<li><code>PASS &lt;password&gt;</code>: Envía un password para el usuario.</li>
+<li><code>SYST</code>: Consulta información del sistema</li>
+<li><code>LIST</code>: Consulta los archivos contenidos en el directorio actual</li>
+<li><code>HELP</code>: Consulta los comandos disponibles</li>
+<li><code>PWD</code>: Consulta el directorio actual</li>
+<li><code>MKD</code>: Crea un directorio</li>
+<li><code>RMD</code>: Elimina un directorio</li>
+</ul>
+<p>Para simplificar el trabajo práctico, la transferencia de datos se realizará respondiendo en el mismo puerto por el cual se conectan inicialmente los clientes.</p>
+<p>Esto implica que los comandos <code>PASV</code> y <code>PORT</code> no serán necesarios para transmitir información (por ejemplo con el comando <code>LIST</code>).</p>
+<h3 id="servidor-ftp"><a class="header" href="#servidor-ftp">Servidor FTP</a></h3>
+<p>El servidor FTP responde con los siguientes mensajes:</p>
+<ul>
+<li>Cuando un cliente recién se conecta: <code>220 &lt;newClient&gt;</code></li>
+<li>Cuando un cliente quiere operar sin haber hecho login: <code>530 &lt;clientNotLogged&gt;</code></li>
+<li>Luego de que un cliente envía un comando <code>USER</code>: <code>331 &lt;passRequired&gt;</code></li>
+<li>Si el usuario envía un comando que no es <code>PASS</code> luego de un comando <code>USER</code>: <code>530 &lt;clientNotLogged&gt;</code></li>
+<li>Si el usuario realiza un login válido (el usuario enviado con <code>USER</code> y la contraseña enviada con <code>PASS</code> son válidas, es decir, concuerdan con las configuradas): <code>230 &lt;loginSuccess&gt;</code></li>
+<li>Si el usuario realiza un login inválido: <code>530 &lt;loginFailed&gt;</code></li>
+</ul>
+<p>Una vez que el cliente realizó un login exitoso, se habilitan varios comandos al cliente:</p>
+<ul>
+<li>Si el usuario envía el comando <code>SYST</code>: <code>215 &lt;systemInfo&gt;</code></li>
+<li>Si el usuario envía el comando <code>HELP</code>: <code>214 &lt;commands&gt;</code></li>
+<li>Si el usuario envía el comando <code>LIST</code>, se realizará una respuesta en 3 partes</li>
+</ul>
+<p>La primera línea será <code>150 &lt;listBegin&gt;</code></p>
+<p>Luego enviará una línea por cada directorio cargado, con el siguiente formato:</p>
+<pre><code>drwxrwxrwx 0 1000 1000 4096 Sep 24 12:34 &lt;nombre directorio&gt;
+</code></pre>
+<p>Los directorios serán listados en orden alfabético.</p>
+<p>Luego de enviar las líneas, enviará <code>226 &lt;listEnd&gt;</code>.</p>
+<ul>
+<li>Si el usuario envía el comando <code>PWD</code>: <code>257 &lt;currentDirectoryMsg&gt;</code></li>
+<li>Si el usuario envía el comando <code>MKD &lt;nombreDir&gt;</code>, intenta agregar ```<nombreDir>`'' a la lista de directorios existentes responde:
+<ul>
+<li><code>257 &quot;&lt;nombreDir&gt; &lt;mkdSuccess&gt;&quot;</code> en caso de que el directorio no existía.</li>
+<li><code>550 &lt;mkdFailed&gt;</code> si ya existía</li>
+</ul>
+</li>
+<li>Si el usuario envía el comando <code>RMD &lt;nombreDir&gt;</code> intenta remover <code>&quot;&lt;nombreDir&gt;&quot;</code> de la lista de directorios y responde:
+<ul>
+<li><code>250 &lt;rmdSuccess&gt;</code> si el directorio existe.</li>
+<li><code>550 &lt;rmdFailed&gt;</code> si no existía.</li>
+</ul>
+</li>
+<li>Finalmente, el usuario puede pedirle al servidor que termine la conexión enviando la palabra <code>QUIT</code>. En tal caso el servidor responde con <code>221 &lt;quitSuccess&gt;</code> y ambos cierran sus conexiones ordenadamente.</li>
+</ul>
+<p>Cabe destacar que la entrada de comandos puede no terminar con <code>QUIT</code>, debiendo el cliente cerrar su conexión al llegar al final del stream y el servidor liberar sus recursos adecuadamente.</p>
+<h3 id="configuración-de-mensajes"><a class="header" href="#configuración-de-mensajes">Configuración de mensajes</a></h3>
+<p>El servidor FTP lee un archivo de configuración las siguientes variables</p>
+<ul>
+<li><code>user</code>: Usuario para realizar login</li>
+<li><code>password</code>: Password para realizar login</li>
+<li><code>newClient</code>: Mensaje enviado a un cliente recién conectado</li>
+<li><code>clientNotLogged</code>: Mensaje enviado a un cliente que quiere operar sin haber hecho login</li>
+<li><code>passRequired</code>: Mensaje de solicitud de password</li>
+<li><code>loginSuccess</code>: Mensaje de password aceptado</li>
+<li><code>loginFailed</code>: Mensaje de password rechazado</li>
+<li><code>systemInfo</code>: Mensaje de información del sistema</li>
+<li><code>commands</code>: Mensaje con los comandos disponibles</li>
+<li><code>unknownCommand</code>: Mensaje de comando inválido</li>
+<li><code>quit</code>: Mensaje de desconexión del usuario</li>
+</ul>
+<p>El archivo de configuración posee un formato ```clave=valor`'', y debe ser cargado al iniciar la aplicación. No se validará que se encuentren todas las claves necesarias, en caso de faltar una clave necesaria, es a decisión del desarrollador cómo contemplar este caso.</p>
+<h3 id="formato-de-línea-de-comandos"><a class="header" href="#formato-de-línea-de-comandos">Formato de Línea de Comandos</a></h3>
+<h4 id="servidor"><a class="header" href="#servidor">Servidor</a></h4>
+<pre><code class="language-bash">./server &lt;puerto/servicio&gt; &lt;configuracion&gt;
+</code></pre>
+<p>Donde <code>&lt;puerto/servicio&gt;</code> es el puerto TCP (o servicio) en donde estará escuchando la conexiones entrantes, <code>&lt;configuracion&gt;</code> el archivo con las variables del servidor.</p>
+<h4 id="cliente"><a class="header" href="#cliente">Cliente</a></h4>
+<p>El cliente se ejecuta utilizando el siguiente formato de línea de comandos</p>
+<pre><code class="language-bash">./client &lt;ip/hostname&gt; &lt;puerto/servicio&gt;
+</code></pre>
+<p>El cliente se conectará al servidor corriendo en la máquina con dirección IP <code>&lt;ip&gt;</code> (o <code>&lt;hostname&gt;</code>), en el puerto (o servicio) TCP <code>&lt;puerto/servicio&gt;</code>.</p>
+<h2 id="requerimientos-no-funcionales-3"><a class="header" href="#requerimientos-no-funcionales-3">Requerimientos no funcionales</a></h2>
+<p>Los siguientes son los requerimientos no funcionales para la resolución de los ejercicios:</p>
+<ul>
+<li>El proyecto deberá ser desarrollado en lenguaje Rust, usando las herramientas de la biblioteca estándar.</li>
+<li>No se permite utilizar <strong>crates</strong> externos. El único crate autorizado a ser utilizado es <a href="https://crates.io/crates/rand">rand</a> en caso de que se quiera generar valores aleatorios.</li>
+<li>El código fuente debe compilarse en la versión stable del compilador y no se permite utilizar bloques unsafe.</li>
+<li>El código deberá funcionar en ambiente Unix / Linux.</li>
+<li>El programa deberá ejecutarse en la línea de comandos.</li>
+<li>La compilación no debe arrojar <strong>warnings</strong> del compilador, ni del linter <strong>clippy</strong>.</li>
+<li>Las funciones y los tipos de datos (<strong>struct</strong>) deben estar documentadas siguiendo el estándar de <strong>cargo doc</strong>.</li>
+<li>El código debe formatearse utilizando <strong>cargo fmt</strong>.</li>
+<li>Las funciones no deben tener una extensión mayor a 30 líneas. Si se requiriera una extensión mayor, se deberá particionarla en varias funciones.</li>
+<li>Cada tipo de dato implementado debe ser colocado en una unidad de compilación (archivo fuente) independiente.</li>
+</ul>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="proyecto-redis-oxidado---1er-cuatrimestre-2021"><a class="header" href="#proyecto-redis-oxidado---1er-cuatrimestre-2021">Proyecto: Redis Oxidado - 1er Cuatrimestre 2021</a></h1>
+<p><a href="./proyecto/Proyecto_2021_1C_Redis.pdf"><strong>Descargar enunciado en PDF</strong></a></p>
+<h2 id="introducción-1"><a class="header" href="#introducción-1">Introducción</a></h2>
+<p><a href="https://redis.io/"><strong>Redis</strong></a> es un almacenamiento principalmente en memoria, usado como una Base de Datos de tipo <strong>clave / valor</strong> en memoria, como también como <em>caché</em> y <em>broker</em> de mensajes, con opción a persistencia de los datos.</p>
+<p>Redis soporta distintos tipos de estructuras de datos: strings, listas, hashmaps, sets, sets ordenados, bitmaps, entre varios otros.</p>
+<p>Redis tiene una muy buena performance, dado que trabaja con los datos en memoria. Es posible persistir los datos periódicamente a un almacenamiento de disco.</p>
+<p>Soporta otras funcionalidades como: transacciones, <em>publishers/suscribers</em>, clave con un tiempo de vida limitado, réplicas asincrónicas distribuidas, entre otras. Se puede utilizar clientes Redis desde la mayoría de los lenguajes de programación. Es un proyecto open source. Es una <a href="https://db-engines.com/en/ranking_trend">base de datos muy popular</a> (la de mayor uso del tipo clave / valor).</p>
+<p>Los usos principales de Redis son como <a href="https://redislabs.com/solutions/use-cases/caching/">cache de aplicación</a> para mejorar los tiempos de latencia de una aplicación (y aumentar la capacidad de procesamiento de operaciones -<em>requests</em>- por segundo), para almacenar datos de sesión de los usuarios, o funcionalidades como limitar la cantidad de pedidos que puede realizar un cliente en cierto tiempo (<em>rate limiter</em>), para prevenir ataques de denegación de servicio, por ejemplo.</p>
+<p>Otros casos de uso de Redis son la implementación del pasaje de mensajes entre publicadores y suscriptores de ciertos tipos de mensajes (que se suscriben a mensajes de algún tópico), o la implementación de colas de tareas para el procesamiento en paralelo de pedidos.</p>
+<h2 id="objetivo-del-proyecto"><a class="header" href="#objetivo-del-proyecto">Objetivo del Proyecto</a></h2>
+<p>El objetivo del proyecto es implementar un <strong>Servidor Redis</strong> con funcionalidades acotadas, que se detallan en el presente enunciado.</p>
+<p>Se presente emular, en la medida de lo posible, el proceso de desarrollo de la Industria de Software.</p>
+<h2 id="criterios-de-aceptación-y-corrección-del-proyecto"><a class="header" href="#criterios-de-aceptación-y-corrección-del-proyecto">Criterios de Aceptación y Corrección del Proyecto</a></h2>
+<p>Para el desarrollo del proyecto, se deberá observar los siguientes lineamientos generales:</p>
+<ol>
+<li>
+<p><strong>[Testing]</strong> Se deberá implementar testing unitario automatizado, utilizando las herramientas de Rust de los métodos y funciones relevantes implementados.<br/>
+Se deberá implementar tests de integración automatizados, utilizando un cliente de Redis para el lenguaje Rust. Se podrá utilizar para ello, un <a href="https://docs.rs/redis/0.20.0/redis/index.html">crate externo que es la implementación de la biblioteca cliente de Redis</a>.</p>
+</li>
+<li>
+<p><strong>[Manejo de Errores]</strong> Deberá hacerse un buen uso y administración de los casos de error, utilizando para ello, las estructuras y herramientas del lenguaje, escribiendo en forma lo más idiomática posible el tratamiento.</p>
+</li>
+<li>
+<p><strong>[Control de versiones]</strong> Se deberá utilizar la herramienta <strong>git</strong>, siguiendo las recomendaciones de la cátedra. En particular, se deberá utilizar la metodología <em>GitHub Flow</em> para el trabajo con ramas (<em>branches</em>) y la entrega continua del software.</p>
+</li>
+<li>
+<p><strong>[Trabajo en equipo]</strong> Se deberá adecuar, organizar y coordinar el trabajo al equipo, realizando tareas como revisión de código cruzada entre pares de una funcionalidad en un <em>pull request</em> de <em>git</em>.</p>
+</li>
+<li>
+<p><strong>[Merge de Branchs]</strong> Para poder hacer el merge de un branch de una funcionalidad, todos los tests <em>pasan</em> de forma satisfactoria.</p>
+</li>
+</ol>
+<h2 id="evaluaciones"><a class="header" href="#evaluaciones">Evaluaciones</a></h2>
+<p>El desarrollo del proyecto tendrá un seguimiento directo semanal por parte del docente a cargo del grupo.</p>
+<p>Se deberá desarrollar y presentar los avances y progreso del trabajo semana a semana (simulando un <em>sprint</em> de trabajo). 
+Cada semana, cada docente realizará una valoración del estado del trabajo del grupo.</p>
+<p>El progreso de cada semana deberá ser acorde a lo que se convenga con el docente para cada sprint.
+Si el mismo NO cumple con la cantidad de trabajo requerido, el grupo podrá estar desaprobado de forma prematura de la materia, a consideración del docente.</p>
+<p>Se deja constancia que las funcionalidades requeridas por este enunciado son un marco de cumplimiento mínimo y que pueden haber agregados o modificaciones durante el transcurso del desarrollo por parte del docente a cargo, que formarán parte de los requerimientos a cumplir.
+Cabe mencionar que estos desvíos de los requerimientos iniciales se presentan en situaciones reales de trabajo con clientes.</p>
+<h2 id="finalización-del-proyecto"><a class="header" href="#finalización-del-proyecto">Finalización del Proyecto</a></h2>
+<p>El desarrollo del proyecto finaliza el último día de clases del cuatrimestre. En esa fecha, cada grupo deberá realizar una presentación final y se hará una evaluación global del trabajo.</p>
+<h2 id="requerimientos-no-funcionales-4"><a class="header" href="#requerimientos-no-funcionales-4">Requerimientos no funcionales</a></h2>
+<p>Los siguientes son los requerimientos no funcionales para la resolución de los ejercicios:</p>
+<ul>
+<li>El proyecto deberá ser desarrollado en lenguaje Rust, usando las herramientas de la biblioteca estándar.</li>
+<li>No se permite utilizar <strong>crates</strong> externos. El único crate autorizado a ser utilizado es <a href="https://crates.io/crates/rand">rand</a> en caso de que se quiera generar valores aleatorios.</li>
+<li>El código fuente debe compilarse en la versión stable del compilador y no se permite utilizar bloques unsafe.</li>
+<li>El código deberá funcionar en ambiente Unix / Linux.</li>
+<li>El programa deberá ejecutarse en la línea de comandos.</li>
+<li>La compilación no debe arrojar <strong>warnings</strong> del compilador, ni del linter <strong>clippy</strong>.</li>
+<li>Las funciones y los tipos de datos (<strong>struct</strong>) deben estar documentadas siguiendo el estándar de <strong>cargo doc</strong>.</li>
+<li>El código debe formatearse utilizando <strong>cargo fmt</strong>.</li>
+<li>Las funciones no deben tener una extensión mayor a 30 líneas. Si se requiriera una extensión mayor, se deberá particionarla en varias funciones.</li>
+<li>Cada tipo de dato implementado debe ser colocado en una unidad de compilación (archivo fuente) independiente.</li>
+</ul>
+<h2 id="requerimientos-funcionales"><a class="header" href="#requerimientos-funcionales">Requerimientos Funcionales</a></h2>
+<p>Las funcionalidades a implementar importantes requeridas </p>
+<ul>
+<li>
+<p><strong>[1]</strong> <strong>Arquitectura:</strong> el programa a implementar sigue al modelo cliente-servidor, recibiendo solicitudes de servicio (requests) a través de la red (mediante sockets), y debe poder proveer servicio a mas de un cliente simultáneamente mediante el uso de threads. </p>
+</li>
+<li>
+<p><strong>[2]</strong> <strong>Configuración:</strong> el servidor deber poder ser configurado mediante un archivo de configuración, nombrado <code>redis.conf</code> y cuya ubicación se pasa por argumento de línea de comando: <code>$ ./redis-server /path/to/redis.conf</code>. 
+<br/>Las opciones de configuracion minimas son:</p>
+<ul>
+<li><code>verbose</code>: un valor entero indicando si debe imprimir mensajes por consola, indicando el funcionamiento interno del servidor. 
+Los mensajes a imprimir se dejan a criterio de la implementación.</li>
+<li><code>port</code>: un valor entero indicando el puerto sobre el cual el servidor escucha para recibir requests.</li>
+<li><code>timeout</code>: un valor entero indicando cuántos segundos esperar a que un cliente envíe un comando antes de cerrar la conexión.
+Si el valor es <strong>0</strong> se deshabilita el timeout.</li>
+<li><code>dbfilename</code>: un string indicando el nombre del archivo en el cual se persistirán los datos almacenados.
+El valor por defecto es <code>dump.rdb</code>.</li>
+<li><code>logfile</code>: un string indicando el nombre del archivo en el cual se grabara el log.</li>
+</ul>
+</li>
+<li>
+<p><strong>[3]</strong> <strong>Logs:</strong> el servidor debe mantener un registro de las acciones realizadas y los eventos ocurridos en un archivo de log. </p>
+<p>La ubicación del archivo de log estará especificada en el archivo de configuración.</p>
+<p>Como requerimiento particular del Proyecto, NO se considerará válido que el servidor mantenga un <em>file handle</em> global, aunque esté protegido por un lock, y que se escriba directamente al file handle.
+La arquitectura deberá contemplar otra solución. </p>
+</li>
+<li>
+<p><strong>[4]</strong> <strong>Protocolo Redis de request y response:</strong> El programa deberá implementar un subconjunto del protocolo Redis tal como es especificado en la documentación. Se sugiere tener funcionalidad para parsear los requests, para validar los requests, para implementar la lógica de cada comando, y que estas partes estén bien modularizadas.</p>
+<p>En particular, no deben usarse expresiones regulares para desglosar los parámetros de los requests. </p>
+<p>Los strings enviados y recibidos como parte del protocolo pueden ser strings UTF-8, y no necesariamente deben cumplir con el requerimiento de ser <em>binary safe</em>, i.e. no necesariamente son strings binarios arbitrarios, sino strings UTF-8 bien formados.</p>
+</li>
+<li>
+<p><strong>[5]</strong> <strong>Almacenamiento de datos:</strong> Los datos almacenados por el servidor deben estar en una estructura de datos global en memoria.</p>
+<p>De manera automática, se debe almacenar periódicamente el contenido de los datos a un archivo cuya ubicación está especificada en el archivo de configuración mediante el parámetro <code>dbfilename</code>.
+Al iniciarse el servidor, si este archivo existe, se deben cargar los datos desde el mismo.
+En otras palabras, si el servidor se detiene y reinicia, los datos deben volver a estar disponibles.</p>
+<p>Se deberá implementar la serialización y deserialización de la estructura de datos en memoria.
+Se reitera que para realizar esta tarea NO está permitido el uso de crates externos.</p>
+</li>
+<li>
+<p><strong>[6]</strong> <strong>Tipos de datos soportados:</strong> Los tipos de datos soportados por el servidor debe incluir <strong>strings</strong>, <strong>lists</strong>, y <strong>sets</strong>, pero NO <code>sorted sets</code> o <code>hashes</code>.</p>
+</li>
+<li>
+<p><strong>[7]</strong> <strong>Vencimiento de claves</strong> (<em>key expiration</em>): el servidor debe proveer funcionalidad para setear un tiempo de expiración sobre una clave, de tal manera que transcurrido el tiempo indicado, la clave y su valor se eliminan automáticamente del conjunto de datos almacenados.</p>
+</li>
+<li>
+<p><strong>[8]</strong> <strong>Pub/sub:</strong> el servidor debe proveer funcionalidad para soportar el paradigma de mensajería pub/sub, en el cual clientes que envían mensajes (publicadores) no necesitan conocer la identidad de los clientes que reciben estos mensajes. </p>
+<p>En cambio, los mensajes publicados se envían a un canal, y los clientes expresan interés en determinados mensajes subscribiéndose a uno o mas canales, y sólo reciben mensajes de estos canales, sin conocer la identidad de los publicadores.
+Para esto, el servidor debe mantener un registro de canales, publicadores y subscriptores. Para mas detalle, consultar la <a href="https://redis.io/topics/pubsub">documentación de Redis</a>.</p>
+</li>
+</ul>
+<h2 id="comandos-que-deben-implementarse-y-soportarse"><a class="header" href="#comandos-que-deben-implementarse-y-soportarse">Comandos que deben implementarse y soportarse</a></h2>
+<p>A continuación se lista los comandos que debe implementarse, separado.</p>
+<h3 id="comandos-del-grupo-server"><a class="header" href="#comandos-del-grupo-server">Comandos del grupo server</a></h3>
+<ul>
+<li><strong>[9]</strong> <a href="https://redis.io/commands/info">info</a>
+El comando INFO retorna información y estadísticas sobre el servidor en un formato fácil de parsear por computadores y fácil de leer por humanos. </li>
+<li><strong>[10]</strong> <a href="https://redis.io/commands/monitor">monitor</a>
+MONITOR es un comando de depuración que imprime al cliente cada comando procesado por el servidor. Puede ayudar entender qué está sucediendo en la base de datos.</li>
+<li><strong>[11]</strong> <a href="https://redis.io/commands/flushdb">flushdb</a>
+Borra todas las claves de la base de datos. Este comando nunca falla. </li>
+<li><strong>[12]</strong> <a href="https://redis.io/commands/config-get">config get</a>
+El comando CONFIG GET se utiliza para leer los parámetros de configuración de un servidor en ejecución.</li>
+<li><strong>[13]</strong> <a href="https://redis.io/commands/config-set">config set</a>
+El comando CONFIG SET se utiliza para reconfigurar un servidor en tiempo de ejecución sin necesidad de reiniciarlo.</li>
+<li><strong>[14]</strong> <a href="https://redis.io/commands/dbsize">dbsize</a>
+Retorna el numero de claves en la base de datos.</li>
+</ul>
+<h3 id="comandos-del-grupo-keys"><a class="header" href="#comandos-del-grupo-keys">Comandos del grupo keys</a></h3>
+<ul>
+<li>
+<p><strong>[15]</strong> <a href="https://redis.io/commands/copy">copy</a>: 
+Copia el valor almacenado en una clave <em>origen</em> a una clave <em>destino</em>.</p>
+</li>
+<li>
+<p><strong>[16]</strong> <a href="https://redis.io/commands/del">del</a>:
+Elimina una clave específica. La clave es ignorada si no existe.</p>
+</li>
+<li>
+<p><strong>[17]</strong> <a href="https://redis.io/commands/exists">exists</a>: Retorna si la clave existe.</p>
+</li>
+<li>
+<p><strong>[18]</strong> <a href="https://redis.io/commands/expire">expire</a>: Configura un tiempo de expiración sobre una clave (la clave se dice que es <em>volátil</em>). Luego de ese tiempo de expiración, la clave es automáticamente eliminada. </p>
+</li>
+<li>
+<p><strong>[19]</strong> <a href="https://redis.io/commands/expireat">expireat</a>:
+Tiene el mismo efecto que EXPIRE, pero en lugar de indicar el número de segundos que representa el TTL (<em>time to live</em>), toma el tiempo absoluto en el timestamp de Unix (segundos desde el 1ro de enero de 1970).</p>
+</li>
+<li>
+<p><strong>[20]</strong> <a href="https://redis.io/commands/keys">keys</a>: Retorna todas las claves que hacen match con un patrón.</p>
+</li>
+<li>
+<p><strong>[21]</strong> <a href="https://redis.io/commands/persist">persist</a>: Elimina el tiempo de expiración existente en una clave, tornando una clave <em>volátil</em> en <em>persistente</em> (una clave que no expira, dado que no tiene timeout asociado) </p>
+</li>
+<li>
+<p><strong>[22]</strong> <a href="https://redis.io/commands/rename">rename</a>: Renombra una clave a un nuevo nombre de clave.</p>
+</li>
+<li>
+<p><strong>[23]</strong> <a href="https://redis.io/commands/sort">sort</a>:
+Retorna los elementos contenidos en la lista o set, ordenados por la clave.</p>
+</li>
+<li>
+<p><strong>[24]</strong> <a href="https://redis.io/commands/touch">touch</a>:
+Actualiza el valor de último acceso a la clave.</p>
+</li>
+<li>
+<p><strong>[25]</strong> <a href="https://redis.io/commands/ttl">ttl</a>: 
+Retorna el tiempo que le queda a una clave para que se cumpla su timeout. Permite a un cliente Redis conocer cuántos segundos le quedan a una clave como parte del dataset.</p>
+</li>
+<li>
+<p><strong>[26]</strong> <a href="https://redis.io/commands/type">type</a>: Retorna un string que representa el tipo de valor almacenado en una clave. Los tipos que puede retornar son: string, list, set (no consideramos los tipos de datos que no se implementan en el proyecto).</p>
+</li>
+</ul>
+<h3 id="comandos-del-grupo-strings"><a class="header" href="#comandos-del-grupo-strings">Comandos del grupo strings</a></h3>
+<ul>
+<li>
+<p><strong>[27]</strong> <a href="https://redis.io/commands/append">append</a>
+Si la clave ya existe y es un string, este comando agrega el valor al final del string. Si no existe, es creada con el string vacío y luego le agrega el valor deseado. En este caso es similar al comando SET.</p>
+</li>
+<li>
+<p><strong>[28]</strong> <a href="https://redis.io/commands/decrby">decrby</a>:
+Decrementa el número almacenado en una clave por el valor deseado. Si la clave no existe, se setea en 0 antes de realizar la operación. </p>
+</li>
+<li>
+<p><strong>[29]</strong> <a href="https://redis.io/commands/get">get</a>:
+Devuelve el valor de una clave, si la clave no existe, se retorna el valor especial <em>nil</em>. Se retorna un error si el valor almacenado en esa clave no es un string, porque GET maneja solamente strings.</p>
+</li>
+<li>
+<p><strong>[30]</strong> <a href="https://redis.io/commands/getdel">getdel</a>: obtiene el valor y elimina la clave. Es similar a GET, pero adicionalmente elimina la clave.</p>
+</li>
+<li>
+<p><strong>[31]</strong> <a href="https://redis.io/commands/getset">getset</a>: Atómicamente setea el valor a la clave deseada, y retorna el valor anterior almacenado en la clave. </p>
+</li>
+<li>
+<p><strong>[32]</strong> <a href="https://redis.io/commands/incrby">incrby</a>:
+Incrementa el número almacenado en la clave en un incremento. Si la clave no existe, es seteado a 0 antes de realizar la operación. Devuelve error si la clave contiene un valor de tipo erróneo o un string que no puede ser representado como entero. </p>
+</li>
+<li>
+<p><strong>[33]</strong> <a href="https://redis.io/commands/mget">mget</a>:
+Retorna el valor de todas las claves especificadas. Para las claves que no contienen valor o el valor no es un string, se retorna el tipo especial <em>nil</em>. </p>
+</li>
+<li>
+<p><strong>[34]</strong> <a href="https://redis.io/commands/mset">mset</a>:
+Setea las claves data a sus respectivos valores, reemplazando los valores existentes con los nuevos valores como SET.
+<br/>MSET es atómica, de modo que todas las claves son actualizadas a la vez. No es posible para los clientes ver que algunas claves del conjunto fueron modificadas, mientras otras no.</p>
+</li>
+<li>
+<p><strong>[35]</strong> <a href="https://redis.io/commands/set">set</a>:
+Setea que la clave especificada almacene el valor especificado de tipo string. Si la clave contiene un valor previo, la clave es sobreescrita, independientemente del tipo de dato contenido (descartando también el valor previo de TTL).</p>
+</li>
+<li>
+<p><strong>[36]</strong> <a href="https://redis.io/commands/strlen">strlen</a>: Retorna el largo del valor de tipo string almacenado en una clave. Retorna error si la clave no almacena un string.</p>
+</li>
+</ul>
+<h3 id="comandos-del-grupo-lists"><a class="header" href="#comandos-del-grupo-lists">Comandos del grupo lists</a></h3>
+<ul>
+<li>
+<p><strong>[37]</strong> <a href="https://redis.io/commands/lindex">lindex</a>:
+Retorna el elemento de la posición <em>index</em> en la lista almacenada en la clave indicada. El índice comienza en 0. Los valores negativos se pueden usar para determinar elementos desde el final de la lista: <strong>-1</strong> es el último elemento, <strong>-2</strong> es el anteúlitmo, y así. 
+<br/>Retorna error si el valor de esa clave no es una lista.</p>
+</li>
+<li>
+<p><strong>[38]</strong> <a href="https://redis.io/commands/llen">llen</a>: Retorna el largo dela lista almacenada en la clave. Si la clave no existe, se interpreta como lista vacía, retornando 0. Se retorna error si el valor almacenado en la clave no es una lista.</p>
+</li>
+<li>
+<p><strong>[39]</strong> <a href="https://redis.io/commands/lpop">lpop</a>
+Elimina y retorna el primer elemento de la lista almacenada en la clave. Se puede indicar un parámetro adicional <em>count</em> para indicar obtener esa cantidad de elementos.</p>
+</li>
+<li>
+<p><strong>[40]</strong> <a href="https://redis.io/commands/lpush">lpush</a>:
+Inserta todos los valores especificados en el inicio de la lista de la clave especificada. Si no existe la clave, se crea inicialmente como una lista vacía para luego aplicar las operaciones. Se retorna error si la clave almacena un elemento que no es una lista.</p>
+</li>
+<li>
+<p><strong>[41]</strong> <a href="https://redis.io/commands/lpushx">lpushx</a>:
+Inserta los valores especificados al inicio de lalista, solamente si la clave existe y almacena una lista. A diferencia de LPUSH, no se realiza operación si la clave no existe.</p>
+</li>
+<li>
+<p><strong>[42]</strong> <a href="https://redis.io/commands/lrange">lrange</a>:
+Retorna los elementos especificados de la lista almacenada en la clave indicada. Los inicios y fin de rango se consideran con el <strong>0</strong> como primer elemento de la lista. Estos valores pueden ser negativos, indicando que corresponde al final de la lista: <strong>-1</strong> es el último elemento.</p>
+</li>
+<li>
+<p><strong>[43]</strong> <a href="https://redis.io/commands/lrem">lrem</a>:
+Elimina la primer cantidad <em>count</em> de ocurrencias de elementos de la lista almacenada en la clave, igual al elemento indicado por parámetro. El parámetro cantidad influye de esta manera:</p>
+<ul>
+<li><em>count &gt; 0</em>: Elimina elementos iguales al indicado comenzando desde el inicio de la lista.</li>
+<li><em>count &lt; 0</em>: Elimina elementos iguales al indicado comenzando desde el final de la lista.</li>
+<li><em>count = 0</em>: Elimina todos los elementos iguales al indicado.</li>
+</ul>
+</li>
+<li>
+<p><strong>[44]</strong> <a href="https://redis.io/commands/lset">lset</a>:
+Setea el elemento de la posición <em>index</em> de la lista con el elemento suministrado. Se retorna error si se indica un rango inválido.</p>
+</li>
+<li>
+<p><strong>[45]</strong> <a href="https://redis.io/commands/rpop">rpop</a>: Elimina y obtiene el/los último/s elemento/s de la lista almacenada en la clave indicada. Por defecto, es un solo elemento, se puede indicar una cantidad.</p>
+</li>
+<li>
+<p><strong>[46]</strong> <a href="https://redis.io/commands/rpush">rpush</a>: Inserta todos los valores especificados al final de la lista indicada en la clave. Si la clave no existe, se crear como una lista vacía antes de realizar la operación. Se retorna error si el elemento contenido no es una lista.</p>
+</li>
+<li>
+<p><strong>[47]</strong> <a href="https://redis.io/commands/rpushx">rpushx</a>:
+Inserta los valores especificados al final de la lista almacenada en la clave indicada, solamente si la clave contiene una lista. En caso contrario, no se realiza ninguna operación.</p>
+</li>
+</ul>
+<h3 id="comandos-del-grupo-sets"><a class="header" href="#comandos-del-grupo-sets">Comandos del grupo sets</a></h3>
+<ul>
+<li>
+<p><strong>[48]</strong> <a href="https://redis.io/commands/sadd">sadd</a>: Agrega el elemento indicado al set de la clave especificada. Si la clave no existe, crea un set vacío para agregar el valor. Si el valor ya existía en el set, no se realiza agregado. Retorna error si el valor almacenado en la clave no es un set.</p>
+</li>
+<li>
+<p><strong>[49]</strong> <a href="https://redis.io/commands/scard">scard</a>: Retorna la cantidad de elementos del set almacenado en la clave indicada.</p>
+</li>
+<li>
+<p><strong>[50]</strong> <a href="https://redis.io/commands/sismember">sismember</a>: Retorna si el elemento indicado es miembro del set indicado en la clave.</p>
+</li>
+<li>
+<p><strong>[51]</strong> <a href="https://redis.io/commands/smembers">smembers</a>:
+Retorna todos los miembros del set almacenado en la clave indicada.</p>
+</li>
+<li>
+<p><strong>[52]</strong> <a href="https://redis.io/commands/srem">srem</a>: Elimina los miembros especificados del set almacenado en la clave indicada. Si la clave no existe, se considera como un set vacío, retornando <strong>0</strong>. Retorna error si el valor almacenado en esa clave no es un set. </p>
+</li>
+</ul>
+<h3 id="comandos-del-grupo-pubsub"><a class="header" href="#comandos-del-grupo-pubsub">Comandos del grupo pubsub</a></h3>
+<ul>
+<li>
+<p><strong>[53]</strong> <a href="https://redis.io/commands/pubsub">pubsub</a>: Es un comando de análisis que permite inspeccionar el estado del sistema Pub/Sub.
+<br/>La forma de este comando es:</p>
+<pre><code>PUBSUB &lt;subcommand&gt; ... args ...
+</code></pre>
+<p>Los subcomandos son:</p>
+<ul>
+<li>
+<p><em>CHANNELS</em>: lista los canales activos. Un canal es lo que se conoce un <strong>canal Pub/Sub</strong> con uno o más suscriptores. Este comando admite un parámetro para especificar los patrones que deben cumplir los nombres de los canales, si no se especifica, se muestran todos.<br/>Retorna una lista con los canales activos que cumplen con el patrón.</p>
+</li>
+<li>
+<p><em>NUMSUB</em>: Devuelve el número de suscriptores de los canales especificados. El valor de retorno es la lista de canales y el número de suscriptores a cada uno. El formato es de una lista plana: canal, cantidad, canal, cantidad, ... El orden de la lista es el mismo que en los parámetros del comando.</p>
+</li>
+<li>
+<p><em>NUMPAT</em>: <strong>Este comando queda afuera del alcance del proyecto.</strong></p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>[54]</strong> <a href="https://redis.io/commands/publish">publish</a>: Envía (<em>publica</em>) un mensaje en un canal dado.</p>
+</li>
+<li>
+<p><strong>[55]</strong> <a href="https://redis.io/commands/subscribe">subscribe</a>: Suscribe al cliente al canal especificado.</p>
+</li>
+<li>
+<p><strong>[56]</strong> <a href="https://redis.io/commands/unsubcribe">unsubcribe</a>:
+Desuscribe al cliente de los canales indicados, si no se indica ninguno, lo desuscribe de todos.</p>
+</li>
+</ul>
+<hr />
 <h2 id="corriendo-redis-y-su-cliente-en-docker"><a class="header" href="#corriendo-redis-y-su-cliente-en-docker">Corriendo Redis y su cliente en Docker</a></h2>
 <ul>
 <li>Instalar docker segun el sistema operativo que estes usando. </li>
