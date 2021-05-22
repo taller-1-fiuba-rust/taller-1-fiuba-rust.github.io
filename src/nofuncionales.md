@@ -1,4 +1,4 @@
-# Requerimientos no funcionales
+## Requerimientos no funcionales
 
 Los siguientes son los requerimientos no funcionales para la resolución de los ejercicios:
 
