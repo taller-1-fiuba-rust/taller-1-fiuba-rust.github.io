@@ -6,6 +6,10 @@ La bibliografía recomendad de la materia para el aprnedizaje del lenguaje Rust 
 * [Programming Rust](https://www.oreilly.com/library/view/programming-rust/9781491927274/), Jim Blandy, Jason Orendorff.O'Reilly Media, Inc. Es un libro muy bueno que explica los conceptos del lenguaje de forma exhaustiva con profundidad.
 * [Rust in Action](https://livebook.manning.com/book/rust-in-action/welcome/v-16/), Tim McNamara
 
+## Material para aprender Rust
+
+* [A half-hour to learn Rust](https://fasterthanli.me/articles/a-half-hour-to-learn-rust)
+* [I am a Java, C#, C or C++ developer, time to do some Rust](https://fasterthanli.me/articles/i-am-a-java-csharp-c-or-cplusplus-dev-time-to-do-some-rust)
 
 ## Otros recursos de interés
 
