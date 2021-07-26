@@ -11,6 +11,14 @@ La bibliografía recomendad de la materia para el aprnedizaje del lenguaje Rust 
 * [A half-hour to learn Rust](https://fasterthanli.me/articles/a-half-hour-to-learn-rust)
 * [I am a Java, C#, C or C++ developer, time to do some Rust](https://fasterthanli.me/articles/i-am-a-java-csharp-c-or-cplusplus-dev-time-to-do-some-rust)
 
+### Type System
+
+* [Untapped potential in Rust's type system](https://www.jakobmeier.ch/blogging/Untapped-Rust.html)
+
+### Ownership
+
+* **[Rust – What made it “click” for me (Ownership & memory internals)](https://deavid.wordpress.com/2021/06/06/rust-what-made-it-click-for-me-ownership-memory-internals/)**
+
 ## Otros recursos de interés
 
 Otros recursos para consultar:
