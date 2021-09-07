@@ -25,7 +25,7 @@ Las materias correlativas vigentes necesarias para poder cursar la materia depen
 * **Ingeniería en Informática:**
   * Estructura del Computador (66.70)
   * Algoritmos y Programación II (75.41)
-  * Análisis Numérico (75.12) - a partir de la [Actualización del Plan de Ing. Informática 2021](http://www.fi.uba.ar/sites/default/files/DETALLE%20ACTUALIZACI%C3%93N%20PLAN%20ING.%20EN%20INFORM%C3%81TICA.pdf), no se requiere esta correlatividad.
+  * ~~Análisis Numérico (75.12)~~ - a partir de la [Actualización del Plan de Ing. Informática 2021](http://www.fi.uba.ar/sites/default/files/DETALLE%20ACTUALIZACI%C3%93N%20PLAN%20ING.%20EN%20INFORM%C3%81TICA.pdf), no se requiere esta correlatividad.
 
 * **Licenciatura en Análisis de Sistemas (1986):**
   * Organización del Computador (75.03)
