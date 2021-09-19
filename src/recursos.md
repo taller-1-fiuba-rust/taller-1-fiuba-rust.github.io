@@ -30,3 +30,4 @@ Otros recursos para consultar:
 ## Artículos de blogs
 
 * [How to Read Rust Functions, Part 1](https://www.possiblerust.com/guide/how-to-read-rust-functions-part-1)
+* [How to think of unwrap](https://owengage.com/writing/2021-08-30-how-to-think-of-unwrap/)
