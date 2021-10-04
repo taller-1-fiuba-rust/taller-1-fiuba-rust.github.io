@@ -42,5 +42,5 @@ Las materias correlativas vigentes necesarias para poder cursar la materia depen
 
 En la materia vamos a trabajar con el lenguaje de programación [Rust](https://www.rust-lang.org/).
 
-Desarrollaremos un Proyecto a partir de la sexta semana de clases, en grupos de 3 personas.
+Desarrollaremos un Proyecto a partir de la sexta semana de clases, en grupos de 4 (cuatro) personas.
 Cada grupo tendrá el seguimiento del avance del trabajo semanalmente con un docente de la cátedra.
