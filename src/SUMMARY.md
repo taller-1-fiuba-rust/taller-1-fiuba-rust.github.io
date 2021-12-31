@@ -3,6 +3,7 @@
 - [Inicio](./Inicio.md)
 - [Bibliografía y Recursos](recursos.md)
 - [Clases](clases.md)
+- [Finales Febrero/Marzo 2022](finales_2022_feb.md)
 - [Guías](guias.md)
   - [Guía 1](guia_1.md)
   - [Guía 2](guia_2.md)
