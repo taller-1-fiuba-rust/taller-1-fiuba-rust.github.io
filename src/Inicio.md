@@ -11,8 +11,16 @@ Los docentes de la Cátedra son:
   * Iñaki Garay
   * Uriel Kelman
   * Matías Lafroce
+  * Jazmin Ferreiro Cedones
   * Dr. Mariano Méndez (asesor académico)
   * Federico Carrone (asesor de la industria)
+
+* **Colaboradores:**
+  * Nicolás Longo
+  * Juan Cruz Serra
+  * Mauro Nicolás Di Pietro
+  * Maximiliano Ian Levi Fernandez
+  * Sofía Martina Cot
 
 ## Horarios de clases
 
