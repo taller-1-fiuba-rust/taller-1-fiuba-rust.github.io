@@ -265,6 +265,7 @@ Cada grupo tendrá el seguimiento del avance del trabajo semanalmente con un doc
 <p>Se permite utilizar el crate <a href="https://crates.io/crates/rand">rand</a> para la generación de valores.</p>
 <p><strong>Parte B)</strong> Implementar un programa cliente MQTT que se suscriba al tópico anterior para recibir los datos y que actúe como <strong>servidor HTTP</strong> para publicar y exponer esos datos a través de una web accesible desde el browser. Es decir, este programa debe actuar como servidor HTTP.</p>
 <p>Investigar para ello, los lineamientos del protocolo de comunicación HTTP y del formato HTML. No es necesario que la página mostrada se actualice automáticamente.</p>
+<p><strong>Nota importante:</strong> No se permite el uso de crates externos de frameworks HTTP. Se debe implementar la comunicación y el servidor a partir del uso de sockets TCP, como se ha trabajado en el desarrollo del curso.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="guías"><a class="header" href="#guías">Guías</a></h1>
 <ul>
 <li>Ejercicios para practicar la sintaxis del lenguaje: <a href="https://github.com/rust-lang/rustlings">rustlings</a></li>
