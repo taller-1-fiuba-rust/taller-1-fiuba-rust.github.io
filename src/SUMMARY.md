@@ -5,7 +5,7 @@
   - [Materias correlativas](./correlativas.md)
 - [Bibliografía y Recursos](./recursos.md)
 - [Clases](./clases/index.md)
-- [Proyecto 1C 2022: BitTorrent](./proyecto/proyecto.md)
+- [Proyecto 1C 2022: BitTorrent](./proyecto/22C1/proyecto.md)
 - [Guías](./guias/index.md)
   - [Guía 1](./guias/guia1.md)
   - [Guía 2](./guias/guia2.md)
