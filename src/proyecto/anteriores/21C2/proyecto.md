@@ -2,7 +2,7 @@
 
 ## Introducción
 
-MQTT es un protocolo de mensajería basado en el patrón de comunicación <em>publisher-suscriber</em> y la arquitectura <em>cliente-servidor</em>. Dentro de sus principales características se puede destacar que es un protocolo liviano, simple y sencillo de implementar. Es un protocolo de capa de aplicación binario construido sobre TCP/IP, lo cual lo convierte en una forma de comunicarse sumamente eficiente con un <em>overhead</em> mínimo en la cantidad de paquetes que se envían a través de la red, a diferencia de otros protocolos de capa de aplicación, como por ejemplo HTTP. 
+MQTT es un protocolo de mensajería basado en el patrón de comunicación <em>publisher-suscriber</em> y la arquitectura <em>cliente-servidor</em>. Dentro de sus principales características se puede destacar que es un protocolo liviano, simple y sencillo de implementar. Es un protocolo de capa de aplicación binario construido sobre TCP/IP, lo cual lo convierte en una forma de comunicarse sumamente eficiente con un <em>overhead</em> mínimo en la cantidad de paquetes que se envían a través de la red, a diferencia de otros protocolos de capa de aplicación, como por ejemplo HTTP.
 
 Existen distintos estándares debido a que el protocolo ha ido evolucionando a través del tiempo (1.2, 3.1, 3.1.1, 5, etc). En particular, este proyecto estará centrado en la versión 3.1.1 del protocolo, cuya especificación puede encontrarse en el siguiente link: [MQTT-v3.1.1](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.pdf)
 
@@ -30,8 +30,7 @@ En la actualidad, existen distintas implementaciones de servidores MQTT, entre e
 
 A su vez, existen una serie de distintas implementaciones de clientes MQTT para distintos lenguajes.
 
-Por último, se recomienda mirar los videos de la siguiente lista de reproducción, la cual explica a nivel general el funcionamientio del protocolo: [MQTT Essentials](https://www.youtube.com/watch?v=jTeJxQFD8Ak&list=PLRkdoPznE1EMXLW6XoYLGd4uUaB6wB0wd) 
-
+Por último, se recomienda mirar los videos de la siguiente lista de reproducción, la cual explica a nivel general el funcionamientio del protocolo: [MQTT Essentials](https://www.youtube.com/watch?v=jTeJxQFD8Ak&list=PLRkdoPznE1EMXLW6XoYLGd4uUaB6wB0wd)
 
 ## Objetivo del Proyecto
 
@@ -41,7 +40,7 @@ El objetivo secundario del proyecto consiste en el desarrollo de un proyecto rea
 
 Se espera que se haga un uso lo más idiomático posible del lenguaje de programación, siguiendo los estándares que éste promueve.
 
-<!-- 
+<!--
 ## Criterios de Aceptación y Corrección del Proyecto
 -->
 
@@ -49,7 +48,7 @@ Se espera que se haga un uso lo más idiomático posible del lenguaje de program
 
 El desarrollo del proyecto tendrá un seguimiento directo semanal por parte del docente a cargo del grupo.
 
-Se deberá desarrollar y presentar los avances y progreso del trabajo semana a semana (simulando un <em>sprint</em> de trabajo). 
+Se deberá desarrollar y presentar los avances y progreso del trabajo semana a semana (simulando un <em>sprint</em> de trabajo).
 Cada semana, o el o los docentes asignados a cada grupos realizarán una valoración del estado del trabajo del grupo.
 
 El progreso de cada semana deberá ser acorde a lo que se convenga con el docente para cada sprint.
@@ -62,7 +61,7 @@ Cabe mencionar que estos desvíos de los requerimientos iniciales se presentan e
 
 El desarrollo del proyecto finaliza el último día de clases del cuatrimestre. En esa fecha, cada grupo deberá realizar una presentación final y se hará una evaluación global del trabajo.
 
-{{#include nofuncionales.md}}
+{{#include ../../../nofuncionales.md}}
 
 ## Requerimientos Funcionales
 
@@ -83,9 +82,9 @@ El path del archivo de configuración debe ser pasado como parámetro al ejecuta
 
 #### Logging
 
-Es necesario que el servidor loguee las distintas solicitudes que van llegando al mismo, así como también las distintas acciones que va realizando. El path del archivo donde se irán almacenando estos registros será especificado en el archivo de configuración. 
+Es necesario que el servidor loguee las distintas solicitudes que van llegando al mismo, así como también las distintas acciones que va realizando. El path del archivo donde se irán almacenando estos registros será especificado en el archivo de configuración.
 
-El cumplimiento de este requerimiento puede ser implementado por dos vías: 
+El cumplimiento de este requerimiento puede ser implementado por dos vías:
 
 - Implementando un log propio (No se considerará válido que el servidor mantenga un file handle global, aunque esté protegido por un lock, y que se escriba directamente al file handle. La arquitectura deberá contemplar otra solución.)
 - Investigando y utilizando el crate <em>[tracing](https://docs.rs/tracing/0.1.28/tracing/)</em>.
@@ -102,7 +101,7 @@ Se debe investigar e implementar los siguientes tipos de paquetes del protocolo:
 - [connack](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718033): Paquete enviado por el servidor en respuesta a un paquete CONNECT recibido de un cliente.
 - [publish](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718037)
 - [puback](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718043)
-- [pubrel](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718053) 
+- [pubrel](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718053)
 - [pubcomp](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718058)
 - [subscribe](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718063)
 - [suback](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718068)
@@ -111,7 +110,7 @@ Se debe investigar e implementar los siguientes tipos de paquetes del protocolo:
 - [pingreq](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718081)
 - [pingresp](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718086)
 - [disconnect](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718090)
-    
+
 #### <em> Quality of service </em> (QoS)
 
 - QoS 0 y 1 (de esta forma se encolan los mensajes de los clientes que están offline porque se desconectaron ungracefully y cuando se vuelven a conectar con el mismo clientId se le pueden enviar los mensajes).
@@ -135,7 +134,6 @@ Nota: no se implementará dentro del alcance del presente trabajo los mensajes d
 - tienen que implementar last will & testament.
 - se debe persistir la data necesaria para hacer el delivery de mensajes que no hayan podido ser entregados (respetando QoS nivel 1). Esto implica persistir id + mensajes no entregados.
 
-
 ### Interfaz gráfica
 
 La aplicación cliente deberá contar con una interfaz gráfica que permita interactuar con el servidor. Para realizar dicha aplicación, se debe utilizar el crate [GTK](https://gtk-rs.org/). El grupo deberá investigar cómo utilizar dicho crate.
@@ -144,7 +142,7 @@ La aplicación cliente deberá contar con una interfaz gráfica que permita inte
 
 La interfaz gráfica deberá contar con tres pestañas:
 
-1) **Pestaña de conexión:** Esta pestaña deberá contar con una serie de campos que permitan especificar los parámetros de conexión, y un botón para efectuar la misma. Los parámetros son:
+1. **Pestaña de conexión:** Esta pestaña deberá contar con una serie de campos que permitan especificar los parámetros de conexión, y un botón para efectuar la misma. Los parámetros son:
 
 - IP del servidor.
 - Puerto del servidor al que hay que conectarse.
@@ -155,13 +153,14 @@ La interfaz gráfica deberá contar con tres pestañas:
   - <em>lastWillMessage</em>.
   - <em>lastWillTopic</em>.
 
-2) **Pestaña de publicación:** Esta pestaña permitirá enviar mensajes al servidor. En ella, se deberá poder ingresar un mensaje, un tópico, y tendrá que existir un botón para efectuar el envío. 
-Una vez que el servidor confirme la recepción del mensaje, se deberá señalizar el éxito de la operación.
+2. **Pestaña de publicación:** Esta pestaña permitirá enviar mensajes al servidor. En ella, se deberá poder ingresar un mensaje, un tópico, y tendrá que existir un botón para efectuar el envío.
+   Una vez que el servidor confirme la recepción del mensaje, se deberá señalizar el éxito de la operación.
 
-3) **Pestaña de suscripción:** Esta pestaña permitirá suscribirse a distintos tópicos y escuchar por los mensajes que sean publicados a estos.
-Para esto, se debe poder:
-  - Incluir un tópico del cual se desea escuchar por mensajes.
-  - Eliminar un tópico del cual no se desea seguir escuchando.
-  - Observar en tiempo real los mensajes que van llegando a los tópicos a los cuales se está suscrito, indicando cuál es tópico en cuestión.
- 
-**Aclaración importante**: El diseño de la interfaz y cómo se acomodan los componentes de la misma estará a cargo de cada grupo y será validada por los tutores asignados. Dicha interfaz debe cumplir con la cualidad de usabilidad, por lo que se recomienda hacer un diseño simple pero riguroso para cumplir con este requerimiento.  
+3. **Pestaña de suscripción:** Esta pestaña permitirá suscribirse a distintos tópicos y escuchar por los mensajes que sean publicados a estos.
+   Para esto, se debe poder:
+
+- Incluir un tópico del cual se desea escuchar por mensajes.
+- Eliminar un tópico del cual no se desea seguir escuchando.
+- Observar en tiempo real los mensajes que van llegando a los tópicos a los cuales se está suscrito, indicando cuál es tópico en cuestión.
+
+**Aclaración importante**: El diseño de la interfaz y cómo se acomodan los componentes de la misma estará a cargo de cada grupo y será validada por los tutores asignados. Dicha interfaz debe cumplir con la cualidad de usabilidad, por lo que se recomienda hacer un diseño simple pero riguroso para cumplir con este requerimiento.

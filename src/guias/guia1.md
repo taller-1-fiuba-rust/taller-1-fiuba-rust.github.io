@@ -1,5 +1,7 @@
 # Guía de Ejercicios 1: Introducción a Rust
 
+[**Descargar en formato PDF**](./guia1_introduccion.pdf)
+
 ## Ejercicio 1 - Ahorcado
 
 El objetivo del ejercicio es implementar un programa de consola para jugar al **ahorcado**.
@@ -8,7 +10,7 @@ El objetivo del ejercicio es implementar un programa de consola para jugar al **
 Bienvenido al ahorcado de FIUBA!
 
 La palabra hasta el momento es: _ _ _ _ _ _
-Adivinaste las siguientes letras: 
+Adivinaste las siguientes letras:
 Te quedan 5 intentos.
 Ingresa una letra: r
 
@@ -27,14 +29,17 @@ El programa termina cuando se adivina correctamente la palabra pensada, o cuando
 
 Tips:
 
-* Recuerda que las variables son inmutables por default. Para cambiar el estado de una variable, se la debe declarar como **mut**.
-* Se puede comparar Strings usando: **==**
-* Usa **println!(...)** para imprimir elementos en la salida estándar. Para imprimir una variable, puedes escribir algo como esto:
-``` rust
+- Recuerda que las variables son inmutables por default. Para cambiar el estado de una variable, se la debe declarar como **mut**.
+- Se puede comparar Strings usando: **==**
+- Usa **println!(...)** para imprimir elementos en la salida estándar. Para imprimir una variable, puedes escribir algo como esto:
+
+```rust
 println!("Contenido: {}", s);
 ```
-* Para leer de la entrada estándar, se puede usar algo como esto:
-``` rust
+
+- Para leer de la entrada estándar, se puede usar algo como esto:
+
+```rust
 io::stdin()
 	.read_line(&mut v)
 	.expect("Error leyendo la linea.");
@@ -46,16 +51,14 @@ Mostrar las letras que se ingresaron y que no forman parte de la palabra (las qu
 
 Verificar si se ingresó nuevamente una letra que ya estaba.
 
-
 ### Parte C
 
 Sobre la implementación de las funciones, modelizar una estructura de datos que represente al tipo de error de retorno. Por ejemplo: se agotaron los intentos. Basarse en el **enum Result**.
 
-
 ## Ejercicio 2 - Contar palabras
 
 Escribir un programa para contar las frecuencias de palabras únicas leídas de un archivo de entrada.
-Luego imprimirlas con sus frecuencias, ordenadas primero por las más frecuentes. Por ejemplo, dado este archivo de entrada: 
+Luego imprimirlas con sus frecuencias, ordenadas primero por las más frecuentes. Por ejemplo, dado este archivo de entrada:
 
 ```
 La casa tiene una ventana
@@ -74,14 +77,14 @@ fue -> 1
 defenestrada -> 1
 ```
 
-Una solución básica consiste en leer el archivo línea por línea, convertirlo a minúsculas, dividir cada línea en palabras y contar las frecuencias en un **HashMap**. Una vez hecho esto, convertir el __HashMap__ en una lista de pares de palabras y cantidad y ordenarlas por cantidad (el más grande primero) y por último imprimirlos.
+Una solución básica consiste en leer el archivo línea por línea, convertirlo a minúsculas, dividir cada línea en palabras y contar las frecuencias en un **HashMap**. Una vez hecho esto, convertir el **HashMap** en una lista de pares de palabras y cantidad y ordenarlas por cantidad (el más grande primero) y por último imprimirlos.
 
 Se debe seguir las siguientes recomendaciones:
 
-* Para separar en palabras, se debe considerar los espacios en blanco, ignorando los signos de puntuación.
-* Si la frecuencia de dos palabras es la misma, no importa el orden en el que aparecen las dos palabras en la salida impresa.
-* No leer el archivo completo en memoria, se puede ir procesando línea por línea, o en conjuntos de líneas. Sí se puede mantener en memoria el hashmap completo.
-* Usar solamente las herramientas de la biblioteca std del lenguaje.
+- Para separar en palabras, se debe considerar los espacios en blanco, ignorando los signos de puntuación.
+- Si la frecuencia de dos palabras es la misma, no importa el orden en el que aparecen las dos palabras en la salida impresa.
+- No leer el archivo completo en memoria, se puede ir procesando línea por línea, o en conjuntos de líneas. Sí se puede mantener en memoria el hashmap completo.
+- Usar solamente las herramientas de la biblioteca std del lenguaje.
 
 Para leer un archivo línea por línea, se puede utilizar el método
 [read_line](https://doc.rust-lang.org/std/io/trait.BufRead.html#method.read_line).
@@ -101,15 +104,15 @@ El último paso es implementar la **búsqueda**. Para ello, se debe solicitar al
 
 Luego se debe determinar la relevancia de cada documento resultado de la búsqueda. Para esto, se debe determinar el **puntaje** del documento. Esto se puede computar a partir de sumar las frecuencias de cada uno de los términos encontrados.
 
-Para mejorar el cálculo de puntaje del documento, calcularemos la frecuencia inversa de documentos para un término (denominado **tf-idf**) dividiendo la cantidad de documentos (N) en el índice por la cantidad de documentos que contienen el término, y tomaremos el logaritmo. 
+Para mejorar el cálculo de puntaje del documento, calcularemos la frecuencia inversa de documentos para un término (denominado **tf-idf**) dividiendo la cantidad de documentos (N) en el índice por la cantidad de documentos que contienen el término, y tomaremos el logaritmo.
 
 <div style="text-align:center"><img src="formulatf.png" /></div>
 
 donde:
 
-* **|D|** es la cantidad de documentos del corpus.
-* **|d ∈ D : t ∈ d|** es el número de documentos donde aparece el término **t**. Si el término no está en la colección se producirá una división-por-cero. Por lo tanto, se suele ajustar esta fórmula a **1 + |d ∈ D : t ∈ d|**
+- **|D|** es la cantidad de documentos del corpus.
+- **|d ∈ D : t ∈ d|** es el número de documentos donde aparece el término **t**. Si el término no está en la colección se producirá una división-por-cero. Por lo tanto, se suele ajustar esta fórmula a **1 + |d ∈ D : t ∈ d|**
 
 Luego, multiplicaremos la frecuencia del término con la frecuencia inversa del documento durante nuestra clasificación, por lo que las coincidencias en términos que son raros en el corpus contribuirán más a la puntuación de relevancia.
 
-{{#include nofuncionales.md}}
+{{#include ../nofuncionales.md}}

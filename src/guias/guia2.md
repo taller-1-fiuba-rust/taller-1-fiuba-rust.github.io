@@ -1,13 +1,15 @@
 # Guía de Ejercicios 2: Ownership en Rust
 
+[**Descargar en formato PDF**](./guia2_ownership.pdf)
+
 ## Ejercicio 1
 
 Analizar las siguientes porciones de código y responder si el mismo compila o no.
 Explicar por qué sí o por qué no.
 
-Si no se compila, ¿qué podrías cambiar para que compile? 
+Si no se compila, ¿qué podrías cambiar para que compile?
 
-``` rust
+```rust
 fn main() {
 	let mut s = String::from("hola");
 	let ref1 = &s;
@@ -18,15 +20,14 @@ fn main() {
 }
 ```
 
-
-``` rust
+```rust
 fn drip_drop() -> &String {
     let s = String::from("hello world!");
     return &s;
 }
 ```
 
-``` rust
+```rust
 fn main() {
 	let s1 = String::from("hola");
 	let mut v = Vec::new();
@@ -65,14 +66,14 @@ agregadas o eliminadas entre ellos.
 Para lograr esto, necesitamos identificar las línas que son comunes entre ambos archivos.
 Esto se enmarca en lo que se conoce como un problema LCS -hay un buen [video explicativo](https://www.youtube.com/watch?v=NnD96abizww)-: tenemos las dos secuencias de líneas
 y queremos encontrar la mayor subsecuencia de línas que aparecen en ambos archivos;
-estas líneas son la que no fueron modificadas y las otras líneas son las que fueron agregadas 
+estas líneas son la que no fueron modificadas y las otras líneas son las que fueron agregadas
 o eliminadas.
 
 La solución incluye completar una grilla con los largos de subsecuencias.
 El siguiente es un fragmento de pseudocódigo que se puede usar como base para reimplementar
 en Rust:
 
-``` rust
+```rust
 let X and Y be sequences
 let m be the length of X, and let n be the length of Y
 
@@ -96,10 +97,10 @@ return C
 
 Implementar e invocar al siguiente pseudocódigo para imprimir el diff:
 
-``` rust
+```rust
 // C es la grilla computada por lcs()
 // X e Y son las secuencias
-// i y j especifican la ubicacion dentro de C que se quiere buscar cuando 
+// i y j especifican la ubicacion dentro de C que se quiere buscar cuando
 //    se lee el diff. Al llamar a estar funcion inicialmente, pasarle
 //    i=len(X) y j=len(Y)
 function print_diff(C, X, Y, i, j)
@@ -116,4 +117,4 @@ function print_diff(C, X, Y, i, j)
 		print ""
 ```
 
-{{#include nofuncionales.md}}
+{{#include ../nofuncionales.md}}

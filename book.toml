@@ -1,5 +1,5 @@
 [book]
-authors = ["Iñaki Garay"]
+authors = ["Pablo A. Deymonnaz", "Iñaki Garay", "Mauro Parafati"]
 language = "en"
 multilingual = false
 src = "src"
