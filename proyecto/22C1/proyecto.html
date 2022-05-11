@@ -136,6 +136,13 @@
                     <main>
                         <h1 id="proyecto-bittorrent---1er-cuatrimestre-2022"><a class="header" href="#proyecto-bittorrent---1er-cuatrimestre-2022">Proyecto: BitTorrent - 1er Cuatrimestre 2022</a></h1>
 <p><a href="./Proyecto_2022_1C_BitTorrent.pdf"><strong>Descargar enunciado en PDF</strong></a></p>
+<p><strong>Actualización:</strong></p>
+<p>Se permite utilizar los siguientes crates externos:</p>
+<ul>
+<li>Para la función SHA1, se puede utilizar las mismas de los crates
+<a href="https://crates.io/crates/crypto">crypto</a> o <a href="https://crates.io/crates/sha1">sha1</a>.</li>
+<li>Para la conexión cifrada con el tracker, se puede utilizar el crate <a href="https://crates.io/crates/native-tls">native-tls</a>.</li>
+</ul>
 <h2 id="introducción"><a class="header" href="#introducción">Introducción</a></h2>
 <p>BitTorrent es un protocolo de capa de aplicación de arquitectura P2P que se utiliza para transferencia de archivos entre múltiples dispositivos que se denominan peers. Debido a su arquitectura, BitTorrent es un protocolo escalable ya que no tiene un único punto de falla, más bien todos los peers garantizan la transferencia de un archivo de un nodo de la red a otro. Se denomina torrent al conjunto de peers que participan en la distribución de un archivo en particular.</p>
 <p>Para transferir un archivo a este se lo separa en chunks de igual tamaño y varios peers pueden transferir varios chunks de manera simultánea. Cuando un peer se suma a un torrent, inicialmente no tiene el archivo, e irá progresivamente recibiendo chunks hasta tenerlo por completo.</p>
