@@ -2,6 +2,14 @@
 
 [**Descargar enunciado en PDF**](./Proyecto_2022_1C_BitTorrent.pdf)
 
+**Actualización:**
+
+Se permite utilizar los siguientes crates externos:
+
+* Para la función SHA1, se puede utilizar las mismas de los crates
+[crypto](https://crates.io/crates/crypto) o [sha1](https://crates.io/crates/sha1).
+* Para la conexión cifrada con el tracker, se puede utilizar el crate [native-tls](https://crates.io/crates/native-tls).
+
 ## Introducción
 
 BitTorrent es un protocolo de capa de aplicación de arquitectura P2P que se utiliza para transferencia de archivos entre múltiples dispositivos que se denominan peers. Debido a su arquitectura, BitTorrent es un protocolo escalable ya que no tiene un único punto de falla, más bien todos los peers garantizan la transferencia de un archivo de un nodo de la red a otro. Se denomina torrent al conjunto de peers que participan en la distribución de un archivo en particular.
