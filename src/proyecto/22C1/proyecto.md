@@ -2,13 +2,13 @@
 
 [**Descargar enunciado en PDF**](./Proyecto_2022_1C_BitTorrent.pdf)
 
-**Actualización:**
+---
 
-Se permite utilizar los siguientes crates externos:
+**¡IMPORTANTE!**
 
-* Para la función SHA1, se puede utilizar las mismas de los crates
-[crypto](https://crates.io/crates/crypto) o [sha1](https://crates.io/crates/sha1).
-* Para la conexión cifrada con el tracker, se puede utilizar el crate [native-tls](https://crates.io/crates/native-tls).
+Se modificó la lista de crates externos permitidos, agregando opciones para la conexión cifrada con el tracker, para logging y para obtención de timestamp, entre otros. Chequear la sección [Crates externos permitidos](#crates-externos-permitidos).
+
+---
 
 ## Introducción
 
@@ -63,7 +63,7 @@ Los siguientes son los requerimientos no funcionales para la resolución del pro
 
 - El proyecto deberá ser desarrollado en lenguaje Rust, usando las herramientas de la biblioteca estándar.
 - Se deben implementar **tests unitarios** y **de integración** de las funcionalidades que se consideren más importantes.
-- No se permite utilizar **crates** externos. El único crate autorizado a ser utilizado es [rand](https://crates.io/crates/rand) en caso de que se quiera generar valores aleatorios.
+- No se permite utilizar **crates** externos más allá de los mencionados en [dicha sección](#crates-externos-permitidos).
 - El código fuente debe compilarse en la versión stable del compilador y no se permite utilizar bloques unsafe.
 - El código deberá funcionar en ambiente Unix / Linux.
 - El programa deberá ejecutarse en la línea de comandos.
@@ -72,6 +72,16 @@ Los siguientes son los requerimientos no funcionales para la resolución del pro
 - El código debe formatearse utilizando **cargo fmt**.
 - Las funciones no deben tener una extensión mayor a 30 líneas. Si se requiriera una extensión mayor, se deberá particionarla en varias funciones.
 - Cada tipo de dato implementado debe ser colocado en una unidad de compilación (archivo fuente) independiente.
+
+### Crates externos permitidos
+
+Se permite el uso de los siguientes crates **sólo para los usos mencionados** (siempre y cuando se los considere necesario):
+
+- [`rand`](https://crates.io/crates/rand): para la generación de valores aleatorios.
+- [`chrono`](https://crates.io/crates/chrono): para la obtención del _timestamp_ actual.
+- [`log`](https://crates.io/crates/log) (con alguna implementación a elección entre [`simple_logger`](https://docs.rs/simple_logger/2.1.0/simple_logger/), [`env_logger`](https://docs.rs/env_logger/0.9.0/env_logger/) y [`pretty_env_logger`](https://docs.rs/pretty_env_logger/0.4.0/pretty_env_logger/)): para logging por consola. No se permite usar ningún crate para loggear en archivos, esto deberá ser implementado aparte.
+- [`crypto`](https://crates.io/crates/crypto) o [`sha1`](https://crates.io/crates/sha1): para la función **SHA1**, se pueden utilizar las mismas de los crates mencionados.
+- [`native-tls`](https://crates.io/crates/native-tls): para la conexión cifrada con el tracker.
 
 ## Requerimientos funcionales
 
