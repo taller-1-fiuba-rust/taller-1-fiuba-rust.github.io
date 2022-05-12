@@ -136,13 +136,10 @@
                     <main>
                         <h1 id="proyecto-bittorrent---1er-cuatrimestre-2022"><a class="header" href="#proyecto-bittorrent---1er-cuatrimestre-2022">Proyecto: BitTorrent - 1er Cuatrimestre 2022</a></h1>
 <p><a href="./Proyecto_2022_1C_BitTorrent.pdf"><strong>Descargar enunciado en PDF</strong></a></p>
-<p><strong>Actualización:</strong></p>
-<p>Se permite utilizar los siguientes crates externos:</p>
-<ul>
-<li>Para la función SHA1, se puede utilizar las mismas de los crates
-<a href="https://crates.io/crates/crypto">crypto</a> o <a href="https://crates.io/crates/sha1">sha1</a>.</li>
-<li>Para la conexión cifrada con el tracker, se puede utilizar el crate <a href="https://crates.io/crates/native-tls">native-tls</a>.</li>
-</ul>
+<hr />
+<p><strong>¡IMPORTANTE!</strong></p>
+<p>Se modificó la lista de crates externos permitidos, agregando opciones para la conexión cifrada con el tracker, para logging y para obtención de timestamp, entre otros. Chequear la sección <a href="#crates-externos-permitidos">Crates externos permitidos</a>.</p>
+<hr />
 <h2 id="introducción"><a class="header" href="#introducción">Introducción</a></h2>
 <p>BitTorrent es un protocolo de capa de aplicación de arquitectura P2P que se utiliza para transferencia de archivos entre múltiples dispositivos que se denominan peers. Debido a su arquitectura, BitTorrent es un protocolo escalable ya que no tiene un único punto de falla, más bien todos los peers garantizan la transferencia de un archivo de un nodo de la red a otro. Se denomina torrent al conjunto de peers que participan en la distribución de un archivo en particular.</p>
 <p>Para transferir un archivo a este se lo separa en chunks de igual tamaño y varios peers pueden transferir varios chunks de manera simultánea. Cuando un peer se suma a un torrent, inicialmente no tiene el archivo, e irá progresivamente recibiendo chunks hasta tenerlo por completo.</p>
@@ -176,7 +173,7 @@ Se deberán implementar tests de integración automatizados.</li>
 <ul>
 <li>El proyecto deberá ser desarrollado en lenguaje Rust, usando las herramientas de la biblioteca estándar.</li>
 <li>Se deben implementar <strong>tests unitarios</strong> y <strong>de integración</strong> de las funcionalidades que se consideren más importantes.</li>
-<li>No se permite utilizar <strong>crates</strong> externos. El único crate autorizado a ser utilizado es <a href="https://crates.io/crates/rand">rand</a> en caso de que se quiera generar valores aleatorios.</li>
+<li>No se permite utilizar <strong>crates</strong> externos más allá de los mencionados en <a href="#crates-externos-permitidos">dicha sección</a>.</li>
 <li>El código fuente debe compilarse en la versión stable del compilador y no se permite utilizar bloques unsafe.</li>
 <li>El código deberá funcionar en ambiente Unix / Linux.</li>
 <li>El programa deberá ejecutarse en la línea de comandos.</li>
@@ -185,6 +182,15 @@ Se deberán implementar tests de integración automatizados.</li>
 <li>El código debe formatearse utilizando <strong>cargo fmt</strong>.</li>
 <li>Las funciones no deben tener una extensión mayor a 30 líneas. Si se requiriera una extensión mayor, se deberá particionarla en varias funciones.</li>
 <li>Cada tipo de dato implementado debe ser colocado en una unidad de compilación (archivo fuente) independiente.</li>
+</ul>
+<h3 id="crates-externos-permitidos"><a class="header" href="#crates-externos-permitidos">Crates externos permitidos</a></h3>
+<p>Se permite el uso de los siguientes crates <strong>sólo para los usos mencionados</strong> (siempre y cuando se los considere necesario):</p>
+<ul>
+<li><a href="https://crates.io/crates/rand"><code>rand</code></a>: para la generación de valores aleatorios.</li>
+<li><a href="https://crates.io/crates/chrono"><code>chrono</code></a>: para la obtención del <em>timestamp</em> actual.</li>
+<li><a href="https://crates.io/crates/log"><code>log</code></a> (con alguna implementación a elección entre <a href="https://docs.rs/simple_logger/2.1.0/simple_logger/"><code>simple_logger</code></a>, <a href="https://docs.rs/env_logger/0.9.0/env_logger/"><code>env_logger</code></a> y <a href="https://docs.rs/pretty_env_logger/0.4.0/pretty_env_logger/"><code>pretty_env_logger</code></a>): para logging por consola. No se permite usar ningún crate para loggear en archivos, esto deberá ser implementado aparte.</li>
+<li><a href="https://crates.io/crates/crypto"><code>crypto</code></a> o <a href="https://crates.io/crates/sha1"><code>sha1</code></a>: para la función <strong>SHA1</strong>, se pueden utilizar las mismas de los crates mencionados.</li>
+<li><a href="https://crates.io/crates/native-tls"><code>native-tls</code></a>: para la conexión cifrada con el tracker.</li>
 </ul>
 <h2 id="requerimientos-funcionales"><a class="header" href="#requerimientos-funcionales">Requerimientos funcionales</a></h2>
 <p>Los siguientes son los requerimientos funcionales para el desarrollo del Trabajo.</p>
