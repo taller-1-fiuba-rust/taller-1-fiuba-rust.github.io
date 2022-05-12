@@ -6,6 +6,7 @@ Estos son los criterios de aprobación:
 
 * El software desarrollado funciona correctamente.
 * Se puede testear en la red de Bit Torrent oficial.
+* El proyecto debe estar debidamente documentado siguiendo los estándares de documentación de **cargo doc**.
 * El trabajo del grupo fue desarrollado con un esfuerzo constante y parejo a lo largo del cuatrimestre.
 * Se cumplieron los objetivos planteados y comprometidos con los tutores en las reuniones de seguimiento.
 * Se desarrollaron tests unitarios y de integración de las partes importantes del proyecto.
