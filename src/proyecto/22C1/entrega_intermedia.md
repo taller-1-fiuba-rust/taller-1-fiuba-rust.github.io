@@ -1,6 +1,6 @@
 # Alcance de la entrega intermedia del Trabajo Práctico
  
-Se realizará una entrega intermedia el día **6 de Junio**, la cual deberá cumplir con los los siguiente requerimientos:
+Se deberá realizar una entrega intermedia el día **6 de Junio**, la cual deberá cumplir con los los siguiente requerimientos:
 
 * El programa deberá recibir por linea de comandos la ruta de un archivo **.torrent**
 * El archivo **.torrent** debe ser leído y decodificado según el estándar y su información almacenada en memoria.
@@ -11,9 +11,10 @@ Se realizará una entrega intermedia el día **6 de Junio**, la cual deberá cum
 * Implementación del Logger. (**opcional - bonus point**) 
 
 La entrega se realizara en forma de Demostración (**Demo**) en la cual los alumnos deberán abarcar los siguientes puntos:
-* Explicación general de la solución, incluyendo diagramas.
-* Recorrido por el código, explicando los contenidos de cada módulo.
+
+* Explicación general de la solución, incluyendo diagramas que muestren el diseño desarrollado.
+* Recorrido por el código fuente escrito, explicando los principales contenidos de cada módulo.
 * Demo en vivo del programa, en donde se comprobará que el programa cumple con los puntos solicitados.
 * Verificación en vivo de la integridad de la pieza descargada. (**SHA1**)
 
-Nota: Todos los miembros del grupo deberán participar de la demo y explicar su participación en el proyecto, incluyendo detalles de implementación.
+**Nota:** Todos los miembros del grupo deberán participar de la demo y explicar su participación en el proyecto, incluyendo detalles de implementación.
