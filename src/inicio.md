@@ -1,6 +1,6 @@
 # Inicio
 
-Bienvenidos y bienvenidas a la catedra de Taller de Programación I de [FIUBA](http://www.fi.uba.ar/).
+Bienvenidos y bienvenidas al sitio de **Taller de Programación I - Cátedra Deymonnaz** de [FIUBA](http://www.fi.uba.ar/).
 
 - [Docentes de la cátedra](./docentes/index.md)
 - [Materias correlativas](./correlativas.md)
