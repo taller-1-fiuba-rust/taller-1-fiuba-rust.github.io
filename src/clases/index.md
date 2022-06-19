@@ -5,6 +5,7 @@
   - [Ejemplos de código](./clase-01.tar.bz2)
 - **Clase 2** - Ownership, Lifetimes, Traits, Generics
   - [Slides](./2-ownership.pdf)
+  - [Ejemplos de código](./clase-02.zip)
 - **Clase 3** - Concurrencia / Procesos y Threads / Channels y Locks en Rust
   - [Slides](./3-concurrencia-bis.pdf)
   - [Ejemplos de código](./clase-03.tar.bz2)
