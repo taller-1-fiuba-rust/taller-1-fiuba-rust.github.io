@@ -18,3 +18,4 @@
 - **Clases adicionales**
   - [Flujos de desarrollo en GIT](./git.pdf)
   - [GTK](./clase-gtk.zip)
+  - [Demos](./Demos_for_dummies.pdf) - Cómo preparar demos y presentaciones del proyecto.
