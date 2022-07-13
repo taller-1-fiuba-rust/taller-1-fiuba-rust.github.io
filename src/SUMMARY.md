@@ -6,6 +6,7 @@
 - [Bibliografía y Recursos](./recursos.md)
 - [Clases](./clases/index.md)
 - [Proyecto 1C 2022: BitTorrent](./proyecto/22C1/proyecto.md)
+  - [Agregado al Proyecto - Finales Julio/Agosto 2022](./proyecto/22C1/proyecto_final_1C2022.md)
   - [Criterios de aprobación](./proyecto/22C1/criterios_aprobacion.md)
   - [Entrega Intermedia](./proyecto/22C1/entrega_intermedia.md)
 - [Guías](./guias/index.md)
