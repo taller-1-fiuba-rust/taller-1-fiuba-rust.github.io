@@ -57,18 +57,30 @@ El mensaje debe terminar con un CR-LF (Carriage return - Line Feed), y no puede 
 
 La descripción de los mensajes se da en formato [BNF](http://www.cs.man.ac.uk/~pjj/bnf/bnf.html). 
 
-> <message>  ::= [':' <prefix> <SPACE> ] <command> <params> <crlf>```
-> <prefix>   ::= <servername> | <nick> [ '!' <user> ] [ '@' <host> ]
-> <command>  ::= <letter> { <letter> } \| <number> <number> <number>
-> <SPACE>    ::= ' ' { ' ' }
-> <params>   ::= <SPACE> [ ':' <trailing> | <middle> <params> ]
-> 
-> <middle>   ::= <Any *non-empty* sequence of octets not including SPACE
->                or NUL or CR or LF, the first of which may not be ':'>
-> <trailing> ::= <Any, possibly *empty*, sequence of octets not including
->                  NUL or CR or LF>
-<crlf>     ::= CR LF
+```
+<message>    ::= [':' <prefix> <SPACE> ] <command> <params> <crlf>
+<prefix>     ::= <servername> | <nick> [ '!' <user> ] [ '@' <host> ]
+<command>    ::= <letter> { <letter> } \| <number> <number> <number>
+<SPACE>      ::= ' ' { ' ' }
+<params>     ::= <SPACE> [ ':' <trailing> | <middle> <params> ]
 
+<middle>     ::= <Any *non-empty* sequence of octets not including SPACE or NUL or CR or LF, the first of which may not be ':'>
+<trailing>   ::= <Any, possibly *empty*, sequence of octets not including NUL or CR or LF>
+<crlf>       ::= CR LF
+<target>     ::= <to> [ "," <target> ]
+<to>         ::= <channel> | <user> '@' <servername> | <nick> | <mask>
+<channel>    ::= ('#' | '&') <chstring>
+<servername> ::= <host>
+<host>       ::= see RFC 952 [DNS:4] for details on allowed hostnames
+<nick>       ::= <letter> { <letter> | <number> | <special> }
+<mask>       ::= ('#' | '$') <chstring>
+<chstring>   ::= <any 8bit code except SPACE, BELL, NUL, CR, LF and comma (',')>
+
+<user>       ::= <nonwhite> { <nonwhite> }
+<letter>     ::= 'a' ... 'z' | 'A' ... 'Z'
+<number>     ::= '0' ... '9'
+<special>    ::= '-' | '[' | ']' | '\' | '`' | '^' | '{' | '}'
+```
 
 Este formato see lee por ejemplo: 
 "El comando es una letra y varias letras repetidas o 3 números"
