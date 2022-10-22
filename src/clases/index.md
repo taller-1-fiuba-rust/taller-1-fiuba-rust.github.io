@@ -15,6 +15,9 @@
 - **Clase 5** - Modelo Cliente / Servidor y Protocolo HTTP
   - [Slides](./cliente_servidor.pdf)
   - [Ejemplos de código](./clase-05.tar.bz2)
+- **Clase 6** - Testing
+  - [Slides](./6-testing.pdf)
+  - [Ejemplos de código](https://github.com/taller-1-fiuba-rust/clases_practicas/tree/main/clases/clase6)
 - **Clases adicionales**
   - [Flujos de desarrollo en GIT](./git.pdf)
   - [GTK](./clase-gtk.zip)
