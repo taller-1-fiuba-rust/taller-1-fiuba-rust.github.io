@@ -57,18 +57,16 @@ El mensaje debe terminar con un CR-LF (Carriage return - Line Feed), y no puede 
 
 La descripción de los mensajes se da en formato [BNF](http://www.cs.man.ac.uk/~pjj/bnf/bnf.html). 
 
-> <message>  ::= [':' <prefix> <SPACE> ] <command> <params> <crlf>```
-> <prefix>   ::= <servername> | <nick> [ '!' <user> ] [ '@' <host> ]
-> <command>  ::= <letter> { <letter> } \| <number> <number> <number>
-> <SPACE>    ::= ' ' { ' ' }
-> <params>   ::= <SPACE> [ ':' <trailing> | <middle> <params> ]
-> 
-> <middle>   ::= <Any *non-empty* sequence of octets not including SPACE
->                or NUL or CR or LF, the first of which may not be ':'>
-> <trailing> ::= <Any, possibly *empty*, sequence of octets not including
->                  NUL or CR or LF>
+```
+<message>  ::= [':' <prefix> <SPACE> ] <command> <params> <crlf>
+<prefix>   ::= <servername> | <nick> [ '!' <user> ] [ '@' <host> ]
+<command>  ::= <letter> { <letter> } \| <number> <number> <number>
+<SPACE>    ::= ' ' { ' ' }
+<params>   ::= <SPACE> [ ':' <trailing> | <middle> <params> ] 
+<middle>   ::= <Any *non-empty* sequence of octets not including SPACE or NUL or CR or LF, the first of which may not be ':'>
+<trailing> ::= <Any, possibly *empty*, sequence of octets not including NUL or CR or LF>
 <crlf>     ::= CR LF
-
+```
 
 Este formato see lee por ejemplo: 
 "El comando es una letra y varias letras repetidas o 3 números"
