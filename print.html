@@ -244,25 +244,25 @@
 <li><strong>Clase 1</strong> - Introducción a Rust
 <ul>
 <li><a href="clases/./1-introduccion.pdf">Slides</a></li>
-<li><a href="clases/./clase-01.tar.bz2">Ejemplos de código</a></li>
+<li><a href="https://github.com/taller-1-fiuba-rust/clases_practicas/tree/main/clases/clase1">Ejemplos de código</a></li>
 </ul>
 </li>
 <li><strong>Clase 2</strong> - Ownership, Lifetimes, Traits, Generics
 <ul>
 <li><a href="clases/./2-ownership.pdf">Slides</a></li>
-<li><a href="clases/./clase-02.zip">Ejemplos de código</a></li>
+<li><a href="https://github.com/taller-1-fiuba-rust/clases_practicas/tree/main/clases/clase2">Ejemplos de código</a></li>
 </ul>
 </li>
 <li><strong>Clase 3</strong> - Concurrencia / Procesos y Threads / Channels y Locks en Rust
 <ul>
 <li><a href="clases/./3-concurrencia-bis.pdf">Slides</a></li>
-<li><a href="clases/./clase-03.tar.bz2">Ejemplos de código</a></li>
+<li><a href="https://github.com/taller-1-fiuba-rust/clases_practicas/tree/main/clases/clase3">Ejemplos de código</a></li>
 </ul>
 </li>
 <li><strong>Clase 4</strong> - Introducción a Redes / Sockets en Rust
 <ul>
 <li><a href="clases/./4-sockets.pdf">Slides</a></li>
-<li><a href="clases/./clase-04.tar.bz2">Ejemplos de código</a></li>
+<li><a href="https://github.com/taller-1-fiuba-rust/clases_practicas/tree/main/clases/clase4">Ejemplos de código</a></li>
 </ul>
 </li>
 <li><strong>Clase 5</strong> - Modelo Cliente / Servidor y Protocolo HTTP
@@ -314,18 +314,29 @@
 <p>El comando puede ser cualquier comando IRC válido o 3 dígitos en ASCII.</p>
 <p>El mensaje debe terminar con un CR-LF (Carriage return - Line Feed), y no puede exceder los 520 caracteres.</p>
 <p>La descripción de los mensajes se da en formato <a href="http://www.cs.man.ac.uk/%7Epjj/bnf/bnf.html">BNF</a>. </p>
-<blockquote>
-<p><message>  ::= [':' <prefix> <SPACE> ] <command> <params> <crlf>```
-<prefix>   ::= <servername> | <nick> [ '!' <user> ] [ '@' <host> ]
-<command>  ::= <letter> { <letter> } | <number> <number> <number>
-<SPACE>    ::= ' ' { ' ' }
-<params>   ::= <SPACE> [ ':' <trailing> | <middle> <params> ]</p>
-<p><middle>   ::= &lt;Any <em>non-empty</em> sequence of octets not including SPACE
-or NUL or CR or LF, the first of which may not be ':'&gt;
-<trailing> ::= &lt;Any, possibly <em>empty</em>, sequence of octets not including
-NUL or CR or LF&gt;
-<crlf>     ::= CR LF</p>
-</blockquote>
+<pre><code>&lt;message&gt;    ::= [':' &lt;prefix&gt; &lt;SPACE&gt; ] &lt;command&gt; &lt;params&gt; &lt;crlf&gt;
+&lt;prefix&gt;     ::= &lt;servername&gt; | &lt;nick&gt; [ '!' &lt;user&gt; ] [ '@' &lt;host&gt; ]
+&lt;command&gt;    ::= &lt;letter&gt; { &lt;letter&gt; } \| &lt;number&gt; &lt;number&gt; &lt;number&gt;
+&lt;SPACE&gt;      ::= ' ' { ' ' }
+&lt;params&gt;     ::= &lt;SPACE&gt; [ ':' &lt;trailing&gt; | &lt;middle&gt; &lt;params&gt; ]
+
+&lt;middle&gt;     ::= &lt;Any *non-empty* sequence of octets not including SPACE or NUL or CR or LF, the first of which may not be ':'&gt;
+&lt;trailing&gt;   ::= &lt;Any, possibly *empty*, sequence of octets not including NUL or CR or LF&gt;
+&lt;crlf&gt;       ::= CR LF
+&lt;target&gt;     ::= &lt;to&gt; [ &quot;,&quot; &lt;target&gt; ]
+&lt;to&gt;         ::= &lt;channel&gt; | &lt;user&gt; '@' &lt;servername&gt; | &lt;nick&gt; | &lt;mask&gt;
+&lt;channel&gt;    ::= ('#' | '&amp;') &lt;chstring&gt;
+&lt;servername&gt; ::= &lt;host&gt;
+&lt;host&gt;       ::= see RFC 952 [DNS:4] for details on allowed hostnames
+&lt;nick&gt;       ::= &lt;letter&gt; { &lt;letter&gt; | &lt;number&gt; | &lt;special&gt; }
+&lt;mask&gt;       ::= ('#' | '$') &lt;chstring&gt;
+&lt;chstring&gt;   ::= &lt;any 8bit code except SPACE, BELL, NUL, CR, LF and comma (',')&gt;
+
+&lt;user&gt;       ::= &lt;nonwhite&gt; { &lt;nonwhite&gt; }
+&lt;letter&gt;     ::= 'a' ... 'z' | 'A' ... 'Z'
+&lt;number&gt;     ::= '0' ... '9'
+&lt;special&gt;    ::= '-' | '[' | ']' | '\' | '`' | '^' | '{' | '}'
+</code></pre>
 <p>Este formato see lee por ejemplo: 
 &quot;El comando es una letra y varias letras repetidas o 3 números&quot;
 &quot;El parámetro es un espacio y opcionalmente un ':' y un trailing o un middle y params&quot;</p>
@@ -408,7 +419,6 @@ Cabe mencionar que estos desvíos de los requerimientos iniciales se presentan e
 <p>Estos son los criterios de aprobación:</p>
 <ul>
 <li>El software desarrollado funciona correctamente.</li>
-<li>Se puede testear en la red de Bit Torrent oficial.</li>
 <li>El proyecto debe estar debidamente documentado siguiendo los estándares de documentación de <strong>cargo doc</strong>.</li>
 <li>Se debe hace uso de las herramientas <strong>cargo fmt</strong> para formatear el código fuente y de <strong>cargo clippy</strong> para asegurar que el código es lo más idiomático posible. No debe haber warnings de clippy.</li>
 <li>El trabajo del grupo fue desarrollado con un esfuerzo constante y parejo a lo largo del cuatrimestre.</li>
