@@ -6,6 +6,7 @@
 - [Bibliografía y Recursos](./recursos.md)
 - [Clases](./clases/index.md)
 - [Proyecto 2C 2022: IRC](./proyecto/22C2/proyecto.md)
+  - [Examen Final 2C 2022](./proyecto/22C2/examen_final.md)
 - [Ejercicio Individual 2do C 2022](./proyecto/22C2/ejindividual.md)
 - [Guías](./guias/index.md)
   - [Guía 1](./guias/guia1.md)
