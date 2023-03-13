@@ -1,8 +1,6 @@
 # Summary
 
 - [Inicio](./inicio.md)
-  - [Docentes](./docentes/index.md)
-  - [Materias correlativas](./correlativas.md)
 - [Bibliografía y Recursos](./recursos.md)
 - [Clases](./clases/index.md)
 - [Ejercicio Individual 2do C 2022](./proyecto/22C2/ejindividual.md)
