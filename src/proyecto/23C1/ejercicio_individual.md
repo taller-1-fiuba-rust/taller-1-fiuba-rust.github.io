@@ -1,6 +1,6 @@
 # Captura inminente
 
-**Fecha límite de entrega:** 3 de Abril de 2023 a las 18 hs
+**Fecha límite de entrega:** lunes 3 de Abril de 2023 a las 18 hs
 
 ## Introducción
 
