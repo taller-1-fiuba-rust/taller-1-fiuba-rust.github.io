@@ -92,7 +92,7 @@ En este caso, ni la dama blanca ni el peon negro estan en posicion de capturar a
 
 ## Formato de input
 
-El input es un archivo en el filesystem con el formato de entrada del tablero. En la invocación del programa se debe proveer la ruta a ese archivo. **Solo debera ingresarse este argumento**.
+El input es un archivo en el filesystem con el formato de entrada del tablero. En la invocación del programa se debe proveer la ruta a ese archivo. **Solo deberá ingresarse este argumento**.
 
 ```shell
 cargo run -- table.txt
@@ -111,8 +111,8 @@ En caso de que un error ocurriese, se deberá imprimir un mensaje con el siguien
 
 ## Algunas consideraciones
 
-* La orientacion del tablero dispondra a las piezas blancas en la parte de abajo, y a las piezas negras en la parte de arriba (precisamente, igual que en la imagen presentada al principio de la consigna).
-  * Esto quiere decir que los peones blancos se moveran y capturaran hacia "arriba", mientras que los peones negros hacia "abajo".
+* La orientación del tablero dispondrá a las piezas blancas en la parte de abajo, y a las piezas negras en la parte de arriba (precisamente, igual que en la imagen presentada al principio de la consigna).
+  * Esto quiere decir que los peones blancos se moverán y capturarán hacia "arriba", mientras que los peones negros hacia "abajo".
 * Escribir el programa sin clonar (*.clone()*) el input.
 * **Solamente** debe imprimirse por terminal el caracter de output, o el error lanzado junto a su descripción.
 
