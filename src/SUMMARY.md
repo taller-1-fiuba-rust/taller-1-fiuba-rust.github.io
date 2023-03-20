@@ -3,7 +3,7 @@
 - [Inicio](./inicio.md)
 - [Bibliografía y Recursos](./recursos.md)
 - [Clases](./clases/index.md)
-- [Ejercicio Individual 2do C 2022](./proyecto/22C2/ejindividual.md)
+- [Ejercicio Individual 1er C 2023](./proyecto/23C1/ejercicio_individual.md)
 - [Guías](./guias/index.md)
   - [Guía 1](./guias/guia1.md)
   - [Guía 2](./guias/guia2.md)
