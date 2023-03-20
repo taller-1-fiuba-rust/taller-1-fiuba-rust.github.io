@@ -109,6 +109,7 @@ En caso de que un error ocurriese, se deberá imprimir un mensaje con el siguien
 * La orientacion del tablero dispondra a las piezas blancas en la parte de abajo, y a las piezas negras en la parte de arriba (precisamente, igual que en la imagen presentada al principio de la consigna).
     * Esto quiere decir que los peones blancos se moveran y capturaran hacia "arriba", mientras que los peones negros hacia "abajo".
 * Escribir el programa sin clonar (*.clone()*) el input.
+* **Solamente** debe imprimirse por terminal el caracter de output, o el error lanzado junto a su descripción. 
 
 ## Requerimientos no funcionales
 Los siguientes son los requerimientos no funcionales para la resolución del proyecto:
