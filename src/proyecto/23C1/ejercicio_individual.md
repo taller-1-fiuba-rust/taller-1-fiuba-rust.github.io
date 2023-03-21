@@ -65,7 +65,7 @@ En este caso, el alfil blanco esta en posicion para capturar al peon negro en su
 ``` text
 _ _ _ _ _ _ _ _
 _ _ _ _ _ _ _ _
-_ _ K _ _ _ _ _
+_ _ R _ _ _ _ _
 _ _ t _ _ _ _ _
 _ _ _ _ _ _ _ _
 _ _ _ _ _ _ _ _
