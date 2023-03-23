@@ -12,8 +12,8 @@ Bienvenidos y bienvenidas al sitio de **Taller de Programación I - Cátedra Dey
   - Mauro Nicolás Di Pietro
   - Mauro Toscano
   - Nicolás Longo
+  - Alfonso Campodonico
 - **Colaboradores:**
-  - Alfonso Jose Campodonico Gonzalez
   - Mauro Parafati
   - Maximiliano Ian Levi Fernandez
   - Melina Lazzaro
