@@ -1,5 +1,7 @@
 # Clases
 
+- **Clase 0** - Presentación de la materia
+  - [Slides](./0-introtaller.pdf)
 - **Clase 1** - Introducción a Rust
   - [Slides](./1-introduccion.pdf)
   - [Ejemplos de código](https://github.com/taller-1-fiuba-rust/clases_practicas/tree/main/clases/clase1)
