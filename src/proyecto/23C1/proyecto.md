@@ -3,7 +3,7 @@
 **Fechas de entrega:**
 
 * Entrega intermedia: lunes 22 de mayo
-* Presentación de la cursada: lunes 26 de junio
+* Entrega final de la cursada: lunes 26 de junio
 
 ## Introduccion a Blockchain
 
