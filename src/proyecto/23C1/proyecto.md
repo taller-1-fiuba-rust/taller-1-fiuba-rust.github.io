@@ -5,6 +5,8 @@
 * Entrega intermedia: lunes 22 de mayo
 * Entrega final de la cursada: lunes 26 de junio
 
+Estas entregas serán presenciales en la sede de la Facultad.
+
 ## Introduccion a Blockchain
 
 Blockchain es una tecnología descentralizada que se utiliza para registrar transacciones de manera segura e inmutable. La información se organiza en bloques conectados en una cadena y cada participante en la red tiene una copia idéntica del registro completo. La seguridad proviene de la criptografía y la naturaleza descentralizada del sistema. Se utiliza comúnmente para la gestión de criptomonedas, pero también tiene aplicaciones en otras áreas como la gestión de cadenas de suministro y la votación electrónica.
