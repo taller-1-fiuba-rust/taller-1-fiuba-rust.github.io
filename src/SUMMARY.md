@@ -3,6 +3,7 @@
 - [Inicio](./inicio.md)
 - [Bibliografía y Recursos](./recursos.md)
 - [Clases](./clases/index.md)
+- [Proyecto 1C 2023 - Bitcoin](./proyecto/23C1/proyecto.md)
 - [Ejercicio Individual 1er C 2023](./proyecto/23C1/ejercicio_individual.md)
 - [Guías](./guias/index.md)
   - [Guía 1](./guias/guia1.md)
