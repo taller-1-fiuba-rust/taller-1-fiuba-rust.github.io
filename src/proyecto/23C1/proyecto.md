@@ -1,22 +1,30 @@
 # Proyecto: Bitcoin - 1er Cuatrimestre 2023
 
+**Fechas de entrega:**
+
+* Entrega intermedia: lunes 22 de mayo
+* Presentación de la cursada: lunes 26 de junio
+
 ## Introduccion a Blockchain
+
 Blockchain es una tecnología descentralizada que se utiliza para registrar transacciones de manera segura e inmutable. La información se organiza en bloques conectados en una cadena y cada participante en la red tiene una copia idéntica del registro completo. La seguridad proviene de la criptografía y la naturaleza descentralizada del sistema. Se utiliza comúnmente para la gestión de criptomonedas, pero también tiene aplicaciones en otras áreas como la gestión de cadenas de suministro y la votación electrónica.
 
 ## Introduccion a Bitcoin
+
 Bitcoin es una criptomoneda digital descentralizada basada en una red de nodos que ejecutan software [Bitcoin Core](https://github.com/bitcoin/bitcoin). La red está asegurada mediante el uso de criptografía y un sistema de incentivos llamado "minería de Bitcoin", donde los participantes compiten para resolver un problema matemático complejo y validar transacciones en la red. Las transacciones se registran en una base de datos blockchain, que contiene un registro inmutable de todas las transacciones de Bitcoin desde su creación. El [White Paper](https://bitcoin.org/bitcoin.pdf) original fue escrito en 2009 por una persona o grupo anónimo de personas bajo el seudónimo de Satoshi Nakamoto.
 
 #### Importante: durante el desarrollo del proyecto utilizaremos la red de testing de Bitcoin: 'testnet' la cual no involucra dinero real y permite obtener test coins para realizar pruebas.
 
 ## Objetivo del Proyecto
+
 El objetivo principal del presente proyecto de desarrollo consiste en la implementacion de un **Nodo Bitcoin** con funcionalidades acotadas que se detallan en el presente enunciado. Siguiendo las [guias de desarrollo](https://developer.bitcoin.org/devguide/index.html) y [especificaciones](https://developer.bitcoin.org/reference/index.html) de Bitcoin.
 
 El objetivo secundario del proyecto consiste en el desarrollo de un proyecto real de software de mediana envergadura aplicando buenas prácticas de desarrollo de software, incluyendo entregas y revisiones usando un sistema de control de versiones.
 
 Se espera que se haga un uso lo más idiomático posible del lenguaje de programación Rust, siguiendo los estándares que éste promueve.
 
-
 ## Requerimientos funcionales
+
 Los siguientes son los requerimientos funcionales para el desarrollo del Trabajo.
 
 El nodo de Bitcoin deberá ser capaz de descargar y almacenar la cadena completa de headers desde el inicio de la blockchain y los bloques completos a partir de una fecha determinada, que correspondera al inicio del presente proyecto.
@@ -26,13 +34,16 @@ A su vez debera mantener actualizada la informacion de nuevos bloques (incluyend
 Tambien debera mantener la lista de [UTXO](https://developer.bitcoin.org/devguide/transactions.html) (unspent transactions) a partir de la fecha mencionada y permitir al usuario realizar transacciones utilizando dichas UTXO.
 
 ### Protocolo
+
 El [protocolo](https://developer.bitcoin.org/devguide/p2p_network.html) de red de Bitcoin permite mantener una red peer to peer (P2P) entre nodos, con el objetivo de intercambiar informacion sobre bloques y transacciones.
 ![](https://i.imgur.com/QHWYHtV.png)
 
 ### Conexion a la red
+
 Los pasos para conectarse a la red estan explicados en la guia de desarrollo [P2P network](https://developer.bitcoin.org/devguide/p2p_network.html). 
 Durante todo el desarrollo del proyecto utilizaremos la red de pruebas de Bitcoin: 'testnet'.
 Se debera tener en cuenta las siguientes consideraciones:
+
 1. **Peer Discovery**: utilizar alguna de las siguientes direcciones de DNS: 
     * seed.testnet.bitcoin.sprovoost.nl  -recomendado-
     * testnet-seed.bitcoin.jonasschnelli.ch
@@ -46,18 +57,22 @@ Se debera tener en cuenta las siguientes consideraciones:
 #### Nota: los parametros anteriormente definidos no pueden ser hardcodeados y deberan leerse del archivo de configuracion y/o variables de ambiente.
 
 ### Comportamiento del Nodo
+
 1. **Block Validations**: ante la llegada de nuevos bloques se debera validar la [Proof Of Work](https://developer.bitcoin.org/devguide/block_chain.html#proof-of-work) de cada bloque recibido y la Proof of Inclusion de las transacciones del bloque, generando el [Merkle Tree](https://developer.bitcoin.org/reference/block_chain.html#merkle-trees) con las transacciones del bloque y comparando el Merkle Root generado con el especificado en el header del Bloque.
 2. **UTXO set**: en todo momento se debera mantener la lista de 'unspent transactions' de manera de poder utilizar la misma para realizar transacciones (ver siguiente punto).
 3. El nodo, dada una transaccion y un bloque, debe poder devolver una ***merkle proof of inclusion***, para que el usuario pueda verificar la existencia de la transaccion en el bloque.
 
 ### Funciones de Wallet
-#### Nota: como prerequisito para poder probar estas operaciones se debera crear una cuenta en Testnet y obtener test coins de prueba. Link para [crear una cuenta](https://www.bitaddress.org/bitaddress.org-v3.3.0-SHA256-dec17c07685e1870960903d8f58090475b25af946fe95a734f88408cef4aa194.html?testnet=true) y [obtener coins](https://tbtc.bitaps.com/).
+
+#### Nota: como prerequisito para poder probar estas operaciones se debera crear una cuenta en Testnet y obtener test coins de prueba. Link para [crear una cuenta](https://www.bitaddress.org/bitaddress.org-v3.3.0-SHA256-dec17c07685e1870960903d8f58090475b25af946fe95a734f88408cef4aa194.html?testnet=true) y [obtener coins](https://tbtc.bitaps.com/)
+
 A continuacion se obsevan las funcionalidades provistas por una Wallet y cuales de las mismas estaran dentro del alcance del proyecto.
 
 ![](https://i.imgur.com/S9NvpZ0.jpg)
 *La zona verde corresponde a las funcionalidades incluidas en el alcance del proyecto.*
 
 Detalle de las funcionalidades:
+
 1. El usuario podra ingresar una o mas cuentas que controla, especificando la clave publica y privada de cada una.
 2. Para cada cuenta se debera visualizar el balance de la misma, es decir la suma de todas sus UTXO disponibles al momento.
 3. Cada vez que se recibe una Transaccion en la red que involucra una de las cuentas del usuario se debera informar al usuario, aclarando que la misma aun no se encuentra incluida en un Bloque.
@@ -82,18 +97,24 @@ Como requerimiento particular del Proyecto, NO se considerará válido que el se
 Se debe implementar una interfaz gráfica utilizando la biblioteca [GTK](https://gtk.org/), mediante el crate [gtk-rs](https://gtk-rs.org/). Se recomienda utilizar [Glade](https://glade.gnome.org/) y GTK3.
 
 La interfaz deberá permitir el uso completo de las funcionalidades solicitadas y su apariencia deberá ser similar a la de [bitcoin-qt](https://bitcoin.org/en/bitcoin-core/features/user-interface).
+
 ### Vista general
+
 ![](https://i.imgur.com/4HkYKud.png)
 
 ### Crear transacciones
+
 ![](https://i.imgur.com/F6xo4SC.png)
 
 ### Ver transacciones
+
 ![](https://i.imgur.com/xd9D0kY.png)
 
 
 ## Requerimientos no funcionales
+
 Los siguientes son los requerimientos no funcionales para la resolución del proyecto:
+
 * El proyecto deberá ser desarrollado en lenguaje **Rust**, usando las herramientas de la biblioteca estándar.
 * Se deben implementar **tests unitarios y de integración** de las funcionalidades que se consideren más importantes.
 * No se permite utilizar **crates** externos más allá de los mencionados en dicha sección.
@@ -106,7 +127,9 @@ Los siguientes son los requerimientos no funcionales para la resolución del pro
 * Cada tipo de dato implementado debe ser colocado en una unidad de compilación (archivo fuente) independiente.
 
 ### Crates externos permitidos
+
 Se permite el uso de los siguientes crates sólo para los usos mencionados (siempre y cuando se los considere necesario):
+
 * [rand](https://crates.io/crates/rand): para la generación de valores aleatorios.
 * [chrono](https://crates.io/crates/chrono): para la obtención del timestamp actual.
 * [bitcoin_hashes](https://crates.io/crates/bitcoin_hashes): para utilizar funciones de hash como SHA256, SHA256d y RIPEMD160.
@@ -117,6 +140,7 @@ Se permite el uso de los siguientes crates sólo para los usos mencionados (siem
 ## Criterios de Aceptación y Corrección del Proyecto
 
 Para el desarrollo del proyecto, se deberá observar los siguientes lineamientos generales:
+
 1. **Testing:** Se deberá implementar testing unitario automatizado, utilizando las herramientas de Rust de los métodos y funciones relevantes implementados. Se deberán implementar tests de integración automatizados.
 2. **Manejo de Errores:** Deberá hacerse un buen uso y administración de los casos de error, utilizando para ello, las estructuras y herramientas del lenguaje, escribiendo en forma lo más idiomática posible su tratamiento.
 3. **Control de versiones:** Se deberá utilizar la herramienta git, siguiendo las recomendaciones de la cátedra. En particular, se deberá utilizar la metodología GitHub Flow para el trabajo con ramas (branches) y la entrega continua del software.
@@ -125,6 +149,7 @@ Para el desarrollo del proyecto, se deberá observar los siguientes lineamientos
 6. **Informe final:** El trabajo debe acompañarse por un informe que debe incluir diagramas de secuencia de las operaciones más relevantes, diagrama de componentes y módulos de la arquitectura general del diseño desarrollado, todos acompañados de la explicación respectiva.
 
 ## Evaluaciones
+
 El desarrollo del proyecto tendrá un seguimiento directo semanal por parte del docente a cargo del grupo.
 
 Se deberá desarrollar y presentar los avances y progreso del trabajo semana a semana (simulando un sprint de trabajo). Cada semana, cada docente realizará una valoración del estado del trabajo del grupo.
@@ -136,11 +161,9 @@ Hacia la mitad del desarrollo del proyecto se deberá entregar una versión prel
 **Nota importante:** Se deja constancia que las funcionalidades requeridas por este enunciado son un marco de cumplimiento mínimo y que pueden haber agregados o modificaciones durante el transcurso del desarrollo por parte del docente a cargo, que formarán parte de los requerimientos a cumplir. Cabe mencionar que estos desvíos de los requerimientos iniciales se presentan en situaciones reales de trabajo con clientes.
 
 ## Finalización del Proyecto
+
 El desarrollo del proyecto finaliza el último día de clases del cuatrimestre. En esa fecha, cada grupo deberá realizar una presentación final y se hará una evaluación global del trabajo.
 
 En dicha presentación se deberá detallar la arquitectura del proyecto, aprendizajes del mismo, y realizar una muestra funcional del desarrollo, esto es una "demo" como si fuera para el usuario final.
 
 El trabajo debe acompañarse por un informe que debe constar de los puntos detallados precedentemente, diagramas de secuencia de las operaciones más relevantes, diagrama de componentes y módulos de la arquitectura general del diseño desarrollado, todos acompañados de la explicación respectiva.
-
-
-
