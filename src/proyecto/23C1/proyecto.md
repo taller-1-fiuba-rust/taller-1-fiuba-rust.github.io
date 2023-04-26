@@ -7,6 +7,22 @@
 
 Estas entregas serán presenciales en la sede de la Facultad.
 
+**Alcance de la entrega intermedia:**
+
+La entrega intermedia deberá incluir los siguientes puntos desarrollados en la seccion **Requerimientos funcionales**:
+1. Conexion a la red
+2. Comportamiento del Nodo
+
+Además se deberá presentar una interfaz gráfica, similar a la imagen que se observa en **Ver transacciones** pero utilizando distintas pestañas para **Headers**, **Bloques** y **Transacciones** 
+
+La entrega se realizara en forma de Demostración (**Demo**) en la cual los alumnos deberán abarcar los siguientes puntos:
+
+* Explicación general de la solución, incluyendo diagramas que muestren el diseño desarrollado.
+* Recorrido por el código fuente escrito, explicando los principales contenidos de cada módulo.
+* Demo en vivo del programa, en donde se comprobará que el programa cumple con los puntos solicitados.
+
+**Nota:** Todos los miembros del grupo deberán participar de la demo y explicar su participación en el proyecto, incluyendo detalles de implementación.
+
 ## Introduccion a Blockchain
 
 Blockchain es una tecnología descentralizada que se utiliza para registrar transacciones de manera segura e inmutable. La información se organiza en bloques conectados en una cadena y cada participante en la red tiene una copia idéntica del registro completo. La seguridad proviene de la criptografía y la naturaleza descentralizada del sistema. Se utiliza comúnmente para la gestión de criptomonedas, pero también tiene aplicaciones en otras áreas como la gestión de cadenas de suministro y la votación electrónica.
