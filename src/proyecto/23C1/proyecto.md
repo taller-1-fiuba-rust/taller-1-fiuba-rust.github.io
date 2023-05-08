@@ -13,7 +13,7 @@ La entrega intermedia deberá incluir los siguientes puntos desarrollados en la 
 1. Conexion a la red
 2. Comportamiento del Nodo
 
-Además se deberá presentar una interfaz gráfica, similar a la imagen que se observa en **Ver transacciones** pero utilizando distintas pestañas para **Headers**, **Bloques** y **Transacciones** 
+**Opcional:** Se deberá presentar una interfaz gráfica, similar a la imagen que se observa en **Ver transacciones** pero utilizando distintas pestañas para **Headers**, **Bloques** y **Transacciones** 
 
 La entrega se realizara en forma de Demostración (**Demo**) en la cual los alumnos deberán abarcar los siguientes puntos:
 
@@ -154,6 +154,13 @@ Se permite el uso de los siguientes crates sólo para los usos mencionados (siem
 * [k256](https://crates.io/crates/k256): para firma digital con ECDSA (Elliptic Curve Digital Signature Algorithm).
 * [secp256k1](https://crates.io/crates/secp256k1): variante para ECDSA (Elliptic Curve Digital Signature Algorithm).
 * [bs58](https://crates.io/crates/bs58): para serializacion en base58.
+
+### Material de consulta
+
+* **Sitio Bitcoin Developer:** https://developer.bitcoin.org
+* **Protocol Documentation Wiki**: https://en.bitcoin.it/wiki/Protocol_documentation
+* **Programming Bitcoin**, Jimmy Song, O’Reilly 2019: https://www.oreilly.com/library/view/programming-bitcoin/9781492031482/ 
+
 
 ## Criterios de Aceptación y Corrección del Proyecto
 
