@@ -82,7 +82,7 @@ Se debera tener en cuenta las siguientes consideraciones:
 
 ### Funciones de Wallet
 
-#### Nota: como prerequisito para poder probar estas operaciones se debera crear una cuenta en Testnet y obtener test coins de prueba. Link para [crear una cuenta](https://www.bitaddress.org/bitaddress.org-v3.3.0-SHA256-dec17c07685e1870960903d8f58090475b25af946fe95a734f88408cef4aa194.html?testnet=true) y [obtener coins](https://tbtc.bitaps.com/)
+#### Nota: como prerequisito para poder probar estas operaciones se debera crear una cuenta en Testnet y obtener test coins de prueba. Link para [crear una cuenta](https://www.bitaddress.org/bitaddress.org-v3.3.0-SHA256-dec17c07685e1870960903d8f58090475b25af946fe95a734f88408cef4aa194.html?testnet=true) y [obtener coins](https://coinfaucet.eu/en/btc-testnet/)
 
 A continuacion se obsevan las funcionalidades provistas por una Wallet y cuales de las mismas estaran dentro del alcance del proyecto.
 
