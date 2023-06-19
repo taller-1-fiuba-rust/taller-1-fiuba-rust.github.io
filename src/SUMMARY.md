@@ -5,6 +5,7 @@
 - [Clases](./clases/index.md)
 - [Proyecto 1C 2023 - Bitcoin](./proyecto/23C1/proyecto.md)
 - [Ejercicio Individual 1er C 2023](./proyecto/23C1/ejercicio_individual.md)
+  - [Examen Final 1C 2023](./proyecto/23C1/examen_final.md)
 - [Guías](./guias/index.md)
   - [Guía 1](./guias/guia1.md)
   - [Guía 2](./guias/guia2.md)
