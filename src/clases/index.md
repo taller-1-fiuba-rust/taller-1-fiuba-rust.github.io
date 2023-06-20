@@ -22,5 +22,5 @@
   - [Ejemplos de código](https://github.com/taller-1-fiuba-rust/clases_practicas/tree/main/clases/clase6)
 - **Clases adicionales**
   - [Flujos de desarrollo en GIT](./git.pdf)
-  - [GTK](./clase-gtk.zip)
+  - [GTK](https://github.com/taller-1-fiuba-rust/clases_practicas/tree/main/clases/gtk)
   - [Demos](./Demos_for_dummies.pdf) - Cómo preparar demos y presentaciones del proyecto.
