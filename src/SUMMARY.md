@@ -8,6 +8,7 @@
   - [Guía 2](./guias/guia2.md)
   - [Guía 3](./guias/guia3.md)
   - [Guía 4](./guias/guia4.md)
+- [Ejercicio Individual 2do C 2023](./proyecto/23C2/ejercicio_individual.md)
 - [Proyectos anteriores](./proyecto/anteriores/index.md)
   - [1C 2021: Redis](./proyecto/anteriores/21C1/proyecto.md)
     - [Agregado al Proyecto](./proyecto/anteriores/21C1/agregado.md)
