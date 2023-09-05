@@ -1,0 +1,345 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Ejercicio Individual 2do C 2023 - Taller de Programación I</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../inicio.html"><strong aria-hidden="true">1.</strong> Inicio</a></li><li class="chapter-item expanded "><a href="../../recursos.html"><strong aria-hidden="true">2.</strong> Bibliografía y Recursos</a></li><li class="chapter-item expanded "><a href="../../clases/index.html"><strong aria-hidden="true">3.</strong> Clases</a></li><li class="chapter-item expanded "><a href="../../guias/index.html"><strong aria-hidden="true">4.</strong> Guías</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../guias/guia1.html"><strong aria-hidden="true">4.1.</strong> Guía 1</a></li><li class="chapter-item expanded "><a href="../../guias/guia2.html"><strong aria-hidden="true">4.2.</strong> Guía 2</a></li><li class="chapter-item expanded "><a href="../../guias/guia3.html"><strong aria-hidden="true">4.3.</strong> Guía 3</a></li><li class="chapter-item expanded "><a href="../../guias/guia4.html"><strong aria-hidden="true">4.4.</strong> Guía 4</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/23C2/ejercicio_individual.html" class="active"><strong aria-hidden="true">5.</strong> Ejercicio Individual 2do C 2023</a></li><li class="chapter-item expanded "><a href="../../proyecto/anteriores/index.html"><strong aria-hidden="true">6.</strong> Proyectos anteriores</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/anteriores/21C1/proyecto.html"><strong aria-hidden="true">6.1.</strong> 1C 2021: Redis</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/anteriores/21C1/agregado.html"><strong aria-hidden="true">6.1.1.</strong> Agregado al Proyecto</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/anteriores/21C2/proyecto.html"><strong aria-hidden="true">6.2.</strong> 2C 2021: MQTT</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/anteriores/21C2/finales_2022_feb_mar.html"><strong aria-hidden="true">6.2.1.</strong> Finales Febrero/Marzo 2022</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/22C1/proyecto.html"><strong aria-hidden="true">6.3.</strong> 1C 2022: BitTorrent</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/22C1/proyecto_final_1C2022.html"><strong aria-hidden="true">6.3.1.</strong> Agregado al Proyecto - Finales Julio/Agosto 2022</a></li><li class="chapter-item expanded "><a href="../../proyecto/22C1/criterios_aprobacion.html"><strong aria-hidden="true">6.3.2.</strong> Criterios de aprobación</a></li><li class="chapter-item expanded "><a href="../../proyecto/22C1/entrega_intermedia.html"><strong aria-hidden="true">6.3.3.</strong> Entrega Intermedia</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/22C2/proyecto.html"><strong aria-hidden="true">6.4.</strong> 2C 2022: IRC</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/22C2/examen_final.html"><strong aria-hidden="true">6.4.1.</strong> Examen Final 2C 2022</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/23C1/proyecto.html"><strong aria-hidden="true">6.5.</strong> 1C 2023: Bitcoin</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/23C1/examen_final.html"><strong aria-hidden="true">6.5.1.</strong> Examen Final 1C 2023</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../rust_arg.html"><strong aria-hidden="true">7.</strong> Grupo Rust Argentina</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Taller de Programación I</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="bomberman-r"><a class="header" href="#bomberman-r">Bomberman R</a></h1>
+<blockquote>
+<p><em>La R es de Rust...</em></p>
+</blockquote>
+<p><strong>Fecha de entrega: 19 de Septiembre de 2023</strong></p>
+<h2 id="contexto"><a class="header" href="#contexto">Contexto</a></h2>
+<p><strong><a href="https://es.wikipedia.org/wiki/Bomberman">Bomberman</a></strong> es una franquicia de videojuegos originalmente desarrollada por Hudson Soft en 1983 para PC, y posteriormente para Famicon. Esta franquicia ha tenido un gran éxito en Japon, aunque este no es tan grande en Occidente. Bomberman ha sido la mascota de Hudson Soft a lo largo de toda su historia, hasta su absorción por parte de Konami en 2012.</p>
+<p><img src="https://hackmd.io/_uploads/r10eXEPj2.png" alt="" /></p>
+<p>Su sistema de juego es sencillo: Bomberman <em>(si, el nombre del protagonista es el mismo que el del juego)</em> debe atravesar un laberinto repleto de rocas y paredes, mientras se enfrenta a diversos enemigos. Para acabar con ellos, Bomberman dispone de bombas que, al ser detonadas, explotan emitiendo una ráfaga de fuego en direcciones verticales y horizontales. Si la ráfaga de fuego alcanza a uno de los enemigos, este es <del>brutalmente incinerado</del> derrotado. Para ganar, Bomberman debe derrotar a todos los enemigos del laberinto.</p>
+<p>Bomberman cuenta con diferentes PowerUps que permiten mejorar distintos aspectos de sus bombas, como el alcance de la ráfaga de fuego, la cantidad de bombas que se pueden plantar a la vez, entre otras (volveremos a hablar de esto mas adelante). </p>
+<h2 id="ejercicio"><a class="header" href="#ejercicio">Ejercicio</a></h2>
+<p>Dado un laberinto de NxN dimensiones, que dispone de una serie de objetos en sus diferentes posiciones (bombas, paredes, etc.), <strong>se debe determinar, detonando una bomba en determinada posición, el estado FINAL del laberinto</strong>.</p>
+<p>Una posición puede contener uno de los siguientes objetos (o en su defecto estar vacía):</p>
+<ul>
+<li><strong>Enemigo</strong>: el enemigo que debe derrotarse con una ráfaga de fuego. Un enemigo puede tener desde 1 hasta 3 puntos de vida (es decir, que si tiene 2 puntos de vida, requiere ser impactado por 2 ráfagas diferentes para ser derrotado).</li>
+<li><strong>Bomba</strong>: una bomba plantada en el suelo sin detonarse aún. Si una bomba es alcanzada por la ráfaga de otra bomba, entonces esta es detonada y explota generando su propia ráfaga. Cada bomba extenderá su ráfaga en direcciones horizontales y verticales, con un alcance fuego X mayor a 0.</li>
+<li><strong>Roca</strong>: una roca que bloquea la ráfaga de fuego de las bombas ordinarias.</li>
+<li><strong>Pared</strong>: una pared que bloquea la rafaga de fuego de todos los tipos de bombas.</li>
+<li><strong>Desvio</strong>: un desvio que cambia la dirección de una ráfaga, sin modificar su alcance.</li>
+</ul>
+<p>Las <strong>bombas</strong> pueden ser de diferentes tipos:</p>
+<ul>
+<li><strong>Normales</strong>: simplemente detonan en direcciones verticales y horizontales (arriba, abajo, derecha e izquierda). Si se encuentran con una roca o una pared, la ráfaga es bloqueada.
+<ul>
+<li>En el juego original, las bombas de traspaso destruyen las rocas al ser alcanzadas por su rafaga. Para simplificar nuestro modelo, nuestras bombas normales no destruiran las rocas.</li>
+</ul>
+</li>
+<li><strong>De traspaso</strong>: las bombas de traspaso funcionan igual que las normales, con la diferencia de que su rafaga puede atravesar rocas sin perder alcance.
+<ul>
+<li>En el juego original, las bombas de traspaso destruyen las rocas al ser alcanzadas por su rafaga. Para simplificar nuestro modelo, nuestras bombas de traspaso solo atravesaran la roca (sin destruirla).</li>
+</ul>
+</li>
+</ul>
+<h3 id="formato-del-laberinto"><a class="header" href="#formato-del-laberinto">Formato del laberinto</a></h3>
+<p>El laberinto se compone de N filas de N casilleros (donde N es un numero arbitrario mayor a 1) que pueden contener (o no) un objeto. Para cada fila del tablero, cada casillero se encuentra separado por un espacio [ ].</p>
+<p>Para identificar cada objeto se utilizará la siguiente convención <strong>(X,Y)</strong> donde: </p>
+<ul>
+<li><strong>X</strong> sera el objeto: Enemigo [F], Bomba normal [B], Bomba de traspaso [S], Roca [R], Pared [W], Desvio [D].</li>
+<li><strong>Y</strong> sera (si corresponde):
+<ul>
+<li>En caso del <em>Enemigo</em>, sus puntos de vida.</li>
+<li>En caso de la <em>Bomba</em>, el alcance de su rafaga.</li>
+<li>En caso del <em>Desvio</em>, la dirección a la que se desvia la rafaga: Izquierda [L], Derecha [R], Arriba [U], Abajo [D].</li>
+</ul>
+</li>
+</ul>
+<p>Cualquier casilla vacia sera representada con guion bajo [_]. </p>
+<h2 id="ejemplos"><a class="header" href="#ejemplos">Ejemplos</a></h2>
+<h3 id="ejemplo-1"><a class="header" href="#ejemplo-1">Ejemplo 1</a></h3>
+<pre><code class="language-text">B2 R R _ F1 _ _
+_ W R W _ W _
+B5 _ _ _ B2 _ _
+_ W _ W _ W _
+_ _ _ _ _ _ _
+_ W _ W _ W _
+_ _ _ _ _ _ _
+</code></pre>
+<p><img src="https://hackmd.io/_uploads/BJN2P4rph.png" alt="" /></p>
+<p>Si detonamos la bomba en la coordenada (0, 0), que posee un alcance de 2, la rafaga impactara sobre la bomba en (0, 2) con alcance de 5, la cual impactara en la bomba con coordenada en (4, 2) con alcance 2, que finalmente impactara en el enemigo (que posee 1 vida), derrotandolo.</p>
+<p>Finalmente, el escenario resultante sera:</p>
+<pre><code class="language-text">_ R R _ _ _ _
+_ W R W _ W _
+_ _ _ _ _ _ _
+_ W _ W _ W _
+_ _ _ _ _ _ _
+_ W _ W _ W _
+_ _ _ _ _ _ _
+</code></pre>
+<h3 id="ejemplo-2"><a class="header" href="#ejemplo-2">Ejemplo 2</a></h3>
+<pre><code class="language-text">_ _ B2 _ B1 _ _
+_ W _ W _ W _
+_ _ B2 R F1 _ _
+_ W _ W R W _
+_ _ B4 _ _ _ _
+_ W _ W _ W _
+_ _ _ _ _ _ B1
+</code></pre>
+<p><img src="https://hackmd.io/_uploads/HJTG64Ha2.png" alt="" /></p>
+<p>Si detonamos la bomba en (2, 4), el camino de bombas detonadas sera:</p>
+<p><strong>(2, 4) -&gt; (2, 2) -&gt; (2, 0) -&gt; (4, 0)</strong> </p>
+<p>Donde:</p>
+<ul>
+<li>La bomba en (2, 2) no impactará al enemigo debido a la roca entre ellos.</li>
+<li>La bomba en (4, 0), como tiene alcance 1, tampoco llegará a impactar al enemigo.</li>
+<li>La bomba en (6, 6) no sera detonada.</li>
+</ul>
+<p>Finalmente, el escenario resultante sera:</p>
+<pre><code class="language-text">_ _ _ _ _ _ _
+_ W _ W _ W _
+_ _ _ R F1 _ _
+_ W _ W R W _
+_ _ _ _ _ _ _
+_ W _ W _ W _
+_ _ _ _ _ _ B1
+</code></pre>
+<h3 id="ejemplo-3"><a class="header" href="#ejemplo-3">Ejemplo 3</a></h3>
+<pre><code class="language-text">_ _ _ _ _ _ _
+_ W _ W _ W _
+S4 R R R F2 _ _
+_ W _ W _ W _
+B2 _ B5 _ DU _ _
+_ W _ W _ W _
+_ _ _ _ _ _ _
+</code></pre>
+<p><img src="https://hackmd.io/_uploads/ryW7ISS63.png" alt="" /></p>
+<p>Si detonamos la bomba en (0, 4), los caminos de bombas detonadas seran:</p>
+<p><strong>(0, 4) -&gt; (0, 2)</strong>
+<strong>(0, 4) -&gt; (2, 4)</strong></p>
+<p>Donde:</p>
+<ul>
+<li>La rafaga de la bomba de traspaso en (0, 2) atravesara todas las rocas, impactando en el enemigo</li>
+<li>La rafaga de la bomba en (2, 4) sera desviada hacia arriba en la posicion (4, 4), provocando que impacte en el enemigo.</li>
+</ul>
+<p>Finalmente, el escenario resultante sera:</p>
+<pre><code class="language-text">_ _ _ _ _ _ _
+_ W _ W _ W _
+_ R R R _ _ _
+_ W _ W _ W _
+_ _ _ _ DU _ _
+_ W _ W _ W _
+_ _ _ _ _ _ _
+</code></pre>
+<h2 id="formato-de-input"><a class="header" href="#formato-de-input">Formato de input</a></h2>
+<p>El input consiste en un archivo en el filesystem con el formato del laberinto, junto con la coordenada de la bomba que se quiere detonar primero.</p>
+<h2 id="formato-de-output"><a class="header" href="#formato-de-output">Formato de output</a></h2>
+<p>El output consiste en un archivo en el filesystem  <strong>(con el mismo nombre que el archivo de input)</strong>, localizado en el segundo parametro de invocacion del programa, donde debera guardarse el estado del laberinto de luego de haber detonado la bomba. En caso de no existir el archivo, este debera ser creado. </p>
+<p>En caso de que un error ocurriese, se deberá escribir en el archivo un mensaje de error con el siguiente formato: <strong>ERROR: [descripcion_del_error]</strong>.</p>
+<h2 id="invocacion-del-programa"><a class="header" href="#invocacion-del-programa">Invocacion del programa</a></h2>
+<p>La invocacion del programa debera incluir como parametros (en el siguiente orden):</p>
+<ol>
+<li>la ruta al archivo de input.</li>
+<li>la ruta a la carpeta/directorio de output.</li>
+<li>la coordenada X de la primera bomba a denotar.</li>
+<li>la coordenada Y de la primera bomba a denotar.</li>
+</ol>
+<pre><code class="language-shell">cargo run -- maze.txt /path/to/output_dir/ x y
+</code></pre>
+<h2 id="algunas-consideraciones"><a class="header" href="#algunas-consideraciones">Algunas consideraciones</a></h2>
+<ul>
+<li>Si un enemigo se encuentra en medio de dos o mas bombas, recibe daño de todas las rafagas.
+<ul>
+<li>En cambio, si misma rafaga de una misma bomba impacta en un enemigo mas de una vez (por ejemplo, si el enemigo se encontrase entre una bomba y un desvio), entonces recibe daño solo una vez.</li>
+</ul>
+</li>
+<li>En la coordenada brindada siempre debe haber una bomba. Caso contrario, será un error.</li>
+<li><strong>En caso de tener dudas sobre los aspectos del enunciado, siempre se debe consultar a los docentes para aclararlas.</strong></li>
+</ul>
+<h2 id="restricciones"><a class="header" href="#restricciones">Restricciones</a></h2>
+<ul>
+<li>Escribir el programa sin utilizar <em>.unwrap()</em> o <em>.expect()</em>. Todo caso deberá manejarse ideomaticamente con las estructuras y funciones brindadas por el lenguaje.</li>
+<li>No se permite que el programa lance un <em><a href="https://doc.rust-lang.org/book/ch09-01-unrecoverable-errors-with-panic.html">panic!()</a></em>.</li>
+<li>No se permite utilizar la funcion <em><a href="https://doc.rust-lang.org/std/process/fn.exit.html">exit()</a></em>. </li>
+</ul>
+<h2 id="requerimientos-no-funcionales"><a class="header" href="#requerimientos-no-funcionales">Requerimientos no funcionales</a></h2>
+<p>Los siguientes son los requerimientos no funcionales para la resolución del proyecto:</p>
+<ul>
+<li>El proyecto deberá ser desarrollado en lenguaje Rust 1.72, usando las herramientas de la biblioteca estándar.</li>
+<li>El proyecto deberá realizarse de manera individual. Cualquier tipo de copia significa la expulsión automática de la materia.</li>
+<li>Se deben implementar tests unitarios y de integración de las funcionalidades que se consideren más importantes.</li>
+<li>No se permite utilizar crates externos.</li>
+<li>El código fuente debe compilarse en la versión estable del compilador y no se permite utilizar bloques unsafe.</li>
+<li>El código deberá funcionar en ambiente Unix / Linux.</li>
+<li>El programa deberá ejecutarse en la línea de comandos.</li>
+<li>La compilación no debe arrojar warnings del compilador, ni del linter clippy.</li>
+<li>Las funciones y los tipos de datos (struct) deben estar documentados siguiendo el estándar de cargo doc.</li>
+<li>El código debe formatearse utilizando cargo fmt.</li>
+<li>Las funciones no deben tener una extensión mayor a 30 líneas. Si se requiriera una extensión mayor, se deberá particionarla en varias funciones.</li>
+<li>Cada tipo de dato implementado debe ser colocado en una unidad de compilación (archivo fuente) independiente.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../guias/guia4.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../../proyecto/anteriores/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../guias/guia4.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../../proyecto/anteriores/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>
