@@ -5,7 +5,7 @@ Bienvenidos y bienvenidas al sitio de **Taller de Programación I - Cátedra Dey
 
 ## Docentes de la cátedra
 - **Profesor:** Ing. Pablo A. Deymonnaz
-- **JTP**: Ing. Martín Miletta
+- **JTP:** Ing. Martín Miletta
 - **Ayudantes:**
   - Ing. Juan Bono
   - Ing. Mauro Toscano
