@@ -8,9 +8,9 @@ Bienvenidos y bienvenidas al sitio de **Taller de Programación I - Cátedra Dey
 - **Ayudantes:**
   - Ing. Juan Bono
   - Ing. Martín Miletta
+  - Ing. Mauro Toscano
   - Agustín Firmapaz
   - Mauro Nicolás Di Pietro
-  - Mauro Toscano
   - Nicolás Longo
   - Alfonso Campodonico
 - **Colaboradores:**
