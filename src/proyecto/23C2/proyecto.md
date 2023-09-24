@@ -54,6 +54,7 @@ A continuacion se listan los comandos requeridos:
 * rebase ([git man page](https://git-scm.com/docs/git-rebase))
 * tag ([git man page](https://git-scm.com/docs/git-tag))
 
+**Nota:** Durante el desarrollo del cliente se recomienda utilizar el servicio de [git daemon](https://git-scm.com/docs/git-daemon) para poder realizar pruebas conectando a un servidor git real. 
 
 ## Implementación del Servidor Git
 
@@ -103,12 +104,12 @@ Los alumnos deberan realizar una entrega intermedia, la cual deberá incluir los
 
 La entrega se realizará en forma de Demostración (Demo) en la cual los alumnos deberán abarcar los siguientes puntos:
 
-Se espera una explicación general de la solución, incluyendo diagramas que muestren el diseño desarrollado.
+Explicación general de la solución, incluyendo diagramas que muestren el diseño desarrollado.
 Recorrido por el código fuente escrito, explicando los principales contenidos de cada módulo.
-Demo en vivo del programa, en donde se comprobará que el programa cumple con los puntos solicitados.
-Nota: Todos los miembros del grupo deberán participar de la demo y explicar su participación en el proyecto, incluyendo detalles de implementación.
+Demo en vivo del programa, en donde se comprobará que el programa cumple con los puntos solicitados. 
+Ademas se debe demostrar que el cliente desarrollado puede conectarse indistintamente a su propio servidor como tambien a un servidor iniciado con [git daemon](https://git-scm.com/docs/git-daemon) 
 
-
+Todos los miembros del grupo deberán participar de la demo y explicar su participación en el proyecto, incluyendo detalles de implementación.
 
 ## Crates externos permitidos
 Se permite el uso de los siguientes crates solo para los usos mencionados (siempre y cuando se los considere necesario):
