@@ -17,6 +17,15 @@ Bienvenidos y bienvenidas al sitio de **Taller de Programación I - Cátedra Dey
   - Mauro Parafati
   - Maximiliano Ian Levi Fernandez
   - Melina Lazzaro
+  - Maria Vazquez Navarro
+  - Tomas Emanuel
+  - Noah Masri
+  - Sofia Javes
+  - Camila Ayala
+  - Rafael Berenguel
+  - Juan Ignacio Biancuzzo
+  - Julian G. Calderon
+
 - **Asesor académico:** Dr. Mariano Méndez
 - **Asesor de la industria:** Federico Carrone
 
