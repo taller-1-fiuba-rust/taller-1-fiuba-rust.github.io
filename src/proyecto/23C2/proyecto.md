@@ -70,6 +70,8 @@ En los casos en los que se presenten un conflictos entre cambios realizados por 
 
 
 ## Interfaz gráfica
+Se debe implementar una interfaz gráfica utilizando la biblioteca [GTK](https://gtk.org/), mediante el crate [gtk-rs](https://gtk-rs.org/). Se recomienda utilizar [Glade](https://glade.gnome.org/) y GTK3.
+
 La interfaz gráfica debe permitir al usuario realizar **todas** las operaciones soportadas por el cliente (comandos requeridos) y visualizar la historia de commits y branches en forma grafica de manera similar a como se puede observar en cualquier herramienta comercial, como por ejemplo [GitKraken](https://www.gitkraken.com/) 
 
 ![](https://hackmd.io/_uploads/rJ8tKocTn.png)
@@ -114,8 +116,11 @@ Todos los miembros del grupo deberán participar de la demo y explicar su partic
 ## Crates externos permitidos
 Se permite el uso de los siguientes crates solo para los usos mencionados (siempre y cuando se los considere necesario):
 
-*  rand: para la generación de valores aleatorios.
-* chrono: para la obtención del timestamp actual.
+- [`rand`](https://crates.io/crates/rand): para la generación de valores aleatorios.
+- [`chrono`](https://crates.io/crates/chrono): para la obtención del _timestamp_ actual.
+- [`crypto`](https://crates.io/crates/crypto) o [`sha1`](https://crates.io/crates/sha1): para la función de hash **SHA1**.
+- [`libflate`](https://crates.io/crates/libflate) o [`flate2`](https://crates.io/crates/flate2): para comprimir y descomprimir contenidos.
+- [`gtk-rs`](https://gtk-rs.org/): para la implementación de la interfaz gráfica.
 
 ## Material de consulta
 * Sitio oficial de Git: https://git-scm.com/
