@@ -985,6 +985,7 @@ A continuacion se puede observar un diagrama que representa la interaccion entre
 <p><strong>Importante:</strong> El Servidor deberá ser capaz de atender solicitudes de multiples clientes al mismo tiempo, para lo cual se pide utilizar multiples <strong>threads</strong> de manera de paralelizar el trabajo del Servidor. No se considerara válida una implementacion en la cual la peticion de un cliente deba esperar a que finalice el procesamiento de peticiones previas de otros clientes.</p>
 <p>En los casos en los que se presenten un conflictos entre cambios realizados por un cliente y cambios realizados por otro se deben resolver estos conflictos siguiendo el estandar del protocolo git.</p>
 <h2 id="interfaz-gráfica"><a class="header" href="#interfaz-gráfica">Interfaz gráfica</a></h2>
+<p>Se debe implementar una interfaz gráfica utilizando la biblioteca <a href="https://gtk.org/">GTK</a>, mediante el crate <a href="https://gtk-rs.org/">gtk-rs</a>. Se recomienda utilizar <a href="https://glade.gnome.org/">Glade</a> y GTK3.</p>
 <p>La interfaz gráfica debe permitir al usuario realizar <strong>todas</strong> las operaciones soportadas por el cliente (comandos requeridos) y visualizar la historia de commits y branches en forma grafica de manera similar a como se puede observar en cualquier herramienta comercial, como por ejemplo <a href="https://www.gitkraken.com/">GitKraken</a> </p>
 <p><img src="https://hackmd.io/_uploads/rJ8tKocTn.png" alt="" /></p>
 <p>En los casos en los que se presente un conflicto entre commits la interfaz debe permitir en forma grafica visualizar y resolver estos conflictos.</p>
@@ -1018,8 +1019,11 @@ Ademas se debe demostrar que el cliente desarrollado puede conectarse indistinta
 <h2 id="crates-externos-permitidos"><a class="header" href="#crates-externos-permitidos">Crates externos permitidos</a></h2>
 <p>Se permite el uso de los siguientes crates solo para los usos mencionados (siempre y cuando se los considere necesario):</p>
 <ul>
-<li>rand: para la generación de valores aleatorios.</li>
-<li>chrono: para la obtención del timestamp actual.</li>
+<li><a href="https://crates.io/crates/rand"><code>rand</code></a>: para la generación de valores aleatorios.</li>
+<li><a href="https://crates.io/crates/chrono"><code>chrono</code></a>: para la obtención del <em>timestamp</em> actual.</li>
+<li><a href="https://crates.io/crates/crypto"><code>crypto</code></a> o <a href="https://crates.io/crates/sha1"><code>sha1</code></a>: para la función de hash <strong>SHA1</strong>.</li>
+<li><a href="https://crates.io/crates/libflate"><code>libflate</code></a> o <a href="https://crates.io/crates/flate2"><code>flate2</code></a>: para comprimir y descomprimir contenidos.</li>
+<li><a href="https://gtk-rs.org/"><code>gtk-rs</code></a>: para la implementación de la interfaz gráfica.</li>
 </ul>
 <h2 id="material-de-consulta"><a class="header" href="#material-de-consulta">Material de consulta</a></h2>
 <ul>
