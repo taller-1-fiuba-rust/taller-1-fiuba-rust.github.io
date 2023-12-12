@@ -24,4 +24,7 @@
     - [Examen Final 2C 2022](./proyecto/22C2/examen_final.md)
   - [1C 2023: Bitcoin](./proyecto/23C1/proyecto.md)
     - [Examen Final 1C 2023](./proyecto/23C1/examen_final.md)
+  - [2C 2023: Git](./proyecto/23C2/proyecto.md)
+    - [Examen Final 2C 2023: Pull Requests](./proyecto/23C2/examen_final.md)
+    - [Examen Final 2C 2023: Releases](./proyecto/23C2/examen_final_2.md)
 - [Grupo Rust Argentina](./rust_arg.md)
