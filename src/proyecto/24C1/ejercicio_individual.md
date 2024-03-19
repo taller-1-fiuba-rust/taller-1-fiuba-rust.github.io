@@ -87,19 +87,19 @@ Como **segunda parte**, el objetivo será implementar una versión *rústica* de
 Se deberá implementar funcionalidad para la expresiones que contengan:
 * Caracteres normales
 * Metacaracteres:
-    * Period: **.**
-    * Bracket expresion: **[]**
-        * Bracket expresion negada: **\^[]**
-        * Character Classes:
-            * [:alnum:]
-            * [:alpha:]
-            * [:digit:]
-            * [:lower:]
-            * [:upper:]
-            * [:space:]
-            * [:punct:]
-    * Anchoring: **^**, **$**
-    * Repetition: **?**, **\***, **+**, **{n}**, **{n,}**, **{,m}**, **{n,m}**
+   * Period: **.**
+   * Bracket expresion: **[]**
+   * Bracket expresion negada: **\^[]**
+   * Character Classes:
+      * [:alnum:]
+      * [:alpha:]
+      * [:digit:]
+      * [:lower:]
+      * [:upper:]
+      * [:space:]
+      * [:punct:]
+   * Anchoring: **^**, **$**
+   * Repetition: **?**, **\***, **+**, **{n}**, **{n,}**, **{,m}**, **{n,m}**
 
 Además, su implementación deberá permitir la **concatenación**, la **alternancia**, y la **precedencia** de expresiones regulares.
 Por ejemplo las siguientes expresiones regulares deberán estar soportadas:
