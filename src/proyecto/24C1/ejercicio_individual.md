@@ -160,7 +160,7 @@ Los siguientes son los requerimientos no funcionales para la resolución del pro
 
 Primer entrega: Miércoles 3 de Abril de 2024 hasta las 18hs.
 
-**No cumplir con la primer entrega imposibilitara la continuidad en la materia** 
+**No cumplir con la primer entrega imposibilitará la continuidad en la materia** 
 
 Luego de la primer entrega se harán las correcciones correspondientes y se podrá volver a entregar el ejercicio en dos oportunidades más.
-La forma de entrega se comunicara por el canal de avisos.
+La forma de entrega se comunicará por el canal de avisos.
