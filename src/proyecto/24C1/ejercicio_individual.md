@@ -89,7 +89,7 @@ Se deberá implementar funcionalidad para la expresiones que contengan:
 * Metacaracteres:
    * Period: **.**
    * Bracket expresion: **[]**
-   * Bracket expresion negada: **\^[]**
+   * Bracket expresion negada: **[\^]**
    * Character Classes:
       * [:alnum:]
       * [:alpha:]
@@ -111,7 +111,7 @@ a[bc]d
 ab{2,4}cd
 abc|de+f
 la [aeiou] es una vocal
-la ^[aeiou] no es una vocal
+la [^aeiou] no es una vocal
 hola [[:alpha:]]+
 [[:digit:]] es un numero
 el caracter [[:alnum:]] no es un simbolo
@@ -155,3 +155,12 @@ Los siguientes son los requerimientos no funcionales para la resolución del pro
 * El código debe formatearse utilizando cargo fmt.
 * Las funciones no deben tener una extensión mayor a 30 líneas. Si se requiriera una extensión mayor, se deberá particionarla en varias funciones.
 * Cada tipo de dato implementado debe ser colocado en una unidad de compilación (archivo fuente) independiente.
+
+## Fechas de entrega
+
+Primer entrega: Miércoles 3 de Abril de 2024 hasta las 18hs.
+
+**No cumplir con la primer entrega imposibilitara la continuidad en la materia** 
+
+Luego de la primer entrega se harán las correcciones correspondientes y se podrá volver a entregar el ejercicio en dos oportunidades más.
+La forma de entrega se comunicara por el canal de avisos.
