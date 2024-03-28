@@ -10,12 +10,12 @@ Bienvenidos y bienvenidas al sitio de **Taller de Programación I - Cátedra Dey
   - Ing. Juan Bono
   - Ing. Mauro Toscano
   - Agustín Firmapaz
-  - Mauro Nicolás Di Pietro
+  - Lic. Mauro Di Pietro
   - Nicolás Longo
   - Alfonso Campodonico
 - **Colaboradores:**
   - Mauro Parafati
-  - Maximiliano Ian Levi Fernandez
+  - Maximiliano Levi 
   - Melina Lazzaro
   - Maria Vazquez Navarro
   - Tomas Emanuel
@@ -25,6 +25,8 @@ Bienvenidos y bienvenidas al sitio de **Taller de Programación I - Cátedra Dey
   - Rafael Berenguel
   - Juan Ignacio Biancuzzo
   - Julian G. Calderon
+  - Patricio Tourne
+  - Lucas Montenegro
 
 - **Asesor académico:** Dr. Mariano Méndez
 - **Asesor de la industria:** Federico Carrone
