@@ -23,7 +23,7 @@ Se deberá tener en cuenta los siguientes requerimientos:
 * Logging: debe registrar un resumen de los mensajes recibidos y enviados, y cualquier error o evento significativo durante la ejecucion del servidor.
 
 A continuacion se observa un diagrama de comunicacion entre las aplicaciones involucradas:
-![Diagramas TP 1C2024_2024-03-28_14-16-54](https://hackmd.io/_uploads/B10G3gXJR.png)
+![Arquitectura](./architecture.png)
 
 
 ## Requerimientos funcionales
@@ -53,7 +53,7 @@ Ademas permitira el ingreso por parte del usuario de nuevos incidentes y la modi
 *Opcional: La aplicacion puede permitir el envio de notificaciones a los agentes para realizar determinadas acciones como por ejemplo regresar a la central.*
 A continuacion se muestra un ejemplo de la visualizacion del mapa geografico a modo de referencia:
 
-![Diagramas TP 1C2024_2024-03-28_15-38-38](https://hackmd.io/_uploads/B1IQkMQkR.png)
+![Interfaz](./ui.png)
 
 
 

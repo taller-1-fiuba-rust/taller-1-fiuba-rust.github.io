@@ -5,7 +5,7 @@ Bienvenidos y bienvenidas al sitio de **Taller de Programación I - Cátedra Dey
 
 ## Docentes de la cátedra
 - **Profesor:** Ing. Pablo A. Deymonnaz
-- **JTP:** Ing. Martín Miletta
+- **Jefe de Trabajos Prácticos:** Ing. Martín Miletta
 - **Ayudantes:**
   - Ing. Juan Bono
   - Ing. Mauro Toscano
@@ -14,10 +14,6 @@ Bienvenidos y bienvenidas al sitio de **Taller de Programación I - Cátedra Dey
   - Nicolás Longo
   - Alfonso Campodonico
 - **Colaboradores:**
-  - Mauro Parafati
-  - Maximiliano Levi 
-  - Melina Lazzaro
-  - Maria Vazquez Navarro
   - Tomas Emanuel
   - Noah Masri
   - Sofia Javes
@@ -39,9 +35,9 @@ Las clases serán los días lunes de 18 a 22 hs.
 
 En la materia vamos a trabajar con el lenguaje de programación [Rust](https://www.rust-lang.org/).
 
-Desarrollaremos un Proyecto a partir de la sexta semana de clases, en grupos de 4 (cuatro) personas.
+Desarrollaremos un Proyecto a partir de la 5ta semana de clases, en grupos de 4 (cuatro) personas.
 
-Cada grupo tendrá el seguimiento del avance del trabajo semanalmente con un docente de la cátedra.
+Cada grupo tendrá el seguimiento del avance del trabajo semanalmente con un grupo docente de la cátedra.
 
 ## Materias Correlativas
 
@@ -65,3 +61,6 @@ Las materias correlativas vigentes necesarias para poder cursar la materia depen
 
 - **Ingeniería en Electrónica (2009):**
   - Algoritmos y Programación II (95.12)
+
+## Proyectos Realizados
+  [Listado de Proyectos Realizados](./proyecto/index.md)
