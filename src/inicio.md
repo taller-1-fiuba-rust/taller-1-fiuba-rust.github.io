@@ -9,14 +9,13 @@ Bienvenidos y bienvenidas al sitio de **Taller de Programación I - Cátedra Dey
 - **Ayudantes:**
   - Ing. Juan Bono
   - Ing. Mauro Toscano
-  - Agustín Firmapaz
   - Lic. Mauro Di Pietro
-  - Nicolás Longo
+  - Agustín Firmapaz
   - Alfonso Campodonico
 - **Colaboradores:**
+  - Nicolás Longo
   - Tomas Emanuel
   - Noah Masri
-  - Sofia Javes
   - Camila Ayala
   - Rafael Berenguel
   - Juan Ignacio Biancuzzo
