@@ -107,19 +107,28 @@ El desarrollo del proyecto finaliza el último día de clases del cuatrimestre. 
 
 En dicha presentación se deberá detallar la arquitectura del proyecto, aprendizajes del mismo, y realizar una muestra funcional del desarrollo, esto es una "demo" como si fuera para el usuario final.
 
-El trabajo debe acompañarse por un informe que debe constar de los puntos detallados a continuación, diagramas de secuencia de las operaciones más relevantes, diagrama de componentes y módulos de la arquitectura general del diseño desarrollado, todos acompañados de la explicación respectiva.
+El trabajo debe acompañarse por un informe que debe constar de los puntos detallados a continuación: explicación general de la investigación realizada y sus conclusiones, reglas de negocio de la solución y decisiones tomadas durante el desarrollo del proyecto, diagramas de secuencia de las operaciones más relevantes, diagrama de componentes y módulos de la arquitectura general del diseño desarrollado, todos acompañados de la explicación respectiva.
 
-## Informe
-[TBD]
 
 ## Entrega Intermedia
-[TBD]
+Los alumnos deberán realizar una entrega intermedia, la cual deberá incluir el desarrollo del *Servicio de Mensajería* con la implementación del protocolo completo y su comunicación con la *Aplicación de monitoreo* y el *Sistema central de cámaras*, ambos detallados en la sección de **Requerimientos funcionales**. 
+
+**Nota:** El desarrollo de la interfaz gráfica podrá estar incompleto pero se deberá presentar al menos un prototipo de cómo será la misma y cómo se implementará (tecnologías, pantallas, usabilidad, etc.)
+
+La entrega se realizará en forma de **Presentación** en la cual los alumnos deberán abarcar los siguientes puntos:
+
+* Explicación general de la investigación realizada y sus conclusiones.
+* Diseño de la solución a implementar, incluyendo diagramas.
+* Recorrido por los módulos del código fuente escrito, explicando los principales contenidos.
+* Demo en vivo de las aplicaciones incluidas para esta entrega, donde se pueda observar su comunicación con el servicio de mensajería y la correcta entrega y recepción de mensajes. 
+
+Todos los miembros del grupo deberán participar de la demo y explicar su participación en el proyecto, incluyendo detalles de implementación.
+
 
 ## Fechas de entrega:
 
-Entrega intermedia: (a definir)
-Entrega final de la cursada:  (a definir)
+Entrega intermedia: 27 de Mayo de 2024.
+
+Entrega final de la cursada:  24 de Junio de 2024.
+
 **Estas entregas serán presenciales en la sede de la Facultad.**
-
-
-
