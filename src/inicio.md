@@ -3,6 +3,9 @@
 Bienvenidos y bienvenidas al sitio de **Taller de Programación I - Cátedra Deymonnaz** de [FIUBA](http://www.fi.uba.ar/).
 
 
+<div style="text-align:center"><img src="asado_taller_24c1.jpg"/></div>
+
+
 ## Docentes de la cátedra
 - **Profesor:** Ing. Pablo A. Deymonnaz
 - **Jefe de Trabajos Prácticos:** Ing. Martín Miletta
@@ -25,6 +28,7 @@ Bienvenidos y bienvenidas al sitio de **Taller de Programación I - Cátedra Dey
 
 - **Asesor académico:** Dr. Mariano Méndez
 - **Asesor de la industria:** Federico Carrone
+
 
 ## Horarios de clases
 
