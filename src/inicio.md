@@ -3,9 +3,6 @@
 Bienvenidos y bienvenidas al sitio de **Taller de Programación I - Cátedra Deymonnaz** de [FIUBA](http://www.fi.uba.ar/).
 
 
-<div style="text-align:center"><img src="asado_taller_24c1.jpg"/></div>
-
-
 ## Docentes de la cátedra
 - **Profesor:** Ing. Pablo A. Deymonnaz
 - **Jefe de Trabajos Prácticos:** Ing. Martín Miletta
@@ -46,11 +43,15 @@ Cada grupo tendrá el seguimiento del avance del trabajo semanalmente con un gru
 
 Las materias correlativas vigentes necesarias para poder cursar la materia dependen de la Carrera y Plan que esté cursando el estudiante:
 
-- **Ingeniería en Informática:**
+- **Ingeniería en Informática (Plan 2023):**
+
+  - Paradigmas de Programación (TB025)
+  - Organización del Computador (TB023)
+
+- **Ingeniería en Informática (2021):**
 
   - Estructura del Computador (66.70)
   - Algoritmos y Programación II (75.41)
-  - ~~Análisis Numérico (75.12)~~ - a partir de la [Actualización del Plan de Ing. Informática 2021](http://www.fi.uba.ar/sites/default/files/DETALLE%20ACTUALIZACI%C3%93N%20PLAN%20ING.%20EN%20INFORM%C3%81TICA.pdf), no se requiere esta correlatividad.
 
 - **Licenciatura en Análisis de Sistemas (1986):**
 

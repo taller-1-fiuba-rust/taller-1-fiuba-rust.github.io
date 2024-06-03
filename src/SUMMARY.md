@@ -31,3 +31,4 @@
 ---
 
 [Grupo Rust Argentina](./rust_arg.md)
+[Nosotros](./nosotros.md)
