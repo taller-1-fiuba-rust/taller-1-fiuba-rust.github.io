@@ -10,6 +10,7 @@
   - [Guía 4](./guias/guia4.md)
 - [Ejercicio Individual 1C 2024](./proyecto/24C1/ejercicio_individual.md)
 - [Trabajo Practico 1C 2024](./proyecto/24C1/proyecto.md)
+- [Examen Final 1C 2024](./proyecto/24C1/examen_final.md)
 - [Proyectos Realizados](./proyecto/index.md)
   - [1C 2023: Bitcoin](./proyecto/23C1/proyecto.md)
     - [Examen Final 1C 2023](./proyecto/23C1/examen_final.md)
