@@ -15,7 +15,7 @@ Se deberá incorporar la tecnología de reconocimiento de imágenes al sistema c
 ## Requerimientos funcionales
 El sistema central de cámaras deberá ser capaz de procesar imágenes generadas por las cámaras que se encuentren en modo pasivo, y utilizar la tecnología de reconocimiento de imágenes para detectar potenciales incidentes. En caso de considerar que la imagen procesada corresponde a un incidente deberá hacer uso del sistema de mensajería para publicar un mensaje que describa esta situación, y por consiguiente la aplicación deberá automáticamente generar el incidente correspondiente y poner en marcha todo el circuito de resolución de incidentes implementado durante el desarrollo del Trabajo Práctico.
 
-Para simular la generación de imágenes por parte de la cámaras se deberá especificar un directorio por configuración en el cual se copiaran manualmente las imágenes y las mismas deberán ser procesadas por la aplicación inmediatamente. Este directorio deberá contener subdirectorios por cada una de las cámaras en funcionamiento de manera que la imagen depositada en un directorio correspondiente a una cámara particular se considerará como una imagen tomada por dicha cámara. 
+Para simular la generación de imágenes por parte de la cámaras se deberá especificar un directorio por configuración en el cual se irán copiando manualmente las imágenes y las mismas deberán ser procesadas por la aplicación inmediatamente, es decir la aplicacion deberá monitorear frecuentemente estos directorios para detectar la presencia de nuevas imágenes para procesar. Este directorio deberá contener subdirectorios por cada una de las cámaras en funcionamiento de manera que la imagen depositada en un directorio correspondiente a una cámara particular se considerará como una imagen tomada por dicha cámara. 
 
 Para comunicarse con el proveedor de servicios de la nube se debe utilizar una estrategia de multithreading que permita ejecutar varios requests en paralelo, ya sea mediante el uso de una [Thread Pool](https://doc.rust-lang.org/book/ch20-02-multithreaded.html#improving-throughput-with-a-thread-pool) o cualquier otro mecanismo implementado con [channels](https://doc.rust-lang.org/book/ch16-02-message-passing.html).
 
@@ -36,7 +36,7 @@ Los siguientes son los requerimientos no funcionales para la resolución del pro
 ## Presentación
 Se deberá realizar una **presentación** explicando la implementación de este agregado, incluyendo las decisiones de diseño y una demostración de la funcionalidad en vivo. 
 Dentro de los detalles de implementación se deberá explicar la solución adoptada desde el punto de vista de **multi-threading**, con diagramas que faciliten la explicación.
-Durante la demostración en vivo del sistema se deberán copiar distintas imagenes a los directorios correspondientes de varias cámaras y se deberá visualizar como las imágenes que den cuenta de potenciales incidentes generan los correspondientes incidentes en el sistema (en tiempo real) y su eventual atención y resolución por parte de los agentes.
+Durante la demostración en vivo del sistema se deberá ir copiando distintas imagenes (una a una) a los directorios correspondientes de varias cámaras y a medida que estas imágenes se van copiando y procesando por la aplicacion, se deberá visualizar como las imágenes que den cuenta de potenciales incidentes generan los correspondientes incidentes en el sistema (en tiempo real) y su eventual atención y resolución por parte de los agentes.
 
 
 ## Informe final
