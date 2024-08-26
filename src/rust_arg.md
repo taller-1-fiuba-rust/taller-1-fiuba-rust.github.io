@@ -4,6 +4,6 @@ Invitamos a los alumnos de la materia y a toda la comunidad de la FIUBA a partic
 
 <div style="text-align:center"><img src="rust-lang-ar-logo.png" width=180/></div>
 
-* [Sitio web](https://rust-lang-ar.github.io/)
+* [Sitio web](https://rust-lang.ar/)
 * [Meetup](https://www.meetup.com/es/Rust-Argentina/)
 * [Grupo de Telegram](https://t.me/rust_lang_ar)
