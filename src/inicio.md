@@ -12,11 +12,11 @@ Bienvenidos y bienvenidas al sitio de **Taller de Programación I - Cátedra Dey
   - Lic. Mauro Di Pietro
   - Agustín Firmapaz
   - Alfonso Campodonico
+  - Noah Masri
+  - Camila Ayala
 - **Colaboradores:**
   - Nicolás Longo
   - Tomas Emanuel
-  - Noah Masri
-  - Camila Ayala
   - Rafael Berenguel
   - Juan Ignacio Biancuzzo
   - Julian G. Calderon
