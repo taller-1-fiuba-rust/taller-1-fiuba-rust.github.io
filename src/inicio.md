@@ -11,12 +11,12 @@ Bienvenidos y bienvenidas al sitio de **Taller de Programación I - Cátedra Dey
   - Ing. Mauro Toscano
   - Lic. Mauro Di Pietro
   - Agustín Firmapaz
-  - Alfonso Campodónico
-- **Colaboradores:**
-  - Nicolás Longo
-  - Tomás Emanuel
+  - Alfonso Campodonico
   - Noah Masri
   - Camila Ayala
+- **Colaboradores:**
+  - Nicolás Longo
+  - Tomas Emanuel
   - Rafael Berenguel
   - Juan Ignacio Biancuzzo
   - Julian G. Calderon
