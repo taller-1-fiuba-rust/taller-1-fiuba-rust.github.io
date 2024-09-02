@@ -31,6 +31,11 @@ Bienvenidos y bienvenidas al sitio de **Taller de Programación I - Cátedra Dey
 
 Las clases serán los días lunes de 18 a 22 hs.
 
+## Calendar y Discord
+
+[Calendar](https://calendar.google.com/calendar/u/1?cid=Y19hMTQ2OWZjN2Y5MjRkNjkzY2I3NjIzYjVlNGUyZWQxN2UxYjQ0OTZjNTMwMjIxZDI1OGE3MzI2ZjRjNzhiODk0QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20)
+[Discord](https://discord.gg/M6JKga2prp)
+
 ## Desarrollo del Proyecto
 
 En la materia vamos a trabajar con el lenguaje de programación [Rust](https://www.rust-lang.org/).
