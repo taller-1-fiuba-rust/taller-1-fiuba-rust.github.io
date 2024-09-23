@@ -19,7 +19,7 @@ Se debe construir una aplicación con interfaz grafica (UI) que despliegue un ma
 Se deberá tener en cuenta los patrones de acceso a esta información por fecha y aeropuerto de origen o destino de manera de poder crear las particiones adecuadas para estos tipos de acceso (origen y fecha / destino y fecha).
 Dicha interfaz deberá permitir editar el *Estado de los vuelos* (**strong consistency**), ya sea para agregar nuevos vuelos o modificar vuelos existentes, por ejemplo para modificar un vuelo *on-time* a *delayed*.
 
-![image](https://hackmd.io/_uploads/rJdJcQ_FA.png)
+![image](./airlines_interface.png)
 
 
 ### Servidor de Base de Datos
