@@ -85,7 +85,6 @@ Se permite el uso de los siguientes crates solo para los usos mencionados (siemp
 ## Material de Consulta
 - [Documentación de Apache Cassandra](https://cassandra.apache.org/doc/latest/)
 - [Cassandra Query Language (CQL)](https://cassandra.apache.org/doc/latest/cql/)
-- [Cassandra Administration Guide](https://cassandra.apache.org/doc/latest/operations.html)
 - [Gossip Protocol](https://www.kth.se/social/upload/51647982f276546170461c46/4-gossip.pdf)
 - [Curso: Foundations of Apache Cassandra](https://www.youtube.com/watch?v=69pvhO6mK_o&list=PL2g2h-wyI4Spf5rzSmesewHpXYVnyQ2TS)
 
