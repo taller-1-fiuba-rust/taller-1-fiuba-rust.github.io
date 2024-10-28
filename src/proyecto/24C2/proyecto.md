@@ -44,7 +44,8 @@ Dentro de las funcionalidades del motor de base de datos se deberán contemplar 
 4. **Funcionamiento de Clúster:**
    - Soporte al [protocolo de comunicacion nativo](https://cassandra.apache.org/_/native_protocol.html) de Cassandra.
    - Implementación del protocolo [Gossip](https://www.youtube.com/watch?v=vEk3VDC0J7k) para comunicación entre nodos.
-   - Tolerancia a fallo de uno o mas nodos del cluster. 
+   - Tolerancia a fallo de uno o mas nodos del cluster.
+   - *Punto Bonus* (opcional): Implementación de [Hinted Handoff](https://cassandra.apache.org/doc/stable/cassandra/operating/hints.html#hinted-handoff) para recuperación de datos ante la desconexión de un nodo. 
    - *Punto Bonus* (opcional): demostrar la compatibilidad utilizando un cliente comercial de Cassandra.
 
 5. **Seguridad:**
