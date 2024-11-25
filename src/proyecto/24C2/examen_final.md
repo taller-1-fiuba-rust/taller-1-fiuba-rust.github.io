@@ -7,7 +7,7 @@
 Docker es una plataforma de software que permite crear, implementar y ejecutar aplicaciones en contenedores, empaquetando el código de la aplicación junto con todas sus dependencias, bibliotecas y configuraciones necesarias para que funcione correctamente.
 
 ## Objetivo
-El objetivo del presente agregado es implementar el servidor distribuido desarrollado durante el cuatrimestre en una serie de contenedores de Docker, utilizando un contenedor para cada nodo del cluster de base de datos.
+El objetivo consiste en implementar el servidor distribuido desarrollado durante el cuatrimestre en una serie de contenedores de Docker, utilizando un contenedor para cada nodo del cluster de base de datos.
 Además se incorporaran algunos requerimientos para hacer mas flexible la distribución de nodos (instancias) del cluster y el logging de intercambio de mensajes entre nodos.
 
 
