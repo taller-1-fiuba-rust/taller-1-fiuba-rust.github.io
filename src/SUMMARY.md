@@ -10,6 +10,7 @@
   - [Guía 4](./guias/guia4.md)
 - [Ejercicio Individual 2C 2024](./proyecto/24C2/ejercicio_individual.md)
 - [Trabajo Practico 2C 2024](./proyecto/24C2/proyecto.md)
+  - [Examen Final 2C 2024](./proyecto/24C2/examen_final.md)
 - [Demos 1C 2024](./proyecto/24C1/demos.md)
 - [Proyectos Realizados](./proyecto/index.md)
   - [1C 2024 Agentes Autonomos](./proyecto/24C1/proyecto.md)  
