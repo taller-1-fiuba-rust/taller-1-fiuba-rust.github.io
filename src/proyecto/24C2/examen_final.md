@@ -25,7 +25,7 @@ Como mínimo se deberán incluir en la entrega los siguientes artefactos:
 Se pide realizar todos los cambios necesarios para que el sistema distribuido de DB soporte la incorporación y/o desvinculación de un nodo de la red. Es decir, dado un cluster de N nodos se deberá poder iniciar e incorporar un nuevo nodo a la red, de manera que este mismo reciba un rango de particionamiento para cada una de las tablas de la DB y los nodos existentes le envíen la información correspondiente a los datos del segmento de partición asignado al nuevo nodo. El nuevo nodo deberá entonces recibir la información de tablas, particiones y datos almacenados (de su propio segmento de particiones unicamente)
 
 ### Logger
-De manera de poder visualizar facilmente el funcionamiento de los nodos en *Docker* se pide implementar un *Logguer* que registre todos los mensajes enviados y recibidos por el nodo. Dicho logguer deberá poder escribir en un archivo y en la salida estándar (**stdout**) al mismo tiempo, de manera de poder visualizar el log utilizando el comando: **docker logs**.
+De manera de poder visualizar facilmente el funcionamiento de los nodos en *Docker* se pide implementar un *Logger* que registre todos los mensajes enviados y recibidos por el nodo. Dicho logger deberá poder escribir en un archivo y en la salida estándar (**stdout**) al mismo tiempo, de manera de poder visualizar el log utilizando el comando: **docker logs**.
 
 
 ## Requerimientos no funcionales
@@ -44,14 +44,14 @@ Los siguientes son los requerimientos no funcionales para la resolución del pro
 
 
 ## Presentación
-Se deberá realizar una **presentación** explicando la implementación de este agregado, incluyendo las decisiones de diseño y una demostración de la funcionalidad en vivo. 
+Se deberá realizar una **presentación** explicando la implementación de esta nueva consigna, incluyendo las decisiones de diseño y una demostración de la funcionalidad en vivo. 
 Dentro de los detalles de implementación se deberá explicar la solución adoptada desde el punto de vista de **multi-threading**, con diagramas que faciliten la explicación.
 Durante la demostración en vivo, se debe poder observar tanto los requerimientos funcionales solicitados en el presente enunciado, como así también los requerimientos no funcionales, es decir, se debe demostrar como se agrega un nuevo nodo a la red y el mismo recibe toda la información necesaria para funcionar, así como también el funcionamiento de la base de datos antes y después de agregar el nuevo nodo, utilizando las aplicaciones implementadas durante el cuatrimestre (visualización de vuelos y simulación de vuelos en curso) 
 De la misma manera se deberá demostrar como se construyen todos los contenedores utilizando *Docker* y como se inicia, se agrega un nodo a la red, se quita un nodo de la red, se detienen los contenedores; utilizando y explicando los correspondientes comandos de *Docker* empleados. 
 
 
 ## Informe final
-Solo se podrán presentar a la fecha de final teniendo completo el informe final del proyecto desarrollado durante el cuatrimestre, incluyendo una sección adicional para describir la implementación de este agregado con sus
+Solo se podrán presentar a la fecha de final teniendo completo el informe final del proyecto desarrollado durante el cuatrimestre, incluyendo una sección adicional para describir la implementación de esta consigna con sus
 diagramas de diseño (por ej, diagramas de secuencia) y documentación relacionada.
 
 
