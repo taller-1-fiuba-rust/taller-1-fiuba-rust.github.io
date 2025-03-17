@@ -8,7 +8,7 @@
   - [Guía 2](./guias/guia2.md)
   - [Guía 3](./guias/guia3.md)
   - [Guía 4](./guias/guia4.md)
-- [Ejercicio Individual 2C 2024](./proyecto/24C2/ejercicio_individual.md)
+- [Ejercicio Individual 1C 2025](./proyecto/25C1/ejercicio_individual.md)
 - [Trabajo Practico 2C 2024](./proyecto/24C2/proyecto.md)
   - [Examen Final 2C 2024](./proyecto/24C2/examen_final.md)
 - [Demos 1C 2024](./proyecto/24C1/demos.md)
