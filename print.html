@@ -763,7 +763,221 @@ En este trabajo práctico prototiparemos un honeypot de un servidor FTP.</p>
 <li>Las funciones no deben tener una extensión mayor a 30 líneas. Si se requiriera una extensión mayor, se deberá particionarla en varias funciones.</li>
 <li>Cada tipo de dato implementado debe ser colocado en una unidad de compilación (archivo fuente) independiente.</li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="ejercicio-individual-1c-2025"><a class="header" href="#ejercicio-individual-1c-2025">Ejercicio Individual 1C 2025</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="rust-the-forth"><a class="header" href="#rust-the-forth">Rust the Forth</a></h1>
+<blockquote>
+<p><em>Donde <code>stack overflow</code> no es la solución, sino el problema...</em></p>
+</blockquote>
+<h2 id="introducción-1"><a class="header" href="#introducción-1">Introducción</a></h2>
+<p><a href="https://www.forth.com/forth/">Forth</a> es un lenguaje de programación <a href="https://en.wikipedia.org/wiki/Stack-oriented_programming">orientado a pilas</a> diseñado por <a href="https://en.wikipedia.org/wiki/Charles_H._Moore">Charles H. Moore</a> (no, no es el de la Ley de Moore, ese es <a href="https://es.wikipedia.org/wiki/Gordon_Moore">Gordon Moore</a>) y utilizado por primera vez en el año 1970. A lo largo de su historia, Forth está presente principalmente en desarrollos orientados a aplicaciones en astronomía (como el sistema de vuelo de la sonda <a href="https://en.wikipedia.org/wiki/Philae_(spacecraft)">Philae</a>) y en sistemas embebidos, debido a su diseño apropiado para la limitada memoria de los microcomputadores de la epoca. Adicionalmente, a lo largo de la década de los 80, Electronic Arts ha publicado multiples juegos desarrollados en Forth, incluyendo <a href="https://en.wikipedia.org/wiki/Worms%3F">Worms?</a>, <a href="https://en.wikipedia.org/wiki/Lords_of_Conquest">Lords of Conquest</a> y <a href="https://en.wikipedia.org/wiki/Starflight#Development">Starflight</a>, el cual, según sus desarrolladores, fue elegido debido a que &quot;era más fácil que assembly y mas compacto&quot;.</p>
+<h3 id="estructura-del-lenguaje"><a class="header" href="#estructura-del-lenguaje">Estructura del lenguaje</a></h3>
+<p>Forth basa su funcionamiento en el uso de stacks de datos y en la <a href="https://en.wikipedia.org/wiki/Reverse_Polish_notation">Notación Polaca Inversa</a>. Este tipo de notación postfix le otorga facilidad para el parseo y extension del lenguaje.</p>
+<h4 id="ejemplo-1"><a class="header" href="#ejemplo-1">Ejemplo 1</a></h4>
+<p>Si quisiesemos computar el valor de la siguiente expresion aritmética: <strong>3 * (25 + 10)</strong>, utilizando notación polaca inversa, escribiríamos:</p>
+<pre><code>25 10 + 3 * CR .
+</code></pre>
+<p>Al ejecutar esta expresion primero se lee el numero 25 y se pushea en la pila, luego ocurre lo mismo con el numero 10. Ejecutar un valor numerico sin contexto es igual a pushear su valor a la pila.</p>
+<table><thead><tr><th>BASE</th></tr></thead><tbody>
+<tr><td>25</td></tr>
+<tr><td>10</td></tr>
+</tbody></table>
+<p>Luego aplicamos la suma (<code>+</code>), la cual popea los primeros dos elementos de la pila, aplica la operacion, y luego pushea el resultado a la pila.</p>
+<table><thead><tr><th>BASE</th></tr></thead><tbody>
+<tr><td>35</td></tr>
+</tbody></table>
+<p>Pusheamos el 3 a la pila.</p>
+<table><thead><tr><th>BASE</th></tr></thead><tbody>
+<tr><td>35</td></tr>
+<tr><td>3</td></tr>
+</tbody></table>
+<p>Aplicamos la multiplicación (analoga en funcionamiento a la suma), y pusheamos el resultado a la pila.</p>
+<p>Luego, aplicamos la funcion <code>CR</code> (carriage return), que aplica un salto de linea a la salida estandar.</p>
+<table><thead><tr><th>BASE</th></tr></thead><tbody>
+<tr><td>105</td></tr>
+</tbody></table>
+<p>Finalmente, aplicamos la funcion <code>.</code>, la cual popea el primer elemento del stack y lo imprime por salida estandar.</p>
+<table><thead><tr><th>BASE</th></tr></thead><tbody>
+</tbody></table>
+<p>El resultado de ejecutar el anterior programa sería el siguiente (noten la linea vacía al comienzo):</p>
+<pre><code>&lt;cr&gt;
+105
+</code></pre>
+<hr />
+<h3 id="definicion-de-nuevas-palabras-words"><a class="header" href="#definicion-de-nuevas-palabras-words">Definicion de nuevas palabras (words)</a></h3>
+<p>Forth permite la definición de nuevas palabras (en adelante, denominadas <em>words</em>) para la extensión del lenguaje a traves de la siguiente sintaxis:</p>
+<pre><code class="language-bash">: &lt;word-name&gt; &lt;word-body&gt; ; 
+# Es importante la definición de espacios entre words
+</code></pre>
+<p>Para su almacenamiento, Forth implementa un diccionario de palabras que mapea nombres a codigo Forth ejecutable. Normalmente la implementación de este diccionario se lleva a cabo mediante un árbol de listas enlazadas, aunque no será obligatorio utilizar este tipo de dato (TDA) para este ejercicio.</p>
+<p>Forth permite adicionalmente la redefinición tanto de words definidas en runtime como de words y operadores (+, -, *, etc.); no así la redefinición de números.</p>
+<pre><code class="language-bash">: 4 5 ; # Esto no es válido
+</code></pre>
+<blockquote>
+<p>Aclaración: las words son case-insensitive.</p>
+</blockquote>
+<h4 id="ejemplo-2"><a class="header" href="#ejemplo-2">Ejemplo 2</a></h4>
+<p>Si quisiésemos definir una word MAX, el cual dado dos números retorne el máximo entre ellos:</p>
+<pre><code>: MAX OVER OVER &lt; IF SWAP THEN DROP ;
+</code></pre>
+<pre><code>10 20 MAX
+</code></pre>
+<p>Pusheamos 10 y 20 a la pila. Aplicamos la word MAX.</p>
+<table><thead><tr><th>BASE</th></tr></thead><tbody>
+<tr><td>10</td></tr>
+<tr><td>20</td></tr>
+</tbody></table>
+<p>Aplicamos OVER dos veces. OVER toma el segundo elemento mas cercano a la parte superior de la pila, y lo duplica, posicionandolo en la parte superior.</p>
+<table><thead><tr><th>BASE</th></tr></thead><tbody>
+<tr><td>10</td></tr>
+<tr><td>20</td></tr>
+<tr><td>10</td></tr>
+<tr><td>20</td></tr>
+</tbody></table>
+<p>Aplicamos &lt;. Si bien en Forth no existen los booleanos en sí, por convención el 0 es tratado como falso, y cualquier otro valor como verdadero (aunque canónicamente, se considera al -1 como verdadero).</p>
+<p>Aplicamos IF, el cual popea el primer valor de la pila y:</p>
+<ul>
+<li>Si el valor es verdadero, ejecuta la siguiente secuencia de words.</li>
+<li>Si es falso, ignora el resto de las palabras hasta encontrarse con la palabra THEN.</li>
+</ul>
+<p>Dado que en nuestro caso es verdadero (-1),</p>
+<table><thead><tr><th>BASE</th></tr></thead><tbody>
+<tr><td>10</td></tr>
+<tr><td>20</td></tr>
+<tr><td>-1</td></tr>
+</tbody></table>
+<p>Aplicamos SWAP, el cual invierte la posicion de los primeros dos elementos de la pila, y,</p>
+<table><thead><tr><th>BASE</th></tr></thead><tbody>
+<tr><td>20</td></tr>
+<tr><td>10</td></tr>
+</tbody></table>
+<p>Aplicamos DROP, el cual remueve el primer elemento de la pila, dejando finalmente el valor maximo en la punta de la pila.</p>
+<table><thead><tr><th>BASE</th></tr></thead><tbody>
+<tr><td>20</td></tr>
+</tbody></table>
+<h2 id="ejercicio"><a class="header" href="#ejercicio">Ejercicio</a></h2>
+<p>El ejercicio propuesto es implementar una versión en Rust de un intérprete del estandar Forth-79.</p>
+<h3 id="operaciones-soportadas"><a class="header" href="#operaciones-soportadas">Operaciones soportadas</a></h3>
+<p>El interprete deberá soportar las siguientes operaciones:</p>
+<ul>
+<li>Aritmética de enteros: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>.</li>
+<li>Manipulación de stack: <code>DUP</code>, <code>DROP</code>, <code>SWAP</code>, <code>OVER</code>, <code>ROT</code>.</li>
+<li>Definición de words.</li>
+<li>Generación de output: <code>.</code>, <code>EMIT</code>, <code>CR</code>, <code>.&quot; &quot;</code>.</li>
+<li>Operaciones booleanas: <code>=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>AND</code>, <code>OR</code>, <code>NOT</code>.</li>
+<li>Evaluación de condicionales: <code>IF ... THEN</code>, <code>IF ... THEN ... ELSE</code>.
+<ul>
+<li>Aclaracion: <code>IF</code> consume el ultimo elemento del stack.</li>
+</ul>
+</li>
+</ul>
+<p>La pila de datos del intérprete debera estar diseñada para almacenar enteros (con signo) de 16 bits.</p>
+<p>Respecto de la sintaxis, seguirimos una serie de reglas sencillas (no necesariamente las que sigue el estandar de Forth, pero mas que suficientes para este ejercicio):</p>
+<blockquote>
+<p>Un numero es una secuencia de uno o mas digitos ASCII; una word es una secuencia de una o mas letras, digitos, simbolos y puntuaciones que no conforme un numero.</p>
+</blockquote>
+<h3 id="manejo-de-errores"><a class="header" href="#manejo-de-errores">Manejo de errores</a></h3>
+<p>Haremos un manejo sencillo de errores: en caso de error, imprimiremos el error por stdout (sin aplicar saltos de linea) y terminaremos la ejecucion del script .fth. Algunos errores comunes pueden ser:</p>
+<ul>
+<li><code>stack-underflow</code>: cuando una operación intenta popear un elemento de una pila vacía.</li>
+<li><code>stack-overflow</code>: cuando una operación intenta pushear un elemento a una pila que se encuentra en su capacidad máxima de memoria.</li>
+<li><code>invalid-word</code>: cuando se trata de definir una word invalida, por ejemplo: <code>: 1 1 ;</code>.</li>
+<li><code>division-by-zero</code>: cuando se trata de dividir por cero.</li>
+<li><code>?</code>: cuando el interprete no puede hallar la definición de la word evaluada.</li>
+</ul>
+<p>En estos casos, el mensaje de error debe ser tal cual el especificado previamente.</p>
+<p>En caso de otros errores que no pertenezcan a ninguna de estas categorías, se debera imprimir un error custom descriptivo.</p>
+<h3 id="formato-de-input"><a class="header" href="#formato-de-input">Formato de input</a></h3>
+<p>Se llamará a nuestro programa pasándole por primer parámetro la ruta al modulo .fth a evaluar. Opcionalmente, se puede pasar el tamaño del stack (en bytes) a reservar por el interprete; el tamaño por defecto sera de 128 KB.</p>
+<pre><code>cargo run -- ruta/a/main.fth stack-size={{size}} 
+</code></pre>
+<h3 id="formato-de-output"><a class="header" href="#formato-de-output">Formato de output</a></h3>
+<p>El output se realizara a través de salida estandar (STDOUT, no STDERR), y se espera que <strong>solamente</strong> se impriman aquellas cosas producidas por las words que generan output. Cada operación de output debe estar separada por whitespace, a excepcion de <code>CR</code> que, por definición, imprime un <em>carriage return</em>, aunque en nuestro caso imprimiremos un <em>line feed</em> (<code>\n</code>).</p>
+<p>Además, al finalizar la ejecución, se debe escribir en un archivo del directorio actual llamado <code>stack.fth</code> el stack restante de la ejecución, en orden de inserción (los elementos más antiguos primero). Si el archivo ya existe, debe sobrescribirse.</p>
+<p>Por ejemplo, el siguiente código:</p>
+<pre><code>1 2 3 4 5
+. . CR .
+</code></pre>
+<p>Imprimirá por STDOUT lo siguiente:</p>
+<pre><code>5 4
+3
+</code></pre>
+<p>Y escribirá en el archivo <code>stack</code>:</p>
+<pre><code>1 2
+</code></pre>
+<h3 id="mas-ejemplos"><a class="header" href="#mas-ejemplos">Mas ejemplos</a></h3>
+<h4 id="hello-world"><a class="header" href="#hello-world">Hello world</a></h4>
+<pre><code class="language-bash">: HELLO CR .&quot; Hello, World!&quot; ;
+HELLO
+</code></pre>
+<pre><code class="language-bash"># Output
+&lt;cr&gt;
+Hello, World!
+</code></pre>
+<h4 id="valor-absoluto-de-un-numero"><a class="header" href="#valor-absoluto-de-un-numero">Valor absoluto de un numero</a></h4>
+<pre><code class="language-bash">: NEGATE -1 * ;
+: ABS DUP 0 &lt; IF NEGATE THEN ; 
+-30 ASB .
+</code></pre>
+<pre><code class="language-bash"># Output
+30
+</code></pre>
+<h4 id="número-es-par"><a class="header" href="#número-es-par">¿Número es par?</a></h4>
+<pre><code class="language-bash">: EVEN? DUP 2 / 2 * = ;
+30 EVEN? .
+15 EVEN? CR .
+</code></pre>
+<pre><code class="language-bash"># Output
+-1 &lt;cr&gt;
+0
+</code></pre>
+<h4 id="stack-underflow"><a class="header" href="#stack-underflow">Stack Underflow</a></h4>
+<pre><code class="language-bash">1 1
+. . cr .
+</code></pre>
+<pre><code class="language-bash"># Output
+1 1
+stack-underflow
+</code></pre>
+<h2 id="recursos-útiles"><a class="header" href="#recursos-útiles">Recursos útiles</a></h2>
+<ul>
+<li><a href="https://pages.physics.wisc.edu/%7Elmaurer/forth/Forth-79.pdf">Forth-79</a>: publicación del Forth Standars Team.</li>
+<li><a href="https://skilldrick.github.io/easyforth/">Easy Forth</a>: un ebook diseñado para enseñar Forth de una manera sencilla mediante ejemplos, escrito por Nick Morgan.</li>
+</ul>
+<h2 id="restricciones"><a class="header" href="#restricciones">Restricciones</a></h2>
+<ul>
+<li>Escribir el programa sin utilizar .unwrap() o .expect(). Todo caso de error deberá manejarse ideomaticamente con las estructuras y funciones brindadas por el lenguaje.</li>
+<li>No se permite que el programa lance un <a href="https://doc.rust-lang.org/book/ch09-01-unrecoverable-errors-with-panic.html">panic!()</a>.</li>
+<li>No se permite utilizar la función <a href="https://doc.rust-lang.org/std/process/fn.exit.html">exit()</a>. Se deberá salir del programa finalizando el scope de la función main.</li>
+<li>No se permite utilizar el módulo <a href="https://doc.rust-lang.org/std/mem/">mem</a> para la manipulación de memoria.</li>
+<li>Para realizar un uso adecuado de memoria y respetar las reglas de ownership se deberá evitar el uso de <a href="https://doc.rust-lang.org/std/clone/trait.Clone.html">.clone()</a> y <a href="https://doc.rust-lang.org/std/marker/trait.Copy.html">.copy()</a>.</li>
+<li>Todo el programa puede ser resuelto con lo aprendido en clase hasta la presentación de este ejercicio. No se espera (ni se acepta) que se utilicen estructuras relacionadas a concurrencia o redes para resolución de este ejercicio.</li>
+</ul>
+<h2 id="requerimientos-no-funcionales-4"><a class="header" href="#requerimientos-no-funcionales-4">Requerimientos no funcionales</a></h2>
+<p>Los siguientes son los requerimientos no funcionales para la resolución del proyecto:</p>
+<ul>
+<li>El proyecto deberá ser desarrollado en la última version estable de Rust (compilador versión 1.85), usando las herramientas de la biblioteca estándar.</li>
+<li>El proyecto deberá realizarse de manera individual. Cualquier tipo de copia significa la expulsión automática de la materia.</li>
+<li>No está permitido el uso de código generado por ninguna IA, ni copiar código de soluciones existentes en internet. </li>
+<li>Se deben implementar tests unitarios y de integración de las funcionalidades que se consideren más importantes.</li>
+<li>No se permite utilizar crates externos.</li>
+<li>El código fuente debe compilarse en la versión estable del compilador y no se permite utilizar bloques unsafe.</li>
+<li>El código deberá funcionar en ambiente Unix / Linux.</li>
+<li>El programa deberá ejecutarse en la línea de comandos.</li>
+<li>La compilación no debe arrojar warnings del compilador, ni del linter clippy.</li>
+<li>Las funciones y los tipos de datos (struct) deben estar documentados siguiendo el estándar de cargo doc.</li>
+<li>El código debe formatearse utilizando cargo fmt.</li>
+<li>Las funciones no deben tener una extensión mayor a 30 líneas. Si se requiriera una extensión mayor, se deberá particionarla en varias funciones.</li>
+<li>Cada tipo de dato implementado debe ser colocado en una unidad de compilación (archivo fuente) independiente.</li>
+</ul>
+<blockquote>
+<p><strong>IMPORTANTE: no cumplir con todas las restricciones y requisitos no funcionales implica la reentrega automática del ejercicio. Se debe prestar minuciosa atención a cada uno de los detalles.</strong></p>
+</blockquote>
+<h2 id="fechas-de-entrega"><a class="header" href="#fechas-de-entrega">Fechas de entrega</a></h2>
+<p>Primer entrega: Lunes 31 de Marzo de 2025 hasta las 18hs.</p>
+<blockquote>
+<p><strong>No cumplir con la primer entrega imposibilitará la continuidad en la materia</strong> </p>
+</blockquote>
+<p>Luego de la primer entrega se harán las correcciones correspondientes y se podrá volver a entregar el ejercicio en dos oportunidades más.</p>
+<p>La forma de entrega se comunicará por el canal de avisos.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="proyecto-agentes-autónomos-de-prevención"><a class="header" href="#proyecto-agentes-autónomos-de-prevención">Proyecto: Agentes Autónomos de Prevención</a></h1>
 <h2 id="grupo-los-tallerines"><a class="header" href="#grupo-los-tallerines">Grupo: Los Tallerines</a></h2>
 <p>Alumnos: Valeria Brzoza y Tomás Cichero</p>
@@ -825,7 +1039,7 @@ En este trabajo práctico prototiparemos un honeypot de un servidor FTP.</p>
 </li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="proyecto-agentes-autónomos-de-prevención-1"><a class="header" href="#proyecto-agentes-autónomos-de-prevención-1">Proyecto: Agentes Autónomos de Prevención</a></h1>
-<h2 id="introducción-1"><a class="header" href="#introducción-1">Introducción</a></h2>
+<h2 id="introducción-2"><a class="header" href="#introducción-2">Introducción</a></h2>
 <p>El gobierno de la Ciudad de Buenos Aires desea implementar un sistema de vigilancia en la vía publica incorporando a sur red de monitoreo una flota de drones autónomos para realizar tareas de prevención de incidentes.
 Para lo cual se deberá construir una red de mensajería asincrónica, respetando alguno de los protocolos existentes de <em>message broking</em> como por ejemplo: MQTT, AMQP, entre otros.</p>
 <h2 id="objetivo-del-proyecto"><a class="header" href="#objetivo-del-proyecto">Objetivo del Proyecto</a></h2>
@@ -877,7 +1091,7 @@ Ademas permitira el ingreso por parte del usuario de nuevos incidentes y la modi
 <em>Opcional: La aplicacion puede permitir el envio de notificaciones a los agentes para realizar determinadas acciones como por ejemplo regresar a la central.</em>
 A continuacion se muestra un ejemplo de la visualizacion del mapa geografico a modo de referencia:</p>
 <p><img src="proyecto/24C1/./ui.png" alt="Interfaz" /></p>
-<h2 id="requerimientos-no-funcionales-4"><a class="header" href="#requerimientos-no-funcionales-4">Requerimientos no funcionales</a></h2>
+<h2 id="requerimientos-no-funcionales-5"><a class="header" href="#requerimientos-no-funcionales-5">Requerimientos no funcionales</a></h2>
 <p>Los siguientes son los requerimientos no funcionales para la resolución del proyecto:</p>
 <ul>
 <li>El proyecto deberá ser desarrollado en lenguaje Rust, utilizando las herramientas de la biblioteca estándar.</li>
@@ -928,12 +1142,12 @@ A continuacion se muestra un ejemplo de la visualizacion del mapa geografico a m
 <li>Demo en vivo de las aplicaciones incluidas para esta entrega, donde se pueda observar su comunicación con el servicio de mensajería y la correcta entrega y recepción de mensajes. </li>
 </ul>
 <p>Todos los miembros del grupo deberán participar de la demo y explicar su participación en el proyecto, incluyendo detalles de implementación.</p>
-<h2 id="fechas-de-entrega"><a class="header" href="#fechas-de-entrega">Fechas de entrega:</a></h2>
+<h2 id="fechas-de-entrega-1"><a class="header" href="#fechas-de-entrega-1">Fechas de entrega:</a></h2>
 <p>Entrega intermedia: 27 de Mayo de 2024.</p>
 <p>Entrega final de la cursada:  24 de Junio de 2024.</p>
 <p><strong>Estas entregas serán presenciales en la sede de la Facultad.</strong></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="agregado-final-1c-2024-reconocimiento-de-imágenes"><a class="header" href="#agregado-final-1c-2024-reconocimiento-de-imágenes">Agregado Final 1C 2024: Reconocimiento de Imágenes</a></h1>
-<h2 id="introducción-2"><a class="header" href="#introducción-2">Introducción</a></h2>
+<h2 id="introducción-3"><a class="header" href="#introducción-3">Introducción</a></h2>
 <p>El reconocimiento de imágenes es una tecnología de inteligencia artificial que permite a las computadoras interpretar y comprender el contenido de imágenes digitales. Utiliza algoritmos de aprendizaje automático, particularmente redes neuronales convolucionales (CNN), para identificar y clasificar objetos, personas, escenas y otras características visuales dentro de una imagen. Este proceso comienza con la adquisición y preprocesamiento de grandes volúmenes de imágenes etiquetadas, seguido del entrenamiento del modelo que aprende a reconocer patrones y características específicas. Una vez entrenado, el modelo se evalúa y se implementa en aplicaciones prácticas, como seguridad y vigilancia, diagnóstico médico, vehículos autónomos y comercio electrónico.</p>
 <h2 id="objetivo"><a class="header" href="#objetivo">Objetivo</a></h2>
 <p>Se deberá incorporar la tecnología de reconocimiento de imágenes al sistema central de cámaras desarrollado durante el Trabajo Práctico del cuatrimestre, utilizando alguno de los proveedores de infraestructura en la nube reconocidos, como por ejemplo:</p>
@@ -950,7 +1164,7 @@ A continuacion se muestra un ejemplo de la visualizacion del mapa geografico a m
 <p>Para comunicarse con el proveedor de servicios de la nube se debe utilizar una estrategia de multithreading que permita ejecutar varios requests en paralelo, ya sea mediante el uso de una <a href="https://doc.rust-lang.org/book/ch20-02-multithreaded.html#improving-throughput-with-a-thread-pool">Thread Pool</a> o cualquier otro mecanismo implementado con <a href="https://doc.rust-lang.org/book/ch16-02-message-passing.html">channels</a>.</p>
 <p><strong>Nota:</strong> Los alumnos podrán optar por utilizar un modelo local de AI que resuelva el procesamiento de imágenes, en lugar de un proveedor en la nube. 
 Se advierte en este caso que deberán investigar su funcionamiento y el modo de entrenamiento necesario para cumplir con las necesidades de este proyecto.</p>
-<h1 id="requerimientos-no-funcionales-5"><a class="header" href="#requerimientos-no-funcionales-5">Requerimientos no funcionales</a></h1>
+<h1 id="requerimientos-no-funcionales-6"><a class="header" href="#requerimientos-no-funcionales-6">Requerimientos no funcionales</a></h1>
 <p>Los siguientes son los requerimientos no funcionales para la resolución del proyecto:</p>
 <ul>
 <li>El proyecto deberá ser desarrollado en lenguaje <strong>Rust</strong>, usando las herramientas de la biblioteca estándar.</li>
@@ -984,7 +1198,7 @@ Durante la demostración en vivo del sistema se deberá ir copiando distintas im
 <li>lunes 12/8</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="proyecto-aerolíneas-rusticas---2c-2024"><a class="header" href="#proyecto-aerolíneas-rusticas---2c-2024">Proyecto: Aerolíneas Rusticas - 2C 2024</a></h1>
-<h2 id="introducción-3"><a class="header" href="#introducción-3">Introducción</a></h2>
+<h2 id="introducción-4"><a class="header" href="#introducción-4">Introducción</a></h2>
 <p>Aerolíneas Rusticas les solicita implementar un sistema de control de vuelos global, debido a que necesita controlar los vuelos tanto nacionales, como internacionales, teniendo base en varios países. Para lograr este objetivo se desea implementar una base de datos distribuida que sea escalable y posea tolerancia a fallos.</p>
 <h2 id="objetivo-del-proyecto-1"><a class="header" href="#objetivo-del-proyecto-1">Objetivo del Proyecto</a></h2>
 <p>El objetivo principal de este proyecto es la implementación de un sistema de gestión de datos de vuelos de aeropuertos utilizando una base de datos distribuida compatible con Cassandra. Se deberá diseñar e implementar una base de datos distribuida que permita el almacenamiento y recuperación eficiente de datos distribuidos en múltiples nodos y soporte tolerancia a fallos ante la caída de uno o mas nodos de la red.</p>
@@ -1045,7 +1259,7 @@ Se deberán tener en cuenta conceptos como <a href="https://cassandra.apache.org
 <h3 id="simulador-de-vuelos"><a class="header" href="#simulador-de-vuelos">Simulador de Vuelos</a></h3>
 <p>Se deberá desarrollar una aplicación de consola encargada de simular el comportamiento de los vuelos. Dicha aplicación permitirá introducir un vuelo, indicando el número de vuelo, origen, destino y velocidad estimada promedio y simulará el comportamiento de ese vuelo generando datos de tracking del vuelo, como la posición en latitud y longitud, altitud, nivel de combustible, velocidad actual, entre otros, esta información se guardara como datos de <em>Seguimiento de vuelos</em> en curso (<strong>weak consistency</strong>).
 Esta aplicación deberá contemplar alguna estrategia de multithreading para soportar la simulación de múltiples vuelos al mismo tiempo, como por ejemplo mediante el uso de <a href="https://doc.rust-lang.org/book/ch20-02-multithreaded.html#improving-throughput-with-a-thread-pool">ThreadPool</a>.</p>
-<h2 id="requerimientos-no-funcionales-6"><a class="header" href="#requerimientos-no-funcionales-6">Requerimientos no funcionales</a></h2>
+<h2 id="requerimientos-no-funcionales-7"><a class="header" href="#requerimientos-no-funcionales-7">Requerimientos no funcionales</a></h2>
 <p>Los siguientes son los requerimientos no funcionales para la resolución del proyecto:</p>
 <ul>
 <li>El proyecto deberá ser desarrollado en lenguaje Rust, utilizando las herramientas de la biblioteca estándar.</li>
@@ -1139,12 +1353,12 @@ Por ejemplo: se debe producir un escenario de falla de alguno de los nodos (desc
 <li>Demo en vivo de la aplicación gráfica y el cluster de base de datos, donde se pueda observar su comunicación a través del protocolo nativo de Cassandra e incluya las funcionalidades requeridas para la entrega intermedia.</li>
 </ul>
 <p>Todos los miembros del grupo deberán participar de la demo y explicar su participación en el proyecto, incluyendo detalles de implementación.</p>
-<h2 id="fechas-de-entrega-1"><a class="header" href="#fechas-de-entrega-1">Fechas de entrega:</a></h2>
+<h2 id="fechas-de-entrega-2"><a class="header" href="#fechas-de-entrega-2">Fechas de entrega:</a></h2>
 <p>Entrega intermedia: Lunes 28 de Octubre de 2024.
 Entrega final de la cursada:  Lunes 2 de Diciembre de 2024.
 <strong>Estas entregas serán presenciales en la sede de la Facultad.</strong></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="agregado-final-2c-2024-containerization"><a class="header" href="#agregado-final-2c-2024-containerization">Agregado Final 2C 2024: Containerization</a></h1>
-<h2 id="introducción-4"><a class="header" href="#introducción-4">Introducción</a></h2>
+<h2 id="introducción-5"><a class="header" href="#introducción-5">Introducción</a></h2>
 <p><em>Containerization</em> es un enfoque de virtualización que permite ejecutar aplicaciones en entornos aislados llamados contenedores. A diferencia de las máquinas virtuales tradicionales, que requieren un sistema operativo completo para cada instancia, los contenedores comparten el mismo núcleo del sistema operativo, lo que los hace más ligeros y eficientes en términos de recursos.</p>
 <h3 id="docker"><a class="header" href="#docker">Docker</a></h3>
 <p>Docker es una plataforma de software que permite crear, implementar y ejecutar aplicaciones en contenedores, empaquetando el código de la aplicación junto con todas sus dependencias, bibliotecas y configuraciones necesarias para que funcione correctamente.</p>
@@ -1165,7 +1379,7 @@ Como mínimo se deberán incluir en la entrega los siguientes artefactos:</p>
 <p>Se pide realizar todos los cambios necesarios para que el sistema distribuido de DB soporte la incorporación y/o desvinculación de un nodo de la red. Es decir, dado un cluster de N nodos se deberá poder iniciar e incorporar un nuevo nodo a la red, de manera que este mismo reciba un rango de particionamiento para cada una de las tablas de la DB y los nodos existentes le envíen la información correspondiente a los datos del segmento de partición asignado al nuevo nodo. El nuevo nodo deberá entonces recibir la información de tablas, particiones y datos almacenados (de su propio segmento de particiones unicamente)</p>
 <h3 id="logger"><a class="header" href="#logger">Logger</a></h3>
 <p>De manera de poder visualizar facilmente el funcionamiento de los nodos en <em>Docker</em> se pide implementar un <em>Logger</em> que registre todos los mensajes enviados y recibidos por el nodo. Dicho logger deberá poder escribir en un archivo y en la salida estándar (<strong>stdout</strong>) al mismo tiempo, de manera de poder visualizar el log utilizando el comando: <strong>docker logs</strong>.</p>
-<h2 id="requerimientos-no-funcionales-7"><a class="header" href="#requerimientos-no-funcionales-7">Requerimientos no funcionales</a></h2>
+<h2 id="requerimientos-no-funcionales-8"><a class="header" href="#requerimientos-no-funcionales-8">Requerimientos no funcionales</a></h2>
 <p>Los siguientes son los requerimientos no funcionales para la resolución del proyecto:</p>
 <ul>
 <li>El proyecto deberá ser desarrollado en lenguaje Rust, utilizando las herramientas de la biblioteca estándar.</li>
@@ -1291,7 +1505,7 @@ No se permite definir valores hardcodeados en el codigo fuente, ya sean direccio
 <p><img src="https://i.imgur.com/F6xo4SC.png" alt="" /></p>
 <h3 id="ver-transacciones"><a class="header" href="#ver-transacciones">Ver transacciones</a></h3>
 <p><img src="https://i.imgur.com/xd9D0kY.png" alt="" /></p>
-<h2 id="requerimientos-no-funcionales-8"><a class="header" href="#requerimientos-no-funcionales-8">Requerimientos no funcionales</a></h2>
+<h2 id="requerimientos-no-funcionales-9"><a class="header" href="#requerimientos-no-funcionales-9">Requerimientos no funcionales</a></h2>
 <p>Los siguientes son los requerimientos no funcionales para la resolución del proyecto:</p>
 <ul>
 <li>El proyecto deberá ser desarrollado en lenguaje <strong>Rust</strong>, usando las herramientas de la biblioteca estándar.</li>
@@ -1342,7 +1556,7 @@ No se permite definir valores hardcodeados en el codigo fuente, ya sean direccio
 <p>En dicha presentación se deberá detallar la arquitectura del proyecto, aprendizajes del mismo, y realizar una muestra funcional del desarrollo, esto es una &quot;demo&quot; como si fuera para el usuario final.</p>
 <p>El trabajo debe acompañarse por un informe que debe constar de los puntos detallados precedentemente, diagramas de secuencia de las operaciones más relevantes, diagrama de componentes y módulos de la arquitectura general del diseño desarrollado, todos acompañados de la explicación respectiva.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="agregado-final-2023c1-nodo-como-servidor"><a class="header" href="#agregado-final-2023c1-nodo-como-servidor">Agregado Final 2023C1: Nodo como servidor</a></h1>
-<h2 id="introducción-5"><a class="header" href="#introducción-5">Introducción</a></h2>
+<h2 id="introducción-6"><a class="header" href="#introducción-6">Introducción</a></h2>
 <p>Durante el cuatrimestre se desarrolló un proyecto de mediana envergadura en Rust, donde se implementó un <strong>Nodo de Bitcoin</strong> con funcionalidades acotadas. Para este final se propone acoplar a lo realizado durante el cuatrimestre un agregado donde el <strong>Nodo</strong> tambien tenga la funcionalidad de actuar como servidor, recibiendo conexiones entrantes de otros nodos clientes por el puerto que indica el <strong>protocolo</strong>. </p>
 <h2 id="requerimientos-funcionales-5"><a class="header" href="#requerimientos-funcionales-5">Requerimientos funcionales</a></h2>
 <p>El <strong>Nodo</strong> Bitcoin, además de cumplir con los requerimientos funcionales y no funcionales establecidos en el enunciado del Trabajo Practico, debera actuar como servidor, recibiendo conexiones entrantes de otros nodos y respondiendo a las solicitudes que estos realicen. 
@@ -1355,7 +1569,7 @@ Para ello debera cumplir con las siguientes funcionalidades: </p>
 <li>(opcional) Notificar al nodo cliente sobre nuevos bloques y transacciones recibidas desde otros nodos.</li>
 <li>Se debe poder visualizar el estado de la descarga en la interfaz grafica.</li>
 </ol>
-<h2 id="requerimientos-no-funcionales-9"><a class="header" href="#requerimientos-no-funcionales-9">Requerimientos no funcionales</a></h2>
+<h2 id="requerimientos-no-funcionales-10"><a class="header" href="#requerimientos-no-funcionales-10">Requerimientos no funcionales</a></h2>
 <p>Los siguientes son los requerimientos no funcionales para la resolución del proyecto:</p>
 <ul>
 <li>El proyecto deberá ser desarrollado en lenguaje <strong>Rust</strong>, usando las herramientas de la biblioteca estándar.</li>
@@ -1446,7 +1660,7 @@ A continuacion se puede observar un diagrama que representa la interaccion entre
 <p><img src="https://hackmd.io/_uploads/rJ8tKocTn.png" alt="" /></p>
 <p>En los casos en los que se presente un conflicto entre commits la interfaz debe permitir en forma grafica visualizar y resolver estos conflictos.</p>
 <p><img src="https://hackmd.io/_uploads/rJRxqi5Th.png" alt="" /></p>
-<h2 id="requerimientos-no-funcionales-10"><a class="header" href="#requerimientos-no-funcionales-10">Requerimientos no funcionales</a></h2>
+<h2 id="requerimientos-no-funcionales-11"><a class="header" href="#requerimientos-no-funcionales-11">Requerimientos no funcionales</a></h2>
 <p>Los siguientes son los requerimientos no funcionales para la resolución del proyecto:</p>
 <ul>
 <li>El proyecto deberá ser desarrollado en lenguaje Rust, utilizando las herramientas de la biblioteca estándar.</li>
@@ -1507,12 +1721,12 @@ Ademas se debe demostrar que el cliente desarrollado puede conectarse indistinta
 <p>El desarrollo del proyecto finaliza el último día de clases del cuatrimestre. En esa fecha, cada grupo deberá realizar una presentación final y se hará una evaluación global del trabajo.</p>
 <p>En dicha presentación se deberá detallar la arquitectura del proyecto, aprendizajes del mismo, y realizar una muestra funcional del desarrollo, esto es una &quot;demo&quot; como si fuera para el usuario final.</p>
 <p>El trabajo debe acompañarse por un informe que debe constar de los puntos detallados precedentemente, diagramas de secuencia de las operaciones más relevantes, diagrama de componentes y módulos de la arquitectura general del diseño desarrollado, todos acompañados de la explicación respectiva.</p>
-<h2 id="fechas-de-entrega-2"><a class="header" href="#fechas-de-entrega-2">Fechas de entrega</a></h2>
+<h2 id="fechas-de-entrega-3"><a class="header" href="#fechas-de-entrega-3">Fechas de entrega</a></h2>
 <p>Entrega intermedia: Lunes 6 de Noviembre de 2023</p>
 <p>Entrega final de la cursada:  Lunes 4 de Diciembre de 2023</p>
 <p><strong>Estas entregas serán presenciales en la sede de la Facultad.</strong></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="agregado-final-2023c2-pull-requests"><a class="header" href="#agregado-final-2023c2-pull-requests">Agregado Final 2023C2: Pull Requests</a></h1>
-<h2 id="introducción-6"><a class="header" href="#introducción-6">Introducción</a></h2>
+<h2 id="introducción-7"><a class="header" href="#introducción-7">Introducción</a></h2>
 <p>Durante el cuatrimestre se desarrolló un proyecto de mediana envergadura en Rust, donde se implementó un <strong>Cliente</strong> y un <strong>Servidor</strong> de <strong>Git</strong>. Para este final se propone acoplar a lo realizado durante el cuatrimestre un agregado donde el <strong>Servidor</strong> incorpore una API web para la administración de <strong>Pull Requests</strong>. </p>
 <h2 id="requerimientos-funcionales-7"><a class="header" href="#requerimientos-funcionales-7">Requerimientos funcionales</a></h2>
 <p>El <strong>Servidor</strong>, además de cumplir con los requerimientos funcionales y no funcionales establecidos en el enunciado del Trabajo Práctico, deberá exponer una API web en un puerto indicado por configuración, por el cual recibirá <strong>Requests</strong> respetando el protocolo <strong>HTTP</strong> para realizar las siguientes operaciones: </p>
@@ -1526,7 +1740,7 @@ Ademas se debe demostrar que el cliente desarrollado puede conectarse indistinta
 <li>(opcional) Soportar mas de un <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types">media type</a>.</li>
 </ol>
 <p>Como mínimo se pide implementar el media type: <code>application/json</code></p>
-<h2 id="requerimientos-no-funcionales-11"><a class="header" href="#requerimientos-no-funcionales-11">Requerimientos no funcionales</a></h2>
+<h2 id="requerimientos-no-funcionales-12"><a class="header" href="#requerimientos-no-funcionales-12">Requerimientos no funcionales</a></h2>
 <p>Los siguientes son los requerimientos no funcionales para la resolución del proyecto:</p>
 <ul>
 <li>El proyecto deberá ser desarrollado en lenguaje <strong>Rust</strong>, usando las herramientas de la biblioteca estándar.</li>
@@ -1552,7 +1766,7 @@ Los <strong>requests</strong> a realizar durante la demo en vivo deberán estar 
 <h2 id="fechas-de-final-3"><a class="header" href="#fechas-de-final-3">Fechas de final</a></h2>
 <p>El grupo deberá presentarse en una de las fechas de examen final, tal como se publica en el calendario respectivo.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="agregado-final-2023c2-releases"><a class="header" href="#agregado-final-2023c2-releases">Agregado Final 2023C2: Releases</a></h1>
-<h2 id="introducción-7"><a class="header" href="#introducción-7">Introducción</a></h2>
+<h2 id="introducción-8"><a class="header" href="#introducción-8">Introducción</a></h2>
 <p>Durante el cuatrimestre se desarrolló un proyecto de mediana envergadura en Rust, donde se implementó un <strong>Cliente</strong> y un <strong>Servidor</strong> de <strong>Git</strong>. Para este final se propone acoplar a lo realizado durante el cuatrimestre un agregado donde el <strong>Servidor</strong> incorpore una API web para la administración de <strong>Releases</strong>. </p>
 <h2 id="requerimientos-funcionales-8"><a class="header" href="#requerimientos-funcionales-8">Requerimientos funcionales</a></h2>
 <p>El <strong>Servidor</strong>, además de cumplir con los requerimientos funcionales y no funcionales establecidos en el enunciado del Trabajo Práctico, deberá exponer una API web en un puerto indicado por configuración, por el cual recibirá <strong>Requests</strong> respetando el protocolo <strong>HTTP</strong> para realizar las siguientes operaciones: </p>
@@ -1567,7 +1781,7 @@ Los <strong>requests</strong> a realizar durante la demo en vivo deberán estar 
 <li>(opcional) Soportar mas de un <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types">media type</a>.</li>
 </ol>
 <p>Como mínimo se pide implementar el media type: <code>application/json</code></p>
-<h2 id="requerimientos-no-funcionales-12"><a class="header" href="#requerimientos-no-funcionales-12">Requerimientos no funcionales</a></h2>
+<h2 id="requerimientos-no-funcionales-13"><a class="header" href="#requerimientos-no-funcionales-13">Requerimientos no funcionales</a></h2>
 <p>Los siguientes son los requerimientos no funcionales para la resolución del proyecto:</p>
 <ul>
 <li>El proyecto deberá ser desarrollado en lenguaje <strong>Rust</strong>, usando las herramientas de la biblioteca estándar.</li>
@@ -1598,7 +1812,7 @@ Los <strong>requests</strong> a realizar durante la demo en vivo deberán estar 
 <p><strong>¡IMPORTANTE!</strong></p>
 <p>Se modificó la lista de crates externos permitidos, agregando opciones para la conexión cifrada con el tracker, para logging y para obtención de timestamp, entre otros. Chequear la sección <a href="proyecto/22C1/proyecto.html#crates-externos-permitidos">Crates externos permitidos</a>.</p>
 <hr />
-<h2 id="introducción-8"><a class="header" href="#introducción-8">Introducción</a></h2>
+<h2 id="introducción-9"><a class="header" href="#introducción-9">Introducción</a></h2>
 <p>BitTorrent es un protocolo de capa de aplicación de arquitectura P2P que se utiliza para transferencia de archivos entre múltiples dispositivos que se denominan peers. Debido a su arquitectura, BitTorrent es un protocolo escalable ya que no tiene un único punto de falla, más bien todos los peers garantizan la transferencia de un archivo de un nodo de la red a otro. Se denomina torrent al conjunto de peers que participan en la distribución de un archivo en particular.</p>
 <p>Para transferir un archivo a este se lo separa en chunks de igual tamaño y varios peers pueden transferir varios chunks de manera simultánea. Cuando un peer se suma a un torrent, inicialmente no tiene el archivo, e irá progresivamente recibiendo chunks hasta tenerlo por completo.</p>
 <p>La documentación oficial del proyecto BitTorrent se encuentra en: https://www.bittorrent.org/.</p>
@@ -1626,7 +1840,7 @@ Se deberán implementar tests de integración automatizados.</li>
 <p>El desarrollo del proyecto finaliza el último día de clases del cuatrimestre. En esa fecha, cada grupo deberá realizar una presentación final y se hará una evaluación global del trabajo.</p>
 <p>En dicha presentación se deberá detallar la arquitectura del proyecto, aprendizajes del mismo, y realizar una muestra funcional del desarrollo, esto es una &quot;demo&quot; como si fuera para el usuario final.</p>
 <p>El trabajo debe acompañarse por un informe que debe constar de los puntos detallados precedentemente, diagramas de secuencia de las operaciones más relevantes, diagrama de componentes y módulos de la arquitectura general del diseño desarrollado, todos acompañados de la explicación respectiva.</p>
-<h2 id="requerimientos-no-funcionales-13"><a class="header" href="#requerimientos-no-funcionales-13">Requerimientos no funcionales</a></h2>
+<h2 id="requerimientos-no-funcionales-14"><a class="header" href="#requerimientos-no-funcionales-14">Requerimientos no funcionales</a></h2>
 <p>Los siguientes son los requerimientos no funcionales para la resolución del proyecto:</p>
 <ul>
 <li>El proyecto deberá ser desarrollado en lenguaje Rust, usando las herramientas de la biblioteca estándar.</li>
@@ -1770,7 +1984,7 @@ Como requerimiento particular del Proyecto, NO se considerará válido que el se
 <div style="break-before: page; page-break-before: always;"></div><h1 id="proyecto-irc-internet-rust-chat"><a class="header" href="#proyecto-irc-internet-rust-chat">Proyecto IRC (Internet Rust Chat)</a></h1>
 <h2 id="objetivo-2"><a class="header" href="#objetivo-2">Objetivo</a></h2>
 <p>El objetivo del presente Trabajo Práctico consiste en el desarrollo de un servidor y un cliente de chat siguiendo los lineamientos del protocolo IRC.</p>
-<h2 id="introducción-9"><a class="header" href="#introducción-9">Introducción</a></h2>
+<h2 id="introducción-10"><a class="header" href="#introducción-10">Introducción</a></h2>
 <p>Internet Relay Chat (IRC) es un protocolo de mensajería de texto diseñado para conversaciones grupales, mediante el uso de canales, con soporte adicional para conversaciones uno a uno.</p>
 <p>El protocolo funciona con un modelo cliente-servidor, donde los clientes se conectan a un servidor, que a su vez puede estar conectado a otros en una red de servidores.</p>
 <p>La definición base de como funciona esta dada en documentos RFCs. El mayormente adoptado como base es el <a href="https://www.rfc-editor.org/rfc/rfc1459">RFC1459</a>, aunque la mayoría de las redes no se adecúan completamente a ninguna RFC.</p>
@@ -1883,7 +2097,7 @@ Si el mismo NO cumple con la cantidad de trabajo requerido, el grupo podrá esta
 Cabe mencionar que estos desvíos de los requerimientos iniciales se presentan en situaciones reales de trabajo con clientes.</p>
 <h2 id="finalización-del-proyecto-5"><a class="header" href="#finalización-del-proyecto-5">Finalización del Proyecto</a></h2>
 <p>El desarrollo del proyecto finaliza el último día de clases del cuatrimestre. En esa fecha, cada grupo deberá realizar una presentación final y se hará una evaluación global del trabajo.</p>
-<h2 id="requerimientos-no-funcionales-14"><a class="header" href="#requerimientos-no-funcionales-14">Requerimientos no funcionales</a></h2>
+<h2 id="requerimientos-no-funcionales-15"><a class="header" href="#requerimientos-no-funcionales-15">Requerimientos no funcionales</a></h2>
 <p>Los siguientes son los requerimientos no funcionales para la resolución de los ejercicios:</p>
 <ul>
 <li>El proyecto deberá ser desarrollado en lenguaje Rust, usando las herramientas de la biblioteca estándar.</li>
@@ -1940,7 +2154,7 @@ Esta es una lista provisoria de cosas que tiene el sistema, pero se podrían ign
 <p>El grupo deberá presentarse en una de las fechas de examen final, tal como se publica en el calendario respectivo.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="proyecto-redis-oxidado---1er-cuatrimestre-2021"><a class="header" href="#proyecto-redis-oxidado---1er-cuatrimestre-2021">Proyecto: Redis Oxidado - 1er Cuatrimestre 2021</a></h1>
 <p><a href="proyecto/anteriores/21C1/./Proyecto_2021_1C_Redis.pdf"><strong>Descargar enunciado en PDF</strong></a></p>
-<h2 id="introducción-10"><a class="header" href="#introducción-10">Introducción</a></h2>
+<h2 id="introducción-11"><a class="header" href="#introducción-11">Introducción</a></h2>
 <p><a href="https://redis.io/"><strong>Redis</strong></a> es un almacenamiento principalmente en memoria, usado como una Base de Datos de tipo <strong>clave / valor</strong> en memoria, como también como <em>caché</em> y <em>broker</em> de mensajes, con opción a persistencia de los datos.</p>
 <p>Redis soporta distintos tipos de estructuras de datos: strings, listas, hashmaps, sets, sets ordenados, bitmaps, entre varios otros.</p>
 <p>Redis tiene una muy buena performance, dado que trabaja con los datos en memoria. Es posible persistir los datos periódicamente a un almacenamiento de disco.</p>
@@ -1980,7 +2194,7 @@ Si el mismo NO cumple con la cantidad de trabajo requerido, el grupo podrá esta
 Cabe mencionar que estos desvíos de los requerimientos iniciales se presentan en situaciones reales de trabajo con clientes.</p>
 <h2 id="finalización-del-proyecto-6"><a class="header" href="#finalización-del-proyecto-6">Finalización del Proyecto</a></h2>
 <p>El desarrollo del proyecto finaliza el último día de clases del cuatrimestre. En esa fecha, cada grupo deberá realizar una presentación final y se hará una evaluación global del trabajo.</p>
-<h2 id="requerimientos-no-funcionales-15"><a class="header" href="#requerimientos-no-funcionales-15">Requerimientos no funcionales</a></h2>
+<h2 id="requerimientos-no-funcionales-16"><a class="header" href="#requerimientos-no-funcionales-16">Requerimientos no funcionales</a></h2>
 <p>Los siguientes son los requerimientos no funcionales para la resolución de los ejercicios:</p>
 <ul>
 <li>El proyecto deberá ser desarrollado en lenguaje Rust, usando las herramientas de la biblioteca estándar.</li>
@@ -2309,14 +2523,14 @@ Identifier</em>).</p>
 <p>La respuesta del servidor Redis la deberá re-enviar el servidor web al browser y mostrar en un recuadro.</p>
 <p>Se deberá implementar las comunicaciones HTTP entre el servidor web con mensajes del protocolo, respetando los headers.</p>
 <p>Se deberá implementar el cliente del protocolo Redis hacia el servidor. <strong>NO</strong> se permite el uso de crates externos para la implementación del cliente Redis ni para el servidor HTTP.</p>
-<h2 id="requerimientos-no-funcionales-16"><a class="header" href="#requerimientos-no-funcionales-16">Requerimientos no funcionales</a></h2>
+<h2 id="requerimientos-no-funcionales-17"><a class="header" href="#requerimientos-no-funcionales-17">Requerimientos no funcionales</a></h2>
 <ul>
 <li>Valen los mismos requerimientos que para la primera parte del Trabajo Práctico.</li>
 </ul>
 <h2 id="condiciones-de-aprobación"><a class="header" href="#condiciones-de-aprobación">Condiciones de aprobación</a></h2>
 <p>(Serán detalladas en clase)</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="proyecto-mqtt-rústico---2do-cuatrimestre-2021"><a class="header" href="#proyecto-mqtt-rústico---2do-cuatrimestre-2021">Proyecto: MQTT Rústico - 2do Cuatrimestre 2021</a></h1>
-<h2 id="introducción-11"><a class="header" href="#introducción-11">Introducción</a></h2>
+<h2 id="introducción-12"><a class="header" href="#introducción-12">Introducción</a></h2>
 <p>MQTT es un protocolo de mensajería basado en el patrón de comunicación <em>publisher-suscriber</em> y la arquitectura <em>cliente-servidor</em>. Dentro de sus principales características se puede destacar que es un protocolo liviano, simple y sencillo de implementar. Es un protocolo de capa de aplicación binario construido sobre TCP/IP, lo cual lo convierte en una forma de comunicarse sumamente eficiente con un <em>overhead</em> mínimo en la cantidad de paquetes que se envían a través de la red, a diferencia de otros protocolos de capa de aplicación, como por ejemplo HTTP.</p>
 <p>Existen distintos estándares debido a que el protocolo ha ido evolucionando a través del tiempo (1.2, 3.1, 3.1.1, 5, etc). En particular, este proyecto estará centrado en la versión 3.1.1 del protocolo, cuya especificación puede encontrarse en el siguiente link: <a href="http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.pdf">MQTT-v3.1.1</a></p>
 <p>Su principal utilidad se da para implementar aplicaciones de IoT (Internet of Things), y se ha convertido en una forma estándar de comunicar dispositivos a través de la red. La principal causa de su éxito es que, gracias a sus características y funcionalidades ofrecidas, es un protocolo extremadamente simple, eficiente, sencillo de comprender e implementar y permite transferir datos a través de internet de forma confiable incluso por medio de canales de comunicación poco confiables.</p>
@@ -2356,7 +2570,7 @@ Si el mismo NO cumple con la cantidad de trabajo requerido, el grupo podrá esta
 Cabe mencionar que estos desvíos de los requerimientos iniciales se presentan en situaciones reales de trabajo con clientes.</p>
 <h2 id="finalización-del-proyecto-7"><a class="header" href="#finalización-del-proyecto-7">Finalización del Proyecto</a></h2>
 <p>El desarrollo del proyecto finaliza el último día de clases del cuatrimestre. En esa fecha, cada grupo deberá realizar una presentación final y se hará una evaluación global del trabajo.</p>
-<h2 id="requerimientos-no-funcionales-17"><a class="header" href="#requerimientos-no-funcionales-17">Requerimientos no funcionales</a></h2>
+<h2 id="requerimientos-no-funcionales-18"><a class="header" href="#requerimientos-no-funcionales-18">Requerimientos no funcionales</a></h2>
 <p>Los siguientes son los requerimientos no funcionales para la resolución de los ejercicios:</p>
 <ul>
 <li>El proyecto deberá ser desarrollado en lenguaje Rust, usando las herramientas de la biblioteca estándar.</li>

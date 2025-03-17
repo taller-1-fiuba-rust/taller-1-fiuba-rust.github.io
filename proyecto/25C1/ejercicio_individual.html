@@ -134,7 +134,221 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="ejercicio-individual-1c-2025"><a class="header" href="#ejercicio-individual-1c-2025">Ejercicio Individual 1C 2025</a></h1>
+                        <h1 id="rust-the-forth"><a class="header" href="#rust-the-forth">Rust the Forth</a></h1>
+<blockquote>
+<p><em>Donde <code>stack overflow</code> no es la solución, sino el problema...</em></p>
+</blockquote>
+<h2 id="introducción"><a class="header" href="#introducción">Introducción</a></h2>
+<p><a href="https://www.forth.com/forth/">Forth</a> es un lenguaje de programación <a href="https://en.wikipedia.org/wiki/Stack-oriented_programming">orientado a pilas</a> diseñado por <a href="https://en.wikipedia.org/wiki/Charles_H._Moore">Charles H. Moore</a> (no, no es el de la Ley de Moore, ese es <a href="https://es.wikipedia.org/wiki/Gordon_Moore">Gordon Moore</a>) y utilizado por primera vez en el año 1970. A lo largo de su historia, Forth está presente principalmente en desarrollos orientados a aplicaciones en astronomía (como el sistema de vuelo de la sonda <a href="https://en.wikipedia.org/wiki/Philae_(spacecraft)">Philae</a>) y en sistemas embebidos, debido a su diseño apropiado para la limitada memoria de los microcomputadores de la epoca. Adicionalmente, a lo largo de la década de los 80, Electronic Arts ha publicado multiples juegos desarrollados en Forth, incluyendo <a href="https://en.wikipedia.org/wiki/Worms%3F">Worms?</a>, <a href="https://en.wikipedia.org/wiki/Lords_of_Conquest">Lords of Conquest</a> y <a href="https://en.wikipedia.org/wiki/Starflight#Development">Starflight</a>, el cual, según sus desarrolladores, fue elegido debido a que &quot;era más fácil que assembly y mas compacto&quot;.</p>
+<h3 id="estructura-del-lenguaje"><a class="header" href="#estructura-del-lenguaje">Estructura del lenguaje</a></h3>
+<p>Forth basa su funcionamiento en el uso de stacks de datos y en la <a href="https://en.wikipedia.org/wiki/Reverse_Polish_notation">Notación Polaca Inversa</a>. Este tipo de notación postfix le otorga facilidad para el parseo y extension del lenguaje.</p>
+<h4 id="ejemplo-1"><a class="header" href="#ejemplo-1">Ejemplo 1</a></h4>
+<p>Si quisiesemos computar el valor de la siguiente expresion aritmética: <strong>3 * (25 + 10)</strong>, utilizando notación polaca inversa, escribiríamos:</p>
+<pre><code>25 10 + 3 * CR .
+</code></pre>
+<p>Al ejecutar esta expresion primero se lee el numero 25 y se pushea en la pila, luego ocurre lo mismo con el numero 10. Ejecutar un valor numerico sin contexto es igual a pushear su valor a la pila.</p>
+<table><thead><tr><th>BASE</th></tr></thead><tbody>
+<tr><td>25</td></tr>
+<tr><td>10</td></tr>
+</tbody></table>
+<p>Luego aplicamos la suma (<code>+</code>), la cual popea los primeros dos elementos de la pila, aplica la operacion, y luego pushea el resultado a la pila.</p>
+<table><thead><tr><th>BASE</th></tr></thead><tbody>
+<tr><td>35</td></tr>
+</tbody></table>
+<p>Pusheamos el 3 a la pila.</p>
+<table><thead><tr><th>BASE</th></tr></thead><tbody>
+<tr><td>35</td></tr>
+<tr><td>3</td></tr>
+</tbody></table>
+<p>Aplicamos la multiplicación (analoga en funcionamiento a la suma), y pusheamos el resultado a la pila.</p>
+<p>Luego, aplicamos la funcion <code>CR</code> (carriage return), que aplica un salto de linea a la salida estandar.</p>
+<table><thead><tr><th>BASE</th></tr></thead><tbody>
+<tr><td>105</td></tr>
+</tbody></table>
+<p>Finalmente, aplicamos la funcion <code>.</code>, la cual popea el primer elemento del stack y lo imprime por salida estandar.</p>
+<table><thead><tr><th>BASE</th></tr></thead><tbody>
+</tbody></table>
+<p>El resultado de ejecutar el anterior programa sería el siguiente (noten la linea vacía al comienzo):</p>
+<pre><code>&lt;cr&gt;
+105
+</code></pre>
+<hr />
+<h3 id="definicion-de-nuevas-palabras-words"><a class="header" href="#definicion-de-nuevas-palabras-words">Definicion de nuevas palabras (words)</a></h3>
+<p>Forth permite la definición de nuevas palabras (en adelante, denominadas <em>words</em>) para la extensión del lenguaje a traves de la siguiente sintaxis:</p>
+<pre><code class="language-bash">: &lt;word-name&gt; &lt;word-body&gt; ; 
+# Es importante la definición de espacios entre words
+</code></pre>
+<p>Para su almacenamiento, Forth implementa un diccionario de palabras que mapea nombres a codigo Forth ejecutable. Normalmente la implementación de este diccionario se lleva a cabo mediante un árbol de listas enlazadas, aunque no será obligatorio utilizar este tipo de dato (TDA) para este ejercicio.</p>
+<p>Forth permite adicionalmente la redefinición tanto de words definidas en runtime como de words y operadores (+, -, *, etc.); no así la redefinición de números.</p>
+<pre><code class="language-bash">: 4 5 ; # Esto no es válido
+</code></pre>
+<blockquote>
+<p>Aclaración: las words son case-insensitive.</p>
+</blockquote>
+<h4 id="ejemplo-2"><a class="header" href="#ejemplo-2">Ejemplo 2</a></h4>
+<p>Si quisiésemos definir una word MAX, el cual dado dos números retorne el máximo entre ellos:</p>
+<pre><code>: MAX OVER OVER &lt; IF SWAP THEN DROP ;
+</code></pre>
+<pre><code>10 20 MAX
+</code></pre>
+<p>Pusheamos 10 y 20 a la pila. Aplicamos la word MAX.</p>
+<table><thead><tr><th>BASE</th></tr></thead><tbody>
+<tr><td>10</td></tr>
+<tr><td>20</td></tr>
+</tbody></table>
+<p>Aplicamos OVER dos veces. OVER toma el segundo elemento mas cercano a la parte superior de la pila, y lo duplica, posicionandolo en la parte superior.</p>
+<table><thead><tr><th>BASE</th></tr></thead><tbody>
+<tr><td>10</td></tr>
+<tr><td>20</td></tr>
+<tr><td>10</td></tr>
+<tr><td>20</td></tr>
+</tbody></table>
+<p>Aplicamos &lt;. Si bien en Forth no existen los booleanos en sí, por convención el 0 es tratado como falso, y cualquier otro valor como verdadero (aunque canónicamente, se considera al -1 como verdadero).</p>
+<p>Aplicamos IF, el cual popea el primer valor de la pila y:</p>
+<ul>
+<li>Si el valor es verdadero, ejecuta la siguiente secuencia de words.</li>
+<li>Si es falso, ignora el resto de las palabras hasta encontrarse con la palabra THEN.</li>
+</ul>
+<p>Dado que en nuestro caso es verdadero (-1),</p>
+<table><thead><tr><th>BASE</th></tr></thead><tbody>
+<tr><td>10</td></tr>
+<tr><td>20</td></tr>
+<tr><td>-1</td></tr>
+</tbody></table>
+<p>Aplicamos SWAP, el cual invierte la posicion de los primeros dos elementos de la pila, y,</p>
+<table><thead><tr><th>BASE</th></tr></thead><tbody>
+<tr><td>20</td></tr>
+<tr><td>10</td></tr>
+</tbody></table>
+<p>Aplicamos DROP, el cual remueve el primer elemento de la pila, dejando finalmente el valor maximo en la punta de la pila.</p>
+<table><thead><tr><th>BASE</th></tr></thead><tbody>
+<tr><td>20</td></tr>
+</tbody></table>
+<h2 id="ejercicio"><a class="header" href="#ejercicio">Ejercicio</a></h2>
+<p>El ejercicio propuesto es implementar una versión en Rust de un intérprete del estandar Forth-79.</p>
+<h3 id="operaciones-soportadas"><a class="header" href="#operaciones-soportadas">Operaciones soportadas</a></h3>
+<p>El interprete deberá soportar las siguientes operaciones:</p>
+<ul>
+<li>Aritmética de enteros: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>.</li>
+<li>Manipulación de stack: <code>DUP</code>, <code>DROP</code>, <code>SWAP</code>, <code>OVER</code>, <code>ROT</code>.</li>
+<li>Definición de words.</li>
+<li>Generación de output: <code>.</code>, <code>EMIT</code>, <code>CR</code>, <code>.&quot; &quot;</code>.</li>
+<li>Operaciones booleanas: <code>=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>AND</code>, <code>OR</code>, <code>NOT</code>.</li>
+<li>Evaluación de condicionales: <code>IF ... THEN</code>, <code>IF ... THEN ... ELSE</code>.
+<ul>
+<li>Aclaracion: <code>IF</code> consume el ultimo elemento del stack.</li>
+</ul>
+</li>
+</ul>
+<p>La pila de datos del intérprete debera estar diseñada para almacenar enteros (con signo) de 16 bits.</p>
+<p>Respecto de la sintaxis, seguirimos una serie de reglas sencillas (no necesariamente las que sigue el estandar de Forth, pero mas que suficientes para este ejercicio):</p>
+<blockquote>
+<p>Un numero es una secuencia de uno o mas digitos ASCII; una word es una secuencia de una o mas letras, digitos, simbolos y puntuaciones que no conforme un numero.</p>
+</blockquote>
+<h3 id="manejo-de-errores"><a class="header" href="#manejo-de-errores">Manejo de errores</a></h3>
+<p>Haremos un manejo sencillo de errores: en caso de error, imprimiremos el error por stdout (sin aplicar saltos de linea) y terminaremos la ejecucion del script .fth. Algunos errores comunes pueden ser:</p>
+<ul>
+<li><code>stack-underflow</code>: cuando una operación intenta popear un elemento de una pila vacía.</li>
+<li><code>stack-overflow</code>: cuando una operación intenta pushear un elemento a una pila que se encuentra en su capacidad máxima de memoria.</li>
+<li><code>invalid-word</code>: cuando se trata de definir una word invalida, por ejemplo: <code>: 1 1 ;</code>.</li>
+<li><code>division-by-zero</code>: cuando se trata de dividir por cero.</li>
+<li><code>?</code>: cuando el interprete no puede hallar la definición de la word evaluada.</li>
+</ul>
+<p>En estos casos, el mensaje de error debe ser tal cual el especificado previamente.</p>
+<p>En caso de otros errores que no pertenezcan a ninguna de estas categorías, se debera imprimir un error custom descriptivo.</p>
+<h3 id="formato-de-input"><a class="header" href="#formato-de-input">Formato de input</a></h3>
+<p>Se llamará a nuestro programa pasándole por primer parámetro la ruta al modulo .fth a evaluar. Opcionalmente, se puede pasar el tamaño del stack (en bytes) a reservar por el interprete; el tamaño por defecto sera de 128 KB.</p>
+<pre><code>cargo run -- ruta/a/main.fth stack-size={{size}} 
+</code></pre>
+<h3 id="formato-de-output"><a class="header" href="#formato-de-output">Formato de output</a></h3>
+<p>El output se realizara a través de salida estandar (STDOUT, no STDERR), y se espera que <strong>solamente</strong> se impriman aquellas cosas producidas por las words que generan output. Cada operación de output debe estar separada por whitespace, a excepcion de <code>CR</code> que, por definición, imprime un <em>carriage return</em>, aunque en nuestro caso imprimiremos un <em>line feed</em> (<code>\n</code>).</p>
+<p>Además, al finalizar la ejecución, se debe escribir en un archivo del directorio actual llamado <code>stack.fth</code> el stack restante de la ejecución, en orden de inserción (los elementos más antiguos primero). Si el archivo ya existe, debe sobrescribirse.</p>
+<p>Por ejemplo, el siguiente código:</p>
+<pre><code>1 2 3 4 5
+. . CR .
+</code></pre>
+<p>Imprimirá por STDOUT lo siguiente:</p>
+<pre><code>5 4
+3
+</code></pre>
+<p>Y escribirá en el archivo <code>stack</code>:</p>
+<pre><code>1 2
+</code></pre>
+<h3 id="mas-ejemplos"><a class="header" href="#mas-ejemplos">Mas ejemplos</a></h3>
+<h4 id="hello-world"><a class="header" href="#hello-world">Hello world</a></h4>
+<pre><code class="language-bash">: HELLO CR .&quot; Hello, World!&quot; ;
+HELLO
+</code></pre>
+<pre><code class="language-bash"># Output
+&lt;cr&gt;
+Hello, World!
+</code></pre>
+<h4 id="valor-absoluto-de-un-numero"><a class="header" href="#valor-absoluto-de-un-numero">Valor absoluto de un numero</a></h4>
+<pre><code class="language-bash">: NEGATE -1 * ;
+: ABS DUP 0 &lt; IF NEGATE THEN ; 
+-30 ASB .
+</code></pre>
+<pre><code class="language-bash"># Output
+30
+</code></pre>
+<h4 id="número-es-par"><a class="header" href="#número-es-par">¿Número es par?</a></h4>
+<pre><code class="language-bash">: EVEN? DUP 2 / 2 * = ;
+30 EVEN? .
+15 EVEN? CR .
+</code></pre>
+<pre><code class="language-bash"># Output
+-1 &lt;cr&gt;
+0
+</code></pre>
+<h4 id="stack-underflow"><a class="header" href="#stack-underflow">Stack Underflow</a></h4>
+<pre><code class="language-bash">1 1
+. . cr .
+</code></pre>
+<pre><code class="language-bash"># Output
+1 1
+stack-underflow
+</code></pre>
+<h2 id="recursos-útiles"><a class="header" href="#recursos-útiles">Recursos útiles</a></h2>
+<ul>
+<li><a href="https://pages.physics.wisc.edu/%7Elmaurer/forth/Forth-79.pdf">Forth-79</a>: publicación del Forth Standars Team.</li>
+<li><a href="https://skilldrick.github.io/easyforth/">Easy Forth</a>: un ebook diseñado para enseñar Forth de una manera sencilla mediante ejemplos, escrito por Nick Morgan.</li>
+</ul>
+<h2 id="restricciones"><a class="header" href="#restricciones">Restricciones</a></h2>
+<ul>
+<li>Escribir el programa sin utilizar .unwrap() o .expect(). Todo caso de error deberá manejarse ideomaticamente con las estructuras y funciones brindadas por el lenguaje.</li>
+<li>No se permite que el programa lance un <a href="https://doc.rust-lang.org/book/ch09-01-unrecoverable-errors-with-panic.html">panic!()</a>.</li>
+<li>No se permite utilizar la función <a href="https://doc.rust-lang.org/std/process/fn.exit.html">exit()</a>. Se deberá salir del programa finalizando el scope de la función main.</li>
+<li>No se permite utilizar el módulo <a href="https://doc.rust-lang.org/std/mem/">mem</a> para la manipulación de memoria.</li>
+<li>Para realizar un uso adecuado de memoria y respetar las reglas de ownership se deberá evitar el uso de <a href="https://doc.rust-lang.org/std/clone/trait.Clone.html">.clone()</a> y <a href="https://doc.rust-lang.org/std/marker/trait.Copy.html">.copy()</a>.</li>
+<li>Todo el programa puede ser resuelto con lo aprendido en clase hasta la presentación de este ejercicio. No se espera (ni se acepta) que se utilicen estructuras relacionadas a concurrencia o redes para resolución de este ejercicio.</li>
+</ul>
+<h2 id="requerimientos-no-funcionales"><a class="header" href="#requerimientos-no-funcionales">Requerimientos no funcionales</a></h2>
+<p>Los siguientes son los requerimientos no funcionales para la resolución del proyecto:</p>
+<ul>
+<li>El proyecto deberá ser desarrollado en la última version estable de Rust (compilador versión 1.85), usando las herramientas de la biblioteca estándar.</li>
+<li>El proyecto deberá realizarse de manera individual. Cualquier tipo de copia significa la expulsión automática de la materia.</li>
+<li>No está permitido el uso de código generado por ninguna IA, ni copiar código de soluciones existentes en internet. </li>
+<li>Se deben implementar tests unitarios y de integración de las funcionalidades que se consideren más importantes.</li>
+<li>No se permite utilizar crates externos.</li>
+<li>El código fuente debe compilarse en la versión estable del compilador y no se permite utilizar bloques unsafe.</li>
+<li>El código deberá funcionar en ambiente Unix / Linux.</li>
+<li>El programa deberá ejecutarse en la línea de comandos.</li>
+<li>La compilación no debe arrojar warnings del compilador, ni del linter clippy.</li>
+<li>Las funciones y los tipos de datos (struct) deben estar documentados siguiendo el estándar de cargo doc.</li>
+<li>El código debe formatearse utilizando cargo fmt.</li>
+<li>Las funciones no deben tener una extensión mayor a 30 líneas. Si se requiriera una extensión mayor, se deberá particionarla en varias funciones.</li>
+<li>Cada tipo de dato implementado debe ser colocado en una unidad de compilación (archivo fuente) independiente.</li>
+</ul>
+<blockquote>
+<p><strong>IMPORTANTE: no cumplir con todas las restricciones y requisitos no funcionales implica la reentrega automática del ejercicio. Se debe prestar minuciosa atención a cada uno de los detalles.</strong></p>
+</blockquote>
+<h2 id="fechas-de-entrega"><a class="header" href="#fechas-de-entrega">Fechas de entrega</a></h2>
+<p>Primer entrega: Lunes 31 de Marzo de 2025 hasta las 18hs.</p>
+<blockquote>
+<p><strong>No cumplir con la primer entrega imposibilitará la continuidad en la materia</strong> </p>
+</blockquote>
+<p>Luego de la primer entrega se harán las correcciones correspondientes y se podrá volver a entregar el ejercicio en dos oportunidades más.</p>
+<p>La forma de entrega se comunicará por el canal de avisos.</p>
 
                     </main>
 
