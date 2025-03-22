@@ -146,7 +146,7 @@ El interprete deberá soportar las siguientes operaciones:
 - Definición de words.
 - Generación de output: `.`, `EMIT`, `CR`, `." "`.
 - Operaciones booleanas: `=`, `<`, `>`, `AND`, `OR`, `NOT`.
-- Evaluación de condicionales: `IF ... THEN`, `IF ... THEN ... ELSE`.
+- Evaluación de condicionales: `IF ... THEN`, `IF ... ELSE ... THEN`.
     - Aclaracion: `IF` consume el ultimo elemento del stack.
 
 La pila de datos del intérprete debera estar diseñada para almacenar enteros (con signo) de 16 bits.
