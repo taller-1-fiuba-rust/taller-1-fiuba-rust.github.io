@@ -1030,8 +1030,8 @@ Como requerimiento particular del Proyecto, NO se considerará válido que el se
 </ul>
 </li>
 </ol>
-<p>Para cumplir con los objetivos mínimos el cluster se debe configurar con al menos tres nodos master principales, cada uno de ellos con sus dos réplicas, como se observa en la imagen siguiente:<br />
-<img src="https://hackmd.io/_uploads/B1gUogRcpyx.png" alt="redis cluster" /></p>
+<p>Para cumplir con los objetivos mínimos el cluster se debe configurar con al menos tres nodos master principales, cada uno de ellos con sus dos réplicas, como se observa en la imagen siguiente:</p>
+<p><img src="proyecto/25C1/./redis_cluster.png" alt="image" /></p>
 <h3 id="aplicación-cliente"><a class="header" href="#aplicación-cliente">Aplicación Cliente</a></h3>
 <p>Se debe construir una aplicación con interfaz grafica (UI) para crear y editar documentos de manera colaborativa en tiempo real entre varios usuarios. Dicha aplicacion se conectara al servicio de Redis para obtener el listado de documentos y permitira agregar y editar documentos. 
 Las modificaciones en un documento se deben propagar en tiempo real a todos los usuarios que se encuentran editando o visualizando el mismo documento haciendo uso del servicio de Pub/Sub provisto por el servidor de Redis implementado.
