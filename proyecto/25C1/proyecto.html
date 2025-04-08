@@ -1,0 +1,314 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Trabajo Practico 1C 2025 - Taller de Programación I</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../inicio.html"><strong aria-hidden="true">1.</strong> Inicio</a></li><li class="chapter-item expanded "><a href="../../recursos.html"><strong aria-hidden="true">2.</strong> Bibliografía y Recursos</a></li><li class="chapter-item expanded "><a href="../../clases/index.html"><strong aria-hidden="true">3.</strong> Clases</a></li><li class="chapter-item expanded "><a href="../../guias/index.html"><strong aria-hidden="true">4.</strong> Guías</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../guias/guia1.html"><strong aria-hidden="true">4.1.</strong> Guía 1</a></li><li class="chapter-item expanded "><a href="../../guias/guia2.html"><strong aria-hidden="true">4.2.</strong> Guía 2</a></li><li class="chapter-item expanded "><a href="../../guias/guia3.html"><strong aria-hidden="true">4.3.</strong> Guía 3</a></li><li class="chapter-item expanded "><a href="../../guias/guia4.html"><strong aria-hidden="true">4.4.</strong> Guía 4</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/25C1/ejercicio_individual.html"><strong aria-hidden="true">5.</strong> Ejercicio Individual 1C 2025</a></li><li class="chapter-item expanded "><a href="../../proyecto/25C1/proyecto.html" class="active"><strong aria-hidden="true">6.</strong> Trabajo Practico 1C 2025</a></li><li class="chapter-item expanded "><a href="../../proyecto/24C1/demos.html"><strong aria-hidden="true">7.</strong> Demos 1C 2024</a></li><li class="chapter-item expanded "><a href="../../proyecto/index.html"><strong aria-hidden="true">8.</strong> Proyectos Realizados</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/24C1/proyecto.html"><strong aria-hidden="true">8.1.</strong> 1C 2024 Agentes Autonomos</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/24C1/examen_final.html"><strong aria-hidden="true">8.1.1.</strong> Examen Final 1C 2024</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/24C2/proyecto.html"><strong aria-hidden="true">8.2.</strong> 2C 2024 Aerolineas Rústicas</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/24C2/examen_final.html"><strong aria-hidden="true">8.2.1.</strong> Examen Final 2C 2024</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/23C1/proyecto.html"><strong aria-hidden="true">8.3.</strong> 1C 2023: Bitcoin</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/23C1/examen_final.html"><strong aria-hidden="true">8.3.1.</strong> Examen Final 1C 2023</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/23C2/proyecto.html"><strong aria-hidden="true">8.4.</strong> 2C 2023: Git</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/23C2/examen_final.html"><strong aria-hidden="true">8.4.1.</strong> Examen Final 2C 2023: Pull Requests</a></li><li class="chapter-item expanded "><a href="../../proyecto/23C2/examen_final_2.html"><strong aria-hidden="true">8.4.2.</strong> Examen Final 2C 2023: Releases</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/22C1/proyecto.html"><strong aria-hidden="true">8.5.</strong> 1C 2022: BitTorrent</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/22C1/proyecto_final_1C2022.html"><strong aria-hidden="true">8.5.1.</strong> Agregado al Proyecto - Finales Julio/Agosto 2022</a></li><li class="chapter-item expanded "><a href="../../proyecto/22C1/criterios_aprobacion.html"><strong aria-hidden="true">8.5.2.</strong> Criterios de aprobación</a></li><li class="chapter-item expanded "><a href="../../proyecto/22C1/entrega_intermedia.html"><strong aria-hidden="true">8.5.3.</strong> Entrega Intermedia</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/22C2/proyecto.html"><strong aria-hidden="true">8.6.</strong> 2C 2022: IRC</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/22C2/examen_final.html"><strong aria-hidden="true">8.6.1.</strong> Examen Final 2C 2022</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/anteriores/21C1/proyecto.html"><strong aria-hidden="true">8.7.</strong> 1C 2021: Redis</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/anteriores/21C1/agregado.html"><strong aria-hidden="true">8.7.1.</strong> Agregado al Proyecto</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/anteriores/21C2/proyecto.html"><strong aria-hidden="true">8.8.</strong> 2C 2021: MQTT</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/anteriores/21C2/finales_2022_feb_mar.html"><strong aria-hidden="true">8.8.1.</strong> Finales Febrero/Marzo 2022</a></li><li class="spacer"></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../rust_arg.html">Grupo Rust Argentina</a></li><li class="chapter-item expanded affix "><a href="../../nosotros.html">Nosotros</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Taller de Programación I</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="proyecto-rustidocs---1c-2025"><a class="header" href="#proyecto-rustidocs---1c-2025">Proyecto: RustiDocs - 1C 2025</a></h1>
+<h2 id="introducción"><a class="header" href="#introducción">Introducción</a></h2>
+<p>La Universidad de Buenos Aires desea implementar un sistema de trabajo colaborativo en tiempo real que permita confeccionar documentos de texto y planillas de cálculo. El sistema será de uso no solo de toda la comunidad de la UBA sino también por usuarios de otras universidades del mundo.</p>
+<p>Dada la carga de usuarios que se espera y su distribución geográfica variada, el sistema se debe construir con un diseño escalable que permita su correcto funcionamiento ante la alta demanda de usuarios y trafico esperado.</p>
+<p>Luego de analizar distintas variantes de protocolos se decidió llevar adelante este desarrollo utilizando la versión distribuida de <strong>Redis</strong> (Redis Cluster) tanto para el almacenamiento de información como para el intercambio de mensajes mediante Publisher/Subscriber.</p>
+<h2 id="objetivo-del-proyecto"><a class="header" href="#objetivo-del-proyecto">Objetivo del Proyecto</a></h2>
+<p>El objetivo principal del presente Trabajo Practico es desarrollar una versión en el lenguaje Rust del Cluster de Redis, respetando su protocolo cliente-servidor y desarrollando un protocolo interno de intercambio de mensajes entre nodos para implementar las principales características de replicacion y particionado, de manera de poder escalar en forma horizontal ofreciendo altos niveles de disponibilidad y tolerancia a fallos.</p>
+<p>El objetivo secundario es desarrollar un proyecto real de software de mediana envergadura aplicando buenas prácticas de desarrollo, incluyendo entregas y revisiones periódicas.</p>
+<p>El proyecto comienza con una investigación sobre como funciona la versión distribuida de Redis (<a href="https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/">Redis Cluster</a>) y sus principales conceptos como <a href="https://redis.io/docs/latest/operate/oss_and_stack/management/replication/">Replication</a> y <a href="https://redis.io/docs/latest/operate/oss_and_stack/management/scaling/#redis-cluster-data-sharding">Data Sharding</a>, entre otros.</p>
+<h2 id="requerimientos-funcionales"><a class="header" href="#requerimientos-funcionales">Requerimientos Funcionales</a></h2>
+<h3 id="redis-cluster"><a class="header" href="#redis-cluster">Redis Cluster</a></h3>
+<p>Para dar soporte a la persistencia de datos y el intercambio de mensajes entre clientes se deberá implementar un cluster de nodos de Redis cumpliendo con los siguientes requerimientos mínimos:</p>
+<ol>
+<li>
+<p><strong>Protocolo Cliente/Servidor</strong>:  El programa deberá implementar un subconjunto del protocolo Redis tal como es especificado en la <a href="https://redis.io/docs/latest/develop/reference/protocol-spec/">documentación</a>.</p>
+</li>
+<li>
+<p><strong>Comandos de Redis</strong>: Se deben implementar los <a href="https://redis.io/docs/latest/commands/">comandos</a> de Redis necesarios para poder persistir <a href="https://redis.io/docs/latest/commands/?group=string">string</a>, <a href="https://redis.io/docs/latest/commands/?group=set">sets</a> y <a href="https://redis.io/docs/latest/commands/?group=list">lists</a>. Ademas se deben soportar los comandos relacionados al intercambio de mensajes <a href="https://redis.io/docs/latest/commands/?group=pubsub">Pub/Sub</a>.</p>
+</li>
+<li>
+<p><strong>Almacenamiento de datos</strong>: Los datos deberan ser almacenados en disco de manera que un nodo pueda ser reiniciado y recupere la informacion almacenada del archivo en disco.</p>
+</li>
+<li>
+<p><strong>Pub/Sub:</strong> el servidor debe proveer funcionalidad para soportar el paradigma de mensajería Pub/Sub, en el cual clientes que envían mensajes (publicadores) no necesitan conocer la identidad de los clientes que reciben estos mensajes. En cambio, los mensajes publicados se envían a un canal, y los clientes expresan interés en determinados mensajes subscribiéndose a uno o mas canales, y sólo reciben mensajes de estos canales, sin conocer la identidad de los publicadores.
+Para esto, el servidor debe mantener un registro de canales, publicadores y subscriptores. Para mas detalle, consultar la <a href="https://redis.io/topics/pubsub">documentación de Redis</a>.</p>
+</li>
+<li>
+<p><strong>Funcionamiento del Cluster</strong>: Se deben desarrollar las funcionalidades principales del Cluster de Redis como lo indica la <a href="https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/">documentación</a>. En particular se deberá hacer foco en las siguientes caracteristicas:</p>
+<ul>
+<li>Componentes principales del cluster (<a href="https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/#overview-of-redis-cluster-main-components">main components</a>), entre ellos la <a href="https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/#key-distribution-model">distribución de claves</a>, la comunicación <a href="https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/#the-cluster-bus">inter-nodo</a>, su <a href="https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/#cluster-topology">topología</a>, entre otras.</li>
+<li>Implementación de la arquitectura master/replica y <a href="https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/#replica-election-and-promotion">replica promotion</a>.</li>
+<li>Tolerancia a fallos: implementar algun mecanismo de gossip para detección de fallos como se explica en la <a href="https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/#fault-tolerance">documentacion</a>.</li>
+<li>Soporte a Pub/Sub en múltiples nodos como indica la <a href="https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/#publishsubscribe">documentación</a>. A modo opcional se podrá implementar sharded Pub/Sub.</li>
+</ul>
+</li>
+<li>
+<p><strong>Configuración:</strong> el servidor deber poder ser configurado mediante un archivo de configuración, nombrado <code>redis.conf</code> y cuya ubicación se pasa por argumento de línea de comando: <code>$ ./redis-server /path/to/redis.conf</code>.</p>
+</li>
+<li>
+<p><strong>Logs:</strong> el servidor debe mantener un registro de las acciones realizadas y los eventos ocurridos en un archivo de log.
+La ubicación del archivo de log estará especificada en el archivo de configuración.
+Como requerimiento particular del Proyecto, NO se considerará válido que el servidor mantenga un <em>file handle</em> global, aunque esté protegido por un lock, y que se escriba directamente al file handle.</p>
+</li>
+<li>
+<p><strong>Seguridad:</strong></p>
+<ul>
+<li>Autenticación y autorización.</li>
+<li>Encriptación de datos en tránsito (in-transit).</li>
+<li>Opcional: Encriptación de datos en reposo (at-rest).</li>
+</ul>
+</li>
+</ol>
+<p>Para cumplir con los objetivos mínimos el cluster se debe configurar con al menos tres nodos master principales, cada uno de ellos con sus dos réplicas, como se observa en la imagen siguiente:<br />
+<img src="https://hackmd.io/_uploads/B1gUogRcpyx.png" alt="redis cluster" /></p>
+<h3 id="aplicación-cliente"><a class="header" href="#aplicación-cliente">Aplicación Cliente</a></h3>
+<p>Se debe construir una aplicación con interfaz grafica (UI) para crear y editar documentos de manera colaborativa en tiempo real entre varios usuarios. Dicha aplicacion se conectara al servicio de Redis para obtener el listado de documentos y permitira agregar y editar documentos. 
+Las modificaciones en un documento se deben propagar en tiempo real a todos los usuarios que se encuentran editando o visualizando el mismo documento haciendo uso del servicio de Pub/Sub provisto por el servidor de Redis implementado.
+Se deben soportar distintos tipos de documento, como objetivo minimo se pide implementar el documento de texto y la planilla de calculos solo con operaciones básicas.
+La aplicación debe tener al menos dos vistas principales, una vista con el listado de documentos existentes por tema, y la vista de edicion de un documento (sesión colaborativa).</p>
+<h3 id="microservicio-de-control-y-persistencia"><a class="header" href="#microservicio-de-control-y-persistencia">Microservicio de Control y Persistencia</a></h3>
+<p>Se debe implementar un servidor liviano que se conectara al cluster de Redis como cualquier cliente pero dará servicio a los clientes respondiendo a mensajes enviados por los mismos mediante el protocolo de Pub/Sub.
+Por ejemplo cuando un cliente inicia una sesión para editar un documento, el mismo enviara un mensaje por el channel de dicho documento indicando que se esta uniendo a colaborar en ese documento. Este microservicio respondera al cliente enviando un mensaje de respuesta por el mismo channel incluyendo el estado actual del documento y los datos de la sesion, como por ejemplo quienes estan editando ese documento, etc.
+Otra de las funcionalidades de este microservicio será la de persistir frecuentemente el contenido del documento en una entrada de Redis, de manera que el mismo quede guardado.</p>
+<h2 id="requerimientos-no-funcionales"><a class="header" href="#requerimientos-no-funcionales">Requerimientos no funcionales</a></h2>
+<p>Los siguientes son los requerimientos no funcionales para la resolución del proyecto:</p>
+<ul>
+<li>El proyecto deberá ser desarrollado en lenguaje Rust, utilizando las herramientas de la biblioteca estándar.</li>
+<li>Se deben implementar pruebas unitarias y de integración de las funcionalidades que se consideren más importantes.</li>
+<li>El código fuente debe compilar en la versión estable del compilador y no se permite el uso de bloques inseguros (unsafe).</li>
+<li>El código deberá funcionar en ambiente Unix / Linux.</li>
+<li>La compilación no debe generar advertencias del compilador ni del linter clippy.</li>
+<li>El programa no puede contener ningún <a href="https://en.wikipedia.org/wiki/Busy_waiting">Busy-Wait</a>, ni puede consumir recursos de CPU y/o memoria indiscriminadamente. Se debe hacer un uso adecuado tanto de la memoria como del CPU. </li>
+<li>Las funciones y los tipos de datos (struct) deben estar documentados siguiendo el estándar de cargo doc.</li>
+<li>El código debe formatearse utilizando cargo fmt.</li>
+<li>Las funciones no deben tener una extensión mayor a 30 líneas. Si se requiere una extensión mayor, se debe particionar en varias funciones.</li>
+<li>Cada tipo de dato implementado debe ser colocado en una unidad de compilación (archivo fuente) independiente.</li>
+</ul>
+<h2 id="crates-externos-permitidos"><a class="header" href="#crates-externos-permitidos">Crates externos permitidos</a></h2>
+<p>Se permite el uso de los siguientes crates solo para los usos mencionados (siempre y cuando se los considere necesario):</p>
+<ul>
+<li>rand: para la generación de valores aleatorios.</li>
+<li>chrono: para la obtención del timestamp actual.</li>
+</ul>
+<p><strong>Nota:</strong> para la implementación de la interfaz gráfica se podrá proponer crates que deseen utilizar, los cuales serán evaluados y autorizados por el grupo docente. </p>
+<h2 id="material-de-consulta"><a class="header" href="#material-de-consulta">Material de Consulta</a></h2>
+<ul>
+<li><a href="https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/">Documentación de Redis Cluster</a></li>
+</ul>
+<h2 id="criterios-de-aceptación-y-corrección-del-proyecto"><a class="header" href="#criterios-de-aceptación-y-corrección-del-proyecto">Criterios de Aceptación y Corrección del Proyecto</a></h2>
+<p>Para el desarrollo del proyecto, se deberá observar los siguientes lineamientos generales:</p>
+<ol>
+<li><strong>Testing:</strong> Se deberá implementar testing unitario automatizado, utilizando las herramientas de Rust de los métodos y funciones relevantes implementados. Se deberán implementar tests de integración automatizados.</li>
+<li><strong>Manejo de Errores:</strong> Deberá hacerse un buen uso y administración de los casos de error, utilizando para ello, las estructuras y herramientas del lenguaje, escribiendo en forma lo más idiomática posible su tratamiento.</li>
+<li><strong>Control de versiones:</strong> Se deberá utilizar la herramienta git, siguiendo las recomendaciones de la cátedra. En particular, se deberá utilizar la metodología GitHub Flow para el trabajo con ramas (branches) y la entrega continua del software.</li>
+<li><strong>Trabajo en equipo:</strong> Se deberá adecuar, organizar y coordinar el trabajo al equipo, realizando tareas como revisión de código cruzada entre pares de una funcionalidad en un pull request de git.</li>
+<li><strong>Merge de Branchs:</strong> Para poder hacer el merge de un branch de una funcionalidad, todos los tests pasan de forma satisfactoria</li>
+<li><strong>Informe final:</strong> El trabajo debe acompañarse por un informe que debe incluir diagramas de secuencia de las operaciones más relevantes, diagrama de componentes y módulos de la arquitectura general del diseño desarrollado, todos acompañados de la explicación respectiva.</li>
+</ol>
+<h2 id="evaluación"><a class="header" href="#evaluación">Evaluación</a></h2>
+<p>El desarrollo del proyecto tendrá un seguimiento directo semanal por parte del docente a cargo del grupo.</p>
+<p>Se deberá desarrollar y presentar los avances y progreso del trabajo semana a semana (simulando un sprint de trabajo). Cada semana, cada docente realizará una valoración del estado del trabajo del grupo.</p>
+<p>El progreso de cada semana deberá ser acorde a lo que se convenga con el docente para cada sprint. Si el mismo NO cumple con la cantidad de trabajo requerido, el grupo podrá estar desaprobado de forma prematura de la materia, a consideración del docente.</p>
+<p>Hacia la mitad del desarrollo del proyecto se deberá entregar una versión preliminar que deberá cumplir con los requisitos mencionados en el apartado <em>Entrega intermedia</em>. Estos requisitos <strong>son de cumplimiento mínimo y obligatorio</strong>, aquellos grupos que lo deseen podrán implementar requisitos adicionales.</p>
+<p><strong>Nota importante:</strong> Se deja constancia que las funcionalidades requeridas por este enunciado son un marco de cumplimiento mínimo y que pueden haber agregados o modificaciones durante el transcurso del desarrollo por parte del docente a cargo, que formarán parte de los requerimientos a cumplir. Cabe mencionar que estos desvíos de los requerimientos iniciales se presentan en situaciones reales de trabajo con clientes.</p>
+<h2 id="finalización-del-proyecto"><a class="header" href="#finalización-del-proyecto">Finalización del Proyecto</a></h2>
+<p>El desarrollo del proyecto finaliza el último día de clases del cuatrimestre. En esa fecha, cada grupo deberá realizar una presentación final y se hará una evaluación global del trabajo.</p>
+<p>En dicha presentación se deberá detallar la arquitectura del proyecto, aprendizajes del mismo, y realizar una muestra funcional del desarrollo, esto es una &quot;demo&quot; como si fuera para el usuario final, donde se pueda observar todas las funcionalidades pedidas por el presente enunciado. </p>
+<p>Durante la demostración en vivo, se debe poder observar tanto los requerimientos funcionales solicitados en el presente enunciado, como así también los requerimientos no funcionales, es decir, se debe poder observar y comprobar todo lo relacionado a temas como Replication, Data Sharding, Tolerancia a fallos, entre otros. 
+Por ejemplo: se debe producir un escenario de falla de alguno de los nodos <em>master</em> (desconectando el nodo o cerrando la aplicación) y demostrar el mecanismo de <a href="https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/#replica-election-and-promotion">replica promotion</a> que permitirá a la aplicación continuar funcionando correctamente incluso al escribir datos almacenados en dicho nodo.</p>
+<p>El trabajo debe acompañarse por un informe que debe constar de los puntos detallados a continuación: explicación general de la investigación realizada y sus conclusiones, reglas de negocio de la solución y decisiones tomadas durante el desarrollo del proyecto, diagramas de secuencia de las operaciones más relevantes, diagrama de componentes y módulos de la arquitectura general del diseño desarrollado, todos acompañados de la explicación respectiva.</p>
+<h3 id="entrega-intermedia"><a class="header" href="#entrega-intermedia">Entrega Intermedia:</a></h3>
+<p>Los alumnos deberán realizar una entrega intermedia, la cual deberá incluir los siguientes puntos del apartado de requerimientos funcionales:</p>
+<h4 id="redis-cluster-1"><a class="header" href="#redis-cluster-1">Redis Cluster</a></h4>
+<ol>
+<li><strong>Protocolo Cliente/Servidor</strong></li>
+<li><strong>Comandos de Redis</strong></li>
+<li><strong>Almacenamiento de datos</strong></li>
+<li><strong>Pub/Sub</strong></li>
+<li><strong>Funcionamiento del Cluster</strong>: como requerimiento obligatorio solo se pide presentar el diseño de como se va a implementar este punto en su proyecto, incluyendo diagramas que ilustren la comunicación entre nodos y los distintos escenarios importantes a soportar, por ejemplo: <a href="https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/#replica-election-and-promotion">replica promotion</a>, <a href="https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/#fault-tolerance">gossip</a>, entre otros.</li>
+</ol>
+<h4 id="aplicación-cliente-1"><a class="header" href="#aplicación-cliente-1">Aplicación Cliente</a></h4>
+<p>Para esta entrega intermedia se pide implementar la aplicación con interfaz grafica (UI) básica que se conecte al menos a un nodo de redis y pueda enviar y recibir mensajes. Este comportamiento se debe poder observar en una demo en vivo ya sea demostrando las funcionalidades solicitadas en la sección de requerimientos funcionales o en su defecto mediante el ingreso de comandos manualmente por parte del usuario.
+Además se debe presentar el diseño de como se va a ver la interfaz grafica (UI) final, describiendo las dos vistas principales que se pide implementar.</p>
+<h4 id="microservicio-de-control-y-persistencia-1"><a class="header" href="#microservicio-de-control-y-persistencia-1">Microservicio de Control y Persistencia</a></h4>
+<p><em>Este punto es opcional para la entrega intermedia.</em></p>
+<h4 id="presentación"><a class="header" href="#presentación">Presentación</a></h4>
+<p>La entrega se realizará en forma de <strong>Presentación</strong> en la cual los alumnos deberán abarcar los siguientes puntos:</p>
+<ul>
+<li>Explicación general del desarrollo realizado, incluyendo diagramas de componentes y de secuencia de las funcionalidades mas importantes.</li>
+<li>Diseño de la solución a implementar para completar el proyecto, incluyendo diagramas y su explicación.</li>
+<li>Recorrido por los módulos del código fuente escrito, explicando los principales contenidos.</li>
+<li>Demo en vivo de la aplicación gráfica y el cluster de redis, donde se pueda observar su comunicación a través del protocolo cliente/servidor e incluya las funcionalidades requeridas para la entrega intermedia.</li>
+</ul>
+<p>Todos los miembros del grupo deberán participar de la demo y explicar su participación en el proyecto, incluyendo detalles de implementación.</p>
+<h2 id="fechas-de-entrega"><a class="header" href="#fechas-de-entrega">Fechas de entrega:</a></h2>
+<p>Entrega intermedia: Lunes 19 de Mayo de 2025.</p>
+<p>Entrega final de la cursada:  Lunes 23 de Junio de 2025.</p>
+<p><strong>Estas entregas serán presenciales en la sede de la Facultad.</strong></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../proyecto/25C1/ejercicio_individual.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../../proyecto/24C1/demos.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../proyecto/25C1/ejercicio_individual.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../../proyecto/24C1/demos.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>
