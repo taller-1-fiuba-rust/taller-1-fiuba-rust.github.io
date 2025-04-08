@@ -3,8 +3,8 @@
 ## 2024
   - [1C 2024: Agentes Autónomos de Prevención](./24C1/proyecto.md)
     - [Examen Final 1C 2024](./24C1/examen_final.md)
-  - [2C 2024 Aerolineas Rústicas](./proyecto/24C2/proyecto.md)
-    - [Examen Final 2C 2024](./proyecto/24C2/examen_final.md)
+  - [2C 2024 Aerolineas Rústicas](./24C2/proyecto.md)
+    - [Examen Final 2C 2024](./24C2/examen_final.md)
 ## 2023
   - [1C 2023: Bitcoin](./23C1/proyecto.md)
     - [Examen Final 1C 2023](./23C1/examen_final.md)
