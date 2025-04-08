@@ -40,8 +40,8 @@ Para dar soporte a la persistencia de datos y el intercambio de mensajes entre c
    - Opcional: Encriptación de datos en reposo (at-rest).
   
   Para cumplir con los objetivos mínimos el cluster se debe configurar con al menos tres nodos master principales, cada uno de ellos con sus dos réplicas, como se observa en la imagen siguiente:  
-![redis cluster](https://hackmd.io/_uploads/B1gUogRcpyx.png)
 
+![image](./redis cluster.png)
 
 ### Aplicación Cliente
 Se debe construir una aplicación con interfaz grafica (UI) para crear y editar documentos de manera colaborativa en tiempo real entre varios usuarios. Dicha aplicacion se conectara al servicio de Redis para obtener el listado de documentos y permitira agregar y editar documentos. 
