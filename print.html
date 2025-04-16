@@ -339,8 +339,7 @@ De esa lista, se deberá elegir una palabra (puede ser una selección secuencial
 <li>Se puede comparar Strings usando: <strong>==</strong></li>
 <li>Usa <strong>println!(...)</strong> para imprimir elementos en la salida estándar. Para imprimir una variable, puedes escribir algo como esto:</li>
 </ul>
-<pre><pre class="playground"><code class="language-rust">
-<span class="boring">#![allow(unused)]
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>println!(&quot;Contenido: {}&quot;, s);
 <span class="boring">}
@@ -348,8 +347,7 @@ De esa lista, se deberá elegir una palabra (puede ser una selección secuencial
 <ul>
 <li>Para leer de la entrada estándar, se puede usar algo como esto:</li>
 </ul>
-<pre><pre class="playground"><code class="language-rust">
-<span class="boring">#![allow(unused)]
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>io::stdin()
 	.read_line(&amp;mut v)
@@ -431,8 +429,7 @@ Explicar por qué sí o por qué no.</p>
 	println!(&quot;{}&quot;, ref3.to_uppercase());
 }
 </code></pre></pre>
-<pre><pre class="playground"><code class="language-rust">
-<span class="boring">#![allow(unused)]
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>fn drip_drop() -&gt; &amp;String {
     let s = String::from(&quot;hello world!&quot;);
@@ -473,8 +470,7 @@ o eliminadas.</p>
 <p>La solución incluye completar una grilla con los largos de subsecuencias.
 El siguiente es un fragmento de pseudocódigo que se puede usar como base para reimplementar
 en Rust:</p>
-<pre><pre class="playground"><code class="language-rust">
-<span class="boring">#![allow(unused)]
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>let X and Y be sequences
 let m be the length of X, and let n be the length of Y
@@ -497,8 +493,7 @@ return C
 </span></code></pre></pre>
 <h3 id="usar-el-lcs-para-construir-el-diff"><a class="header" href="#usar-el-lcs-para-construir-el-diff">Usar el LCS para construir el diff</a></h3>
 <p>Implementar e invocar al siguiente pseudocódigo para imprimir el diff:</p>
-<pre><pre class="playground"><code class="language-rust">
-<span class="boring">#![allow(unused)]
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>// C es la grilla computada por lcs()
 // X e Y son las secuencias
@@ -776,27 +771,32 @@ En este trabajo práctico prototiparemos un honeypot de un servidor FTP.</p>
 <pre><code>25 10 + 3 * CR .
 </code></pre>
 <p>Al ejecutar esta expresion primero se lee el numero 25 y se pushea en la pila, luego ocurre lo mismo con el numero 10. Ejecutar un valor numerico sin contexto es igual a pushear su valor a la pila.</p>
-<table><thead><tr><th>BASE</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>BASE</th></tr></thead><tbody>
 <tr><td>25</td></tr>
 <tr><td>10</td></tr>
 </tbody></table>
+</div>
 <p>Luego aplicamos la suma (<code>+</code>), la cual popea los primeros dos elementos de la pila, aplica la operacion, y luego pushea el resultado a la pila.</p>
-<table><thead><tr><th>BASE</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>BASE</th></tr></thead><tbody>
 <tr><td>35</td></tr>
 </tbody></table>
+</div>
 <p>Pusheamos el 3 a la pila.</p>
-<table><thead><tr><th>BASE</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>BASE</th></tr></thead><tbody>
 <tr><td>35</td></tr>
 <tr><td>3</td></tr>
 </tbody></table>
+</div>
 <p>Aplicamos la multiplicación (analoga en funcionamiento a la suma), y pusheamos el resultado a la pila.</p>
 <p>Luego, aplicamos la funcion <code>CR</code> (carriage return), que aplica un salto de linea a la salida estandar.</p>
-<table><thead><tr><th>BASE</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>BASE</th></tr></thead><tbody>
 <tr><td>105</td></tr>
 </tbody></table>
+</div>
 <p>Finalmente, aplicamos la funcion <code>.</code>, la cual popea el primer elemento del stack y lo imprime por salida estandar.</p>
-<table><thead><tr><th>BASE</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>BASE</th></tr></thead><tbody>
 </tbody></table>
+</div>
 <p>El resultado de ejecutar el anterior programa sería el siguiente (noten la linea vacía al comienzo):</p>
 <pre><code>&lt;cr&gt;
 105
@@ -821,17 +821,19 @@ En este trabajo práctico prototiparemos un honeypot de un servidor FTP.</p>
 <pre><code>10 20 MAX
 </code></pre>
 <p>Pusheamos 10 y 20 a la pila. Aplicamos la word MAX.</p>
-<table><thead><tr><th>BASE</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>BASE</th></tr></thead><tbody>
 <tr><td>10</td></tr>
 <tr><td>20</td></tr>
 </tbody></table>
+</div>
 <p>Aplicamos OVER dos veces. OVER toma el segundo elemento mas cercano a la parte superior de la pila, y lo duplica, posicionandolo en la parte superior.</p>
-<table><thead><tr><th>BASE</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>BASE</th></tr></thead><tbody>
 <tr><td>10</td></tr>
 <tr><td>20</td></tr>
 <tr><td>10</td></tr>
 <tr><td>20</td></tr>
 </tbody></table>
+</div>
 <p>Aplicamos &lt;. Si bien en Forth no existen los booleanos en sí, por convención el 0 es tratado como falso, y cualquier otro valor como verdadero (aunque canónicamente, se considera al -1 como verdadero).</p>
 <p>Aplicamos IF, el cual popea el primer valor de la pila y:</p>
 <ul>
@@ -839,20 +841,23 @@ En este trabajo práctico prototiparemos un honeypot de un servidor FTP.</p>
 <li>Si es falso, ignora el resto de las palabras hasta encontrarse con la palabra THEN.</li>
 </ul>
 <p>Dado que en nuestro caso es verdadero (-1),</p>
-<table><thead><tr><th>BASE</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>BASE</th></tr></thead><tbody>
 <tr><td>10</td></tr>
 <tr><td>20</td></tr>
 <tr><td>-1</td></tr>
 </tbody></table>
+</div>
 <p>Aplicamos SWAP, el cual invierte la posicion de los primeros dos elementos de la pila, y,</p>
-<table><thead><tr><th>BASE</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>BASE</th></tr></thead><tbody>
 <tr><td>20</td></tr>
 <tr><td>10</td></tr>
 </tbody></table>
+</div>
 <p>Aplicamos DROP, el cual remueve el primer elemento de la pila, dejando finalmente el valor maximo en la punta de la pila.</p>
-<table><thead><tr><th>BASE</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>BASE</th></tr></thead><tbody>
 <tr><td>20</td></tr>
 </tbody></table>
+</div>
 <h2 id="ejercicio"><a class="header" href="#ejercicio">Ejercicio</a></h2>
 <p>El ejercicio propuesto es implementar una versión en Rust de un intérprete del estandar Forth-79.</p>
 <h3 id="operaciones-soportadas"><a class="header" href="#operaciones-soportadas">Operaciones soportadas</a></h3>
