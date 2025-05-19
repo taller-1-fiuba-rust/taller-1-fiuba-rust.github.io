@@ -8,20 +8,17 @@ Bienvenidos y bienvenidas al sitio de **Taller de Programación I - Cátedra Dey
 - **Jefe de Trabajos Prácticos:** Ing. Martín Miletta
 - **Ayudantes:**
   - Ing. Juan Bono
-  - Ing. Mauro Toscano
-  - Lic. Mauro Di Pietro
   - Ing. Agustín Firmapaz
-  - Alfonso Campodonico
+  - Ing. Juan Cruz Caserío
   - Noah Masri
   - Camila Ayala
-- **Colaboradores:**
-  - Nicolás Longo
-  - Tomas Emanuel
   - Rafael Berenguel
-  - Juan Ignacio Biancuzzo
+- **Colaboradores:**
+  - Mercedes Slepowron
+  - Agustina Landi
+  - Tomás Cichero
   - Julian G. Calderon
-  - Patricio Tourne
-  - Lucas Montenegro
+  - Juan Gulden
 
 - **Asesor académico:** Dr. Mariano Méndez
 - **Asesor de la industria:** Federico Carrone
