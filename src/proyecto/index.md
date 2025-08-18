@@ -1,5 +1,8 @@
 # Proyectos Realizados
 
+## 2025
+  - [1C 2025: RustiDocs](./25C1/proyecto.md)
+    - [Examen Final 1C 2025](./25C1/examen_final.md)
 ## 2024
   - [1C 2024: Agentes Autónomos de Prevención](./24C1/proyecto.md)
     - [Examen Final 1C 2024](./24C1/examen_final.md)
