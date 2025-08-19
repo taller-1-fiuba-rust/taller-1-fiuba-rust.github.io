@@ -8,37 +8,36 @@ La modelización de fenómenos del mundo real es una de las tareas fundamentales
 
 Este ejercicio se centra en un escenario geométrico simple pero interesante: calcular la longitud total de las sombras proyectadas por un conjunto de entidades en un mundo bidimensional.
 
-Imaginemos un mundo plano, con una carretera infinita que se extiende a lo largo del eje X. Sobre esta carretera, se encuentran $N$ "flatlanders" (seres planos), cada uno con una posición $X$ y una altura $H$ determinadas.
+Imaginemos un mundo plano, con una carretera infinita que se extiende a lo largo del eje X. Sobre esta carretera, se encuentran *N* "flatlanders" (seres planos), cada uno con una posición *X* y una altura *H* determinadas.
 
-Una fuente de luz, ubicada infinitamente lejos al oeste, ilumina a estos seres con un ángulo $\\theta$ respecto al suelo. Cada flatlander proyecta una sombra hacia el este. La longitud de la base de esta sombra ($L$) se puede calcular mediante la siguiente relación trigonométrica:
+Una fuente de luz, ubicada infinitamente lejos al oeste, ilumina a estos seres con un ángulo *theta* respecto al suelo. Cada flatlander proyecta una sombra hacia el este. La longitud de la base de esta sombra (*L*) se puede calcular mediante la siguiente relación trigonométrica: 
+> *L = H / tan(theta)*
 
-$$L = \frac{H}{\tan(\theta)}$$
-
-Por lo tanto, un flatlander en la posición $X$ con altura $H$ proyectará una sombra que cubre el intervalo de la carretera desde $[X, X + L]$.
+Por lo tanto, un flatlander en la posición *X* con altura *H* proyectará una sombra que cubre el intervalo de la carretera desde *[X, X + L]*.
 
 #### Ejemplo 1: Una Sola Sombra
 
-Supongamos que tenemos un único flatlander en la posición $X=10$ con una altura $H=20$, y la luz incide con un ángulo $\theta=45^\circ$.
+Supongamos que tenemos un único flatlander en la posición *X=10* con una altura *H=20*, y la luz incide con un ángulo *theta=45º*.
 
 La longitud de la sombra es:
-$$L = \frac{20}{\tan(45^\circ)} = \frac{20}{1} = 20$$
+> *L = 20 / tan(45º) = 20 / 1 = 20*
 
-El intervalo de la carretera cubierto por la sombra es $[10, 30]$.
+El intervalo de la carretera cubierto por la sombra es *[10, 30]*.
 
 #### Ejemplo 2: Sombras Superpuestas
 
 El desafío principal surge cuando múltiples flatlanders proyectan sombras que pueden superponerse.
 
-Consideremos dos flatlanders y un ángulo de $45^\circ$:
+Consideremos dos flatlanders y un ángulo de *45º*:
 
   * **Flatlander 1:** Posición 0, Altura 10.
-      * Su longitud de sombra es $L_{1} = 10 / \tan(45^\circ) = 10$.
-      * Cubre el intervalo $[0, 10]$.
+      * Su longitud de sombra es *L_1 = 10 / tan(45º) = 10*.
+      * Cubre el intervalo *[0, 10]*.
   * **Flatlander 2:** Posición 5, Altura 10.
-      * Su longitud de sombra es $L_{2} = 10 / \tan(45^\circ) = 10$.
-      * Cubre el intervalo $[5, 15]$.
+      * Su longitud de sombra es *L_2 = 10 / tan(45º) = 10*.
+      * Cubre el intervalo *[5, 15]*.
 
-Las sombras se superponen. El área total cubierta es la unión de los dos intervalos, resulta en el intervalo único $[0, 15]$, por lo tanto, la longitud total cubierta es **15**.
+Las sombras se superponen. El área total cubierta es la unión de los dos intervalos, resulta en el intervalo único *[0, 15]*, por lo tanto, la longitud total cubierta es **15**.
 
 ## Ejercicio
 
@@ -49,9 +48,9 @@ Siguiendo con los siguientes formatos y restricciones:
 
 El input se recibirá por la entrada estándar (stdin).
 
-La primera línea contendrá dos números: un entero $\theta$ ($10 \le \theta \le 80$) que representa el ángulo en grados, y un entero $N$ ($1 \le N \le 10^5$) que representa el número de flatlanders.
+La primera línea contendrá dos números: un entero *theta (10 <= theta <= 80)* que representa el ángulo en grados, y un entero *N (1 <= N <= 10^5)* que representa el número de flatlanders.
 
-Las siguientes $N$ líneas contendrán cada una dos números: un entero $X$ ($0 \le X \le 3 \cdot 10^5$) y un entero $H$ ($1 \le H \le 1000$), que representan la posición y la altura de cada flatlander, respectivamente.
+Las siguientes *N* líneas contendrán cada una dos números: un entero *X (0 <= X <= 3 . 10^5)* y un entero *H (1 <= H <= 1000)*, que representan la posición y la altura de cada flatlander, respectivamente.
 
 **Ejemplo de Input:**
 
@@ -64,7 +63,7 @@ Las siguientes $N$ líneas contendrán cada una dos números: un entero $X$ ($0 
 #### 2. Formato de Output
 
 El programa deberá imprimir **únicamente** el resultado por salida estándar (stdout) en una única línea con un número de punto flotante.
-La respuesta se considerará correcta si el error absoluto o relativo no excede $10^{-4}$
+La respuesta se considerará correcta si el error absoluto o relativo no excede *10^-4*
 
 **Ejemplo de Output:**
 
@@ -139,7 +138,7 @@ Los siguientes son los requerimientos no funcionales para la resolución del pro
   * Las funciones no deben tener una extensión mayor a 30 líneas. Si se requiriera una extensión mayor, se deberá particionarla en varias funciones.
   * Cada tipo de dato implementado debe ser colocado en una unidad de compilación (archivo fuente) independiente.
 
-> [!WARNING]  
+> **ADVERTENCIA!**
 > El proyecto deberá realizarse de manera individual. Cualquier tipo de copia significa la expulsión automática de la materia.
   No está permitido el uso de código generado por ninguna IA, ni copiar código de soluciones existentes en internet.
   
