@@ -1,0 +1,293 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Ejercicio Individual 2C 2025 - Taller de Programación I</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../inicio.html"><strong aria-hidden="true">1.</strong> Inicio</a></li><li class="chapter-item expanded "><a href="../../recursos.html"><strong aria-hidden="true">2.</strong> Bibliografía y Recursos</a></li><li class="chapter-item expanded "><a href="../../clases/index.html"><strong aria-hidden="true">3.</strong> Clases</a></li><li class="chapter-item expanded "><a href="../../guias/index.html"><strong aria-hidden="true">4.</strong> Guías</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../guias/guia1.html"><strong aria-hidden="true">4.1.</strong> Guía 1</a></li><li class="chapter-item expanded "><a href="../../guias/guia2.html"><strong aria-hidden="true">4.2.</strong> Guía 2</a></li><li class="chapter-item expanded "><a href="../../guias/guia3.html"><strong aria-hidden="true">4.3.</strong> Guía 3</a></li><li class="chapter-item expanded "><a href="../../guias/guia4.html"><strong aria-hidden="true">4.4.</strong> Guía 4</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/25C2/ejercicio_individual.html" class="active"><strong aria-hidden="true">5.</strong> Ejercicio Individual 2C 2025</a></li><li class="chapter-item expanded "><a href="../../proyecto/index.html"><strong aria-hidden="true">6.</strong> Proyectos Realizados</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/25C1/proyecto.html"><strong aria-hidden="true">6.1.</strong> 1C 2025 RustiDocs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/25C1/examen_final.html"><strong aria-hidden="true">6.1.1.</strong> Examen Final 1C 2025</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/24C1/proyecto.html"><strong aria-hidden="true">6.2.</strong> 1C 2024 Agentes Autonomos</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/24C1/examen_final.html"><strong aria-hidden="true">6.2.1.</strong> Examen Final 1C 2024</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/24C2/proyecto.html"><strong aria-hidden="true">6.3.</strong> 2C 2024 Aerolineas Rústicas</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/24C2/examen_final.html"><strong aria-hidden="true">6.3.1.</strong> Examen Final 2C 2024</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/23C1/proyecto.html"><strong aria-hidden="true">6.4.</strong> 1C 2023: Bitcoin</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/23C1/examen_final.html"><strong aria-hidden="true">6.4.1.</strong> Examen Final 1C 2023</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/23C2/proyecto.html"><strong aria-hidden="true">6.5.</strong> 2C 2023: Git</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/23C2/examen_final.html"><strong aria-hidden="true">6.5.1.</strong> Examen Final 2C 2023: Pull Requests</a></li><li class="chapter-item expanded "><a href="../../proyecto/23C2/examen_final_2.html"><strong aria-hidden="true">6.5.2.</strong> Examen Final 2C 2023: Releases</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/22C1/proyecto.html"><strong aria-hidden="true">6.6.</strong> 1C 2022: BitTorrent</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/22C1/proyecto_final_1C2022.html"><strong aria-hidden="true">6.6.1.</strong> Agregado al Proyecto - Finales Julio/Agosto 2022</a></li><li class="chapter-item expanded "><a href="../../proyecto/22C1/criterios_aprobacion.html"><strong aria-hidden="true">6.6.2.</strong> Criterios de aprobación</a></li><li class="chapter-item expanded "><a href="../../proyecto/22C1/entrega_intermedia.html"><strong aria-hidden="true">6.6.3.</strong> Entrega Intermedia</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/22C2/proyecto.html"><strong aria-hidden="true">6.7.</strong> 2C 2022: IRC</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/22C2/examen_final.html"><strong aria-hidden="true">6.7.1.</strong> Examen Final 2C 2022</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/anteriores/21C1/proyecto.html"><strong aria-hidden="true">6.8.</strong> 1C 2021: Redis</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/anteriores/21C1/agregado.html"><strong aria-hidden="true">6.8.1.</strong> Agregado al Proyecto</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/anteriores/21C2/proyecto.html"><strong aria-hidden="true">6.9.</strong> 2C 2021: MQTT</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/anteriores/21C2/finales_2022_feb_mar.html"><strong aria-hidden="true">6.9.1.</strong> Finales Febrero/Marzo 2022</a></li><li class="spacer"></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../rust_arg.html">Grupo Rust Argentina</a></li><li class="chapter-item expanded affix "><a href="../../nosotros.html">Nosotros</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Taller de Programación I</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="rust-el-rompecabezas-de-las-sombras"><a class="header" href="#rust-el-rompecabezas-de-las-sombras">Rust: El Rompecabezas de las Sombras</a></h1>
+<h2 id="introducción"><a class="header" href="#introducción">Introducción</a></h2>
+<p>La modelización de fenómenos del mundo real es una de las tareas fundamentales de la programación. Desde la simulación de sistemas físicos complejos y el renderizado de gráficos en videojuegos hasta el análisis de datos geoespaciales, la capacidad de representar objetos, entidades y sus interacciones a través de estructuras de datos es una habilidad esencial. En estos dominios, la <a href="https://es.wikipedia.org/wiki/Geometr%C3%ADa_computacional">geometría computacional</a> juega un papel crucial, proporcionando las herramientas para describir y manipular formas, espacios y las relaciones entre ellos.</p>
+<h3 id="descripción-del-problema"><a class="header" href="#descripción-del-problema">Descripción del Problema</a></h3>
+<p>Este ejercicio se centra en un escenario geométrico simple pero interesante: calcular la longitud total de las sombras proyectadas por un conjunto de entidades en un mundo bidimensional.</p>
+<p>Imaginemos un mundo plano, con una carretera infinita que se extiende a lo largo del eje X. Sobre esta carretera, se encuentran $N$ &quot;flatlanders&quot; (seres planos), cada uno con una posición $X$ y una altura $H$ determinadas.</p>
+<p>Una fuente de luz, ubicada infinitamente lejos al oeste, ilumina a estos seres con un ángulo $\theta$ respecto al suelo. Cada flatlander proyecta una sombra hacia el este. La longitud de la base de esta sombra ($L$) se puede calcular mediante la siguiente relación trigonométrica:</p>
+<p>$$L = \frac{H}{\tan(\theta)}$$</p>
+<p>Por lo tanto, un flatlander en la posición $X$ con altura $H$ proyectará una sombra que cubre el intervalo de la carretera desde $[X, X + L]$.</p>
+<h4 id="ejemplo-1-una-sola-sombra"><a class="header" href="#ejemplo-1-una-sola-sombra">Ejemplo 1: Una Sola Sombra</a></h4>
+<p>Supongamos que tenemos un único flatlander en la posición $X=10$ con una altura $H=20$, y la luz incide con un ángulo $\theta=45^\circ$.</p>
+<p>La longitud de la sombra es:
+$$L = \frac{20}{\tan(45^\circ)} = \frac{20}{1} = 20$$</p>
+<p>El intervalo de la carretera cubierto por la sombra es $[10, 30]$.</p>
+<h4 id="ejemplo-2-sombras-superpuestas"><a class="header" href="#ejemplo-2-sombras-superpuestas">Ejemplo 2: Sombras Superpuestas</a></h4>
+<p>El desafío principal surge cuando múltiples flatlanders proyectan sombras que pueden superponerse.</p>
+<p>Consideremos dos flatlanders y un ángulo de $45^\circ$:</p>
+<ul>
+<li><strong>Flatlander 1:</strong> Posición 0, Altura 10.
+<ul>
+<li>Su longitud de sombra es $L_{1} = 10 / \tan(45^\circ) = 10$.</li>
+<li>Cubre el intervalo $[0, 10]$.</li>
+</ul>
+</li>
+<li><strong>Flatlander 2:</strong> Posición 5, Altura 10.
+<ul>
+<li>Su longitud de sombra es $L_{2} = 10 / \tan(45^\circ) = 10$.</li>
+<li>Cubre el intervalo $[5, 15]$.</li>
+</ul>
+</li>
+</ul>
+<p>Las sombras se superponen. El área total cubierta es la unión de los dos intervalos, resulta en el intervalo único $[0, 15]$, por lo tanto, la longitud total cubierta es <strong>15</strong>.</p>
+<h2 id="ejercicio"><a class="header" href="#ejercicio">Ejercicio</a></h2>
+<p>El ejercicio propuesto es implementar en Rust un programa que resuelva el problema del rompecabezas de las sombras, calculando la longitud total cubierta para el input dado.
+Siguiendo con los siguientes formatos y restricciones:</p>
+<h4 id="1-formato-de-input"><a class="header" href="#1-formato-de-input">1. Formato de Input</a></h4>
+<p>El input se recibirá por la entrada estándar (stdin).</p>
+<p>La primera línea contendrá dos números: un entero $\theta$ ($10 \le \theta \le 80$) que representa el ángulo en grados, y un entero $N$ ($1 \le N \le 10^5$) que representa el número de flatlanders.</p>
+<p>Las siguientes $N$ líneas contendrán cada una dos números: un entero $X$ ($0 \le X \le 3 \cdot 10^5$) y un entero $H$ ($1 \le H \le 1000$), que representan la posición y la altura de cada flatlander, respectivamente.</p>
+<p><strong>Ejemplo de Input:</strong></p>
+<pre><code>45 2
+0 10
+5 10
+</code></pre>
+<h4 id="2-formato-de-output"><a class="header" href="#2-formato-de-output">2. Formato de Output</a></h4>
+<p>El programa deberá imprimir <strong>únicamente</strong> el resultado por salida estándar (stdout) en una única línea con un número de punto flotante.
+La respuesta se considerará correcta si el error absoluto o relativo no excede $10^{-4}$</p>
+<p><strong>Ejemplo de Output:</strong></p>
+<pre><code>15.0000000000000
+</code></pre>
+<blockquote>
+<p><strong>IMPORTANTE: Se ejecutará una suite de tests automatizados para probar el correcto funcionamiento del programa, por eso es importante respetar el formato indicado.</strong></p>
+</blockquote>
+<h2 id="ejemplos-adicionales"><a class="header" href="#ejemplos-adicionales">Ejemplos Adicionales</a></h2>
+<p><strong>Input:</strong></p>
+<pre><code>30 3
+50 150
+0 100
+100 200
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre><code>446.4101615137755
+</code></pre>
+<hr />
+<p><strong>Input:</strong></p>
+<pre><code>45 3
+50 150
+0 100
+100 200
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre><code>300.00000000000006
+</code></pre>
+<h2 id="recursos-Útiles"><a class="header" href="#recursos-Útiles">Recursos Útiles</a></h2>
+<ul>
+<li><a href="https://doc.rust-lang.org/book/ch05-00-structs.html">Structs</a></li>
+<li><a href="https://doc.rust-lang.org/stable/std/f64">Módulo <code>std::f64</code></a> para funciones trigonométricas y constantes (recordar que las funciones trigonométricas en Rust operan con radianes).</li>
+</ul>
+<h2 id="restricciones"><a class="header" href="#restricciones">Restricciones</a></h2>
+<ul>
+<li>Escribir el programa sin utilizar <code>.unwrap()</code> o <code>.expect()</code>. Todo caso de error deberá manejarse idiomáticamente con las estructuras y funciones brindadas por el lenguaje.</li>
+<li>No se permite que el programa lance un <a href="https://doc.rust-lang.org/book/ch09-01-unrecoverable-errors-with-panic.html">panic!()</a>.</li>
+<li>No se permite utilizar la función <a href="https://doc.rust-lang.org/std/process/fn.exit.html">exit()</a>. Se deberá salir del programa finalizando el scope de la función <code>main</code>.</li>
+<li>No se permite utilizar el módulo <a href="https://doc.rust-lang.org/std/mem/">mem</a> para la manipulación de memoria.</li>
+<li>Para realizar un uso adecuado de memoria y respetar las reglas de ownership se deberá evitar el uso de <a href="https://doc.rust-lang.org/std/clone/trait.Clone.html">.clone()</a> y <a href="https://doc.rust-lang.org/std/marker/trait.Copy.html">.copy()</a> en las estructuras principales de datos.</li>
+<li>Todo el programa puede ser resuelto con lo aprendido en clase hasta la presentación de este ejercicio. No se espera (ni se acepta) que se utilicen estructuras relacionadas a concurrencia o redes para resolución de este ejercicio.</li>
+</ul>
+<h2 id="requerimientos-no-funcionales"><a class="header" href="#requerimientos-no-funcionales">Requerimientos no funcionales</a></h2>
+<p>Los siguientes son los requerimientos no funcionales para la resolución del proyecto:</p>
+<ul>
+<li>El proyecto deberá ser desarrollado en la última versión estable de Rust, usando las herramientas de la biblioteca estándar.</li>
+<li>Se deben implementar tests unitarios y de integración de las funcionalidades que se consideren más importantes.</li>
+<li>No se permite utilizar crates externos.</li>
+<li>El código fuente debe compilarse en la versión estable del compilador y no se permite utilizar bloques <code>unsafe</code>.</li>
+<li>El código deberá funcionar en ambiente Unix / Linux.</li>
+<li>El programa deberá ejecutarse en la línea de comandos, leyendo de <code>stdin</code> y escribiendo a <code>stdout</code>.</li>
+<li>La compilación no debe arrojar <code>warnings</code> del compilador, ni del linter <code>clippy</code>.</li>
+<li>Las funciones y los tipos de datos (<code>struct</code>) deben estar documentados siguiendo el estándar de <code>cargo doc</code>.</li>
+<li>El código debe formatearse utilizando <code>cargo fmt</code>.</li>
+<li>Las funciones no deben tener una extensión mayor a 30 líneas. Si se requiriera una extensión mayor, se deberá particionarla en varias funciones.</li>
+<li>Cada tipo de dato implementado debe ser colocado en una unidad de compilación (archivo fuente) independiente.</li>
+</ul>
+<blockquote>
+<p>[!WARNING]<br />
+El proyecto deberá realizarse de manera individual. Cualquier tipo de copia significa la expulsión automática de la materia.
+No está permitido el uso de código generado por ninguna IA, ni copiar código de soluciones existentes en internet.</p>
+</blockquote>
+<blockquote>
+<p><strong>IMPORTANTE: no cumplir con todas las restricciones y requisitos no funcionales implica la reentrega automática del ejercicio. Se debe prestar minuciosa atención a cada uno de los detalles.</strong></p>
+</blockquote>
+<h2 id="fechas-de-entrega"><a class="header" href="#fechas-de-entrega">Fechas de entrega</a></h2>
+<p><strong>Primer entrega:</strong> 01/09</p>
+<p>Luego de la primer entrega se harán las correcciones correspondientes y se podrá volver a entregar el ejercicio en dos oportunidades más.</p>
+<p>La forma de entrega se comunicará por el canal de avisos.</p>
+<blockquote>
+<p><strong>No aprobar el trabajo imposibilitará la continuidad en la materia.</strong></p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../guias/guia4.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../../proyecto/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../guias/guia4.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../../proyecto/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>
