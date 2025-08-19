@@ -139,40 +139,44 @@
 <p>La modelización de fenómenos del mundo real es una de las tareas fundamentales de la programación. Desde la simulación de sistemas físicos complejos y el renderizado de gráficos en videojuegos hasta el análisis de datos geoespaciales, la capacidad de representar objetos, entidades y sus interacciones a través de estructuras de datos es una habilidad esencial. En estos dominios, la <a href="https://es.wikipedia.org/wiki/Geometr%C3%ADa_computacional">geometría computacional</a> juega un papel crucial, proporcionando las herramientas para describir y manipular formas, espacios y las relaciones entre ellos.</p>
 <h3 id="descripción-del-problema"><a class="header" href="#descripción-del-problema">Descripción del Problema</a></h3>
 <p>Este ejercicio se centra en un escenario geométrico simple pero interesante: calcular la longitud total de las sombras proyectadas por un conjunto de entidades en un mundo bidimensional.</p>
-<p>Imaginemos un mundo plano, con una carretera infinita que se extiende a lo largo del eje X. Sobre esta carretera, se encuentran $N$ &quot;flatlanders&quot; (seres planos), cada uno con una posición $X$ y una altura $H$ determinadas.</p>
-<p>Una fuente de luz, ubicada infinitamente lejos al oeste, ilumina a estos seres con un ángulo $\theta$ respecto al suelo. Cada flatlander proyecta una sombra hacia el este. La longitud de la base de esta sombra ($L$) se puede calcular mediante la siguiente relación trigonométrica:</p>
-<p>$$L = \frac{H}{\tan(\theta)}$$</p>
-<p>Por lo tanto, un flatlander en la posición $X$ con altura $H$ proyectará una sombra que cubre el intervalo de la carretera desde $[X, X + L]$.</p>
+<p>Imaginemos un mundo plano, con una carretera infinita que se extiende a lo largo del eje X. Sobre esta carretera, se encuentran <em>N</em> &quot;flatlanders&quot; (seres planos), cada uno con una posición <em>X</em> y una altura <em>H</em> determinadas.</p>
+<p>Una fuente de luz, ubicada infinitamente lejos al oeste, ilumina a estos seres con un ángulo <em>theta</em> respecto al suelo. Cada flatlander proyecta una sombra hacia el este. La longitud de la base de esta sombra (<em>L</em>) se puede calcular mediante la siguiente relación trigonométrica: </p>
+<blockquote>
+<p><em>L = H / tan(theta)</em></p>
+</blockquote>
+<p>Por lo tanto, un flatlander en la posición <em>X</em> con altura <em>H</em> proyectará una sombra que cubre el intervalo de la carretera desde <em>[X, X + L]</em>.</p>
 <h4 id="ejemplo-1-una-sola-sombra"><a class="header" href="#ejemplo-1-una-sola-sombra">Ejemplo 1: Una Sola Sombra</a></h4>
-<p>Supongamos que tenemos un único flatlander en la posición $X=10$ con una altura $H=20$, y la luz incide con un ángulo $\theta=45^\circ$.</p>
-<p>La longitud de la sombra es:
-$$L = \frac{20}{\tan(45^\circ)} = \frac{20}{1} = 20$$</p>
-<p>El intervalo de la carretera cubierto por la sombra es $[10, 30]$.</p>
+<p>Supongamos que tenemos un único flatlander en la posición <em>X=10</em> con una altura <em>H=20</em>, y la luz incide con un ángulo <em>theta=45º</em>.</p>
+<p>La longitud de la sombra es:</p>
+<blockquote>
+<p><em>L = 20 / tan(45º) = 20 / 1 = 20</em></p>
+</blockquote>
+<p>El intervalo de la carretera cubierto por la sombra es <em>[10, 30]</em>.</p>
 <h4 id="ejemplo-2-sombras-superpuestas"><a class="header" href="#ejemplo-2-sombras-superpuestas">Ejemplo 2: Sombras Superpuestas</a></h4>
 <p>El desafío principal surge cuando múltiples flatlanders proyectan sombras que pueden superponerse.</p>
-<p>Consideremos dos flatlanders y un ángulo de $45^\circ$:</p>
+<p>Consideremos dos flatlanders y un ángulo de <em>45º</em>:</p>
 <ul>
 <li><strong>Flatlander 1:</strong> Posición 0, Altura 10.
 <ul>
-<li>Su longitud de sombra es $L_{1} = 10 / \tan(45^\circ) = 10$.</li>
-<li>Cubre el intervalo $[0, 10]$.</li>
+<li>Su longitud de sombra es <em>L_1 = 10 / tan(45º) = 10</em>.</li>
+<li>Cubre el intervalo <em>[0, 10]</em>.</li>
 </ul>
 </li>
 <li><strong>Flatlander 2:</strong> Posición 5, Altura 10.
 <ul>
-<li>Su longitud de sombra es $L_{2} = 10 / \tan(45^\circ) = 10$.</li>
-<li>Cubre el intervalo $[5, 15]$.</li>
+<li>Su longitud de sombra es <em>L_2 = 10 / tan(45º) = 10</em>.</li>
+<li>Cubre el intervalo <em>[5, 15]</em>.</li>
 </ul>
 </li>
 </ul>
-<p>Las sombras se superponen. El área total cubierta es la unión de los dos intervalos, resulta en el intervalo único $[0, 15]$, por lo tanto, la longitud total cubierta es <strong>15</strong>.</p>
+<p>Las sombras se superponen. El área total cubierta es la unión de los dos intervalos, resulta en el intervalo único <em>[0, 15]</em>, por lo tanto, la longitud total cubierta es <strong>15</strong>.</p>
 <h2 id="ejercicio"><a class="header" href="#ejercicio">Ejercicio</a></h2>
 <p>El ejercicio propuesto es implementar en Rust un programa que resuelva el problema del rompecabezas de las sombras, calculando la longitud total cubierta para el input dado.
 Siguiendo con los siguientes formatos y restricciones:</p>
 <h4 id="1-formato-de-input"><a class="header" href="#1-formato-de-input">1. Formato de Input</a></h4>
 <p>El input se recibirá por la entrada estándar (stdin).</p>
-<p>La primera línea contendrá dos números: un entero $\theta$ ($10 \le \theta \le 80$) que representa el ángulo en grados, y un entero $N$ ($1 \le N \le 10^5$) que representa el número de flatlanders.</p>
-<p>Las siguientes $N$ líneas contendrán cada una dos números: un entero $X$ ($0 \le X \le 3 \cdot 10^5$) y un entero $H$ ($1 \le H \le 1000$), que representan la posición y la altura de cada flatlander, respectivamente.</p>
+<p>La primera línea contendrá dos números: un entero <em>theta (10 &lt;= theta &lt;= 80)</em> que representa el ángulo en grados, y un entero <em>N (1 &lt;= N &lt;= 10^5)</em> que representa el número de flatlanders.</p>
+<p>Las siguientes <em>N</em> líneas contendrán cada una dos números: un entero <em>X (0 &lt;= X &lt;= 3 . 10^5)</em> y un entero <em>H (1 &lt;= H &lt;= 1000)</em>, que representan la posición y la altura de cada flatlander, respectivamente.</p>
 <p><strong>Ejemplo de Input:</strong></p>
 <pre><code>45 2
 0 10
@@ -180,7 +184,7 @@ Siguiendo con los siguientes formatos y restricciones:</p>
 </code></pre>
 <h4 id="2-formato-de-output"><a class="header" href="#2-formato-de-output">2. Formato de Output</a></h4>
 <p>El programa deberá imprimir <strong>únicamente</strong> el resultado por salida estándar (stdout) en una única línea con un número de punto flotante.
-La respuesta se considerará correcta si el error absoluto o relativo no excede $10^{-4}$</p>
+La respuesta se considerará correcta si el error absoluto o relativo no excede <em>10^-4</em></p>
 <p><strong>Ejemplo de Output:</strong></p>
 <pre><code>15.0000000000000
 </code></pre>
@@ -237,7 +241,7 @@ La respuesta se considerará correcta si el error absoluto o relativo no excede 
 <li>Cada tipo de dato implementado debe ser colocado en una unidad de compilación (archivo fuente) independiente.</li>
 </ul>
 <blockquote>
-<p>[!WARNING]<br />
+<p><strong>ADVERTENCIA!</strong>
 El proyecto deberá realizarse de manera individual. Cualquier tipo de copia significa la expulsión automática de la materia.
 No está permitido el uso de código generado por ninguna IA, ni copiar código de soluciones existentes en internet.</p>
 </blockquote>
