@@ -1,0 +1,309 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Ejercicio Individual 2 - 2C 2025 - Taller de Programación I</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../inicio.html"><strong aria-hidden="true">1.</strong> Inicio</a></li><li class="chapter-item expanded "><a href="../../recursos.html"><strong aria-hidden="true">2.</strong> Bibliografía y Recursos</a></li><li class="chapter-item expanded "><a href="../../clases/index.html"><strong aria-hidden="true">3.</strong> Clases</a></li><li class="chapter-item expanded "><a href="../../guias/index.html"><strong aria-hidden="true">4.</strong> Guías</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../guias/guia1.html"><strong aria-hidden="true">4.1.</strong> Guía 1</a></li><li class="chapter-item expanded "><a href="../../guias/guia2.html"><strong aria-hidden="true">4.2.</strong> Guía 2</a></li><li class="chapter-item expanded "><a href="../../guias/guia3.html"><strong aria-hidden="true">4.3.</strong> Guía 3</a></li><li class="chapter-item expanded "><a href="../../guias/guia4.html"><strong aria-hidden="true">4.4.</strong> Guía 4</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/25C2/ejercicio_individual.html"><strong aria-hidden="true">5.</strong> Ejercicio Individual 1 - 2C 2025</a></li><li class="chapter-item expanded "><a href="../../proyecto/25C2/ejercicio_individual_2.html" class="active"><strong aria-hidden="true">6.</strong> Ejercicio Individual 2 - 2C 2025</a></li><li class="chapter-item expanded "><a href="../../proyecto/index.html"><strong aria-hidden="true">7.</strong> Proyectos Realizados</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/25C1/proyecto.html"><strong aria-hidden="true">7.1.</strong> 1C 2025 RustiDocs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/25C1/examen_final.html"><strong aria-hidden="true">7.1.1.</strong> Examen Final 1C 2025</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/24C1/proyecto.html"><strong aria-hidden="true">7.2.</strong> 1C 2024 Agentes Autonomos</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/24C1/examen_final.html"><strong aria-hidden="true">7.2.1.</strong> Examen Final 1C 2024</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/24C2/proyecto.html"><strong aria-hidden="true">7.3.</strong> 2C 2024 Aerolineas Rústicas</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/24C2/examen_final.html"><strong aria-hidden="true">7.3.1.</strong> Examen Final 2C 2024</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/23C1/proyecto.html"><strong aria-hidden="true">7.4.</strong> 1C 2023: Bitcoin</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/23C1/examen_final.html"><strong aria-hidden="true">7.4.1.</strong> Examen Final 1C 2023</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/23C2/proyecto.html"><strong aria-hidden="true">7.5.</strong> 2C 2023: Git</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/23C2/examen_final.html"><strong aria-hidden="true">7.5.1.</strong> Examen Final 2C 2023: Pull Requests</a></li><li class="chapter-item expanded "><a href="../../proyecto/23C2/examen_final_2.html"><strong aria-hidden="true">7.5.2.</strong> Examen Final 2C 2023: Releases</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/22C1/proyecto.html"><strong aria-hidden="true">7.6.</strong> 1C 2022: BitTorrent</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/22C1/proyecto_final_1C2022.html"><strong aria-hidden="true">7.6.1.</strong> Agregado al Proyecto - Finales Julio/Agosto 2022</a></li><li class="chapter-item expanded "><a href="../../proyecto/22C1/criterios_aprobacion.html"><strong aria-hidden="true">7.6.2.</strong> Criterios de aprobación</a></li><li class="chapter-item expanded "><a href="../../proyecto/22C1/entrega_intermedia.html"><strong aria-hidden="true">7.6.3.</strong> Entrega Intermedia</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/22C2/proyecto.html"><strong aria-hidden="true">7.7.</strong> 2C 2022: IRC</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/22C2/examen_final.html"><strong aria-hidden="true">7.7.1.</strong> Examen Final 2C 2022</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/anteriores/21C1/proyecto.html"><strong aria-hidden="true">7.8.</strong> 1C 2021: Redis</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/anteriores/21C1/agregado.html"><strong aria-hidden="true">7.8.1.</strong> Agregado al Proyecto</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/anteriores/21C2/proyecto.html"><strong aria-hidden="true">7.9.</strong> 2C 2021: MQTT</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/anteriores/21C2/finales_2022_feb_mar.html"><strong aria-hidden="true">7.9.1.</strong> Finales Febrero/Marzo 2022</a></li><li class="spacer"></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../rust_arg.html">Grupo Rust Argentina</a></li><li class="chapter-item expanded affix "><a href="../../nosotros.html">Nosotros</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Taller de Programación I</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="calculadora-distribuida"><a class="header" href="#calculadora-distribuida">Calculadora Distribuida</a></h1>
+<h2 id="introducción"><a class="header" href="#introducción">Introducción</a></h2>
+<p>El cómputo distribuido es un pilar fundamental del desarrollo de software moderno. Aprender a coordinar tareas concurrentes y a comunicar procesos distribuidos resulta esencial para construir aplicaciones escalables, robustas y reactivas.</p>
+<p>El objetivo del trabajo práctico es crear una calculadora distribuida utilizando una arquitectura <a href="https://en.wikipedia.org/wiki/Client%E2%80%93server_model">cliente-servidor</a>. Contaremos con un único servidor central (la calculadora) y múltiples clientes (los operadores) que se comunican concurrentemente.</p>
+<p><img src="./calculadora-cliente-servidor.svg" alt="cliente-servidor" /></p>
+<p>La comunicación entre los nodos se realizará a través de <a href="https://en.wikipedia.org/wiki/Network_socket">sockets</a>. Desde el lado del servidor, cada conexión se procesará en un <a href="https://en.wikipedia.org/wiki/Thread_(computing)">thread</a> distinto.</p>
+<p>Los operadores enviarán operaciones al servidor (&quot;+ 1&quot;, &quot;* 3&quot;, &quot;/ 2&quot;), el cual aplicará estas operaciones sobre un valor central. Las operaciones se aplicarán en orden de llegada.</p>
+<p><img src="./calculadora-secuencia.svg" alt="secuencia" /></p>
+<h2 id="protocolo-de-comunicación"><a class="header" href="#protocolo-de-comunicación">Protocolo de Comunicación</a></h2>
+<p>El <a href="https://en.wikipedia.org/wiki/Communication_protocol">protocolo de comunicación</a> será sencillo. Los nodos intercambiarán mensajes de texto delimitados por un salto de línea. Para mas información, ver <a href="https://en.wikipedia.org/wiki/Communication_protocol#Text-based">text-based protocols</a>.</p>
+<p>El servidor aceptará dos tipos de mensajes: <code>OP &lt;operacion&gt;</code>; <code>GET</code>.</p>
+<p>Al recibir el mensaje <code>OP</code>, el servidor aplicará la operación, y responderá <code>OK</code> en caso de éxito, y <code>ERROR &quot;&lt;motivo&gt;&quot;</code> en caso de error.</p>
+<p>La operación tiene dos componentes, separados por <em>whitespace</em>: <code>&lt;operador&gt; &lt;operando&gt;</code>. El operador puede ser <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, y el operando es un <code>u8</code>.</p>
+<p>Al recibir el mensaje <code>GET</code>, el servidor responderá con el valor actual de la calculadora <code>VALUE &lt;valor&gt;</code>.</p>
+<p>La especificación formal de los mensajes del protocolo está dada en <a href="https://es.wikipedia.org/wiki/Notaci%C3%B3n_de_Backus-Naur">notación Backus-Naur</a> (BNF).</p>
+<pre><code class="language-bnf">&lt;mensaje&gt; ::= &lt;cuerpo&gt; &lt;eom&gt;
+&lt;cuerpo&gt; ::= &lt;msg-op&gt; | &lt;msg-get&gt; | &lt;msg-ok&gt; | &lt;msg-err&gt; | &lt;msg-value&gt;
+
+&lt;msg-op&gt; ::= &quot;OP&quot; &lt;ws&gt; &lt;operacion&gt;
+&lt;msg-get&gt; ::= &quot;GET&quot;
+&lt;msg-ok&gt; ::= &quot;OK&quot;
+&lt;msg-err&gt; ::= &quot;ERROR&quot; &lt;ws&gt; &lt;quote&gt; &lt;motivo&gt; &lt;quote&gt;
+&lt;msg-value&gt; ::= &quot;VALUE&quot; &lt;ws&gt; &lt;numero&gt;
+
+&lt;operacion&gt; ::= &lt;operador&gt; &lt;ws&gt; &lt;numero&gt;
+&lt;operador&gt; ::= &quot;+&quot; | &quot;-&quot; | &quot;*&quot; | &quot;/&quot;
+&lt;numero&gt; ::= número de 8 bits (u8)
+
+&lt;ws&gt; ::= whitespace
+&lt;eom&gt; ::= &quot;\n&quot;
+&lt;quote&gt; ::= &quot;\&quot;&quot;
+</code></pre>
+<h3 id="ejemplo-1"><a class="header" href="#ejemplo-1">Ejemplo 1</a></h3>
+<p>Consideramos un único servidor, y un único cliente.</p>
+<pre><code>client : OP + 1
+server : OK
+client : GET
+server : VALUE 1
+client : OP * 3
+server : OK
+client : OP + 2
+server : OK
+client : GET
+server : VALUE 5
+</code></pre>
+<h3 id="ejemplo-2"><a class="header" href="#ejemplo-2">Ejemplo 2</a></h3>
+<p>En caso de una operación inválida, respondemos con un mensaje de error e ignoramos la operación.</p>
+<pre><code>client : OP + 1
+server : OK
+client : OP % 5
+server : ERROR &quot;Operacion invalida&quot;
+client : GET
+server : VALUE 1
+</code></pre>
+<h2 id="binarios-entregables"><a class="header" href="#binarios-entregables">Binarios Entregables</a></h2>
+<p>El proyecto de Rust deberá estar compuesto por dos binarios:</p>
+<ul>
+<li><code>server</code></li>
+<li><code>client</code></li>
+</ul>
+<p>Para más información sobre como estructurar el proyecto, referirse <a href="https://doc.rust-lang.org/book/ch07-01-packages-and-crates.html">The Rust Programming Language - Capítulo 7</a>.</p>
+<p>Para validar que el proyecto está bien estructurado, ejecutar <code>cargo build</code> deberá generar dos binarios, uno con el nombre de <code>server</code>, y otro con el nombre de <code>client</code>.</p>
+<h2 id="servidor"><a class="header" href="#servidor">Servidor</a></h2>
+<p>El servidor recibirá como argumento la dirección a través de la cual escuchará conexiones entrantes de los operadores.</p>
+<pre><code class="language-bash">cargo run --bin server -- 192.168.0.0:12345
+</code></pre>
+<p>Para más información sobre concurrencia en Rust, referirse a <a href="https://doc.rust-lang.org/book/ch16-00-concurrency.html">The Rust Programming Language - Capítulo 16</a>. Como ejemplo de un proyecto que utiliza concurrencia y redes, pueden leer <a href="https://doc.rust-lang.org/book/ch21-00-final-project-a-web-server.html">The Rust Programming Language - Capítulo 21</a>.</p>
+<p>En caso de un error irrecuperable, se debe imprimir por STDERR con el siguiente formato:</p>
+<pre><code>ERROR &quot;&lt;motivo&gt;&quot;
+</code></pre>
+<p>Un error irrecuperable es uno que fuerza la finalización del programa. Por ejemplo:</p>
+<ul>
+<li>No se reciben los argumentos esperados.</li>
+<li>El servidor no puede bindear un socket en la dirección especificada.</li>
+</ul>
+<p>Por cada conexión entrante, el servidor debe crear un hilo nuevo para manejar esa conexión.</p>
+<ul>
+<li>
+<p>En caso de un error <em>irrecuperable</em> durante una conexión (ej. el cliente se desconecta abruptamente), se debe imprimir el error en el formato especificado previamente, y finalizar ese hilo, pero <strong>NO</strong> el servidor completo.</p>
+</li>
+<li>
+<p>En caso de un error <em>recuperable</em> durante una conexión (ej. operación inválida), se debe enviar el error al cliente en el formato especificado previamente, pero manteniendo la conexión activa.</p>
+</li>
+</ul>
+<h2 id="cliente"><a class="header" href="#cliente">Cliente</a></h2>
+<p>El cliente recibirá como argumento la dirección del servidor, así como un archivo del cual deberá leer las operaciones que se deben enviar al servidor.</p>
+<pre><code class="language-bash">cargo run --bin client -- 192.168.0.0:12345 data/a.txt
+</code></pre>
+<p>El cliente deberá establecer una conexión con el servidor, y enviar las operaciones. No se debe validar que las operaciones del archivo sean válidas, eso es trabajo del servidor. Al finalizar la ejecución, el cliente deberá imprimir el valor actual de la calculadora.</p>
+<p>En caso de un error irrecuperable, se debe imprimir por STDERR con el formato especificado previamente.</p>
+<h2 id="opcionales"><a class="header" href="#opcionales">Opcionales</a></h2>
+<p>Si bien no obligatorios para la entrega, proponemos y recomendamos los siguientes opcionales:</p>
+<ul>
+<li>Agregar tests de integración. Estos son muy útiles para validar que un sistema complejo funcione correctamente. Es algo que van a tener que realizar en el trabajo práctico grupal.</li>
+<li>Agregar un sistema de <em>logging</em> unificado. Se deberá tener un hilo <em>logger</em> designado, que reciba eventos por un canal <a href="https://doc.rust-lang.org/std/sync/mpsc/index.html">MPSC</a>, y los escriba en un archivo de log.</li>
+</ul>
+<h2 id="restricciones"><a class="header" href="#restricciones">Restricciones</a></h2>
+<ul>
+<li>Escribir el programa sin utilizar <code>.unwrap()</code> o <code>.expect()</code>. Todo caso de error deberá manejarse idiomáticamente con las estructuras y funciones brindadas por el lenguaje.</li>
+<li>No se permite que el programa lance un <a href="https://doc.rust-lang.org/book/ch09-01-unrecoverable-errors-with-panic.html">panic!()</a>.</li>
+<li>No se permite utilizar la función <a href="https://doc.rust-lang.org/std/process/fn.exit.html">exit()</a>. Se deberá salir del programa finalizando el scope de la función <code>main</code>.</li>
+<li>No se permite utilizar el módulo <a href="https://doc.rust-lang.org/std/mem/">mem</a> para la manipulación de memoria.</li>
+<li>Para realizar un uso adecuado de memoria y respetar las reglas de <em>ownership</em> se deberá evitar el uso de <a href="https://doc.rust-lang.org/std/clone/trait.Clone.html">.clone()</a> y <a href="https://doc.rust-lang.org/std/marker/trait.Copy.html">.copy()</a> en las estructuras principales de datos.</li>
+<li>No debe haber un <a href="https://en.wikipedia.org/wiki/Busy_waiting">busy wait</a>.</li>
+</ul>
+<h2 id="requerimientos-no-funcionales"><a class="header" href="#requerimientos-no-funcionales">Requerimientos no funcionales</a></h2>
+<p>Los siguientes son los requerimientos no funcionales para la resolución del proyecto:</p>
+<ul>
+<li>El proyecto deberá ser desarrollado en la última versión estable de Rust (1.89), usando las herramientas de la biblioteca estándar.</li>
+<li>Se deben implementar tests unitarios.</li>
+<li>No se permite utilizar <em>crates</em> externos.</li>
+<li>El código fuente debe compilarse en la versión estable del compilador y no se permite utilizar bloques <code>unsafe</code>.</li>
+<li>El código deberá funcionar en ambiente Unix / Linux.</li>
+<li>Los programas deberán ejecutarse en la línea de comandos, leyendo de <code>stdin</code> y escribiendo a <code>stdout</code>/<code>stderr</code>.</li>
+<li>La compilación no debe arrojar <code>warnings</code> del compilador, ni del <em>linter</em> <code>clippy</code>.</li>
+<li>Las funciones y los tipos de datos (<code>struct</code>, <code>enum</code>) deben estar documentados siguiendo el estándar de <code>cargo doc</code>.</li>
+<li>El código debe formatearse utilizando <code>cargo fmt</code>.</li>
+<li>Las funciones no deben tener una extensión mayor a 30 líneas. Si se requiriera una extensión mayor, se deberá particionarla en varias funciones.</li>
+<li>Cada tipo de dato implementado debe ser colocado en un módulo (archivo) independiente.</li>
+</ul>
+<p>No cumplir con todas las restricciones y requisitos no funcionales implica la reentrega automática del ejercicio. Se debe prestar minuciosa atención a cada uno de los detalles.</p>
+<blockquote>
+<p><strong>ADVERTENCIA</strong></p>
+<p>El proyecto deberá realizarse de manera individual. Cualquier tipo de copia significa la expulsión automática de la materia. No está permitido el uso de código generado por ninguna IA, ni copiar código de soluciones existentes en internet.</p>
+</blockquote>
+<h2 id="fechas-de-entrega"><a class="header" href="#fechas-de-entrega">Fechas de entrega</a></h2>
+<p><strong>Primera entrega:</strong> 15/09 - 18:00</p>
+<p>La entrega se realizará por Algotron. Para que la entrega se considere válida, deberán pasar todas las verificaciones de la plataforma.</p>
+<p>Luego de la primera entrega se harán las correcciones correspondientes y se podrá volver a entregar el ejercicio en dos oportunidades más.</p>
+<blockquote>
+<p><strong>ADVERTENCIA</strong></p>
+<p>No aprobar el trabajo imposibilitará la continuidad en la materia.</p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../proyecto/25C2/ejercicio_individual.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../../proyecto/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../proyecto/25C2/ejercicio_individual.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../../proyecto/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>
