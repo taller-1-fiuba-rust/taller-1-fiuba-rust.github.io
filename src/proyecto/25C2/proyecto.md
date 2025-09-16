@@ -57,7 +57,7 @@ Funcionalidades minimas:
 - Usuario1 se conecta directamente a Usuario2.
 - Luego de establecida la conexion y posterior negociacion de codecsm se inicia la transmision.
 
-![Diagrama de arquitectura - RoomRTC](./diagrama_arquitectura_roomrtc.png)
+![image](./diagrama_arquitectura_roomrtc.png)
 
 
 
