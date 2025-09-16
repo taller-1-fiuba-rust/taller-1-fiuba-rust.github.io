@@ -10,6 +10,7 @@
   - [Guía 4](./guias/guia4.md)
 - [Ejercicio Individual 1 - 2C 2025](./proyecto/25C2/ejercicio_individual.md)
 - [Ejercicio Individual 2 - 2C 2025](./proyecto/25C2/ejercicio_individual_2.md)
+- [Proyecto RoomRTC - 2C 2025](./proyecto/25C2/proyecto.md)
 - [Proyectos Realizados](./proyecto/index.md)
   - [1C 2025 RustiDocs](./proyecto/25C1/proyecto.md)  
     - [Examen Final 1C 2025](./proyecto/25C1/examen_final.md)
