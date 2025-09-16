@@ -70,7 +70,7 @@ Los siguientes son los requerimientos no funcionales para la resolución del pro
 * Las funciones y los tipos de datos (struct) deben estar documentados siguiendo el estándar de cargo doc.
 * El código debe formatearse utilizando cargo fmt.
 * Las funciones no deben tener una extensión mayor a 30 líneas. Si se requiere una extensión mayor, se debe particionar en varias funciones.
-* Cada tipo de dato implementado debe ser colocado en módulo (archivo fuente) independiente.
+* Cada tipo de dato implementado debe ser colocado en un módulo (archivo fuente) independiente.
 
 ## Crates externos permitidos
 Se permite el uso de los siguientes crates solo para los usos mencionados (siempre y cuando se los considere necesarios):
