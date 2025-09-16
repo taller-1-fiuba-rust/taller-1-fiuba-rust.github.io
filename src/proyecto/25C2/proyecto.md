@@ -58,6 +58,14 @@ Funcionalidades mínimas:
 
 ![image](./diagrama_arquitectura_roomrtc.png)
 
+### Archivo de configuración
+
+Cada componente deber poder ser configurado mediante un archivo de configuración, de extensión `.conf` y cuya ubicación se pasara por argumento de línea de comando: `$ ./room-rtc /path/to/file.conf`. Todos los valores de configuracion mencionados en este enunciado y cualquier otro parametro necesario para la ejecucion del programa debera estar definido en este archivo. No se permite definir valores hardcodeados en el codigo fuente, ya sean direcciones IP, puertos o cualquier otra informacion necesaria.
+
+### Logs
+
+Cada componente deberá mantener un registro de las acciones realizadas y los eventos ocurridos en un archivo de log. La ubicación del archivo de log estará especificada en el archivo de configuración. Como requerimiento particular del Proyecto, NO se considerará válido que el servidor mantenga un file handle global, aunque esté protegido por un lock, y que se escriba directamente al file handle.
+
 ## Requerimientos no funcionales
 Los siguientes son los requerimientos no funcionales para la resolución del proyecto:
 
