@@ -1,0 +1,301 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Proyecto RoomRTC - 2C 2025 - Taller de Programación I</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../inicio.html"><strong aria-hidden="true">1.</strong> Inicio</a></li><li class="chapter-item expanded "><a href="../../recursos.html"><strong aria-hidden="true">2.</strong> Bibliografía y Recursos</a></li><li class="chapter-item expanded "><a href="../../clases/index.html"><strong aria-hidden="true">3.</strong> Clases</a></li><li class="chapter-item expanded "><a href="../../guias/index.html"><strong aria-hidden="true">4.</strong> Guías</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../guias/guia1.html"><strong aria-hidden="true">4.1.</strong> Guía 1</a></li><li class="chapter-item expanded "><a href="../../guias/guia2.html"><strong aria-hidden="true">4.2.</strong> Guía 2</a></li><li class="chapter-item expanded "><a href="../../guias/guia3.html"><strong aria-hidden="true">4.3.</strong> Guía 3</a></li><li class="chapter-item expanded "><a href="../../guias/guia4.html"><strong aria-hidden="true">4.4.</strong> Guía 4</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/25C2/ejercicio_individual.html"><strong aria-hidden="true">5.</strong> Ejercicio Individual 1 - 2C 2025</a></li><li class="chapter-item expanded "><a href="../../proyecto/25C2/ejercicio_individual_2.html"><strong aria-hidden="true">6.</strong> Ejercicio Individual 2 - 2C 2025</a></li><li class="chapter-item expanded "><a href="../../proyecto/25C2/proyecto.html" class="active"><strong aria-hidden="true">7.</strong> Proyecto RoomRTC - 2C 2025</a></li><li class="chapter-item expanded "><a href="../../proyecto/index.html"><strong aria-hidden="true">8.</strong> Proyectos Realizados</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/25C1/proyecto.html"><strong aria-hidden="true">8.1.</strong> 1C 2025 RustiDocs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/25C1/examen_final.html"><strong aria-hidden="true">8.1.1.</strong> Examen Final 1C 2025</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/24C1/proyecto.html"><strong aria-hidden="true">8.2.</strong> 1C 2024 Agentes Autonomos</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/24C1/examen_final.html"><strong aria-hidden="true">8.2.1.</strong> Examen Final 1C 2024</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/24C2/proyecto.html"><strong aria-hidden="true">8.3.</strong> 2C 2024 Aerolineas Rústicas</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/24C2/examen_final.html"><strong aria-hidden="true">8.3.1.</strong> Examen Final 2C 2024</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/23C1/proyecto.html"><strong aria-hidden="true">8.4.</strong> 1C 2023: Bitcoin</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/23C1/examen_final.html"><strong aria-hidden="true">8.4.1.</strong> Examen Final 1C 2023</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/23C2/proyecto.html"><strong aria-hidden="true">8.5.</strong> 2C 2023: Git</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/23C2/examen_final.html"><strong aria-hidden="true">8.5.1.</strong> Examen Final 2C 2023: Pull Requests</a></li><li class="chapter-item expanded "><a href="../../proyecto/23C2/examen_final_2.html"><strong aria-hidden="true">8.5.2.</strong> Examen Final 2C 2023: Releases</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/22C1/proyecto.html"><strong aria-hidden="true">8.6.</strong> 1C 2022: BitTorrent</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/22C1/proyecto_final_1C2022.html"><strong aria-hidden="true">8.6.1.</strong> Agregado al Proyecto - Finales Julio/Agosto 2022</a></li><li class="chapter-item expanded "><a href="../../proyecto/22C1/criterios_aprobacion.html"><strong aria-hidden="true">8.6.2.</strong> Criterios de aprobación</a></li><li class="chapter-item expanded "><a href="../../proyecto/22C1/entrega_intermedia.html"><strong aria-hidden="true">8.6.3.</strong> Entrega Intermedia</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/22C2/proyecto.html"><strong aria-hidden="true">8.7.</strong> 2C 2022: IRC</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/22C2/examen_final.html"><strong aria-hidden="true">8.7.1.</strong> Examen Final 2C 2022</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/anteriores/21C1/proyecto.html"><strong aria-hidden="true">8.8.</strong> 1C 2021: Redis</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/anteriores/21C1/agregado.html"><strong aria-hidden="true">8.8.1.</strong> Agregado al Proyecto</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/anteriores/21C2/proyecto.html"><strong aria-hidden="true">8.9.</strong> 2C 2021: MQTT</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/anteriores/21C2/finales_2022_feb_mar.html"><strong aria-hidden="true">8.9.1.</strong> Finales Febrero/Marzo 2022</a></li><li class="spacer"></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../rust_arg.html">Grupo Rust Argentina</a></li><li class="chapter-item expanded affix "><a href="../../nosotros.html">Nosotros</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Taller de Programación I</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="proyecto-roomrtc---2c-2025"><a class="header" href="#proyecto-roomrtc---2c-2025">Proyecto: RoomRTC - 2C 2025</a></h1>
+<h2 id="introducción"><a class="header" href="#introducción">Introducción</a></h2>
+<p>Desde la pandemia de COVID-19 en 2020, el software para videoconferencias cobra una importancia central, ya que posibilitó la realización de clases, congresos y diversos eventos de manera remota.
+Aun hoy, 5 años después, este tipo de sistemas sigue en vigencia.</p>
+<p>En este contexto, la Universidad de Buenos Aires desea implementar un sistema de videoconferencias para transmitir cursos, congresos, etc.
+Para que un software de este tipo sea considerado de calidad, se requiere que cumpla con ciertos requisitos tanto funcionales como no funcionales, como podrían ser: Usabilidad, escalabilidad, velocidad, bajo consumo de red, confiabilidad, seguridad, entre otros.</p>
+<p>Tras analizar las diferentes alternativas existentes, tanto en software libre como alternativas privativas, se decide implementar una solución in-house.</p>
+<p>La misma deberá contar con una implementación propia de <a href="https://webrtc.org/?hl=es-419">WebRTC</a>. Siendo esta una serie de protocolos que permiten la transmisión de video y sonido en tiempo real por parte de navegadores y aplicaciones móviles.
+Debido a las necesidades de eficiencia y seguridad propias de este tipo de aplicaciones, el lenguaje de implementación será Rust.</p>
+<h2 id="objetivo-del-proyecto"><a class="header" href="#objetivo-del-proyecto">Objetivo del proyecto</a></h2>
+<p>El objetivo principal del presente Trabajo Práctico es desarrollar una versión en el lenguaje Rust del stack WebRTC, de manera tal que sea posible la realización de videoconferencias entre usuarios en distintos dispositivos. El proyecto debe respetar las specs (i.e., especificaciones), haciendo énfasis en la compatibilidad con clientes existentes de WebRTC.
+Aspectos no funcionales como la escalabilidad y la eficiencia de la solución deben ser contemplados, ya que el proyecto debe poder ser utilizado por un gran número de personas, desde dispositivos de diversa potencia.</p>
+<p>El objetivo secundario es desarrollar un proyecto real de software de mediana envergadura aplicando buenas prácticas de desarrollo, incluyendo entregas y revisiones periódicas. La idea es, después de todo, que este proyecto signifique no solo la aplicación de los temas vistos en la asignatura, sino que, del conjunto de conocimientos aprendidos durante la carrera hasta el momento.</p>
+<h2 id="requerimientos-funcionales"><a class="header" href="#requerimientos-funcionales">Requerimientos funcionales</a></h2>
+<p>Un sistema basado en WebRTC consta de diversos componentes, por lo que será necesaria una planificación y división adecuada del trabajo.</p>
+<p>Entre esas componentes podemos encontrar:</p>
+<ul>
+<li><a href="https://www.rfc-editor.org/rfc/rfc4566">SDP (Session Description Protocol)</a>: Utilizado para establecer la conexión entre pares.</li>
+<li><a href="https://www.rfc-editor.org/rfc/rfc8445">ICE (Interactive Connectivity Establishment)</a>: Protocolo de comunicación utilizado entre pares para realizar la transmisión del video.</li>
+<li>Signaling Server: Encargado del discovery de peers. En este caso, el servicio central actuará de signaling server.</li>
+<li>Además, a la hora de transmitir video y sonido, se puede utilizar una variedad de códecs como <a href="https://en.wikipedia.org/wiki/VP8">VP8</a> y <a href="https://en.wikipedia.org/wiki/Advanced_Video_Coding">H264</a> que son los encontrados en la mayoría de implementaciones del protocolo. Pero a nivel de especificación, WebRTC no limita qué códec se debe utilizar, siempre y cuando ambas partes de la conexión se pongan de acuerdo.</li>
+</ul>
+<h4 id="servicio-central"><a class="header" href="#servicio-central">Servicio central</a></h4>
+<p>Se deberá contar con un servidor central que actúe de signaling server y que además permita:</p>
+<ul>
+<li>Obtener el listado de usuarios conectados.</li>
+<li>Obtener información de conexión de un usuario conectado para iniciar una videoconferencia con él.</li>
+</ul>
+<h3 id="seguridad"><a class="header" href="#seguridad">Seguridad</a></h3>
+<p>Una vez establecida la conexión entre 2 pares, la misma deberá realizarse sobre <a href="https://es.wikipedia.org/wiki/Datagram_Transport_Layer_Security">DTLS</a> para tener un canal de comunicación seguro.</p>
+<h3 id="aplicación-cliente"><a class="header" href="#aplicación-cliente">Aplicación cliente</a></h3>
+<p>Funcionalidades mínimas:</p>
+<ul>
+<li>Iniciar/cerrar sesión en la aplicación.</li>
+<li>Listar usuarios conectados, listos para iniciar una videoconferencia.</li>
+<li>Iniciar una videoconferencia con otro usuario conectado.</li>
+<li>Aceptar e ingresar a una videoconferencia iniciada por otro usuario.</li>
+<li>Salir de una sesión de videoconferencia.</li>
+</ul>
+<h3 id="flujo-general"><a class="header" href="#flujo-general">Flujo General</a></h3>
+<ul>
+<li>Usuario1 se comunica con el servicio central para iniciar sesión.</li>
+<li>El servicio central almacena los datos de conexión de Usuario1.</li>
+<li>El servicio central muestra el listado de videoconferencias actuales.</li>
+<li>Usuario1 decide unirse a una de las videoconferencias (iniciada por Usuario2).</li>
+<li>El servicio central provee de los datos necesarios para conectarse a la misma (actuando de signaling server).</li>
+<li>Usuario1 se conecta directamente a Usuario2.</li>
+<li>Luego de establecida la conexión y posterior negociación de códecs, se inicia la transmisión.</li>
+</ul>
+<p><img src="./diagrama_arquitectura_roomrtc.png" alt="image" /></p>
+<h2 id="requerimientos-no-funcionales"><a class="header" href="#requerimientos-no-funcionales">Requerimientos no funcionales</a></h2>
+<p>Los siguientes son los requerimientos no funcionales para la resolución del proyecto:</p>
+<ul>
+<li>El proyecto deberá ser desarrollado en lenguaje Rust, utilizando las herramientas de la biblioteca estándar.</li>
+<li>Se deben implementar pruebas unitarias y de integración de las funcionalidades que se consideren más importantes.</li>
+<li>El código fuente debe compilar en la versión estable del compilador y no se permite el uso de bloques inseguros (unsafe).</li>
+<li>El código deberá funcionar en ambiente Unix/Linux.</li>
+<li>La compilación no debe generar advertencias del compilador ni del linter Clippy.</li>
+<li>El programa no puede contener ningún <a href="https://en.wikipedia.org/wiki/Busy_waiting">busy-wait</a>, ni puede consumir recursos de CPU y/o memoria indiscriminadamente. Se debe hacer un uso adecuado tanto de la memoria como del CPU.</li>
+<li>Las funciones y los tipos de datos (struct) deben estar documentados siguiendo el estándar de cargo doc.</li>
+<li>El código debe formatearse utilizando cargo fmt.</li>
+<li>Las funciones no deben tener una extensión mayor a 30 líneas. Si se requiere una extensión mayor, se debe particionar en varias funciones.</li>
+<li>Cada tipo de dato implementado debe ser colocado en un módulo (archivo fuente) independiente.</li>
+</ul>
+<h2 id="crates-externos-permitidos"><a class="header" href="#crates-externos-permitidos">Crates externos permitidos</a></h2>
+<p>Se permite el uso de los siguientes crates solo para los usos mencionados (siempre y cuando se los considere necesarios):</p>
+<ul>
+<li>rand: para la generación de valores aleatorios.</li>
+<li>chrono: para la obtención del timestamp actual.</li>
+<li>Crates para DTLS.</li>
+<li>Crates para la captura y procesamiento de video (como <a href="https://docs.rs/opencv/latest/opencv/">OpenCV</a> o <a href="git@github.com:l1npengtul/nokhwa.git">Nokhwa</a>).</li>
+<li>Crates de códecs de media (VP8, H264, etc.).</li>
+<li>Crates para la implementación de la interfaz gráfica.</li>
+</ul>
+<p><strong>Importante:</strong> Cada crate externo que se desee utilizar para DLTS, captura y procesamiento de video e implementación de la interfaz gráfica deberá ser propuesto a los tutores, los cuales serán evaluados y autorizados por el grupo docente.</p>
+<h2 id="material-de-consulta"><a class="header" href="#material-de-consulta">Material de consulta</a></h2>
+<ul>
+<li><a href="https://webrtc.org/?hl=es-419">webrtc.org</a> - Página oficial, contiene explicaciones tanto de alto nivel como detalles de implementación y de los diferentes componentes de WebRTC.</li>
+<li><a href="https://webrtcforthecurious.com/docs/01-what-why-and-how/">WebRTC for the curious</a>: Sitio con explicaciones alternativas sobre cada componente de WebRTC.</li>
+<li><a href="https://bharathkotha.medium.com/webrtc-architecture-the-webrtc-series-part-1-c1f21802ce32">WebRTC architecture</a>: Contiene bastantes diagramas arquitecturales de los componentes del protocolo.
+— <a href="https://dyte.io/blog/webrtc-102-demystifying-ice/">What is ICE?</a>: Contiene diagramas y una buena explicación sobre ICE.</li>
+<li><a href="https://www.youtube.com/watch?v=zcfixnuJFXg&amp;list=PLeku3Nthh5iGeb45RszvyZibdiwO4aZe2">OpenCV tutorial</a>: video explicativo sobre cómo usar OpenCV desde Rust.</li>
+</ul>
+<h2 id="criterios-de-aceptación-y-corrección-del-proyecto"><a class="header" href="#criterios-de-aceptación-y-corrección-del-proyecto">Criterios de Aceptación y Corrección del Proyecto</a></h2>
+<p>Para el desarrollo del proyecto, se deberán observar los siguientes lineamientos generales:</p>
+<ol>
+<li><strong>Testing:</strong> Se deberá implementar testing unitario automatizado, utilizando las herramientas de Rust de los métodos y funciones relevantes implementados. Se deberán implementar tests de integración automatizados.</li>
+<li><strong>Manejo de errores:</strong> Deberá hacerse un buen uso y administración de los casos de error, utilizando para ello las estructuras y herramientas del lenguaje, escribiendo en forma lo más idiomática posible su tratamiento.</li>
+<li><strong>Control de versiones:</strong> Se deberá utilizar la herramienta git, siguiendo las recomendaciones de la cátedra. En particular, se deberá utilizar la metodología GitHub Flow para el trabajo con ramas (branches) y la entrega continua del software.</li>
+<li><strong>Trabajo en equipo:</strong> Se deberá adecuar, organizar y coordinar el trabajo del equipo, realizando tareas como revisión de código cruzada entre pares de una funcionalidad en un pull request de git.</li>
+<li><strong>Merge de branches:</strong> Para poder hacer el merge de un branch de una funcionalidad, todos los tests pasan de forma satisfactoria.</li>
+<li><strong>Informe final:</strong> El trabajo debe acompañarse por un informe que debe incluir diagramas de secuencia de las operaciones más relevantes, diagrama de componentes y módulos de la arquitectura general del diseño desarrollado, todos acompañados de la explicación respectiva.</li>
+</ol>
+<h2 id="evaluación"><a class="header" href="#evaluación">Evaluación</a></h2>
+<p>El desarrollo del proyecto tendrá un seguimiento directo semanal por parte del docente a cargo del grupo.</p>
+<p>Se deberá desarrollar y presentar los avances y progreso del trabajo semana a semana (simulando un sprint de trabajo). Cada semana, cada docente realizará una valoración del estado del trabajo del grupo.</p>
+<p>El progreso de cada semana deberá ser acorde a lo que se convenga con el docente para cada sprint. Si el mismo NO cumple con la cantidad de trabajo requerido, el grupo podrá estar desaprobado de forma prematura de la materia, a consideración del docente.</p>
+<p>Hacia la mitad del desarrollo del proyecto se deberá entregar una versión preliminar que deberá cumplir con los requisitos mencionados en el apartado <em>Entrega intermedia</em>. Estos requisitos <strong>son de cumplimiento mínimo y obligatorio</strong>; aquellos grupos que lo deseen podrán implementar requisitos adicionales.</p>
+<p><strong>Nota importante:</strong> Se deja constancia de que las funcionalidades requeridas por este enunciado son un marco de cumplimiento mínimo y que puede haber agregados o modificaciones durante el transcurso del desarrollo por parte del docente a cargo, que formarán parte de los requerimientos a cumplir. Cabe mencionar que estos desvíos de los requerimientos iniciales se presentan en situaciones reales de trabajo con clientes.</p>
+<h2 id="finalización-del-proyecto"><a class="header" href="#finalización-del-proyecto">Finalización del proyecto</a></h2>
+<p>El desarrollo del proyecto finaliza el último día de clases del cuatrimestre. En esa fecha, cada grupo deberá realizar una presentación final y se hará una evaluación global del trabajo.</p>
+<p>En dicha presentación se deberá detallar la arquitectura del proyecto, aprendizajes del mismo, y realizar una muestra funcional del desarrollo; esto es una &quot;demo&quot; como si fuera para el usuario final, donde se pueda observar todas las funcionalidades pedidas por el presente enunciado.</p>
+<p>Durante la demostración en vivo, se debe poder observar tanto los requerimientos funcionales solicitados en el presente enunciado, como así también los requerimientos no funcionales.</p>
+<p>El trabajo debe acompañarse por un informe que debe constar de los puntos detallados a continuación: explicación general de la investigación realizada y sus conclusiones, reglas de negocio de la solución y decisiones tomadas durante el desarrollo del proyecto, diagramas de secuencia de las operaciones más relevantes, diagrama de componentes y módulos de la arquitectura general del diseño desarrollado, todos acompañados de la explicación respectiva.</p>
+<h3 id="entrega-intermedia"><a class="header" href="#entrega-intermedia">Entrega intermedia:</a></h3>
+<p>Los alumnos deberán realizar una entrega intermedia, la cual deberá incluir los siguientes puntos del apartado de requerimientos funcionales:</p>
+<h4 id="protocolo-webrtc"><a class="header" href="#protocolo-webrtc">Protocolo WebRTC</a></h4>
+<ul>
+<li>Se deberá contar con la implementación de los componentes principales de WebRTC y los protocolos necesarios para poder realizar una conexión entre pares de manera local (sin servicio central).</li>
+</ul>
+<h4 id="aplicación-cliente-1"><a class="header" href="#aplicación-cliente-1">Aplicación cliente</a></h4>
+<p>Deberá contar con una interfaz sencilla para realizar videoconferencias de manera directa entre dos usuarios.</p>
+<h4 id="presentación"><a class="header" href="#presentación">Presentación</a></h4>
+<p>La entrega se realizará en forma de presentación, en la cual los alumnos deberán abarcar los siguientes puntos:</p>
+<ul>
+<li>Explicación general del desarrollo realizado, incluyendo diagramas de componentes y de secuencia de las funcionalidades más importantes.</li>
+<li>Diseño de la solución a implementar para completar el proyecto, incluyendo diagramas y su explicación.</li>
+<li>Recorrido por los módulos del código fuente escrito, explicando los principales contenidos.</li>
+<li>Demo en vivo de la aplicación gráfica, donde se pueda constatar que se pueden realizar videoconferencias entre distintas computadoras.</li>
+</ul>
+<p>Todos los miembros del grupo deberán participar de la demo y explicar su participación en el proyecto, incluyendo detalles de implementación.</p>
+<h2 id="fechas-de-entrega"><a class="header" href="#fechas-de-entrega">Fechas de entrega</a></h2>
+<p>Entrega intermedia: 03/11</p>
+<p>Entrega final de la cursada: 01/12</p>
+<p><strong>Estas entregas serán presenciales en la sede de la Facultad.</strong></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../proyecto/25C2/ejercicio_individual_2.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../../proyecto/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../proyecto/25C2/ejercicio_individual_2.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../../proyecto/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>
