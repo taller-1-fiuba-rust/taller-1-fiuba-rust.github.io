@@ -77,16 +77,16 @@ Los siguientes son los requerimientos no funcionales para la resolución del pro
 
 
 ## Crates externos permitidos
-Se permite el uso de los siguientes crates solo para los usos mencionados (siempre y cuando se los considere necesario):
+Se permite el uso de los siguientes crates solo para los usos mencionados (siempre y cuando se los considere necesarios):
 
 * rand: para la generación de valores aleatorios.
 * chrono: para la obtención del timestamp actual.
 * Crates para DTLS. 
 * Crates para la captura y procesamiento de video (como [opencv](https://docs.rs/opencv/latest/opencv/) o [nokhwa](git@github.com:l1npengtul/nokhwa.git))
 * Crates de codecs de media (VP8, H264, etc).
+* Crates para la implementación de la interfaz grafica.
 
-
-**Nota:** para la implementación de la interfaz gráfica se podrá proponer crates que deseen utilizar, los cuales serán evaluados y autorizados por el grupo docente. 
+**Importante:** Cada crate externo que se desee utilizar para DLTS, captura y procesamiento de video e implementacion de la interfaz grafica debera ser propuesto a los tutores, los cuales serán evaluados y autorizados por el grupo docente. 
 
 
 ## Material de Consulta
