@@ -184,6 +184,10 @@ Aspectos no funcionales como la escalabilidad y la eficiencia de la solución de
 <li>Luego de establecida la conexión y posterior negociación de códecs, se inicia la transmisión.</li>
 </ul>
 <p><img src="./diagrama_arquitectura_roomrtc.png" alt="image" /></p>
+<h3 id="archivo-de-configuración"><a class="header" href="#archivo-de-configuración">Archivo de configuración</a></h3>
+<p>Cada componente deber poder ser configurado mediante un archivo de configuración, de extensión <code>.conf</code> y cuya ubicación se pasara por argumento de línea de comando: <code>$ ./room-rtc /path/to/file.conf</code>. Todos los valores de configuracion mencionados en este enunciado y cualquier otro parametro necesario para la ejecucion del programa debera estar definido en este archivo. No se permite definir valores hardcodeados en el codigo fuente, ya sean direcciones IP, puertos o cualquier otra informacion necesaria.</p>
+<h3 id="logs"><a class="header" href="#logs">Logs</a></h3>
+<p>Cada componente deberá mantener un registro de las acciones realizadas y los eventos ocurridos en un archivo de log. La ubicación del archivo de log estará especificada en el archivo de configuración. Como requerimiento particular del Proyecto, NO se considerará válido que el servidor mantenga un file handle global, aunque esté protegido por un lock, y que se escriba directamente al file handle.</p>
 <h2 id="requerimientos-no-funcionales"><a class="header" href="#requerimientos-no-funcionales">Requerimientos no funcionales</a></h2>
 <p>Los siguientes son los requerimientos no funcionales para la resolución del proyecto:</p>
 <ul>
