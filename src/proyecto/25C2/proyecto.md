@@ -86,7 +86,7 @@ Se permite el uso de los siguientes crates solo para los usos mencionados (siemp
 * rand: para la generación de valores aleatorios.
 * chrono: para la obtención del timestamp actual.
 * Crates para DTLS.
-* Crates para la captura y procesamiento de video (como [OpenCV](https://docs.rs/opencv/latest/opencv/) o [Nokhwa](git@github.com:l1npengtul/nokhwa.git)).
+* Crates para la captura y procesamiento de video (como [OpenCV](https://docs.rs/opencv/latest/opencv/) o [Nokhwa](https://github.com/l1npengtul/nokhwa).
 * Crates de códecs de media (VP8, H264, etc.).
 * Crates para la implementación de la interfaz gráfica.
 
