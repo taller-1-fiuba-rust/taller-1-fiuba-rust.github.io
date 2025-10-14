@@ -132,11 +132,27 @@ El trabajo debe acompañarse por un informe que debe constar de los puntos detal
 ### Entrega intermedia:
 Los alumnos deberán realizar una entrega intermedia, la cual deberá incluir los siguientes puntos del apartado de requerimientos funcionales:
 
-#### Protocolo WebRTC
-- Se deberá contar con la implementación de los componentes principales de WebRTC y los protocolos necesarios para poder realizar una conexión entre pares de manera local (sin servicio central).
+#### SDP
+
+Se deberá contar con la implementación de las estructuras de datos y los métodos necesarios para poder generar y parsear archivos SDP.
+
+#### ICE
+
+Los clientes deberán poder realizar la selección de candidatos y los connectivity checks para elegir la mejor ruta de comunicación entre pares siguiendo el protocolo de ICE.
+
+Para esta entrega los candidatos pueden ser solo locales.
+
+#### RTP y RTCP
+
+Se deberá contar con la implementación de los protocolos RTP y RTCP para la transmisión de **video** entre pares.
+
+Para esta instancia todavía no será necesario tener encriptación (DTLS, SRTP)
 
 #### Aplicación cliente
+
 Deberá contar con una interfaz sencilla para realizar videoconferencias de manera directa entre dos usuarios.
+
+Además, como en esta etapa **no va a ser obligatorio contar con signaling server**, la idea es que puedan pedir a un usuario A que genere un SDP offer desde la interfaz, insertarlo en el usuario B para que genere un SDP answer, y luego insertarlo en el usuario A para que se pueda iniciar la transmisión de video.
 
 #### Presentación
 La entrega se realizará en forma de presentación, en la cual los alumnos deberán abarcar los siguientes puntos:
