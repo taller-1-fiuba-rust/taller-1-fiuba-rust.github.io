@@ -244,12 +244,17 @@ Aspectos no funcionales como la escalabilidad y la eficiencia de la solución de
 <p>El trabajo debe acompañarse por un informe que debe constar de los puntos detallados a continuación: explicación general de la investigación realizada y sus conclusiones, reglas de negocio de la solución y decisiones tomadas durante el desarrollo del proyecto, diagramas de secuencia de las operaciones más relevantes, diagrama de componentes y módulos de la arquitectura general del diseño desarrollado, todos acompañados de la explicación respectiva.</p>
 <h3 id="entrega-intermedia"><a class="header" href="#entrega-intermedia">Entrega intermedia:</a></h3>
 <p>Los alumnos deberán realizar una entrega intermedia, la cual deberá incluir los siguientes puntos del apartado de requerimientos funcionales:</p>
-<h4 id="protocolo-webrtc"><a class="header" href="#protocolo-webrtc">Protocolo WebRTC</a></h4>
-<ul>
-<li>Se deberá contar con la implementación de los componentes principales de WebRTC y los protocolos necesarios para poder realizar una conexión entre pares de manera local (sin servicio central).</li>
-</ul>
+<h4 id="sdp"><a class="header" href="#sdp">SDP</a></h4>
+<p>Se deberá contar con la implementación de las estructuras de datos y los métodos necesarios para poder generar y parsear archivos SDP.</p>
+<h4 id="ice"><a class="header" href="#ice">ICE</a></h4>
+<p>Los clientes deberán poder realizar la selección de candidatos y los connectivity checks para elegir la mejor ruta de comunicación entre pares siguiendo el protocolo de ICE.</p>
+<p>Para esta entrega los candidatos pueden ser solo locales.</p>
+<h4 id="rtp-y-rtcp"><a class="header" href="#rtp-y-rtcp">RTP y RTCP</a></h4>
+<p>Se deberá contar con la implementación de los protocolos RTP y RTCP para la transmisión de <strong>video</strong> entre pares.</p>
+<p>Para esta instancia todavía no será necesario tener encriptación (DTLS, SRTP)</p>
 <h4 id="aplicación-cliente-1"><a class="header" href="#aplicación-cliente-1">Aplicación cliente</a></h4>
 <p>Deberá contar con una interfaz sencilla para realizar videoconferencias de manera directa entre dos usuarios.</p>
+<p>Además, como en esta etapa <strong>no va a ser obligatorio contar con signaling server</strong>, la idea es que puedan pedir a un usuario A que genere un SDP offer desde la interfaz, insertarlo en el usuario B para que genere un SDP answer, y luego insertarlo en el usuario A para que se pueda iniciar la transmisión de video.</p>
 <h4 id="presentación"><a class="header" href="#presentación">Presentación</a></h4>
 <p>La entrega se realizará en forma de presentación, en la cual los alumnos deberán abarcar los siguientes puntos:</p>
 <ul>
