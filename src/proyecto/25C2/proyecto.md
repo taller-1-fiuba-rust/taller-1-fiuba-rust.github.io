@@ -96,7 +96,7 @@ Los paquetes que se tienen que implementar de RTCP son el paquete de bye y los s
 
 La transmisión de video tiene que cumplir con los siguientes requerimientos:
 
-- La calidad ideal de video es 30fps, 720p.
+- La calidad esperada de video es 30fps, 720p.
 - En el flujo de captura, transmisión y recepción de video, se espera que se **paralelicen** tareas para mayor eficiencia. Se pueden por ejemplo tener hilos para decodificar, codificar, empaquetar, etc. El diseño de una solución eficiente se evaluará en las entregas, por lo que lo tendrán que detallar en sus informes y presentar en las entregas.
 - Se tienen que manejar la perdida y el desordenamiento de paquetes, sin delegárselo completamente a crates como openh264. La comunicación es en tiempo real, por lo que hay algunas cosas como pedir paquetes que se perdieron que no es necesario hacer, pero hay que notar cuando llegan en desorden, y descartar los que llegan muy tarde / no llegan. Tienen que tener en cuenta casos borde y explicarlos en sus informes así como presentaciones. Se espera que entiendan completamente el flujo de codificación y decodificación de video que eligieron y que manejen caminos no felices.
 - Se tiene que usar información sobre el timestamp de los frames para mostrarlos en el momento correcto. No se puede simplemente mostrar cada frame apenas te llega.
