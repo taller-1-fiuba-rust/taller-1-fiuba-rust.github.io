@@ -1027,42 +1027,88 @@ Aspectos no funcionales como la escalabilidad y la eficiencia de la solución de
 <p>Entre esas componentes podemos encontrar:</p>
 <ul>
 <li><a href="https://www.rfc-editor.org/rfc/rfc4566">SDP (Session Description Protocol)</a>: Utilizado para establecer la conexión entre pares.</li>
-<li><a href="https://www.rfc-editor.org/rfc/rfc8445">ICE (Interactive Connectivity Establishment)</a>: Protocolo de comunicación utilizado entre pares para realizar la transmisión del video.</li>
-<li>Signaling Server: Encargado del discovery de peers. En este caso, el servicio central actuará de signaling server.</li>
+<li><a href="https://www.rfc-editor.org/rfc/rfc8445">ICE (Interactive Connectivity Establishment)</a>: Protocolo de comunicación utilizado para definir la ruta por la que se enviará el video.
+<ul>
+<li>Se debe soportar direcciones del tipo <strong>Host</strong> y <strong>Server reflexive (STUN)</strong>. Para STUN se puede utilizar un servidor público.</li>
+</ul>
+</li>
+<li><a href="https://datatracker.ietf.org/doc/html/rfc3550">RTP(real-time transport protocol) y RTCP(RTP control protocol)</a>: Protocolo para realizar la transmisión de video.</li>
+<li>Signaling Server: Encargado del discovery de peers. En este caso, el servidor central actuará de signaling server.</li>
 <li>Además, a la hora de transmitir video y sonido, se puede utilizar una variedad de códecs como <a href="https://en.wikipedia.org/wiki/VP8">VP8</a> y <a href="https://en.wikipedia.org/wiki/Advanced_Video_Coding">H264</a> que son los encontrados en la mayoría de implementaciones del protocolo. Pero a nivel de especificación, WebRTC no limita qué códec se debe utilizar, siempre y cuando ambas partes de la conexión se pongan de acuerdo.</li>
 </ul>
-<h4 id="servicio-central"><a class="header" href="#servicio-central">Servicio central</a></h4>
-<p>Se deberá contar con un servidor central que actúe de signaling server y que además permita:</p>
+<h3 id="servidor-central"><a class="header" href="#servidor-central">Servidor central</a></h3>
+<p>Se deberá contar con un servidor central que actúe de signaling server y que cumpla con las siguientes características:</p>
 <ul>
-<li>Obtener el listado de usuarios conectados.</li>
-<li>Obtener información de conexión de un usuario conectado para iniciar una videoconferencia con él.</li>
+<li>Manejo de usuarios
+<ul>
+<li>Persistir en un archivo en texto plano a los usuarios de la plataforma junto con su contraseña y cualquier información que consideren relevante. No es necesario que esté encriptado.</li>
+<li>Un usuario se debe poder registrar.</li>
+<li>Un usuario debe poder hacer un log in en la plataforma.</li>
+<li>El mismo usuario no puede estar conectado dos veces en la plataforma.</li>
 </ul>
+</li>
+<li>Obtener el listado de usuarios y sus estados.
+<ul>
+<li>Los usuarios pueden estar en uno de tres estados.
+<ul>
+<li><strong>Desconectado</strong>: El usuario está presente en la plataforma, pero no está conectado.</li>
+<li><strong>Disponible</strong>: El usuario está conectado y está disponible para hacer una llamada.</li>
+<li><strong>Ocupado</strong>: El usuario está actualmente en una llamada.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Se debe poder llamar a un usuario disponible.</li>
+<li>Se deben poder soportar múltiples llamadas concurrentes entre distintos usuarios.</li>
+<li>Se debe poder limitar la cantidad de clientes simultaneos que pueden estar conectados a la aplicación.</li>
+</ul>
+<h4 id="conexión-con-el-servidor"><a class="header" href="#conexión-con-el-servidor">Conexión con el servidor</a></h4>
+<p>La manera en la que los usuarios se van a comunicar con el servidor central va a ser a través de una conexión TCP encriptada con <a href="https://en.wikipedia.org/wiki/Transport_Layer_Security">TLS</a> o encriptando los mensajes ustedes mismos.</p>
+<p>El protocolo a utilizar dentro de esta conexión debe ser definido por ustedes y estar completamente documentado, así como debe ser capaz de cumplir con todos los requerimientos de la plataforma.</p>
+<p>La conexión entre el servidor y los usuarios debe ser persistente, por lo que mientras el programa esté activo debería tener una conexión viva con el servidor, de manera de que este le pueda enviar a los usuarios actualizaciones <strong>instantaneas</strong> acerca del estado de los usuarios conectados, así como también notificarte cuando un usuario te está ofreciendo hacer una llamada.</p>
 <h3 id="seguridad"><a class="header" href="#seguridad">Seguridad</a></h3>
-<p>Una vez establecida la conexión entre 2 pares, la misma deberá realizarse sobre <a href="https://es.wikipedia.org/wiki/Datagram_Transport_Layer_Security">DTLS</a> para tener un canal de comunicación seguro.</p>
+<p>Una vez establecida la conexión entre 2 pares, la misma deberá realizarse sobre <a href="https://datatracker.ietf.org/doc/html/rfc3711">SRTP</a>, la cual se inicializa con <a href="https://es.wikipedia.org/wiki/Datagram_Transport_Layer_Security">DTLS</a>, para tener un canal de comunicación seguro.</p>
 <h3 id="aplicación-cliente"><a class="header" href="#aplicación-cliente">Aplicación cliente</a></h3>
 <p>Funcionalidades mínimas:</p>
 <ul>
-<li>Iniciar/cerrar sesión en la aplicación.</li>
-<li>Listar usuarios conectados, listos para iniciar una videoconferencia.</li>
-<li>Iniciar una videoconferencia con otro usuario conectado.</li>
-<li>Aceptar e ingresar a una videoconferencia iniciada por otro usuario.</li>
-<li>Salir de una sesión de videoconferencia.</li>
+<li>Registrarse e iniciar/cerrar sesión en la aplicación.</li>
+<li>Pedir usuarios de la plataforma con sus estados.</li>
+<li>Llamar a otro usuario que esté disponible.</li>
+<li>Aceptar una llamada propuesta por otro usuario.</li>
+<li>Salir de una llamada.</li>
 </ul>
 <h3 id="flujo-general"><a class="header" href="#flujo-general">Flujo General</a></h3>
 <ul>
-<li>Usuario1 se comunica con el servicio central para iniciar sesión.</li>
-<li>El servicio central almacena los datos de conexión de Usuario1.</li>
-<li>El servicio central muestra el listado de videoconferencias actuales.</li>
-<li>Usuario1 decide unirse a una de las videoconferencias (iniciada por Usuario2).</li>
-<li>El servicio central provee de los datos necesarios para conectarse a la misma (actuando de signaling server).</li>
-<li>Usuario1 se conecta directamente a Usuario2.</li>
-<li>Luego de establecida la conexión y posterior negociación de códecs, se inicia la transmisión.</li>
+<li>Usuario2 se comunica con el servicio central para iniciar sesión.</li>
+<li>El servidor central cambia el estado del Usuario2 en la plataforma a disponible.</li>
+<li>El servicio central muestra el listado de usuarios con sus estados y la aplicación lo muestra en el &quot;lobby&quot;.</li>
+<li>Usuario1 ve que Usuario2 está disponible. Decide llamarlo.</li>
+<li>Usuario2 tiene la opción de aceptar o declinar la llamada.
+<ul>
+<li>Si se declina la llamada entonces se le notifica al Usuario1 y no pasa nada.</li>
+<li>Si se acepta la llamada se sigue con el flujo.</li>
 </ul>
-<p><img src="proyecto/25C2/./diagrama_arquitectura_roomrtc.png" alt="image" /></p>
+</li>
+<li>Una vez aceptada la llamada, los usuarios intercambian oferta y respuesta SDP en el servidor.</li>
+<li>A partir de este punto, los usuarios aparecen como ocupados en la plataforma, pero siguen conectados al servidor. Pasan a hacer la llamada peer to peer, pasando a la siguiente etapa.</li>
+<li>Si alguno de los usuarios termina la llamada, ambos vuelven al lobby y aparecen como disponibles de nuevo.</li>
+</ul>
+<p><img src="proyecto/25C2/./server_webrtc_light_back.svg" alt="FLujo servidor central" /></p>
+<h3 id="transmisión-de-video"><a class="header" href="#transmisión-de-video">Transmisión de video</a></h3>
+<p>La transmisión de video se realiza a través de <a href="https://datatracker.ietf.org/doc/html/rfc3550">RTP y RTCP</a>.</p>
+<p>Los paquetes que se tienen que implementar de RTCP son el paquete de bye y los sender y receiver reports. Se tienen que mostrar los valores que se manejan con los reportes en algún lugar de la UI mientras se van actualizando.</p>
+<p>La transmisión de video tiene que cumplir con los siguientes requerimientos:</p>
+<ul>
+<li>La calidad esperada de video es 30fps, 720p.</li>
+<li>En el flujo de captura, transmisión y recepción de video, se espera que se <strong>paralelicen</strong> tareas para mayor eficiencia. Se pueden por ejemplo tener hilos para decodificar, codificar, empaquetar, etc. El diseño de una solución eficiente se evaluará en las entregas, por lo que lo tendrán que detallar en sus informes y presentar en las entregas.</li>
+<li>Se tienen que manejar la perdida y el desordenamiento de paquetes, sin delegárselo completamente a crates como openh264. La comunicación es en tiempo real, por lo que hay algunas cosas como pedir paquetes que se perdieron que no es necesario hacer, pero hay que notar cuando llegan en desorden, y descartar los que llegan muy tarde / no llegan. Tienen que tener en cuenta casos borde y explicarlos en sus informes así como presentaciones. Se espera que entiendan completamente el flujo de codificación y decodificación de video que eligieron y que manejen caminos no felices.</li>
+<li>Tener un <a href="https://en.wikipedia.org/wiki/Jitter#Jitter_buffers">jitter buffer</a> para mitigar las fluctuaciones de la red. Tener en cuenta los timestamps de los frames para saber cuando mostrarlos, no simplemente mostrar cada frame apenas te llega.</li>
+</ul>
 <h3 id="archivo-de-configuración"><a class="header" href="#archivo-de-configuración">Archivo de configuración</a></h3>
 <p>Cada componente deber poder ser configurado mediante un archivo de configuración, de extensión <code>.conf</code> y cuya ubicación se pasara por argumento de línea de comando: <code>$ ./room-rtc /path/to/file.conf</code>. Todos los valores de configuracion mencionados en este enunciado y cualquier otro parametro necesario para la ejecucion del programa debera estar definido en este archivo. No se permite definir valores hardcodeados en el codigo fuente, ya sean direcciones IP, puertos o cualquier otra informacion necesaria.</p>
 <h3 id="logs"><a class="header" href="#logs">Logs</a></h3>
 <p>Cada componente deberá mantener un registro de las acciones realizadas y los eventos ocurridos en un archivo de log. La ubicación del archivo de log estará especificada en el archivo de configuración. Como requerimiento particular del Proyecto, NO se considerará válido que el servidor mantenga un file handle global, aunque esté protegido por un lock, y que se escriba directamente al file handle.</p>
+<p>Es muy importante que al elegir lo que se va a loguear, se tenga en cuenta que en las entregas muchas veces los logs serán la única forma en la que sabremos lo que sucede en nuestro programa, por lo que tienen que ser claros y mostrar al docente que las cosas funcionan.</p>
 <h2 id="requerimientos-no-funcionales-6"><a class="header" href="#requerimientos-no-funcionales-6">Requerimientos no funcionales</a></h2>
 <p>Los siguientes son los requerimientos no funcionales para la resolución del proyecto:</p>
 <ul>
