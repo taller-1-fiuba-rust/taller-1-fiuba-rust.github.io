@@ -53,7 +53,7 @@ Se deberá contar con un servidor central que actúe de signaling server y que c
 
 #### Conexión con el servidor
 
-La manera en la que los usuarios se van a comunicar con el servidor central va a ser a través de una conexión TCP.
+La manera en la que los usuarios se van a comunicar con el servidor central va a ser a través de una conexión TCP encriptada con [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security) o encriptando los mensajes ustedes mismos.
 
 El protocolo a utilizar dentro de esta conexión debe ser definido por ustedes y estar completamente documentado, así como debe ser capaz de habilitar todos los requerimientos de comportamiento de la plataforma.
 
