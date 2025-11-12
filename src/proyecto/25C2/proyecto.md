@@ -27,7 +27,9 @@ Un sistema basado en WebRTC consta de diversos componentes, por lo que será nec
 Entre esas componentes podemos encontrar:
 
 - [SDP (Session Description Protocol)](https://www.rfc-editor.org/rfc/rfc4566): Utilizado para establecer la conexión entre pares.
-- [ICE (Interactive Connectivity Establishment)](https://www.rfc-editor.org/rfc/rfc8445): Protocolo de comunicación utilizado entre pares para realizar la transmisión del video.
+- [ICE (Interactive Connectivity Establishment)](https://www.rfc-editor.org/rfc/rfc8445): Protocolo de comunicación utilizado para definir la ruta por la que se enviará el video.
+  - Se debe soportar direcciones del tipo **Host** y **Server reflexive (STUN)**.
+- [RTP(real-time transport protocol) y RTCP(RTP control protocol)](https://datatracker.ietf.org/doc/html/rfc3550): Protocolo para realizar la transmisión de video.
 - Signaling Server: Encargado del discovery de peers. En este caso, el servidor central actuará de signaling server.
 - Además, a la hora de transmitir video y sonido, se puede utilizar una variedad de códecs como [VP8](https://en.wikipedia.org/wiki/VP8) y [H264](https://en.wikipedia.org/wiki/Advanced_Video_Coding) que son los encontrados en la mayoría de implementaciones del protocolo. Pero a nivel de especificación, WebRTC no limita qué códec se debe utilizar, siempre y cuando ambas partes de la conexión se pongan de acuerdo.
 
@@ -84,6 +86,20 @@ Funcionalidades mínimas:
 
 ![FLujo servidor central](./server_webrtc_light_back.svg)
 
+### Transmisión de video
+
+La transmisión de video se realiza a través de [RTP y RTCP](https://datatracker.ietf.org/doc/html/rfc3550).
+
+Los paquetes que se tienen que implementar de RTCP son el paquete de bye y los sender y receiver reports. Se tienen que mostrar los valores que se manejan con los reportes en algún lugar de la UI mientras se van actualizando.
+
+La transmisión de video tiene que cumplir con los siguientes requerimientos:
+
+- La calidad ideal de video es 30fps, 720p.
+- En el flujo de captura, transmisión y recepción de video, se espera que se **paralelicen** tareas para mayor eficiencia. Se pueden por ejemplo tener hilos para decodificar, codificar, empaquetar, etc. El diseño de una solución eficiente se evaluará en las entregas, por lo que lo tendrán que detallar en sus informes y presentar en las entregas.
+- Se tienen que manejar la perdida y el desordenamiento de paquetes, sin delegárselo completamente a crates como openh264. La comunicación es en tiempo real, por lo que hay algunas cosas como pedir paquetes que se perdieron que no es necesario hacer, pero hay que notar cuando llegan en desorden, y descartar los que llegan muy tarde / no llegan. Tienen que tener en cuenta casos borde y explicarlos en sus informes así como presentaciones. Se espera que entiendan completamente el flujo de codificación y decodificación de video que eligieron y que manejen caminos no felices.
+- Se tiene que usar información sobre el timestamp de los frames para mostrarlos en el momento correcto. No se puede simplemente mostrar cada frame apenas te llega.
+- Tener un jitter buffer para mitigar las fluctuaciones de la red. Esto implica almacenar los paquetes que llegan en un buffer.
+
 ### Archivo de configuración
 
 Cada componente deber poder ser configurado mediante un archivo de configuración, de extensión `.conf` y cuya ubicación se pasara por argumento de línea de comando: `$ ./room-rtc /path/to/file.conf`. Todos los valores de configuracion mencionados en este enunciado y cualquier otro parametro necesario para la ejecucion del programa debera estar definido en este archivo. No se permite definir valores hardcodeados en el codigo fuente, ya sean direcciones IP, puertos o cualquier otra informacion necesaria.
@@ -91,6 +107,8 @@ Cada componente deber poder ser configurado mediante un archivo de configuració
 ### Logs
 
 Cada componente deberá mantener un registro de las acciones realizadas y los eventos ocurridos en un archivo de log. La ubicación del archivo de log estará especificada en el archivo de configuración. Como requerimiento particular del Proyecto, NO se considerará válido que el servidor mantenga un file handle global, aunque esté protegido por un lock, y que se escriba directamente al file handle.
+
+Es muy importante que al elegir lo que se va a loguear, se tenga en cuenta que en las entregas muchas veces los logs serán la única forma en la que sabremos lo que sucede en nuestro programa, por lo que tienen que ser claros y mostrar al docente que las cosas funcionan.
 
 ## Requerimientos no funcionales
 
