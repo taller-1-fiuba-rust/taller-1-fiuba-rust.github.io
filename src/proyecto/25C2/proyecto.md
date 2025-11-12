@@ -83,7 +83,7 @@ Funcionalidades mínimas:
   - Si se declina la llamada entonces se le notifica al Usuario1 y no pasa nada.
   - Si se acepta la llamada se sigue con el flujo.
 - Una vez aceptada la llamada, los usuarios intercambian oferta y respuesta SDP en el servidor.
-- A partir de este punto, los usuarios aparecen como ocupados en la plataforma, pero siguen conectados al servidor. Pasan a hacer la llamada peero to peer, pasando a la siguiente etapa.
+- A partir de este punto, los usuarios aparecen como ocupados en la plataforma, pero siguen conectados al servidor. Pasan a hacer la llamada peer to peer, pasando a la siguiente etapa.
 - Si alguno de los usuarios termina la llamada, ambos vuelven al lobby y aparecen como disponibles de nuevo.
 
 ![FLujo servidor central](./server_webrtc_light_back.svg)
