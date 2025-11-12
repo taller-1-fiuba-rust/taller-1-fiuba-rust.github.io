@@ -48,6 +48,8 @@ Se deberá contar con un servidor central que actúe de signaling server y que c
     - **Disponible**: El usuario está conectado y está disponible para hacer una llamada.
     - **Ocupado**: El usuario está actualmente en una llamada.
 - Se debe poder llamar a un usuario disponible.
+- Se deben poder soportar múltiples llamadas concurrentes entre distintos usuarios.
+- Se debe poder limitar la cantidad de clientes simultaneos que pueden estar conectados a la aplicación.
 
 #### Conexión con el servidor
 
