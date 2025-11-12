@@ -78,7 +78,7 @@ Funcionalidades mínimas:
 - Usuario2 se comunica con el servicio central para iniciar sesión.
 - El servidor central cambia el estado del Usuario2 en la plataforma a disponible.
 - El servicio central muestra el listado de usuarios con sus estados y la aplicación lo muestra en el "lobby".
-- Usuario1 ve que Ususario2 está disponible. Decide llamarlo.
+- Usuario1 ve que Usuario2 está disponible. Decide llamarlo.
 - Usuario2 tiene la opción de aceptar o declinar la llamada.
   - Si se declina la llamada entonces se le notifica al Usuario1 y no pasa nada.
   - Si se acepta la llamada se sigue con el flujo.
