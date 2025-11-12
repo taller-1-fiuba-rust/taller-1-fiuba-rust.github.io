@@ -1,6 +1,7 @@
 # Proyecto: RoomRTC - 2C 2025
 
 ## Introducción
+
 Desde la pandemia de COVID-19 en 2020, el software para videoconferencias cobra una importancia central, ya que posibilitó la realización de clases, congresos y diversos eventos de manera remota.
 Aun hoy, 5 años después, este tipo de sistemas sigue en vigencia.
 
@@ -13,6 +14,7 @@ La misma deberá contar con una implementación propia de [WebRTC](https://webrt
 Debido a las necesidades de eficiencia y seguridad propias de este tipo de aplicaciones, el lenguaje de implementación será Rust.
 
 ## Objetivo del proyecto
+
 El objetivo principal del presente Trabajo Práctico es desarrollar una versión en el lenguaje Rust del stack WebRTC, de manera tal que sea posible la realización de videoconferencias entre usuarios en distintos dispositivos. El proyecto debe respetar las specs (i.e., especificaciones), haciendo énfasis en la compatibilidad con clientes existentes de WebRTC.
 Aspectos no funcionales como la escalabilidad y la eficiencia de la solución deben ser contemplados, ya que el proyecto debe poder ser utilizado por un gran número de personas, desde dispositivos de diversa potencia.
 
@@ -23,38 +25,62 @@ El objetivo secundario es desarrollar un proyecto real de software de mediana en
 Un sistema basado en WebRTC consta de diversos componentes, por lo que será necesaria una planificación y división adecuada del trabajo.
 
 Entre esas componentes podemos encontrar:
+
 - [SDP (Session Description Protocol)](https://www.rfc-editor.org/rfc/rfc4566): Utilizado para establecer la conexión entre pares.
 - [ICE (Interactive Connectivity Establishment)](https://www.rfc-editor.org/rfc/rfc8445): Protocolo de comunicación utilizado entre pares para realizar la transmisión del video.
-- Signaling Server: Encargado del discovery de peers. En este caso, el servicio central actuará de signaling server.
+- Signaling Server: Encargado del discovery de peers. En este caso, el servidor central actuará de signaling server.
 - Además, a la hora de transmitir video y sonido, se puede utilizar una variedad de códecs como [VP8](https://en.wikipedia.org/wiki/VP8) y [H264](https://en.wikipedia.org/wiki/Advanced_Video_Coding) que son los encontrados en la mayoría de implementaciones del protocolo. Pero a nivel de especificación, WebRTC no limita qué códec se debe utilizar, siempre y cuando ambas partes de la conexión se pongan de acuerdo.
 
-#### Servicio central
-Se deberá contar con un servidor central que actúe de signaling server y que además permita:
-- Obtener el listado de usuarios conectados.
-- Obtener información de conexión de un usuario conectado para iniciar una videoconferencia con él.
+### Servidor central
+
+Se deberá contar con un servidor central que actúe de signaling server y que cumpla con las siguientes características:
+
+- Manejo de usuarios
+  - Persistir en un archivo en texto plano a los usuarios de la plataforma junto con su contraseña y cualquier información que consideren relevante. No es necesario que esté encriptado.
+  - Un usuario se debe poder registrar.
+  - Un usuario debe poder hacer un log in en la plataforma.
+  - El mismo usuario no puede estar conectado dos veces en la plataforma.
+- Obtener el listado de usuarios y sus estados.
+  - Los usuarios pueden estar en uno de tres estados.
+    - **Desconectado**: El usuario está presente en la plataforma, pero no está conectado.
+    - **Disponible**: El usuario está conectado y está disponible para hacer una llamada.
+    - **Ocupado**: El usuario está actualmente en una llamada.
+- Se debe poder llamar a un usuario disponible.
+
+#### Conexión con el servidor
+
+La manera en la que los usuarios se van a comunicar con el servidor central va a ser a través de una conexión TCP.
+
+El protocolo a utilizar dentro de esta conexión debe ser definido por ustedes y estar completamente documentado, así como debe ser capaz de habilitar todos los requerimientos de comportamiento de la plataforma.
+
+La conexión entre el servidor y los usuarios debe ser persistente, por lo que mientras el programa esté activo debería tener una conexión viva con el servidor, de manera de que este le pueda enviar a los usuarios actualizaciones acerca del estado de los usuarios conectados, así como también notificarte cuando un usuario te está ofreciendo hacer una llamada.
 
 ### Seguridad
 
-Una vez establecida la conexión entre 2 pares, la misma deberá realizarse sobre [DTLS](https://es.wikipedia.org/wiki/Datagram_Transport_Layer_Security) para tener un canal de comunicación seguro.
+Una vez establecida la conexión entre 2 pares, la misma deberá realizarse sobre [SRTP](https://datatracker.ietf.org/doc/html/rfc3711), la cual se inicializa con [DTLS](https://es.wikipedia.org/wiki/Datagram_Transport_Layer_Security), para tener un canal de comunicación seguro.
 
 ### Aplicación cliente
 
 Funcionalidades mínimas:
-- Iniciar/cerrar sesión en la aplicación.
-- Listar usuarios conectados, listos para iniciar una videoconferencia.
-- Iniciar una videoconferencia con otro usuario conectado.
-- Aceptar e ingresar a una videoconferencia iniciada por otro usuario.
-- Salir de una sesión de videoconferencia.
+
+- Registrarse e iniciar/cerrar sesión en la aplicación.
+- Pedir usuarios de la plataforma con sus estados.
+- Llamar a otro usuario que esté disponible.
+- Aceptar una llamada propuesta por otro usuario.
+- Salir de una llamada.
 
 ### Flujo General
 
-- Usuario1 se comunica con el servicio central para iniciar sesión.
-- El servicio central almacena los datos de conexión de Usuario1.
-- El servicio central muestra el listado de videoconferencias actuales.
-- Usuario1 decide unirse a una de las videoconferencias (iniciada por Usuario2).
-- El servicio central provee de los datos necesarios para conectarse a la misma (actuando de signaling server).
-- Usuario1 se conecta directamente a Usuario2.
-- Luego de establecida la conexión y posterior negociación de códecs, se inicia la transmisión.
+- Usuario2 se comunica con el servicio central para iniciar sesión.
+- El servidor central cambia el estado del Usuario2 en la plataforma a disponible.
+- El servicio central muestra el listado de usuarios con sus estados y la aplicación lo muestra en el "lobby".
+- Usuario1 ve que Ususario2 está disponible. Decide llamarlo.
+- Usuario2 tiene la opción de aceptar o declinar la llamada.
+  - Si se declina la llamada entonces se le notifica al Usuario1 y no pasa nada.
+  - Si se acepta la llamada se sigue con el flujo.
+- Una vez aceptada la llamada, los usuarios intercambian oferta y respuesta SDP en el servidor.
+- A partir de este punto, los usuarios aparecen como ocupados en la plataforma, pero siguen conectados al servidor. Pasan a hacer la llamada peero to peer, pasando a la siguiente etapa.
+- Si alguno de los usuarios termina la llamada, ambos vuelven al lobby y aparecen como disponibles de nuevo.
 
 ![FLujo servidor central](./server_webrtc_light_back.svg)
 
@@ -67,6 +93,7 @@ Cada componente deber poder ser configurado mediante un archivo de configuració
 Cada componente deberá mantener un registro de las acciones realizadas y los eventos ocurridos en un archivo de log. La ubicación del archivo de log estará especificada en el archivo de configuración. Como requerimiento particular del Proyecto, NO se considerará válido que el servidor mantenga un file handle global, aunque esté protegido por un lock, y que se escriba directamente al file handle.
 
 ## Requerimientos no funcionales
+
 Los siguientes son los requerimientos no funcionales para la resolución del proyecto:
 
 * El proyecto deberá ser desarrollado en lenguaje Rust, utilizando las herramientas de la biblioteca estándar.
