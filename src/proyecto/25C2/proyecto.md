@@ -56,7 +56,7 @@ Funcionalidades mínimas:
 - Usuario1 se conecta directamente a Usuario2.
 - Luego de establecida la conexión y posterior negociación de códecs, se inicia la transmisión.
 
-![image](./diagrama_arquitectura_roomrtc.png)
+![FLujo servidor central](./server_webrtc_light_back.svg)
 
 ### Archivo de configuración
 
