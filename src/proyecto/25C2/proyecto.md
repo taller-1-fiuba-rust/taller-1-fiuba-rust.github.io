@@ -28,7 +28,7 @@ Entre esas componentes podemos encontrar:
 
 - [SDP (Session Description Protocol)](https://www.rfc-editor.org/rfc/rfc4566): Utilizado para establecer la conexión entre pares.
 - [ICE (Interactive Connectivity Establishment)](https://www.rfc-editor.org/rfc/rfc8445): Protocolo de comunicación utilizado para definir la ruta por la que se enviará el video.
-  - Se debe soportar direcciones del tipo **Host** y **Server reflexive (STUN)**. Para STUN se puede utilizar un servidor de público.
+  - Se debe soportar direcciones del tipo **Host** y **Server reflexive (STUN)**. Para STUN se puede utilizar un servidor público.
 - [RTP(real-time transport protocol) y RTCP(RTP control protocol)](https://datatracker.ietf.org/doc/html/rfc3550): Protocolo para realizar la transmisión de video.
 - Signaling Server: Encargado del discovery de peers. En este caso, el servidor central actuará de signaling server.
 - Además, a la hora de transmitir video y sonido, se puede utilizar una variedad de códecs como [VP8](https://en.wikipedia.org/wiki/VP8) y [H264](https://en.wikipedia.org/wiki/Advanced_Video_Coding) que son los encontrados en la mayoría de implementaciones del protocolo. Pero a nivel de especificación, WebRTC no limita qué códec se debe utilizar, siempre y cuando ambas partes de la conexión se pongan de acuerdo.
