@@ -55,7 +55,7 @@ Se deberá contar con un servidor central que actúe de signaling server y que c
 
 La manera en la que los usuarios se van a comunicar con el servidor central va a ser a través de una conexión TCP encriptada con [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security) o encriptando los mensajes ustedes mismos.
 
-El protocolo a utilizar dentro de esta conexión debe ser definido por ustedes y estar completamente documentado, así como debe ser capaz de habilitar todos los requerimientos de comportamiento de la plataforma.
+El protocolo a utilizar dentro de esta conexión debe ser definido por ustedes y estar completamente documentado, así como debe ser capaz de cumplir con todos los requerimientos de la plataforma.
 
 La conexión entre el servidor y los usuarios debe ser persistente, por lo que mientras el programa esté activo debería tener una conexión viva con el servidor, de manera de que este le pueda enviar a los usuarios actualizaciones acerca del estado de los usuarios conectados, así como también notificarte cuando un usuario te está ofreciendo hacer una llamada.
 
