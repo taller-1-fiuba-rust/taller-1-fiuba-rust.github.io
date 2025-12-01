@@ -44,5 +44,8 @@ Solo se podrán presentar a la fecha de final teniendo completo el informe final
 El grupo deberá presentarse en una de las fechas de examen final, tal como se publica en el calendario respectivo.
 Las fechas de final para el cuatrimestre actual son:
 
-
-TBD
+- 11/12/25
+- 15/12/25
+- 2/2/25
+- 9/2/25
+- 2/3/25
