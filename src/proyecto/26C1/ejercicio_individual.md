@@ -2,7 +2,7 @@
 
 ## Introducción
 
-Los **key–value stores (kvs)** son una de las estructuras de persistencia más utilizadas en sistemas modernos, debido a su simplicidad, eficiencia y escalabilidad.
+Los [key–value stores (kvs)](https://en.wikipedia.org/wiki/Key%E2%80%93value_database) son una de las estructuras de persistencia más utilizadas en sistemas modernos, debido a su simplicidad, eficiencia y escalabilidad.
 
 En este ejercicio se propone implementar un **mini kvs persistente** en Rust llamado `minikv`. El sistema permitirá almacenar pares **clave–valor** utilizando un **archivo de log** donde se registran todas las operaciones, además de soportar la creación de **snapshots** que permitan compactar el log.
 
