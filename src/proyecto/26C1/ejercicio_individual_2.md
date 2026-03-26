@@ -4,7 +4,7 @@
 
 La arquitectura [cliente-servidor](https://en.wikipedia.org/wiki/Client%E2%80%93server_model) es la predominante en la internet debido a su capacidad para centralizar recursos, mejorar la seguridad y gestionar datos de forma eficiente. Permite que múltiples usuarios (clientes) accedan simultáneamente a servicios, bases de datos o aplicaciones compartidas alojadas en una máquina central (servidor), facilitando el mantenimiento, la escalabilidad y la organización de la información.
 
-En este ejercicio se propone implementar un **servidor de base de datos** en Rust llamado `minikv-server`. El sistema permitirá a **multiples clientes** operar sobre la misma base de datos minikv desarrollada previamente. La comunicacion se realizara mediante [sockets](https://en.wikipedia.org/wiki/Network_socket). Desde el lado del servidor, cada conexión se procesará en un [thread](https://en.wikipedia.org/wiki/Thread_(computing)) distinto.
+En este ejercicio se propone implementar un **servidor de base de datos** en Rust llamado `minikv-server`. El sistema permitirá a **múltiples clientes** operar sobre la misma base de datos minikv desarrollada previamente. La comunicación se realizará mediante [sockets](https://en.wikipedia.org/wiki/Network_socket). Desde el lado del servidor, cada conexión se procesará en un [thread](https://en.wikipedia.org/wiki/Thread_(computing)) distinto.
 
 Para más información sobre concurrencia en Rust, referirse a [The Rust Programming Language - Capítulo 16](https://doc.rust-lang.org/book/ch16-00-concurrency.html). Como ejemplo de un proyecto que utiliza concurrencia y redes, pueden leer [The Rust Programming Language - Capítulo 21](https://doc.rust-lang.org/book/ch21-00-final-project-a-web-server.html).
 
@@ -14,7 +14,7 @@ El proyecto de Rust deberá estar compuesto por dos binarios:
 - `minikv-server`
 - `minikv-client`
 
-Para más información sobre como estructurar el proyecto, referirse [The Rust Programming Language - Capítulo 7](https://doc.rust-lang.org/book/ch07-01-packages-and-crates.html).
+Para más información sobre cómo estructurar el proyecto, referirse [The Rust Programming Language - Capítulo 7](https://doc.rust-lang.org/book/ch07-01-packages-and-crates.html).
 
 Para validar que el proyecto está bien estructurado, ejecutar `cargo build` deberá generar dos binarios, uno con el nombre de `minikv-server`, y otro con el nombre de `minikv-client`.
 
@@ -32,7 +32,7 @@ Por cada conexión entrante, el servidor debe crear un hilo nuevo para manejar e
  
 ## Cliente
 
-El cliente recibirá como argumento la dirección del servidor, y leerla las operaciones a envitar al servidor a través de STDIN.
+El cliente recibirá como argumento la dirección del servidor, y leerá las operaciones a enviar al servidor a través de STDIN.
 
 ```bash
 cargo run --bin minikv-client -- 192.168.0.0:12345
@@ -54,24 +54,24 @@ stdout : OK
 
 
 
-Deben existir timeouts para que el programa no quede colgado esperando al server y estos deben ser constantes configurables.
+Deben existir timeouts para que el programa no quede colgado esperando al server, y estos deben ser constantes configurables.
 
 ## Errores
 
-Los casos de error se dividen en 3 categorias:
+Los casos de error se dividen en 3 categorías:
 - Error de cliente
 - Error de comunicacion
 - Error del servidor
 
-Los errores se imprimiran por STDOUT, y deberán respetar el siguiente formato.
+Los errores se imprimirán por STDOUT, y deberán respetar el siguiente formato.
 ```
 ERROR "<motivo>"
 ```
 
 ### Errores de cliente
-Estos errores son *recuperables*, es decir que puede continuar la ejecucion del programa servidor y la comunicacion entre cliente y servidor. Cuando el servidor los detecta se debe enviar el error al cliente en el formato especificado, pero manteniendo la conexión activa.
+Estos errores son *recuperables*, es decir que puede continuar la ejecución del programa servidor y la comunicación entre cliente y servidor. Cuando el servidor los detecta se debe enviar el error al cliente en el formato especificado, pero manteniendo la conexión activa.
 
-Los codigos de error son:
+Los códigos de error son:
 - `NOT FOUND`
 - `EXTRA ARGUMENT`
 - `MISSING ARGUMENT`
@@ -79,22 +79,22 @@ Los codigos de error son:
 
 ### Errores de comunicacion
 
-Estos implican el cierre de la comunicacion con el cliente pero no afectan la ejecucion del programa servidor. Como no puede comunicarse el error con el cliente se debera manejar por separado en ambos programas:
+Estos implican el cierre de la comunicación con el cliente pero no afectan la ejecución del programa servidor. Como no puede comunicarse el error con el cliente se deberá manejar por separado en ambos programas:
 
 - En el server se debe imprimir el error en el formato especificado, y finalizar ese hilo, pero **NO** el servidor completo.
 - En el cliente se debe imprimir el error, y finalizar la ejecución. 
 
-Los codigos de error son:
-- `TIMEOUT`: El server tarda demasiado en contestar, lo cual puede indicar que esta caido.
-- `CONNECTION CLOSED`: La conexion se cierra de forma repentina.
+Los códigos de error son:
+- `TIMEOUT`: El server tarda demasiado en contestar, lo cual puede indicar que está caído.
+- `CONNECTION CLOSED`: La conexión se cierra de forma repentina.
 - `CLIENT SOCKET BINDING`: El cliente no puede bindear un socket en la dirección especificada del server.
 
 ### Errores del server
 
-Estos errores son irrecuperables e implican la finalizacion del programa servidor
+Estos errores son irrecuperables e implican la finalización del programa servidor
 
-Los codigos de error son:
-- `INVALID ARGS`: No se reciben los argumentos esperados en la ejecucion del server. 
+Los códigos de error son:
+- `INVALID ARGS`: No se reciben los argumentos esperados en la ejecución del server. 
 - `SERVER SOCKET BINDING`: El servidor no puede bindear un socket en la dirección especificada.
 - `INVALID DATA FILE`
 - `INVALID LOG FILE`
@@ -109,14 +109,14 @@ Las operaciones que admite el servidor son las siguientes:
 - `length`
 - `snapshot`
 
-Los comandos siguen la misma logica que en la entrega anterior. 
+Los comandos siguen la misma lógica que en la entrega anterior. 
 
 ## Protocolo de Comunicación
 
-El [protocolo de comunicación](https://en.wikipedia.org/wiki/Communication_protocol) será sencillo. El cliente y servidor intercambiarán mensajes de texto. Para mas información, ver [text-based protocols](https://en.wikipedia.org/wiki/Communication_protocol#Text-based).
+El [protocolo de comunicación](https://en.wikipedia.org/wiki/Communication_protocol) será sencillo. El cliente y servidor intercambiarán mensajes de texto. Para más información, ver [text-based protocols](https://en.wikipedia.org/wiki/Communication_protocol#Text-based).
 
-El protocolo permitira enviar los comandos definidos. 
-Al recibir el mensaje el servidor ejecutara el comando y responderá con el output del comando.
+El protocolo permitirá enviar los comandos definidos. 
+Al recibir el mensaje el servidor ejecutará el comando y responderá con el output del comando.
 
 ### Ejemplo 1
 
@@ -147,7 +147,7 @@ server : b
 ```
 
 ### Ejemplo 3
-En el caso de multiples clientes vamos a poder tener operaciones intercaladas, por ejemplo
+En el caso de múltiples clientes vamos a poder tener operaciones intercaladas, por ejemplo
 ```
 client1 : set a b
 server : OK
