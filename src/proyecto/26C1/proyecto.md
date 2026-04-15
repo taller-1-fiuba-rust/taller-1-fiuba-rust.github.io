@@ -66,7 +66,7 @@ También se deberá enumerar las bibliotecas (crates) que se planean utilizar y 
 
 Los proyectos de ingeniería, incluyendo los de Ingeniería en Informática, suelen tener impactos económicos, sociales y/o ambientales. En la propuesta se debe incluir un análisis preliminar de impacto, de carácter descriptivo solamente, y con los conocimientos que se tengan en el momento de realizar la misma.
 
-### Metodología
+### Metodología de trabajo
 
 Esta sección se usará para explicitar la metodología general de trabajo en el proyecto, incluyendo los roles de los ayudantes de la cátedra y los estudiantes.
 
