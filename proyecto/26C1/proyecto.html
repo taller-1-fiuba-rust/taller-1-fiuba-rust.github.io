@@ -1,0 +1,241 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Proyecto - 1C 2026 - Taller de Programación I</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../inicio.html"><strong aria-hidden="true">1.</strong> Inicio</a></li><li class="chapter-item expanded "><a href="../../recursos.html"><strong aria-hidden="true">2.</strong> Bibliografía y Recursos</a></li><li class="chapter-item expanded "><a href="../../clases/index.html"><strong aria-hidden="true">3.</strong> Clases</a></li><li class="chapter-item expanded "><a href="../../guias/index.html"><strong aria-hidden="true">4.</strong> Guías</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../guias/guia1.html"><strong aria-hidden="true">4.1.</strong> Guía 1</a></li><li class="chapter-item expanded "><a href="../../guias/guia2.html"><strong aria-hidden="true">4.2.</strong> Guía 2</a></li><li class="chapter-item expanded "><a href="../../guias/guia3.html"><strong aria-hidden="true">4.3.</strong> Guía 3</a></li><li class="chapter-item expanded "><a href="../../guias/guia4.html"><strong aria-hidden="true">4.4.</strong> Guía 4</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/26C1/ejercicio_individual.html"><strong aria-hidden="true">5.</strong> Ejercicio Individual - 1C 2026</a></li><li class="chapter-item expanded "><a href="../../proyecto/26C1/ejercicio_individual_2.html"><strong aria-hidden="true">6.</strong> Ejercicio Individual 2 - 1C 2026</a></li><li class="chapter-item expanded "><a href="../../proyecto/26C1/proyecto.html" class="active"><strong aria-hidden="true">7.</strong> Proyecto - 1C 2026</a></li><li class="chapter-item expanded "><a href="../../proyecto/index.html"><strong aria-hidden="true">8.</strong> Proyectos Realizados</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/25C2/proyecto.html"><strong aria-hidden="true">8.1.</strong> 2C 2025 RoomRTC</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/25C2/examen_final.html"><strong aria-hidden="true">8.1.1.</strong> Examen Final 2C 2025</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/25C1/proyecto.html"><strong aria-hidden="true">8.2.</strong> 1C 2025 RustiDocs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/25C1/examen_final.html"><strong aria-hidden="true">8.2.1.</strong> Examen Final 1C 2025</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/24C1/proyecto.html"><strong aria-hidden="true">8.3.</strong> 1C 2024 Agentes Autonomos</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/24C1/examen_final.html"><strong aria-hidden="true">8.3.1.</strong> Examen Final 1C 2024</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/24C2/proyecto.html"><strong aria-hidden="true">8.4.</strong> 2C 2024 Aerolineas Rústicas</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/24C2/examen_final.html"><strong aria-hidden="true">8.4.1.</strong> Examen Final 2C 2024</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/23C1/proyecto.html"><strong aria-hidden="true">8.5.</strong> 1C 2023: Bitcoin</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/23C1/examen_final.html"><strong aria-hidden="true">8.5.1.</strong> Examen Final 1C 2023</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/23C2/proyecto.html"><strong aria-hidden="true">8.6.</strong> 2C 2023: Git</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/23C2/examen_final.html"><strong aria-hidden="true">8.6.1.</strong> Examen Final 2C 2023: Pull Requests</a></li><li class="chapter-item expanded "><a href="../../proyecto/23C2/examen_final_2.html"><strong aria-hidden="true">8.6.2.</strong> Examen Final 2C 2023: Releases</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/22C1/proyecto.html"><strong aria-hidden="true">8.7.</strong> 1C 2022: BitTorrent</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/22C1/proyecto_final_1C2022.html"><strong aria-hidden="true">8.7.1.</strong> Agregado al Proyecto - Finales Julio/Agosto 2022</a></li><li class="chapter-item expanded "><a href="../../proyecto/22C1/criterios_aprobacion.html"><strong aria-hidden="true">8.7.2.</strong> Criterios de aprobación</a></li><li class="chapter-item expanded "><a href="../../proyecto/22C1/entrega_intermedia.html"><strong aria-hidden="true">8.7.3.</strong> Entrega Intermedia</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/22C2/proyecto.html"><strong aria-hidden="true">8.8.</strong> 2C 2022: IRC</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/22C2/examen_final.html"><strong aria-hidden="true">8.8.1.</strong> Examen Final 2C 2022</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/anteriores/21C1/proyecto.html"><strong aria-hidden="true">8.9.</strong> 1C 2021: Redis</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/anteriores/21C1/agregado.html"><strong aria-hidden="true">8.9.1.</strong> Agregado al Proyecto</a></li></ol></li><li class="chapter-item expanded "><a href="../../proyecto/anteriores/21C2/proyecto.html"><strong aria-hidden="true">8.10.</strong> 2C 2021: MQTT</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../proyecto/anteriores/21C2/finales_2022_feb_mar.html"><strong aria-hidden="true">8.10.1.</strong> Finales Febrero/Marzo 2022</a></li><li class="spacer"></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../rust_arg.html">Grupo Rust Argentina</a></li><li class="chapter-item expanded affix "><a href="../../nosotros.html">Nosotros</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Taller de Programación I</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="proyecto---1c-2026"><a class="header" href="#proyecto---1c-2026">Proyecto - 1C 2026</a></h1>
+<h2 id="propuesta-de-proyecto"><a class="header" href="#propuesta-de-proyecto">Propuesta de Proyecto</a></h2>
+<p>A continuación, se detallan las secciones que deben ser incluidas en el documento de propuesta de proyecto.</p>
+<h3 id="estructura-del-documento"><a class="header" href="#estructura-del-documento">Estructura del documento</a></h3>
+<ol>
+<li>Carátula</li>
+<li>Resumen/Abstract</li>
+<li>Palabras clave/Keywords</li>
+<li>Introducción</li>
+<li>Estado del Arte</li>
+<li>Problema detectado y/o faltante</li>
+<li>Solución propuesta</li>
+<li>Evaluación preliminar de impacto social y ambiental</li>
+<li>Metodología</li>
+<li>Experimentación, validación, control de calidad</li>
+<li>Plan de actividades</li>
+<li>Anexos</li>
+</ol>
+<p>En los próximos párrafos se detallará el contenido de cada una de las secciones.</p>
+<h3 id="carátula"><a class="header" href="#carátula">Carátula</a></h3>
+<p>La carátula debe incluir el logo de la Facultad de Ingeniería, el título de la propuesta, los nombres, apellidos, emails y legajos de los estudiantes.</p>
+<p>Como el título del trabajo orienta a los lectores respecto de qué se trata el mismo, se recomienda, una vez escrita la propuesta, releer el título y evaluar cuánto se ajusta al documento final.</p>
+<h3 id="resumen--abstract"><a class="header" href="#resumen--abstract">Resumen / Abstract</a></h3>
+<p>Se trata de una breve descripción del trabajo, en español e inglés.</p>
+<p>Este apartado debe escribirse una vez que se escribió el resto del documento y es un resumen de todo el documento. Se coloca al principio porque es lo primero que lee quien quiere saber de qué se trata el proyecto. No deberá tener más de 3 o 4 párrafos.</p>
+<h3 id="palabras-clave--keywords"><a class="header" href="#palabras-clave--keywords">Palabras clave / Keywords</a></h3>
+<p>Conjunto de palabras que permiten catalogar al trabajo tanto sea en inglés como en español. Pueden ser entre 5 y 10 palabras o frases cortas.</p>
+<h3 id="introducción"><a class="header" href="#introducción">Introducción</a></h3>
+<p>Breve reseña de las partes con la que cuenta el presente documento y se presenta el problema y/o servicio a mejorar y/o resolver. Es el punto de partida para presentar el proyecto: se debe ser preciso y enfocado en el objetivo del proyecto.</p>
+<h3 id="estado-del-arte"><a class="header" href="#estado-del-arte">Estado del Arte</a></h3>
+<p>En esta sección se hace un breve mapeo documental de los avances relacionados a la aplicación a desarrollar y es la base para demostrar la validez del proyecto. Aquí se remarca que, al ser un proyecto intermedio, de carácter integrador, el mismo debe ser innovador y encontrarse en el estado del arte de la ingeniería.</p>
+<h3 id="problema-detectado-yo-faltante"><a class="header" href="#problema-detectado-yo-faltante">Problema detectado y/o faltante</a></h3>
+<p>En esta sección se debe presentar el problema detectado y/o oportunidad de mejora relacionada con la construcción de la aplicación presentada. La misma debe ser redactada de manera clara y concisa, debe ser entendida en la primera lectura. Este ítem es de fundamental importancia al momento de ser evaluado el proyecto.</p>
+<h3 id="solución-propuesta"><a class="header" href="#solución-propuesta">Solución propuesta</a></h3>
+<p>En esta sección se presenta una breve descripción de la solución que se propone. El principal objetivo de esta sección es poder dar el bosquejo de la solución para que pueda ser evaluado. No es necesario explicitar todos los detalles, pero sí mencionar sus componentes generales.</p>
+<p><strong>Importante:</strong> La solución propuesta deberá contar con al menos los siguientes componentes:</p>
+<ul>
+<li>Servicio backend</li>
+<li>Frontend / Aplicación gráfica</li>
+</ul>
+<p>También se deberá enumerar las bibliotecas (crates) que se planean utilizar y explicar qué consideraciones se tuvieron en cuenta a la hora de elegirlas, tras discutirlo con la cátedra.</p>
+<p><strong>Importante:</strong> La solución propuesta deberá ser aprobada tanto por la cátedra como por el cliente asignado.</p>
+<h3 id="evaluación-preliminar-de-impacto-económico-social-y-ambiental"><a class="header" href="#evaluación-preliminar-de-impacto-económico-social-y-ambiental">Evaluación preliminar de impacto económico, social y ambiental</a></h3>
+<p>Los proyectos de ingeniería, incluyendo los de Ingeniería en Informática, suelen tener impactos económicos, sociales y/o ambientales. En la propuesta se debe incluir un análisis preliminar de impacto, de carácter descriptivo solamente, y con los conocimientos que se tengan en el momento de realizar la misma.</p>
+<h3 id="metodología-de-trabajo"><a class="header" href="#metodología-de-trabajo">Metodología de trabajo</a></h3>
+<p>Esta sección se usará para explicitar la metodología general de trabajo en el proyecto, incluyendo los roles de los ayudantes de la cátedra y los estudiantes.</p>
+<p>Como el proyecto va a incluir el desarrollo de un producto, sea de software o un sistema de software-hardware (sistemas embebidos o ciberfísicos), se debe usar esta sección también para especificar el proceso de desarrollo del producto.</p>
+<p>Deben tenerse en cuenta las siguientes pautas definidas en el reglamento de la asignatura:</p>
+<ul>
+<li>El método de desarrollo debe ser incremental, sea porque se desarrolla en iteraciones o bajo una modalidad de entrega continua. En cualquier caso, debe definir entregables intermedios y una cadencia de prácticas de seguimiento y mejora continua.</li>
+<li>Las tareas de desarrollo, prueba y despliegue que se puedan automatizar, deben estar automatizadas.</li>
+<li>Debe utilizarse alguna herramienta de versionado de código y de todos los artefactos que requieran versionarse (por ejemplo, configuraciones).</li>
+<li>Debe utilizarse alguna herramienta de calidad profesional para gestionar el proceso de desarrollo, el seguimiento de tickets y bugs, etc.</li>
+<li>Deben manejarse criterios de aceptación de entregas y pruebas de aceptación de las funcionalidades requeridas.</li>
+</ul>
+<p>Si hay cuestiones metodológicas no definidas a esta altura, explicitarlo y explicar brevemente de qué depende la decisión.</p>
+<p>Como todo proyecto tiene riesgos, deberá haber una lista de los riesgos iniciales del proyecto.</p>
+<h3 id="experimentación-validación-control-de-calidad"><a class="header" href="#experimentación-validación-control-de-calidad">Experimentación, validación, control de calidad</a></h3>
+<p>Aquí se debe definir la estrategia de pruebas en detalle, incluyendo una descripción de herramientas a utilizar, tipos de pruebas y grado de automatización, qué roles habrá para ejecutar (en caso de que sean manuales) y/o especificar (en caso de que sean automatizadas) las pruebas. El conjunto de pruebas serán entregadas como resultado final del proyecto y verificación del mismo. En esta instancia se entrega el plan de validación, que podrá ser ajustado más adelante.</p>
+<h3 id="plan-de-actividades"><a class="header" href="#plan-de-actividades">Plan de actividades</a></h3>
+<p>En esta sección se debe definir todo el proceso de construcción del producto, elegir metodología de trabajo, entregables, hitos de avance, pruebas de código, etc. Se debe explicar la metodología elegida y su adaptación al trabajo particular. En la descripción de la metodología se debe incluir una descripción de cómo se gestiona el alcance, tiempos, estimaciones, indicadores, riesgos, calidad, reuniones dentro del equipo y con los interesados. Se hace especial hincapié en el hecho de la documentación del sistema en cuestión, incluyendo documentación técnica de entregables, documentación funcional y de diseño, minutas de reuniones, etc.</p>
+<h3 id="anexos"><a class="header" href="#anexos">Anexos</a></h3>
+<p>En caso de ser necesario agregar toda información relevante en uno o varios anexos.</p>
+<h2 id="fecha-de-entrega"><a class="header" href="#fecha-de-entrega">Fecha de entrega</a></h2>
+<p><strong>23 de abril de 2026.</strong></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../proyecto/26C1/ejercicio_individual_2.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../../proyecto/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../proyecto/26C1/ejercicio_individual_2.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../../proyecto/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>
