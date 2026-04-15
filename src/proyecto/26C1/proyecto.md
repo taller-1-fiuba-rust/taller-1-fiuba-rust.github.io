@@ -7,20 +7,17 @@ A continuación, se detallan las secciones que deben ser incluidas en el documen
 ### Estructura del documento
 
 1. Carátula
-2. Lugar para realizar el proyecto
-3. Resumen
-4. Palabras clave
-5. Abstract
-6. Keywords
-7. Introducción
-8. Estado del Arte
-9. Problema detectado y/o faltante
-10. Solución propuesta
-11. Evaluación preliminar de impacto social y ambiental
-12. Metodología
-13. Plan de actividades
-14. Referencias
-15. Anexos
+2. Resumen/Abstract
+3. Palabras clave/Keywords
+4. Introducción
+5. Estado del Arte
+6. Problema detectado y/o faltante
+7. Solución propuesta
+8. Evaluación preliminar de impacto social y ambiental
+9. Metodología
+10. Experimentación, validación, control de calidad
+11. Plan de actividades
+13. Anexos
 
 En los próximos párrafos se detallará el contenido de cada una de las secciones.
 
